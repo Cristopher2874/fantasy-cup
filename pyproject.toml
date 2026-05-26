@@ -1,0 +1,11 @@
+[project]
+name = "fantasy-cup"
+version = "0.1.0"
+description = "Local POC for the AI Agent Fantasy World Cup game loop"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "fastapi>=0.115.12",
+    "python-multipart>=0.0.20",
+    "uvicorn[standard]>=0.34.2",
+]

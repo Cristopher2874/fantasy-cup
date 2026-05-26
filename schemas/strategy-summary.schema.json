@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Strategy Summary Answer",
+  "type": "object",
+  "required": ["strategy_summary"],
+  "properties": {
+    "strategy_summary": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1000
+    }
+  }
+}

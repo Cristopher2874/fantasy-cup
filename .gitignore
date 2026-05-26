@@ -1,0 +1,22 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+.env
+.uv-cache/
+.dev-server.*.log
+
+# Local app state and generated artifacts
+data/state/*.json
+data/source/
+data/uploads/
+data/snapshots/
+data/artifacts/
+data/runs/
+*.zip
