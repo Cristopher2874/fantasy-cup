@@ -1,0 +1,42 @@
+{
+  "schema_version": "fantasy-cup-leaderboard-v1",
+  "teams": [
+    {
+      "fantasy_points": 0,
+      "matchdays_played": 0,
+      "rank": 1,
+      "risk_points": 0,
+      "team_id": "TGR-003",
+      "team_name": "Penalty Prophets",
+      "total_points": 120
+    },
+    {
+      "fantasy_points": 0,
+      "matchdays_played": 0,
+      "rank": 2,
+      "risk_points": 0,
+      "team_id": "TGR-001",
+      "team_name": "Golden Robots",
+      "total_points": 100
+    },
+    {
+      "fantasy_points": 0,
+      "matchdays_played": 0,
+      "rank": 3,
+      "risk_points": 0,
+      "team_id": "TGR-002",
+      "team_name": "Atlas Analysts",
+      "total_points": 80
+    },
+    {
+      "fantasy_points": 0,
+      "matchdays_played": 0,
+      "rank": 4,
+      "risk_points": 0,
+      "team_id": "TGR-004",
+      "team_name": "Buggy Bots",
+      "total_points": 50
+    }
+  ],
+  "updated_at": "2022-12-18T00:00:00Z"
+}

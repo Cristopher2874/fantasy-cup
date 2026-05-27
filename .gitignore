@@ -19,4 +19,7 @@ data/uploads/
 data/snapshots/
 data/artifacts/
 data/runs/
+truth_data/
+score_data/
 *.zip
+app

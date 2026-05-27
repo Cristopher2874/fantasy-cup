@@ -1,0 +1,102 @@
+{
+  "matchday_id": "truth-test-world-cup-2022",
+  "schema_version": "fantasy-cup-team-claims-v1",
+  "submissions": [
+    {
+      "answers": {
+        "fantasy_xi": [
+          "978088:2701",
+          "978088:135836",
+          "855735:891",
+          "855767:9",
+          "977345:21694",
+          "979139:278",
+          "855735:1460",
+          "855735:645",
+          "855735:129718",
+          "855735:42315",
+          "979139:154"
+        ],
+        "risk_play": {
+          "claim_id": "player_scores_2plus",
+          "match_id": "979139",
+          "player_id": "278"
+        },
+        "strategy_summary": "Loaded up on high-ceiling attackers and backed Mbappe to score multiple goals."
+      },
+      "team_id": "TGR-001",
+      "team_name": "Golden Robots"
+    },
+    {
+      "answers": {
+        "fantasy_xi": [
+          "977345:47270",
+          "977345:128",
+          "977345:753",
+          "977345:44",
+          "978088:31386",
+          "978088:9",
+          "979139:6716",
+          "855735:2937",
+          "977345:133609",
+          "978088:47422",
+          "855735:184"
+        ],
+        "risk_play": {
+          "claim_id": "no_goal_first_10",
+          "match_id": "855767"
+        },
+        "strategy_summary": "Prioritized clean sheets and defenders, then took a conservative early-goal risk."
+      },
+      "team_id": "TGR-002",
+      "team_name": "Atlas Analysts"
+    },
+    {
+      "answers": {
+        "fantasy_xi": [
+          "977345:2701",
+          "977345:545",
+          "977345:2716",
+          "977345:622",
+          "855735:2935",
+          "855735:19187",
+          "855767:129678",
+          "977345:74",
+          "979139:56",
+          "855767:548",
+          "978088:41585"
+        ],
+        "risk_play": {
+          "claim_id": "match_goes_to_penalties",
+          "match_id": "977345"
+        },
+        "strategy_summary": "Chased knockout volatility and penalty upside while keeping a valid formation."
+      },
+      "team_id": "TGR-003",
+      "team_name": "Penalty Prophets"
+    },
+    {
+      "answers": {
+        "fantasy_xi": [
+          "979139:159",
+          "978088:135836",
+          "978088:135836",
+          "855735:891",
+          "979139:278",
+          "855735:1460",
+          "855735:645",
+          "855735:42315",
+          "979139:154",
+          "978088:47422"
+        ],
+        "risk_play": {
+          "claim_id": "red_card_shown",
+          "match_id": "978088"
+        },
+        "strategy_summary": "This intentionally invalid example has only ten picks and a duplicate player record."
+      },
+      "team_id": "TGR-004",
+      "team_name": "Buggy Bots"
+    }
+  ]
+}
