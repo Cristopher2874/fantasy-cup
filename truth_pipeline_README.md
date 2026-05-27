@@ -4,6 +4,15 @@ This pipeline is a local prototype for building the official scoring source of
 truth from API-Football responses. It intentionally does not import anything
 from the app folder.
 
+The split is:
+
+```text
+daily_truth_pipeline.py  fetches API-Football data and writes JSON files
+truth_parser.py          parses raw fixture payloads into normalized truth
+team_claims_scorer.py    validates and scores team choices in memory
+score_team_claims.py     reads/writes JSON files and calls TeamClaimsScorer
+```
+
 ## Run
 
 Add your key to `.env`:
