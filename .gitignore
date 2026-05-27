@@ -21,5 +21,7 @@ data/artifacts/
 data/runs/
 truth_data/
 score_data/
+scoring/truth_data/
+scoring/score_data/
 *.zip
 app

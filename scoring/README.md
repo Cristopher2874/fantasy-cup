@@ -1,4 +1,4 @@
-# Standalone Truth Pipeline
+# Standalone Scoring Pipeline
 
 This pipeline is a local prototype for building the official scoring source of
 truth from API-Football responses. It intentionally does not import anything
@@ -7,10 +7,10 @@ from the app folder.
 The split is:
 
 ```text
-daily_truth_pipeline.py  fetches API-Football data and writes JSON files
-truth_parser.py          parses raw fixture payloads into normalized truth
-team_claims_scorer.py    validates and scores team choices in memory
-score_team_claims.py     reads/writes JSON files and calls TeamClaimsScorer
+scoring/daily_truth_pipeline.py  fetches API-Football data and writes JSON files
+scoring/truth_parser.py          parses raw fixture payloads into normalized truth
+scoring/team_claims_scorer.py    validates and scores team choices in memory
+scoring/score_team_claims.py     reads/writes JSON files and calls TeamClaimsScorer
 ```
 
 ## Run
@@ -24,13 +24,13 @@ APISPORTS_KEY=your_api_key_here
 Then run:
 
 ```powershell
-uv run daily_truth_pipeline.py
+uv run python scoring/daily_truth_pipeline.py
 ```
 
 The script writes:
 
 ```text
-truth_data/
+scoring/truth_data/
   raw/<run_id>/api_football_raw.json
   final/<matchday_id>.truth.json
   latest_truth.json
@@ -38,7 +38,7 @@ truth_data/
 
 ## Configure
 
-Edit the constants at the top of `daily_truth_pipeline.py`.
+Edit the constants at the top of `scoring/daily_truth_pipeline.py`.
 
 For Free-plan testing:
 
@@ -99,25 +99,25 @@ The default fixture IDs exercise useful scoring cases:
 
 ## Score Mock Team Claims
 
-After `truth_data/latest_truth.json` exists, run:
+After `scoring/truth_data/latest_truth.json` exists, run:
 
 ```powershell
-uv run score_team_claims.py
+uv run python scoring/score_team_claims.py
 ```
 
 Inputs:
 
 ```text
-mock_team_claims_2022.json
-mock_leaderboard_2022.json
-truth_data/latest_truth.json
+scoring/mock_team_claims_2022.json
+scoring/mock_leaderboard_2022.json
+scoring/truth_data/latest_truth.json
 ```
 
 Outputs:
 
 ```text
-score_data/matchday_results.json
-score_data/leaderboard.json
+scoring/score_data/matchday_results.json
+scoring/score_data/leaderboard.json
 ```
 
 The mock claims use player `record_id` values such as `979139:278`, where the

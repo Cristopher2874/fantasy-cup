@@ -8,7 +8,10 @@ from urllib.parse import urlencode
 from dotenv import load_dotenv
 load_dotenv()
 
-from truth_parser import FootballTruthParser
+try:
+    from scoring.truth_parser import FootballTruthParser
+except ModuleNotFoundError:  # Allows `python scoring/daily_truth_pipeline.py`.
+    from truth_parser import FootballTruthParser
 
 # World Cup is league 1 in API-Football.
 LEAGUE_ID = "1"
@@ -35,7 +38,8 @@ FIXTURE_IDS = [
 ]
 
 MATCHDAY_ID = "truth-test-world-cup-2022"
-OUTPUT_ROOT = Path("truth_data")
+SCORING_ROOT = Path(__file__).resolve().parent
+OUTPUT_ROOT = SCORING_ROOT / "truth_data"
 WRITE_LATEST_COPY = True
 
 def utc_now() -> str:

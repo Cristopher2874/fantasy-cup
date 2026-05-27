@@ -5,13 +5,17 @@ import sys
 from datetime import UTC, datetime
 from pathlib import Path
 
-from team_claims_scorer import TeamClaimsScorer
+try:
+    from scoring.team_claims_scorer import TeamClaimsScorer
+except ModuleNotFoundError:  # Allows `python scoring/score_team_claims.py`.
+    from team_claims_scorer import TeamClaimsScorer
 
 
-TRUTH_PATH = Path("truth_data/latest_truth.json")
-SUBMISSIONS_PATH = Path("mock_team_claims_2022.json")
-LEADERBOARD_PATH = Path("mock_leaderboard_2022.json")
-OUTPUT_DIR = Path("score_data")
+SCORING_ROOT = Path(__file__).resolve().parent
+TRUTH_PATH = SCORING_ROOT / "truth_data" / "latest_truth.json"
+SUBMISSIONS_PATH = SCORING_ROOT / "mock_team_claims_2022.json"
+LEADERBOARD_PATH = SCORING_ROOT / "mock_leaderboard_2022.json"
+OUTPUT_DIR = SCORING_ROOT / "score_data"
 
 MATCHDAY_RESULTS_PATH = OUTPUT_DIR / "matchday_results.json"
 UPDATED_LEADERBOARD_PATH = OUTPUT_DIR / "leaderboard.json"
