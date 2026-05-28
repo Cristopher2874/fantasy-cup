@@ -24,5 +24,7 @@ score_data/
 scoring/truth_data/
 scoring/score_data/
 playtest_app/data/*.json
+playtest_app/logs/
+playtest_app/run/
 *.zip
 app

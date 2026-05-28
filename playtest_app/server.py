@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import os
 import sys
 from datetime import UTC, datetime
 from functools import partial
@@ -160,6 +161,30 @@ def log(message: str) -> None:
         print(message, flush=True)
 
 
+def parse_server_args(argv: list[str]) -> tuple[str, int]:
+    host = os.getenv("PLAYTEST_HOST", "127.0.0.1")
+    port = int(os.getenv("PLAYTEST_PORT", "6004"))
+
+    index = 0
+    while index < len(argv):
+        item = argv[index]
+        if item == "--host" and index + 1 < len(argv):
+            host = argv[index + 1]
+            index += 2
+            continue
+        if item == "--port" and index + 1 < len(argv):
+            port = int(argv[index + 1])
+            index += 2
+            continue
+        if item.isdigit():
+            port = int(item)
+            index += 1
+            continue
+        raise ValueError(f"Unsupported argument: {item}")
+
+    return host, port
+
+
 class PlaytestHandler(SimpleHTTPRequestHandler):
     def log_message(self, format: str, *args: object) -> None:
         if sys.stderr:
@@ -167,7 +192,7 @@ class PlaytestHandler(SimpleHTTPRequestHandler):
 
     def do_GET(self) -> None:
         route = urlparse(self.path).path
-        if route == "/api/state":
+        if route in {"/api/state", "/state"}:
             self.handle_state()
             return
         if route == "/":
@@ -176,7 +201,7 @@ class PlaytestHandler(SimpleHTTPRequestHandler):
 
     def do_POST(self) -> None:
         route = urlparse(self.path).path
-        if route == "/api/submissions":
+        if route in {"/api/submissions", "/submissions"}:
             self.handle_submission()
             return
         self.send_error(HTTPStatus.NOT_FOUND, "Unknown API route")
@@ -251,11 +276,11 @@ class PlaytestHandler(SimpleHTTPRequestHandler):
 
 
 def main() -> int:
-    port = int(sys.argv[1]) if len(sys.argv) > 1 else 8765
+    host, port = parse_server_args(sys.argv[1:])
     handler = partial(PlaytestHandler, directory=str(APP_ROOT))
     ThreadingHTTPServer.allow_reuse_address = True
-    with ThreadingHTTPServer(("127.0.0.1", port), handler) as server:
-        log(f"Playtest app: http://127.0.0.1:{port}")
+    with ThreadingHTTPServer((host, port), handler) as server:
+        log(f"Playtest app: http://{host}:{port}")
         log(f"Truth source: {TRUTH_PATH}")
         server.serve_forever()
     return 0

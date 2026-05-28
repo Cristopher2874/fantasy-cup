@@ -1,0 +1,109 @@
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [2454151]
+INFO:agent.graph.presenter_agent:A2UI_SCHEMA successfully loaded and wrapped in an array validator.
+INFO:agent.graph.presenter_agent:A2UI_SCHEMA successfully loaded and wrapped in an array validator.
+INFO:     Started server process [2456719]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:10004 (Press CTRL+C to quit)
+INFO:     177.232.88.6:0 - "GET /agent/.well-known/agent-card.json HTTP/1.1" 200 OK
+INFO:     177.232.88.6:0 - "POST /agent HTTP/1.1" 307 Temporary Redirect
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [2456719]
+INFO:agent.graph.presenter_agent:A2UI_SCHEMA successfully loaded and wrapped in an array validator.
+INFO:agent.graph.presenter_agent:A2UI_SCHEMA successfully loaded and wrapped in an array validator.
+INFO:     Started server process [2456878]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:10004 (Press CTRL+C to quit)
+INFO:     127.0.0.1:41180 - "GET /agent/.well-known/agent-card.json HTTP/1.1" 200 OK
+INFO:     177.232.88.6:0 - "GET /agent/.well-known/agent-card.json HTTP/1.1" 200 OK
+INFO:     177.232.88.6:0 - "POST /agent/ HTTP/1.1" 200 OK
+INFO:agent.graph_executor:--- Client requested extensions: {'https://a2ui.org/a2a-extension/a2ui/v0.8'} ---
+INFO:agent.graph_executor:--- AGENT_EXECUTOR: A2UI extension is active. Using UI agent. ---
+INFO:agent.graph_executor:--- AGENT_EXECUTOR: Processing 1 message parts ---
+INFO:agent.graph_executor:  Part 0: TextPart (text: Merxican dinner restaurants)
+INFO:agent.graph_executor:No a2ui UI event part found. Falling back to text input.
+INFO:agent.graph_executor:--- AGENT_EXECUTOR: Final query for LLM: 'Merxican dinner restaurants' ---
+ERROR:asyncio:Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x7ffa022fd010>
+ERROR:asyncio:Unclosed connector
+connections: ['deque([(<aiohttp.client_proto.ResponseHandler object at 0x7ffa021a3350>, 19999476.764083017)])']
+connector: <aiohttp.connector.TCPConnector object at 0x7ffa022fd2b0>
+INFO:agent.graph.places_providers:Running Apify REST actor 'compass/crawler-google-places' with input: {"maxCrawledPlacesPerSearch": 10, "language": "en", "searchMatching": "all", "skipClosedPlaces": true, "includeWebResults": false, "locationQuery": "Austin, TX", "searchStringsArray": ["mexican dinner restaurants", "mexican restaurants", "mexican food restaurants"]}
+INFO:httpx:HTTP Request: POST https://api.apify.com/v2/acts/compass~crawler-google-places/run-sync-get-dataset-items "HTTP/1.1 201 Created"
+INFO:agent.graph.apify_places_agent:ApifyPlacesAgent provider 'rest' returned 30 raw items before sampling.
+INFO:agent.graph.apify_places_agent:ApifyPlacesAgent provider 'rest' returned 10 items after sampling.
+INFO:agent.graph_executor:Emitting 4 structured A2UI messages.
+INFO:agent.graph_executor:--- FINAL PARTS TO BE SENT ---
+INFO:agent.graph_executor:  - Part 0: Type = <class 'a2a.types.TextPart'>
+INFO:agent.graph_executor:    - Text: I found 10 restaurants that match your request, including Yucatán Tacos & More (McNeil Dr), El Sabor Del Taco and Sabor tipico de Guanajuato....
+INFO:agent.graph_executor:  - Part 1: Type = <class 'a2a.types.DataPart'>
+INFO:agent.graph_executor:    - Data: {'beginRendering': {'surfaceId': 'default', 'root': 'root-column', 'styles': {'primaryColor': '#00685D', 'font': 'Inter'}}}...
+INFO:agent.graph_executor:  - Part 2: Type = <class 'a2a.types.DataPart'>
+INFO:agent.graph_executor:    - Data: {'surfaceUpdate': {'surfaceId': 'default', 'components': [{'id': 'root-column', 'component': {'Column': {'children': {'explicitList': ['title-heading', 'results-row']}}}}, {'id': 'title-heading', 'com...
+INFO:agent.graph_executor:  - Part 3: Type = <class 'a2a.types.DataPart'>
+INFO:agent.graph_executor:    - Data: {'dataModelUpdate': {'surfaceId': 'default', 'path': '/', 'contents': [{'key': 'title', 'valueString': 'Top Restaurants'}]}}...
+INFO:agent.graph_executor:  - Part 4: Type = <class 'a2a.types.DataPart'>
+INFO:agent.graph_executor:    - Data: {'dataModelUpdate': {'surfaceId': 'default', 'path': '/items', 'contents': [{'key': '.', 'valueString': '[{"restaurantId": "ChIJqTVAOXLLRIYRyRCFd9mm-II", "name": "Yucatán Tacos & More (McNeil Dr)", "d...
+INFO:agent.graph_executor:  - Part 5: Type = <class 'a2a.types.TextPart'>
+INFO:agent.graph_executor:    - Text: presenter_agent response:
+I found 10 restaurants that match your request, in...
+
+Agent metadata:
+
+            model_id: deterministic-a2ui-builder,
+            total_tokens_on_call: 0
+        ...
+INFO:agent.graph_executor:  - Part 6: Type = <class 'a2a.types.TextPart'>
+INFO:agent.graph_executor:    - Text: 0...
+INFO:agent.graph_executor:-----------------------------
+INFO:     177.232.88.6:0 - "GET /agent/.well-known/agent-card.json HTTP/1.1" 200 OK
+INFO:     177.232.88.6:0 - "POST /agent/ HTTP/1.1" 200 OK
+INFO:agent.graph_executor:--- Client requested extensions: {'https://a2ui.org/a2a-extension/a2ui/v0.8'} ---
+INFO:agent.graph_executor:--- AGENT_EXECUTOR: A2UI extension is active. Using UI agent. ---
+INFO:agent.graph_executor:--- AGENT_EXECUTOR: Processing 1 message parts ---
+INFO:agent.graph_executor:  Part 0: TextPart (text: Mexican restaurants)
+INFO:agent.graph_executor:No a2ui UI event part found. Falling back to text input.
+INFO:agent.graph_executor:--- AGENT_EXECUTOR: Final query for LLM: 'Mexican restaurants' ---
+ERROR:asyncio:Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x7ffa0216dd10>
+ERROR:asyncio:Unclosed connector
+connections: ['deque([(<aiohttp.client_proto.ResponseHandler object at 0x7ffa021a39b0>, 20075969.01063369)])']
+connector: <aiohttp.connector.TCPConnector object at 0x7ffa0216d590>
+INFO:agent.graph.places_providers:Running Apify REST actor 'compass/crawler-google-places' with input: {"maxCrawledPlacesPerSearch": 10, "language": "en", "searchMatching": "all", "skipClosedPlaces": true, "includeWebResults": false, "locationQuery": "Austin, TX", "searchStringsArray": ["mexican restaurants"]}
+INFO:httpx:HTTP Request: POST https://api.apify.com/v2/acts/compass~crawler-google-places/run-sync-get-dataset-items "HTTP/1.1 201 Created"
+INFO:agent.graph.apify_places_agent:ApifyPlacesAgent provider 'rest' returned 10 raw items before sampling.
+INFO:agent.graph.apify_places_agent:ApifyPlacesAgent provider 'rest' returned 10 items after sampling.
+INFO:agent.graph_executor:Emitting 4 structured A2UI messages.
+INFO:agent.graph_executor:--- FINAL PARTS TO BE SENT ---
+INFO:agent.graph_executor:  - Part 0: Type = <class 'a2a.types.TextPart'>
+INFO:agent.graph_executor:    - Text: I found 10 restaurants that match your request, including Yucatán Tacos & More (McNeil Dr), Taqueria Jessica and El Sabor Del Taco....
+INFO:agent.graph_executor:  - Part 1: Type = <class 'a2a.types.DataPart'>
+INFO:agent.graph_executor:    - Data: {'beginRendering': {'surfaceId': 'default', 'root': 'root-column', 'styles': {'primaryColor': '#00685D', 'font': 'Inter'}}}...
+INFO:agent.graph_executor:  - Part 2: Type = <class 'a2a.types.DataPart'>
+INFO:agent.graph_executor:    - Data: {'surfaceUpdate': {'surfaceId': 'default', 'components': [{'id': 'root-column', 'component': {'Column': {'children': {'explicitList': ['title-heading', 'results-row']}}}}, {'id': 'title-heading', 'com...
+INFO:agent.graph_executor:  - Part 3: Type = <class 'a2a.types.DataPart'>
+INFO:agent.graph_executor:    - Data: {'dataModelUpdate': {'surfaceId': 'default', 'path': '/', 'contents': [{'key': 'title', 'valueString': 'Top Restaurants'}]}}...
+INFO:agent.graph_executor:  - Part 4: Type = <class 'a2a.types.DataPart'>
+INFO:agent.graph_executor:    - Data: {'dataModelUpdate': {'surfaceId': 'default', 'path': '/items', 'contents': [{'key': '.', 'valueString': '[{"restaurantId": "ChIJqTVAOXLLRIYRyRCFd9mm-II", "name": "Yucatán Tacos & More (McNeil Dr)", "d...
+INFO:agent.graph_executor:  - Part 5: Type = <class 'a2a.types.TextPart'>
+INFO:agent.graph_executor:    - Text: presenter_agent response:
+I found 10 restaurants that match your request, in...
+
+Agent metadata:
+
+            model_id: deterministic-a2ui-builder,
+            total_tokens_on_call: 0
+        ...
+INFO:agent.graph_executor:  - Part 6: Type = <class 'a2a.types.TextPart'>
+INFO:agent.graph_executor:    - Text: 0...
+INFO:agent.graph_executor:-----------------------------
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [2456878]
