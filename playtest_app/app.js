@@ -462,7 +462,7 @@
     const payload = buildPayload();
     dom.saveStatus.textContent = "Saving...";
     dom.submitPayload.disabled = true;
-    const response = await fetch("api/submissions", {
+    const response = await fetch("submissions", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
@@ -546,7 +546,7 @@
   }
 
   async function loadState() {
-    const response = await fetch("api/state");
+    const response = await fetch("state");
     const body = await response.json();
     if (!response.ok) {
       throw new Error(body.error || "Could not load playtest state.");

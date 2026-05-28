@@ -36,6 +36,14 @@ Copy these folders/files to the VM together:
 - `scoring/team_claims_scorer.py`
 - `scoring/truth_data/latest_truth.json`
 
+The VM scripts prefer `uv` automatically:
+
+```bash
+uv run --no-project python playtest_app/server.py --host 127.0.0.1 --port 6004
+```
+
+No `pip install` is required because the playtest server only uses Python standard library plus the local scorer file.
+
 Start in the foreground:
 
 ```bash

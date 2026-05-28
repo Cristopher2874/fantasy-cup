@@ -16,9 +16,10 @@ if [[ -f "$PID_FILE" ]]; then
   rm -f "$PID_FILE"
 fi
 
-PYTHON_CMD="$(pick_python_cmd)"
-cd "$PROJECT_ROOT"
-nohup "$PYTHON_CMD" -u playtest_app/server.py --host "$PLAYTEST_HOST" --port "$PLAYTEST_PORT" >>"$LOG_FILE" 2>&1 &
+(
+  cd "$PROJECT_ROOT"
+  exec_python -u playtest_app/server.py --host "$PLAYTEST_HOST" --port "$PLAYTEST_PORT"
+) >>"$LOG_FILE" 2>&1 &
 server_pid=$!
 echo "$server_pid" >"$PID_FILE"
 

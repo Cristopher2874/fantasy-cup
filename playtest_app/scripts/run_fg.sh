@@ -7,6 +7,5 @@ source "$SCRIPT_DIR/common.sh"
 ensure_runtime_dirs
 require_truth_file
 
-PYTHON_CMD="$(pick_python_cmd)"
 cd "$PROJECT_ROOT"
-exec "$PYTHON_CMD" -u playtest_app/server.py --host "$PLAYTEST_HOST" --port "$PLAYTEST_PORT"
+exec_python -u playtest_app/server.py --host "$PLAYTEST_HOST" --port "$PLAYTEST_PORT"

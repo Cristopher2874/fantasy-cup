@@ -22,23 +22,24 @@ is_pid_running() {
   kill -0 "$pid" 2>/dev/null
 }
 
-pick_python_cmd() {
+exec_python() {
+  if command -v uv >/dev/null 2>&1; then
+    exec uv run --no-project python "$@"
+  fi
+
   if [[ -x "$PROJECT_ROOT/.venv/bin/python" ]]; then
-    echo "$PROJECT_ROOT/.venv/bin/python"
-    return 0
+    exec "$PROJECT_ROOT/.venv/bin/python" "$@"
   fi
 
   if command -v python3 >/dev/null 2>&1; then
-    echo "python3"
-    return 0
+    exec python3 "$@"
   fi
 
   if command -v python >/dev/null 2>&1; then
-    echo "python"
-    return 0
+    exec python "$@"
   fi
 
-  echo "python runtime not found" >&2
+  echo "python runtime not found; install uv or python3" >&2
   return 1
 }
 
