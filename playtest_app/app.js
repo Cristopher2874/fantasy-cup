@@ -12,8 +12,6 @@
     playerCount: document.getElementById("player-count"),
     teamName: document.getElementById("team-name"),
     teamId: document.getElementById("team-id"),
-    previousPoints: document.getElementById("previous-points"),
-    resetButton: document.getElementById("reset-button"),
     selectionTotal: document.getElementById("selection-total"),
     positionCounts: document.getElementById("position-counts"),
     selectedList: document.getElementById("selected-list"),
@@ -176,7 +174,6 @@
     return {
       team_id: dom.teamId.value.trim(),
       team_name: dom.teamName.value.trim(),
-      previous_total_points: Number(dom.previousPoints.value || 0),
       answers: {
         fantasy_xi: selectedPlayers.map((player) => player.record_id),
         risk_play: buildRiskPlay(),
@@ -477,7 +474,7 @@
     state.submissions = body.submissions;
     state.matchday_results = body.matchday_results;
     state.leaderboard = body.leaderboard;
-    dom.saveStatus.textContent = "Saved";
+    dom.saveStatus.textContent = body.rotated_batch ? "Saved in fresh batch" : "Saved";
     renderResult(state.matchday_results);
     renderLeaderboard(state.leaderboard);
     updatePreview();
@@ -493,20 +490,10 @@
     URL.revokeObjectURL(link.href);
   }
 
-  async function resetPlaytest() {
-    if (!window.confirm("Reset playtest JSON data?")) {
-      return;
-    }
-    await fetch("/api/reset", { method: "POST" });
-    selectedPlayers = [];
-    await loadState();
-  }
-
   function wireEvents() {
     [
       dom.teamName,
       dom.teamId,
-      dom.previousPoints,
       dom.strategySummary,
       dom.playerSearch,
       dom.positionFilter,
@@ -556,12 +543,6 @@
       });
     });
     dom.downloadPayload.addEventListener("click", downloadPayload);
-    dom.resetButton.addEventListener("click", () => {
-      resetPlaytest().catch((error) => {
-        dom.saveStatus.textContent = "Reset failed";
-        dom.scoreResult.innerHTML = `<p class="muted">${escapeHtml(error.message)}</p>`;
-      });
-    });
   }
 
   async function loadState() {

@@ -19,6 +19,8 @@ SUBMISSIONS_PATH = DATA_ROOT / "team_submissions.json"
 LEADERBOARD_SEED_PATH = DATA_ROOT / "leaderboard_seed.json"
 MATCHDAY_RESULTS_PATH = DATA_ROOT / "matchday_results.json"
 LEADERBOARD_PATH = DATA_ROOT / "leaderboard.json"
+STARTING_POINTS = 100.0
+MAX_REGISTERED_TEAMS = 59
 
 sys.path.insert(0, str(ROOT))
 
@@ -84,11 +86,6 @@ def normalize_submission(payload: dict) -> tuple[dict, float]:
     if not team_name:
         raise ValueError("team_name is required")
 
-    try:
-        previous_total = float(payload.get("previous_total_points", 100))
-    except (TypeError, ValueError) as error:
-        raise ValueError("previous_total_points must be numeric") from error
-
     answers = payload.get("answers", {})
     if not isinstance(answers, dict):
         raise ValueError("answers must be an object")
@@ -100,7 +97,7 @@ def normalize_submission(payload: dict) -> tuple[dict, float]:
             "submitted_at": utc_now(),
             "answers": answers,
         },
-        previous_total,
+        STARTING_POINTS,
     )
 
 
@@ -134,6 +131,13 @@ def upsert_seed_team(leaderboard: dict, submission: dict, previous_total: float)
     leaderboard["updated_at"] = utc_now()
     leaderboard["teams"] = teams
     return leaderboard
+
+
+def rotate_batch_if_full(submissions: dict, leaderboard: dict, truth: dict, team_id: str) -> tuple[dict, dict, bool]:
+    existing_team_ids = {str(item.get("team_id")) for item in submissions.get("submissions", [])}
+    if team_id in existing_team_ids or len(existing_team_ids) < MAX_REGISTERED_TEAMS:
+        return submissions, leaderboard, False
+    return empty_submissions(truth), empty_leaderboard(), True
 
 
 def score_current_state(truth: dict, submissions: dict, seed_leaderboard: dict) -> tuple[dict, dict]:
@@ -175,9 +179,6 @@ class PlaytestHandler(SimpleHTTPRequestHandler):
         if route == "/api/submissions":
             self.handle_submission()
             return
-        if route == "/api/reset":
-            self.handle_reset()
-            return
         self.send_error(HTTPStatus.NOT_FOUND, "Unknown API route")
 
     def handle_state(self) -> None:
@@ -208,8 +209,14 @@ class PlaytestHandler(SimpleHTTPRequestHandler):
             truth = load_truth()
             ensure_data_files(truth)
             submission, previous_total = normalize_submission(self.read_request_json())
-            submissions = upsert_submission(read_json(SUBMISSIONS_PATH), submission)
-            seed = upsert_seed_team(read_json(LEADERBOARD_SEED_PATH), submission, previous_total)
+            submissions, seed, rotated_batch = rotate_batch_if_full(
+                read_json(SUBMISSIONS_PATH),
+                read_json(LEADERBOARD_SEED_PATH),
+                truth,
+                submission["team_id"],
+            )
+            submissions = upsert_submission(submissions, submission)
+            seed = upsert_seed_team(seed, submission, previous_total)
             write_json(SUBMISSIONS_PATH, submissions)
             write_json(LEADERBOARD_SEED_PATH, seed)
             matchday_results, leaderboard = score_current_state(truth, submissions, seed)
@@ -219,21 +226,11 @@ class PlaytestHandler(SimpleHTTPRequestHandler):
                     "submissions": submissions,
                     "matchday_results": matchday_results,
                     "leaderboard": leaderboard,
+                    "rotated_batch": rotated_batch,
                 }
             )
         except ValueError as error:
             self.send_json({"error": str(error)}, status=HTTPStatus.BAD_REQUEST)
-        except Exception as error:
-            self.send_json({"error": str(error)}, status=HTTPStatus.INTERNAL_SERVER_ERROR)
-
-    def handle_reset(self) -> None:
-        try:
-            truth = load_truth()
-            write_json(SUBMISSIONS_PATH, empty_submissions(truth))
-            write_json(LEADERBOARD_SEED_PATH, empty_leaderboard())
-            write_json(MATCHDAY_RESULTS_PATH, {"schema_version": "fantasy-cup-matchday-results-v1", "results": []})
-            write_json(LEADERBOARD_PATH, empty_leaderboard())
-            self.send_json({"ok": True})
         except Exception as error:
             self.send_json({"error": str(error)}, status=HTTPStatus.INTERNAL_SERVER_ERROR)
 

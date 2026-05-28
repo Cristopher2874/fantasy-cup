@@ -25,3 +25,5 @@ http://127.0.0.1:8765
 - `playtest_app/data/leaderboard.json`: generated leaderboard after scoring.
 
 The app reads truth from `scoring/truth_data/latest_truth.json` and uses `scoring/team_claims_scorer.py` for the same scoring rules as the standalone pipeline.
+
+For public playtests, the server assigns every team a fixed 100-point starting score. The UI does not expose reset controls, and the server rotates the local JSON batch when a new registration would exceed 59 teams.
