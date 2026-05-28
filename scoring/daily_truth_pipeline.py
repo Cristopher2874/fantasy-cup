@@ -32,6 +32,7 @@ TARGET_DATE = "2022-12-18"
 FIXTURE_IDS = [
     "855735",  # England 6-2 Iran: goals, assists, cards, starters, minutes.
     "855767",  # Canada 1-2 Morocco: own goal.
+    "976534",  # England 3-0 Senegal: knockout clean sheet.
     "977345",  # Morocco 0-0 Spain: clean sheets, extra time, penalties.
     "978088",  # Morocco 1-0 Portugal: clean sheet, goalkeeper 3 saves.
     "979139",  # Argentina 3-3 France: final, extra time, penalties.

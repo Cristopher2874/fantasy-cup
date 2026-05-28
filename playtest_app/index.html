@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Fantasy Cup Playtest</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="app-header">
+        <div>
+          <p class="eyebrow">2022 World Cup fixed fixtures</p>
+          <h1>Fantasy Cup Playtest</h1>
+        </div>
+        <div class="header-stats" aria-live="polite">
+          <span id="fixture-count">0 matches</span>
+          <span id="player-count">0 players</span>
+        </div>
+      </header>
+
+      <section class="team-strip" aria-label="Team setup">
+        <label>
+          Team name
+          <input id="team-name" type="text" autocomplete="off" placeholder="Atlas Analysts" />
+        </label>
+        <label>
+          Team ID
+          <input id="team-id" type="text" autocomplete="off" />
+        </label>
+        <label>
+          Previous points
+          <input id="previous-points" type="number" min="0" step="1" value="100" />
+        </label>
+        <button id="reset-button" type="button" class="secondary-button">Reset</button>
+      </section>
+
+      <section class="workspace">
+        <aside class="selected-panel" aria-label="Selected players">
+          <div class="panel-heading">
+            <h2>Selected XI</h2>
+            <span id="selection-total">0/11</span>
+          </div>
+          <div id="position-counts" class="position-counts"></div>
+          <ul id="selected-list" class="selected-list"></ul>
+          <div id="selection-status" class="status-line"></div>
+        </aside>
+
+        <section class="player-panel" aria-label="Player picker">
+          <div class="panel-heading">
+            <h2>Players</h2>
+            <button id="clear-selection" type="button" class="secondary-button">Clear XI</button>
+          </div>
+          <div class="filters">
+            <label>
+              Match
+              <select id="match-filter"></select>
+            </label>
+            <label>
+              Position
+              <select id="position-filter">
+                <option value="">All</option>
+                <option value="GK">GK</option>
+                <option value="DEF">DEF</option>
+                <option value="MID">MID</option>
+                <option value="FWD">FWD</option>
+              </select>
+            </label>
+            <label class="search-label">
+              Search
+              <input id="player-search" type="search" autocomplete="off" placeholder="Player or team" />
+            </label>
+          </div>
+          <div id="player-grid" class="player-grid"></div>
+        </section>
+
+        <aside class="risk-panel" aria-label="Risk play">
+          <div class="panel-heading">
+            <h2>Risk Play</h2>
+            <span id="risk-category">Skipped</span>
+          </div>
+          <label>
+            Claim
+            <select id="risk-claim"></select>
+          </label>
+          <label>
+            Match
+            <select id="risk-match"></select>
+          </label>
+          <div id="risk-fields" class="risk-fields"></div>
+          <label>
+            Strategy
+            <textarea id="strategy-summary" rows="4" placeholder="Short note for this submission"></textarea>
+          </label>
+        </aside>
+      </section>
+
+      <section class="output-area">
+        <section class="json-panel" aria-label="Team payload">
+          <div class="panel-heading">
+            <h2>Payload</h2>
+            <div class="button-row">
+              <button id="download-payload" type="button" class="secondary-button">Download</button>
+              <button id="submit-payload" type="button" class="primary-button">Submit</button>
+            </div>
+          </div>
+          <pre id="payload-preview">{}</pre>
+        </section>
+
+        <section class="results-panel" aria-label="Scoring result">
+          <div class="panel-heading">
+            <h2>Result</h2>
+            <span id="save-status">Ready</span>
+          </div>
+          <div id="score-result" class="score-result"></div>
+        </section>
+
+        <section class="leaderboard-panel" aria-label="Leaderboard">
+          <div class="panel-heading">
+            <h2>Leaderboard</h2>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>Rank</th>
+                <th>Team</th>
+                <th>Total</th>
+                <th>Day</th>
+              </tr>
+            </thead>
+            <tbody id="leaderboard-body"></tbody>
+          </table>
+        </section>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

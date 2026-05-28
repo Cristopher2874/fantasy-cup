@@ -23,5 +23,6 @@ truth_data/
 score_data/
 scoring/truth_data/
 scoring/score_data/
+playtest_app/data/*.json
 *.zip
 app
