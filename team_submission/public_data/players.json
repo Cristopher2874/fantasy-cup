@@ -1,0 +1,2693 @@
+[
+  {
+    "match_id": "855735",
+    "name": "Aaron Ramsdale",
+    "player_id": "20355",
+    "position": "GK",
+    "record_id": "855735:20355",
+    "team": "England",
+    "team_id": "10"
+  },
+  {
+    "match_id": "855735",
+    "name": "Benjamin White",
+    "player_id": "19959",
+    "position": "DEF",
+    "record_id": "855735:19959",
+    "team": "England",
+    "team_id": "10"
+  },
+  {
+    "match_id": "855735",
+    "name": "Bukayo Saka",
+    "player_id": "1460",
+    "position": "MID",
+    "record_id": "855735:1460",
+    "team": "England",
+    "team_id": "10"
+  },
+  {
+    "match_id": "855735",
+    "name": "Callum Wilson",
+    "player_id": "2939",
+    "position": "FWD",
+    "record_id": "855735:2939",
+    "team": "England",
+    "team_id": "10"
+  },
+  {
+    "match_id": "855735",
+    "name": "Conor Coady",
+    "player_id": "18741",
+    "position": "DEF",
+    "record_id": "855735:18741",
+    "team": "England",
+    "team_id": "10"
+  },
+  {
+    "match_id": "855735",
+    "name": "Conor Gallagher",
+    "player_id": "67972",
+    "position": "MID",
+    "record_id": "855735:67972",
+    "team": "England",
+    "team_id": "10"
+  },
+  {
+    "match_id": "855735",
+    "name": "Declan Rice",
+    "player_id": "2937",
+    "position": "MID",
+    "record_id": "855735:2937",
+    "team": "England",
+    "team_id": "10"
+  },
+  {
+    "match_id": "855735",
+    "name": "Eric Dier",
+    "player_id": "175",
+    "position": "DEF",
+    "record_id": "855735:175",
+    "team": "England",
+    "team_id": "10"
+  },
+  {
+    "match_id": "855735",
+    "name": "Harry Kane",
+    "player_id": "184",
+    "position": "FWD",
+    "record_id": "855735:184",
+    "team": "England",
+    "team_id": "10"
+  },
+  {
+    "match_id": "855735",
+    "name": "Harry Maguire",
+    "player_id": "2935",
+    "position": "DEF",
+    "record_id": "855735:2935",
+    "team": "England",
+    "team_id": "10"
+  },
+  {
+    "match_id": "855735",
+    "name": "Jack Grealish",
+    "player_id": "19187",
+    "position": "MID",
+    "record_id": "855735:19187",
+    "team": "England",
+    "team_id": "10"
+  },
+  {
+    "match_id": "855735",
+    "name": "John Stones",
+    "player_id": "626",
+    "position": "DEF",
+    "record_id": "855735:626",
+    "team": "England",
+    "team_id": "10"
+  },
+  {
+    "match_id": "855735",
+    "name": "Jordan Henderson",
+    "player_id": "292",
+    "position": "MID",
+    "record_id": "855735:292",
+    "team": "England",
+    "team_id": "10"
+  },
+  {
+    "match_id": "855735",
+    "name": "Jordan Pickford",
+    "player_id": "2932",
+    "position": "GK",
+    "record_id": "855735:2932",
+    "team": "England",
+    "team_id": "10"
+  },
+  {
+    "match_id": "855735",
+    "name": "Jude Bellingham",
+    "player_id": "129718",
+    "position": "MID",
+    "record_id": "855735:129718",
+    "team": "England",
+    "team_id": "10"
+  },
+  {
+    "match_id": "855735",
+    "name": "Kalvin Phillips",
+    "player_id": "19130",
+    "position": "MID",
+    "record_id": "855735:19130",
+    "team": "England",
+    "team_id": "10"
+  },
+  {
+    "match_id": "855735",
+    "name": "Kieran Trippier",
+    "player_id": "169",
+    "position": "DEF",
+    "record_id": "855735:169",
+    "team": "England",
+    "team_id": "10"
+  },
+  {
+    "match_id": "855735",
+    "name": "Kyle Walker",
+    "player_id": "627",
+    "position": "DEF",
+    "record_id": "855735:627",
+    "team": "England",
+    "team_id": "10"
+  },
+  {
+    "match_id": "855735",
+    "name": "Luke Shaw",
+    "player_id": "891",
+    "position": "DEF",
+    "record_id": "855735:891",
+    "team": "England",
+    "team_id": "10"
+  },
+  {
+    "match_id": "855735",
+    "name": "Marcus Rashford",
+    "player_id": "909",
+    "position": "FWD",
+    "record_id": "855735:909",
+    "team": "England",
+    "team_id": "10"
+  },
+  {
+    "match_id": "855735",
+    "name": "Mason Mount",
+    "player_id": "19220",
+    "position": "MID",
+    "record_id": "855735:19220",
+    "team": "England",
+    "team_id": "10"
+  },
+  {
+    "match_id": "855735",
+    "name": "Nick Pope",
+    "player_id": "18911",
+    "position": "GK",
+    "record_id": "855735:18911",
+    "team": "England",
+    "team_id": "10"
+  },
+  {
+    "match_id": "855735",
+    "name": "Phil Foden",
+    "player_id": "631",
+    "position": "MID",
+    "record_id": "855735:631",
+    "team": "England",
+    "team_id": "10"
+  },
+  {
+    "match_id": "855735",
+    "name": "Raheem Sterling",
+    "player_id": "645",
+    "position": "MID",
+    "record_id": "855735:645",
+    "team": "England",
+    "team_id": "10"
+  },
+  {
+    "match_id": "855735",
+    "name": "Trent Alexander-Arnold",
+    "player_id": "283",
+    "position": "DEF",
+    "record_id": "855735:283",
+    "team": "England",
+    "team_id": "10"
+  },
+  {
+    "match_id": "855735",
+    "name": "Abolfazl Jalali",
+    "player_id": "29926",
+    "position": "DEF",
+    "record_id": "855735:29926",
+    "team": "Iran",
+    "team_id": "22"
+  },
+  {
+    "match_id": "855735",
+    "name": "Ahmad Nourollahi",
+    "player_id": "2695",
+    "position": "MID",
+    "record_id": "855735:2695",
+    "team": "Iran",
+    "team_id": "22"
+  },
+  {
+    "match_id": "855735",
+    "name": "Ali Gholizadeh",
+    "player_id": "8564",
+    "position": "MID",
+    "record_id": "855735:8564",
+    "team": "Iran",
+    "team_id": "22"
+  },
+  {
+    "match_id": "855735",
+    "name": "Ali Karimi",
+    "player_id": "29770",
+    "position": "MID",
+    "record_id": "855735:29770",
+    "team": "Iran",
+    "team_id": "22"
+  },
+  {
+    "match_id": "855735",
+    "name": "Alireza Beiranvand",
+    "player_id": "2682",
+    "position": "GK",
+    "record_id": "855735:2682",
+    "team": "Iran",
+    "team_id": "22"
+  },
+  {
+    "match_id": "855735",
+    "name": "Alireza Jahanbakhsh",
+    "player_id": "2700",
+    "position": "MID",
+    "record_id": "855735:2700",
+    "team": "Iran",
+    "team_id": "22"
+  },
+  {
+    "match_id": "855735",
+    "name": "Amir Abedzadeh",
+    "player_id": "2680",
+    "position": "GK",
+    "record_id": "855735:2680",
+    "team": "Iran",
+    "team_id": "22"
+  },
+  {
+    "match_id": "855735",
+    "name": "Ehsan Haji Safi",
+    "player_id": "2685",
+    "position": "MID",
+    "record_id": "855735:2685",
+    "team": "Iran",
+    "team_id": "22"
+  },
+  {
+    "match_id": "855735",
+    "name": "Hossein Kanaani",
+    "player_id": "2687",
+    "position": "DEF",
+    "record_id": "855735:2687",
+    "team": "Iran",
+    "team_id": "22"
+  },
+  {
+    "match_id": "855735",
+    "name": "Karim Ansarifard",
+    "player_id": "2698",
+    "position": "FWD",
+    "record_id": "855735:2698",
+    "team": "Iran",
+    "team_id": "22"
+  },
+  {
+    "match_id": "855735",
+    "name": "Majid Hosseini",
+    "player_id": "2686",
+    "position": "DEF",
+    "record_id": "855735:2686",
+    "team": "Iran",
+    "team_id": "22"
+  },
+  {
+    "match_id": "855735",
+    "name": "Mehdi Taremi",
+    "player_id": "42315",
+    "position": "FWD",
+    "record_id": "855735:42315",
+    "team": "Iran",
+    "team_id": "22"
+  },
+  {
+    "match_id": "855735",
+    "name": "Mehdi Torabi",
+    "player_id": "2697",
+    "position": "MID",
+    "record_id": "855735:2697",
+    "team": "Iran",
+    "team_id": "22"
+  },
+  {
+    "match_id": "855735",
+    "name": "Milad Mohammadi",
+    "player_id": "2688",
+    "position": "DEF",
+    "record_id": "855735:2688",
+    "team": "Iran",
+    "team_id": "22"
+  },
+  {
+    "match_id": "855735",
+    "name": "Morteza Pouraliganji",
+    "player_id": "2690",
+    "position": "DEF",
+    "record_id": "855735:2690",
+    "team": "Iran",
+    "team_id": "22"
+  },
+  {
+    "match_id": "855735",
+    "name": "Payam Niazmand",
+    "player_id": "2681",
+    "position": "GK",
+    "record_id": "855735:2681",
+    "team": "Iran",
+    "team_id": "22"
+  },
+  {
+    "match_id": "855735",
+    "name": "Ramin Rezaeian",
+    "player_id": "2691",
+    "position": "DEF",
+    "record_id": "855735:2691",
+    "team": "Iran",
+    "team_id": "22"
+  },
+  {
+    "match_id": "855735",
+    "name": "Roozbeh Cheshmi",
+    "player_id": "2683",
+    "position": "DEF",
+    "record_id": "855735:2683",
+    "team": "Iran",
+    "team_id": "22"
+  },
+  {
+    "match_id": "855735",
+    "name": "Sadegh Moharrami",
+    "player_id": "1311",
+    "position": "DEF",
+    "record_id": "855735:1311",
+    "team": "Iran",
+    "team_id": "22"
+  },
+  {
+    "match_id": "855735",
+    "name": "Saeid Ezatolahi",
+    "player_id": "19614",
+    "position": "MID",
+    "record_id": "855735:19614",
+    "team": "Iran",
+    "team_id": "22"
+  },
+  {
+    "match_id": "855735",
+    "name": "Saman Ghoddos",
+    "player_id": "2699",
+    "position": "FWD",
+    "record_id": "855735:2699",
+    "team": "Iran",
+    "team_id": "22"
+  },
+  {
+    "match_id": "855735",
+    "name": "Sardar Azmoun",
+    "player_id": "1221",
+    "position": "FWD",
+    "record_id": "855735:1221",
+    "team": "Iran",
+    "team_id": "22"
+  },
+  {
+    "match_id": "855735",
+    "name": "Seyed Hossein Hosseini",
+    "player_id": "29755",
+    "position": "GK",
+    "record_id": "855735:29755",
+    "team": "Iran",
+    "team_id": "22"
+  },
+  {
+    "match_id": "855735",
+    "name": "Shoja Khalilzadeh",
+    "player_id": "29704",
+    "position": "DEF",
+    "record_id": "855735:29704",
+    "team": "Iran",
+    "team_id": "22"
+  },
+  {
+    "match_id": "855735",
+    "name": "Vahid Amiri",
+    "player_id": "2692",
+    "position": "MID",
+    "record_id": "855735:2692",
+    "team": "Iran",
+    "team_id": "22"
+  },
+  {
+    "match_id": "855767",
+    "name": "Alistair Johnston",
+    "player_id": "78547",
+    "position": "DEF",
+    "record_id": "855767:78547",
+    "team": "Canada",
+    "team_id": "5529"
+  },
+  {
+    "match_id": "855767",
+    "name": "Alphonso Davies",
+    "player_id": "509",
+    "position": "MID",
+    "record_id": "855767:509",
+    "team": "Canada",
+    "team_id": "5529"
+  },
+  {
+    "match_id": "855767",
+    "name": "Atiba Hutchinson",
+    "player_id": "1990",
+    "position": "MID",
+    "record_id": "855767:1990",
+    "team": "Canada",
+    "team_id": "5529"
+  },
+  {
+    "match_id": "855767",
+    "name": "Cyle Larin",
+    "player_id": "2001",
+    "position": "FWD",
+    "record_id": "855767:2001",
+    "team": "Canada",
+    "team_id": "5529"
+  },
+  {
+    "match_id": "855767",
+    "name": "David Wotherspoon",
+    "player_id": "44903",
+    "position": "MID",
+    "record_id": "855767:44903",
+    "team": "Canada",
+    "team_id": "5529"
+  },
+  {
+    "match_id": "855767",
+    "name": "Dayne St. Clair",
+    "player_id": "51148",
+    "position": "GK",
+    "record_id": "855767:51148",
+    "team": "Canada",
+    "team_id": "5529"
+  },
+  {
+    "match_id": "855767",
+    "name": "Derek Cornelius",
+    "player_id": "51295",
+    "position": "DEF",
+    "record_id": "855767:51295",
+    "team": "Canada",
+    "team_id": "5529"
+  },
+  {
+    "match_id": "855767",
+    "name": "Ike Ugbo",
+    "player_id": "67973",
+    "position": "FWD",
+    "record_id": "855767:67973",
+    "team": "Canada",
+    "team_id": "5529"
+  },
+  {
+    "match_id": "855767",
+    "name": "Ismael Kon\u00e9",
+    "player_id": "328046",
+    "position": "MID",
+    "record_id": "855767:328046",
+    "team": "Canada",
+    "team_id": "5529"
+  },
+  {
+    "match_id": "855767",
+    "name": "James Pantemis",
+    "player_id": "50778",
+    "position": "GK",
+    "record_id": "855767:50778",
+    "team": "Canada",
+    "team_id": "5529"
+  },
+  {
+    "match_id": "855767",
+    "name": "Joel Waterman",
+    "player_id": "78494",
+    "position": "DEF",
+    "record_id": "855767:78494",
+    "team": "Canada",
+    "team_id": "5529"
+  },
+  {
+    "match_id": "855767",
+    "name": "Jonathan David",
+    "player_id": "8489",
+    "position": "FWD",
+    "record_id": "855767:8489",
+    "team": "Canada",
+    "team_id": "5529"
+  },
+  {
+    "match_id": "855767",
+    "name": "Jonathan Osorio",
+    "player_id": "50817",
+    "position": "MID",
+    "record_id": "855767:50817",
+    "team": "Canada",
+    "team_id": "5529"
+  },
+  {
+    "match_id": "855767",
+    "name": "Junior Hoilett",
+    "player_id": "19007",
+    "position": "FWD",
+    "record_id": "855767:19007",
+    "team": "Canada",
+    "team_id": "5529"
+  },
+  {
+    "match_id": "855767",
+    "name": "Kamal Miller",
+    "player_id": "50925",
+    "position": "DEF",
+    "record_id": "855767:50925",
+    "team": "Canada",
+    "team_id": "5529"
+  },
+  {
+    "match_id": "855767",
+    "name": "Liam Fraser",
+    "player_id": "50815",
+    "position": "MID",
+    "record_id": "855767:50815",
+    "team": "Canada",
+    "team_id": "5529"
+  },
+  {
+    "match_id": "855767",
+    "name": "Liam Millar",
+    "player_id": "44798",
+    "position": "FWD",
+    "record_id": "855767:44798",
+    "team": "Canada",
+    "team_id": "5529"
+  },
+  {
+    "match_id": "855767",
+    "name": "Lucas Cavallini",
+    "player_id": "35766",
+    "position": "FWD",
+    "record_id": "855767:35766",
+    "team": "Canada",
+    "team_id": "5529"
+  },
+  {
+    "match_id": "855767",
+    "name": "Mark-Anthony Kaye",
+    "player_id": "51035",
+    "position": "MID",
+    "record_id": "855767:51035",
+    "team": "Canada",
+    "team_id": "5529"
+  },
+  {
+    "match_id": "855767",
+    "name": "Milan Borjan",
+    "player_id": "336",
+    "position": "GK",
+    "record_id": "855767:336",
+    "team": "Canada",
+    "team_id": "5529"
+  },
+  {
+    "match_id": "855767",
+    "name": "Richie Laryea",
+    "player_id": "50816",
+    "position": "DEF",
+    "record_id": "855767:50816",
+    "team": "Canada",
+    "team_id": "5529"
+  },
+  {
+    "match_id": "855767",
+    "name": "Sam Adekugbe",
+    "player_id": "39107",
+    "position": "DEF",
+    "record_id": "855767:39107",
+    "team": "Canada",
+    "team_id": "5529"
+  },
+  {
+    "match_id": "855767",
+    "name": "Samuel Piette",
+    "player_id": "50792",
+    "position": "MID",
+    "record_id": "855767:50792",
+    "team": "Canada",
+    "team_id": "5529"
+  },
+  {
+    "match_id": "855767",
+    "name": "Steven Vit\u00f3ria",
+    "player_id": "40440",
+    "position": "DEF",
+    "record_id": "855767:40440",
+    "team": "Canada",
+    "team_id": "5529"
+  },
+  {
+    "match_id": "855767",
+    "name": "Tajon Buchanan",
+    "player_id": "51016",
+    "position": "MID",
+    "record_id": "855767:51016",
+    "team": "Canada",
+    "team_id": "5529"
+  },
+  {
+    "match_id": "855767",
+    "name": "Abdelhamid Sabiri",
+    "player_id": "19053",
+    "position": "MID",
+    "record_id": "855767:19053",
+    "team": "Morocco",
+    "team_id": "31"
+  },
+  {
+    "match_id": "855767",
+    "name": "Abderrazak Hamdallah",
+    "player_id": "44325",
+    "position": "FWD",
+    "record_id": "855767:44325",
+    "team": "Morocco",
+    "team_id": "31"
+  },
+  {
+    "match_id": "855767",
+    "name": "Abdessamad Ezzalzouli",
+    "player_id": "181421",
+    "position": "FWD",
+    "record_id": "855767:181421",
+    "team": "Morocco",
+    "team_id": "31"
+  },
+  {
+    "match_id": "855767",
+    "name": "Achraf Dari",
+    "player_id": "36540",
+    "position": "DEF",
+    "record_id": "855767:36540",
+    "team": "Morocco",
+    "team_id": "31"
+  },
+  {
+    "match_id": "855767",
+    "name": "Achraf Hakimi",
+    "player_id": "9",
+    "position": "DEF",
+    "record_id": "855767:9",
+    "team": "Morocco",
+    "team_id": "31"
+  },
+  {
+    "match_id": "855767",
+    "name": "Ahmed Reda Tagnaouti",
+    "player_id": "2703",
+    "position": "GK",
+    "record_id": "855767:2703",
+    "team": "Morocco",
+    "team_id": "31"
+  },
+  {
+    "match_id": "855767",
+    "name": "Anass Zaroury",
+    "player_id": "129169",
+    "position": "FWD",
+    "record_id": "855767:129169",
+    "team": "Morocco",
+    "team_id": "31"
+  },
+  {
+    "match_id": "855767",
+    "name": "Azzedine Ounahi",
+    "player_id": "129678",
+    "position": "MID",
+    "record_id": "855767:129678",
+    "team": "Morocco",
+    "team_id": "31"
+  },
+  {
+    "match_id": "855767",
+    "name": "Badr Benoun",
+    "player_id": "36556",
+    "position": "DEF",
+    "record_id": "855767:36556",
+    "team": "Morocco",
+    "team_id": "31"
+  },
+  {
+    "match_id": "855767",
+    "name": "Bilal El Khannouss",
+    "player_id": "340573",
+    "position": "MID",
+    "record_id": "855767:340573",
+    "team": "Morocco",
+    "team_id": "31"
+  },
+  {
+    "match_id": "855767",
+    "name": "Bono",
+    "player_id": "2701",
+    "position": "GK",
+    "record_id": "855767:2701",
+    "team": "Morocco",
+    "team_id": "31"
+  },
+  {
+    "match_id": "855767",
+    "name": "Hakim Ziyech",
+    "player_id": "548",
+    "position": "FWD",
+    "record_id": "855767:548",
+    "team": "Morocco",
+    "team_id": "31"
+  },
+  {
+    "match_id": "855767",
+    "name": "Ilias Chair",
+    "player_id": "17632",
+    "position": "MID",
+    "record_id": "855767:17632",
+    "team": "Morocco",
+    "team_id": "31"
+  },
+  {
+    "match_id": "855767",
+    "name": "Jawad El Yamiq",
+    "player_id": "31386",
+    "position": "DEF",
+    "record_id": "855767:31386",
+    "team": "Morocco",
+    "team_id": "31"
+  },
+  {
+    "match_id": "855767",
+    "name": "Monir El Kajoui",
+    "player_id": "2702",
+    "position": "GK",
+    "record_id": "855767:2702",
+    "team": "Morocco",
+    "team_id": "31"
+  },
+  {
+    "match_id": "855767",
+    "name": "Nayef Aguerd",
+    "player_id": "21694",
+    "position": "DEF",
+    "record_id": "855767:21694",
+    "team": "Morocco",
+    "team_id": "31"
+  },
+  {
+    "match_id": "855767",
+    "name": "Noussair Mazraoui",
+    "player_id": "545",
+    "position": "DEF",
+    "record_id": "855767:545",
+    "team": "Morocco",
+    "team_id": "31"
+  },
+  {
+    "match_id": "855767",
+    "name": "Romain Sa\u00efss",
+    "player_id": "2716",
+    "position": "DEF",
+    "record_id": "855767:2716",
+    "team": "Morocco",
+    "team_id": "31"
+  },
+  {
+    "match_id": "855767",
+    "name": "Selim Amallah",
+    "player_id": "8587",
+    "position": "MID",
+    "record_id": "855767:8587",
+    "team": "Morocco",
+    "team_id": "31"
+  },
+  {
+    "match_id": "855767",
+    "name": "Sofiane Boufal",
+    "player_id": "2710",
+    "position": "FWD",
+    "record_id": "855767:2710",
+    "team": "Morocco",
+    "team_id": "31"
+  },
+  {
+    "match_id": "855767",
+    "name": "Sofyan Amrabat",
+    "player_id": "74",
+    "position": "MID",
+    "record_id": "855767:74",
+    "team": "Morocco",
+    "team_id": "31"
+  },
+  {
+    "match_id": "855767",
+    "name": "Walid Cheddira",
+    "player_id": "128478",
+    "position": "FWD",
+    "record_id": "855767:128478",
+    "team": "Morocco",
+    "team_id": "31"
+  },
+  {
+    "match_id": "855767",
+    "name": "Yahia Attiyat Allah",
+    "player_id": "135836",
+    "position": "DEF",
+    "record_id": "855767:135836",
+    "team": "Morocco",
+    "team_id": "31"
+  },
+  {
+    "match_id": "855767",
+    "name": "Yahya Jabrane",
+    "player_id": "36544",
+    "position": "MID",
+    "record_id": "855767:36544",
+    "team": "Morocco",
+    "team_id": "31"
+  },
+  {
+    "match_id": "855767",
+    "name": "Youssef En-Nesyri",
+    "player_id": "47422",
+    "position": "FWD",
+    "record_id": "855767:47422",
+    "team": "Morocco",
+    "team_id": "31"
+  },
+  {
+    "match_id": "855767",
+    "name": "Zakaria Aboukhlal",
+    "player_id": "243",
+    "position": "FWD",
+    "record_id": "855767:243",
+    "team": "Morocco",
+    "team_id": "31"
+  },
+  {
+    "match_id": "976534",
+    "name": "Aaron Ramsdale",
+    "player_id": "20355",
+    "position": "GK",
+    "record_id": "976534:20355",
+    "team": "England",
+    "team_id": "10"
+  },
+  {
+    "match_id": "976534",
+    "name": "Bukayo Saka",
+    "player_id": "1460",
+    "position": "FWD",
+    "record_id": "976534:1460",
+    "team": "England",
+    "team_id": "10"
+  },
+  {
+    "match_id": "976534",
+    "name": "Callum Wilson",
+    "player_id": "2939",
+    "position": "FWD",
+    "record_id": "976534:2939",
+    "team": "England",
+    "team_id": "10"
+  },
+  {
+    "match_id": "976534",
+    "name": "Conor Coady",
+    "player_id": "18741",
+    "position": "DEF",
+    "record_id": "976534:18741",
+    "team": "England",
+    "team_id": "10"
+  },
+  {
+    "match_id": "976534",
+    "name": "Conor Gallagher",
+    "player_id": "67972",
+    "position": "MID",
+    "record_id": "976534:67972",
+    "team": "England",
+    "team_id": "10"
+  },
+  {
+    "match_id": "976534",
+    "name": "Declan Rice",
+    "player_id": "2937",
+    "position": "MID",
+    "record_id": "976534:2937",
+    "team": "England",
+    "team_id": "10"
+  },
+  {
+    "match_id": "976534",
+    "name": "Eric Dier",
+    "player_id": "175",
+    "position": "DEF",
+    "record_id": "976534:175",
+    "team": "England",
+    "team_id": "10"
+  },
+  {
+    "match_id": "976534",
+    "name": "Harry Kane",
+    "player_id": "184",
+    "position": "FWD",
+    "record_id": "976534:184",
+    "team": "England",
+    "team_id": "10"
+  },
+  {
+    "match_id": "976534",
+    "name": "Harry Maguire",
+    "player_id": "2935",
+    "position": "DEF",
+    "record_id": "976534:2935",
+    "team": "England",
+    "team_id": "10"
+  },
+  {
+    "match_id": "976534",
+    "name": "Jack Grealish",
+    "player_id": "19187",
+    "position": "MID",
+    "record_id": "976534:19187",
+    "team": "England",
+    "team_id": "10"
+  },
+  {
+    "match_id": "976534",
+    "name": "James Maddison",
+    "player_id": "18784",
+    "position": "MID",
+    "record_id": "976534:18784",
+    "team": "England",
+    "team_id": "10"
+  },
+  {
+    "match_id": "976534",
+    "name": "John Stones",
+    "player_id": "626",
+    "position": "DEF",
+    "record_id": "976534:626",
+    "team": "England",
+    "team_id": "10"
+  },
+  {
+    "match_id": "976534",
+    "name": "Jordan Henderson",
+    "player_id": "292",
+    "position": "MID",
+    "record_id": "976534:292",
+    "team": "England",
+    "team_id": "10"
+  },
+  {
+    "match_id": "976534",
+    "name": "Jordan Pickford",
+    "player_id": "2932",
+    "position": "GK",
+    "record_id": "976534:2932",
+    "team": "England",
+    "team_id": "10"
+  },
+  {
+    "match_id": "976534",
+    "name": "Jude Bellingham",
+    "player_id": "129718",
+    "position": "MID",
+    "record_id": "976534:129718",
+    "team": "England",
+    "team_id": "10"
+  },
+  {
+    "match_id": "976534",
+    "name": "Kalvin Phillips",
+    "player_id": "19130",
+    "position": "MID",
+    "record_id": "976534:19130",
+    "team": "England",
+    "team_id": "10"
+  },
+  {
+    "match_id": "976534",
+    "name": "Kieran Trippier",
+    "player_id": "169",
+    "position": "DEF",
+    "record_id": "976534:169",
+    "team": "England",
+    "team_id": "10"
+  },
+  {
+    "match_id": "976534",
+    "name": "Kyle Walker",
+    "player_id": "627",
+    "position": "DEF",
+    "record_id": "976534:627",
+    "team": "England",
+    "team_id": "10"
+  },
+  {
+    "match_id": "976534",
+    "name": "Luke Shaw",
+    "player_id": "891",
+    "position": "DEF",
+    "record_id": "976534:891",
+    "team": "England",
+    "team_id": "10"
+  },
+  {
+    "match_id": "976534",
+    "name": "Marcus Rashford",
+    "player_id": "909",
+    "position": "FWD",
+    "record_id": "976534:909",
+    "team": "England",
+    "team_id": "10"
+  },
+  {
+    "match_id": "976534",
+    "name": "Mason Mount",
+    "player_id": "19220",
+    "position": "MID",
+    "record_id": "976534:19220",
+    "team": "England",
+    "team_id": "10"
+  },
+  {
+    "match_id": "976534",
+    "name": "Nick Pope",
+    "player_id": "18911",
+    "position": "GK",
+    "record_id": "976534:18911",
+    "team": "England",
+    "team_id": "10"
+  },
+  {
+    "match_id": "976534",
+    "name": "Phil Foden",
+    "player_id": "631",
+    "position": "FWD",
+    "record_id": "976534:631",
+    "team": "England",
+    "team_id": "10"
+  },
+  {
+    "match_id": "976534",
+    "name": "Trent Alexander-Arnold",
+    "player_id": "283",
+    "position": "DEF",
+    "record_id": "976534:283",
+    "team": "England",
+    "team_id": "10"
+  },
+  {
+    "match_id": "976534",
+    "name": "Abdou Diallo",
+    "player_id": "7",
+    "position": "DEF",
+    "record_id": "976534:7",
+    "team": "Senegal",
+    "team_id": "13"
+  },
+  {
+    "match_id": "976534",
+    "name": "Ahmadou Bamba Dieng",
+    "player_id": "284072",
+    "position": "FWD",
+    "record_id": "976534:284072",
+    "team": "Senegal",
+    "team_id": "13"
+  },
+  {
+    "match_id": "976534",
+    "name": "Alfred Gomis",
+    "player_id": "2985",
+    "position": "GK",
+    "record_id": "976534:2985",
+    "team": "Senegal",
+    "team_id": "13"
+  },
+  {
+    "match_id": "976534",
+    "name": "Boulaye Dia",
+    "player_id": "22015",
+    "position": "FWD",
+    "record_id": "976534:22015",
+    "team": "Senegal",
+    "team_id": "13"
+  },
+  {
+    "match_id": "976534",
+    "name": "Edouard Mendy",
+    "player_id": "2986",
+    "position": "GK",
+    "record_id": "976534:2986",
+    "team": "Senegal",
+    "team_id": "13"
+  },
+  {
+    "match_id": "976534",
+    "name": "Famara Di\u00e9dhiou",
+    "player_id": "19278",
+    "position": "FWD",
+    "record_id": "976534:19278",
+    "team": "Senegal",
+    "team_id": "13"
+  },
+  {
+    "match_id": "976534",
+    "name": "Fod\u00e9 Ballo-Tour\u00e9",
+    "player_id": "105",
+    "position": "DEF",
+    "record_id": "976534:105",
+    "team": "Senegal",
+    "team_id": "13"
+  },
+  {
+    "match_id": "976534",
+    "name": "Formose Mendy",
+    "player_id": "162236",
+    "position": "DEF",
+    "record_id": "976534:162236",
+    "team": "Senegal",
+    "team_id": "13"
+  },
+  {
+    "match_id": "976534",
+    "name": "Iliman Ndiaye",
+    "player_id": "18592",
+    "position": "MID",
+    "record_id": "976534:18592",
+    "team": "Senegal",
+    "team_id": "13"
+  },
+  {
+    "match_id": "976534",
+    "name": "Ismail Jakobs",
+    "player_id": "158121",
+    "position": "DEF",
+    "record_id": "976534:158121",
+    "team": "Senegal",
+    "team_id": "13"
+  },
+  {
+    "match_id": "976534",
+    "name": "Ismaila Ciss",
+    "player_id": "41552",
+    "position": "MID",
+    "record_id": "976534:41552",
+    "team": "Senegal",
+    "team_id": "13"
+  },
+  {
+    "match_id": "976534",
+    "name": "Isma\u00efla Sarr",
+    "player_id": "2218",
+    "position": "MID",
+    "record_id": "976534:2218",
+    "team": "Senegal",
+    "team_id": "13"
+  },
+  {
+    "match_id": "976534",
+    "name": "Kalidou Koulibaly",
+    "player_id": "318",
+    "position": "DEF",
+    "record_id": "976534:318",
+    "team": "Senegal",
+    "team_id": "13"
+  },
+  {
+    "match_id": "976534",
+    "name": "Kr\u00e9pin Diatta",
+    "player_id": "81",
+    "position": "MID",
+    "record_id": "976534:81",
+    "team": "Senegal",
+    "team_id": "13"
+  },
+  {
+    "match_id": "976534",
+    "name": "Mamadou Loum",
+    "player_id": "384",
+    "position": "MID",
+    "record_id": "976534:384",
+    "team": "Senegal",
+    "team_id": "13"
+  },
+  {
+    "match_id": "976534",
+    "name": "Moussa N'Diaye",
+    "player_id": "175415",
+    "position": "DEF",
+    "record_id": "976534:175415",
+    "team": "Senegal",
+    "team_id": "13"
+  },
+  {
+    "match_id": "976534",
+    "name": "Moustapha Name",
+    "player_id": "23129",
+    "position": "MID",
+    "record_id": "976534:23129",
+    "team": "Senegal",
+    "team_id": "13"
+  },
+  {
+    "match_id": "976534",
+    "name": "Nampalys Mendy",
+    "player_id": "18785",
+    "position": "MID",
+    "record_id": "976534:18785",
+    "team": "Senegal",
+    "team_id": "13"
+  },
+  {
+    "match_id": "976534",
+    "name": "Nicolas Jackson",
+    "player_id": "283058",
+    "position": "FWD",
+    "record_id": "976534:283058",
+    "team": "Senegal",
+    "team_id": "13"
+  },
+  {
+    "match_id": "976534",
+    "name": "Pape Abou Ciss\u00e9",
+    "player_id": "1592",
+    "position": "DEF",
+    "record_id": "976534:1592",
+    "team": "Senegal",
+    "team_id": "13"
+  },
+  {
+    "match_id": "976534",
+    "name": "Pape Gueye",
+    "player_id": "20696",
+    "position": "MID",
+    "record_id": "976534:20696",
+    "team": "Senegal",
+    "team_id": "13"
+  },
+  {
+    "match_id": "976534",
+    "name": "Pape Matar Sarr",
+    "player_id": "237129",
+    "position": "MID",
+    "record_id": "976534:237129",
+    "team": "Senegal",
+    "team_id": "13"
+  },
+  {
+    "match_id": "976534",
+    "name": "Seny Dieng",
+    "player_id": "45021",
+    "position": "GK",
+    "record_id": "976534:45021",
+    "team": "Senegal",
+    "team_id": "13"
+  },
+  {
+    "match_id": "976534",
+    "name": "Youssouf Sabaly",
+    "player_id": "1264",
+    "position": "DEF",
+    "record_id": "976534:1264",
+    "team": "Senegal",
+    "team_id": "13"
+  },
+  {
+    "match_id": "977345",
+    "name": "Abdelhamid Sabiri",
+    "player_id": "19053",
+    "position": "MID",
+    "record_id": "977345:19053",
+    "team": "Morocco",
+    "team_id": "31"
+  },
+  {
+    "match_id": "977345",
+    "name": "Abderrazak Hamdallah",
+    "player_id": "44325",
+    "position": "FWD",
+    "record_id": "977345:44325",
+    "team": "Morocco",
+    "team_id": "31"
+  },
+  {
+    "match_id": "977345",
+    "name": "Abdessamad Ezzalzouli",
+    "player_id": "181421",
+    "position": "FWD",
+    "record_id": "977345:181421",
+    "team": "Morocco",
+    "team_id": "31"
+  },
+  {
+    "match_id": "977345",
+    "name": "Achraf Dari",
+    "player_id": "36540",
+    "position": "DEF",
+    "record_id": "977345:36540",
+    "team": "Morocco",
+    "team_id": "31"
+  },
+  {
+    "match_id": "977345",
+    "name": "Achraf Hakimi",
+    "player_id": "9",
+    "position": "DEF",
+    "record_id": "977345:9",
+    "team": "Morocco",
+    "team_id": "31"
+  },
+  {
+    "match_id": "977345",
+    "name": "Ahmed Reda Tagnaouti",
+    "player_id": "2703",
+    "position": "GK",
+    "record_id": "977345:2703",
+    "team": "Morocco",
+    "team_id": "31"
+  },
+  {
+    "match_id": "977345",
+    "name": "Anass Zaroury",
+    "player_id": "129169",
+    "position": "FWD",
+    "record_id": "977345:129169",
+    "team": "Morocco",
+    "team_id": "31"
+  },
+  {
+    "match_id": "977345",
+    "name": "Azzedine Ounahi",
+    "player_id": "129678",
+    "position": "MID",
+    "record_id": "977345:129678",
+    "team": "Morocco",
+    "team_id": "31"
+  },
+  {
+    "match_id": "977345",
+    "name": "Badr Benoun",
+    "player_id": "36556",
+    "position": "DEF",
+    "record_id": "977345:36556",
+    "team": "Morocco",
+    "team_id": "31"
+  },
+  {
+    "match_id": "977345",
+    "name": "Bilal El Khannouss",
+    "player_id": "340573",
+    "position": "MID",
+    "record_id": "977345:340573",
+    "team": "Morocco",
+    "team_id": "31"
+  },
+  {
+    "match_id": "977345",
+    "name": "Bono",
+    "player_id": "2701",
+    "position": "GK",
+    "record_id": "977345:2701",
+    "team": "Morocco",
+    "team_id": "31"
+  },
+  {
+    "match_id": "977345",
+    "name": "Hakim Ziyech",
+    "player_id": "548",
+    "position": "FWD",
+    "record_id": "977345:548",
+    "team": "Morocco",
+    "team_id": "31"
+  },
+  {
+    "match_id": "977345",
+    "name": "Ilias Chair",
+    "player_id": "17632",
+    "position": "MID",
+    "record_id": "977345:17632",
+    "team": "Morocco",
+    "team_id": "31"
+  },
+  {
+    "match_id": "977345",
+    "name": "Jawad El Yamiq",
+    "player_id": "31386",
+    "position": "DEF",
+    "record_id": "977345:31386",
+    "team": "Morocco",
+    "team_id": "31"
+  },
+  {
+    "match_id": "977345",
+    "name": "Monir El Kajoui",
+    "player_id": "2702",
+    "position": "GK",
+    "record_id": "977345:2702",
+    "team": "Morocco",
+    "team_id": "31"
+  },
+  {
+    "match_id": "977345",
+    "name": "Nayef Aguerd",
+    "player_id": "21694",
+    "position": "DEF",
+    "record_id": "977345:21694",
+    "team": "Morocco",
+    "team_id": "31"
+  },
+  {
+    "match_id": "977345",
+    "name": "Noussair Mazraoui",
+    "player_id": "545",
+    "position": "DEF",
+    "record_id": "977345:545",
+    "team": "Morocco",
+    "team_id": "31"
+  },
+  {
+    "match_id": "977345",
+    "name": "Romain Sa\u00efss",
+    "player_id": "2716",
+    "position": "DEF",
+    "record_id": "977345:2716",
+    "team": "Morocco",
+    "team_id": "31"
+  },
+  {
+    "match_id": "977345",
+    "name": "Selim Amallah",
+    "player_id": "8587",
+    "position": "MID",
+    "record_id": "977345:8587",
+    "team": "Morocco",
+    "team_id": "31"
+  },
+  {
+    "match_id": "977345",
+    "name": "Sofiane Boufal",
+    "player_id": "2710",
+    "position": "FWD",
+    "record_id": "977345:2710",
+    "team": "Morocco",
+    "team_id": "31"
+  },
+  {
+    "match_id": "977345",
+    "name": "Sofyan Amrabat",
+    "player_id": "74",
+    "position": "MID",
+    "record_id": "977345:74",
+    "team": "Morocco",
+    "team_id": "31"
+  },
+  {
+    "match_id": "977345",
+    "name": "Walid Cheddira",
+    "player_id": "128478",
+    "position": "FWD",
+    "record_id": "977345:128478",
+    "team": "Morocco",
+    "team_id": "31"
+  },
+  {
+    "match_id": "977345",
+    "name": "Yahia Attiyat Allah",
+    "player_id": "135836",
+    "position": "DEF",
+    "record_id": "977345:135836",
+    "team": "Morocco",
+    "team_id": "31"
+  },
+  {
+    "match_id": "977345",
+    "name": "Yahya Jabrane",
+    "player_id": "36544",
+    "position": "MID",
+    "record_id": "977345:36544",
+    "team": "Morocco",
+    "team_id": "31"
+  },
+  {
+    "match_id": "977345",
+    "name": "Youssef En-Nesyri",
+    "player_id": "47422",
+    "position": "FWD",
+    "record_id": "977345:47422",
+    "team": "Morocco",
+    "team_id": "31"
+  },
+  {
+    "match_id": "977345",
+    "name": "Zakaria Aboukhlal",
+    "player_id": "243",
+    "position": "FWD",
+    "record_id": "977345:243",
+    "team": "Morocco",
+    "team_id": "31"
+  },
+  {
+    "match_id": "977345",
+    "name": "Alejandro Balde",
+    "player_id": "161928",
+    "position": "DEF",
+    "record_id": "977345:161928",
+    "team": "Spain",
+    "team_id": "9"
+  },
+  {
+    "match_id": "977345",
+    "name": "Ansu Fati",
+    "player_id": "135775",
+    "position": "FWD",
+    "record_id": "977345:135775",
+    "team": "Spain",
+    "team_id": "9"
+  },
+  {
+    "match_id": "977345",
+    "name": "Aymeric Laporte",
+    "player_id": "622",
+    "position": "DEF",
+    "record_id": "977345:622",
+    "team": "Spain",
+    "team_id": "9"
+  },
+  {
+    "match_id": "977345",
+    "name": "Carlos Soler",
+    "player_id": "930",
+    "position": "MID",
+    "record_id": "977345:930",
+    "team": "Spain",
+    "team_id": "9"
+  },
+  {
+    "match_id": "977345",
+    "name": "C\u00e9sar Azpilicueta",
+    "player_id": "2280",
+    "position": "DEF",
+    "record_id": "977345:2280",
+    "team": "Spain",
+    "team_id": "9"
+  },
+  {
+    "match_id": "977345",
+    "name": "Dani Olmo",
+    "player_id": "1323",
+    "position": "FWD",
+    "record_id": "977345:1323",
+    "team": "Spain",
+    "team_id": "9"
+  },
+  {
+    "match_id": "977345",
+    "name": "Daniel Carvajal",
+    "player_id": "733",
+    "position": "DEF",
+    "record_id": "977345:733",
+    "team": "Spain",
+    "team_id": "9"
+  },
+  {
+    "match_id": "977345",
+    "name": "David Raya",
+    "player_id": "19465",
+    "position": "GK",
+    "record_id": "977345:19465",
+    "team": "Spain",
+    "team_id": "9"
+  },
+  {
+    "match_id": "977345",
+    "name": "Eric Garc\u00eda",
+    "player_id": "619",
+    "position": "DEF",
+    "record_id": "977345:619",
+    "team": "Spain",
+    "team_id": "9"
+  },
+  {
+    "match_id": "977345",
+    "name": "Ferran Torres",
+    "player_id": "931",
+    "position": "FWD",
+    "record_id": "977345:931",
+    "team": "Spain",
+    "team_id": "9"
+  },
+  {
+    "match_id": "977345",
+    "name": "Gavi",
+    "player_id": "296667",
+    "position": "MID",
+    "record_id": "977345:296667",
+    "team": "Spain",
+    "team_id": "9"
+  },
+  {
+    "match_id": "977345",
+    "name": "Hugo Guillam\u00f3n",
+    "player_id": "919",
+    "position": "DEF",
+    "record_id": "977345:919",
+    "team": "Spain",
+    "team_id": "9"
+  },
+  {
+    "match_id": "977345",
+    "name": "Jordi Alba",
+    "player_id": "128",
+    "position": "DEF",
+    "record_id": "977345:128",
+    "team": "Spain",
+    "team_id": "9"
+  },
+  {
+    "match_id": "977345",
+    "name": "Koke",
+    "player_id": "50",
+    "position": "MID",
+    "record_id": "977345:50",
+    "team": "Spain",
+    "team_id": "9"
+  },
+  {
+    "match_id": "977345",
+    "name": "Marco Asensio",
+    "player_id": "746",
+    "position": "FWD",
+    "record_id": "977345:746",
+    "team": "Spain",
+    "team_id": "9"
+  },
+  {
+    "match_id": "977345",
+    "name": "Marcos Llorente",
+    "player_id": "753",
+    "position": "DEF",
+    "record_id": "977345:753",
+    "team": "Spain",
+    "team_id": "9"
+  },
+  {
+    "match_id": "977345",
+    "name": "Nico Williams",
+    "player_id": "183799",
+    "position": "FWD",
+    "record_id": "977345:183799",
+    "team": "Spain",
+    "team_id": "9"
+  },
+  {
+    "match_id": "977345",
+    "name": "Pablo Sarabia",
+    "player_id": "2056",
+    "position": "MID",
+    "record_id": "977345:2056",
+    "team": "Spain",
+    "team_id": "9"
+  },
+  {
+    "match_id": "977345",
+    "name": "Pau Torres",
+    "player_id": "46815",
+    "position": "DEF",
+    "record_id": "977345:46815",
+    "team": "Spain",
+    "team_id": "9"
+  },
+  {
+    "match_id": "977345",
+    "name": "Pedri",
+    "player_id": "133609",
+    "position": "MID",
+    "record_id": "977345:133609",
+    "team": "Spain",
+    "team_id": "9"
+  },
+  {
+    "match_id": "977345",
+    "name": "Robert S\u00e1nchez",
+    "player_id": "18959",
+    "position": "GK",
+    "record_id": "977345:18959",
+    "team": "Spain",
+    "team_id": "9"
+  },
+  {
+    "match_id": "977345",
+    "name": "Rodri",
+    "player_id": "44",
+    "position": "DEF",
+    "record_id": "977345:44",
+    "team": "Spain",
+    "team_id": "9"
+  },
+  {
+    "match_id": "977345",
+    "name": "Sergio Busquets",
+    "player_id": "144",
+    "position": "MID",
+    "record_id": "977345:144",
+    "team": "Spain",
+    "team_id": "9"
+  },
+  {
+    "match_id": "977345",
+    "name": "Unai Sim\u00f3n",
+    "player_id": "47270",
+    "position": "GK",
+    "record_id": "977345:47270",
+    "team": "Spain",
+    "team_id": "9"
+  },
+  {
+    "match_id": "977345",
+    "name": "Y\u00e9remy Pino",
+    "player_id": "184226",
+    "position": "MID",
+    "record_id": "977345:184226",
+    "team": "Spain",
+    "team_id": "9"
+  },
+  {
+    "match_id": "977345",
+    "name": "\u00c1lvaro Morata",
+    "player_id": "59",
+    "position": "FWD",
+    "record_id": "977345:59",
+    "team": "Spain",
+    "team_id": "9"
+  },
+  {
+    "match_id": "978088",
+    "name": "Abdelhamid Sabiri",
+    "player_id": "19053",
+    "position": "MID",
+    "record_id": "978088:19053",
+    "team": "Morocco",
+    "team_id": "31"
+  },
+  {
+    "match_id": "978088",
+    "name": "Abderrazak Hamdallah",
+    "player_id": "44325",
+    "position": "FWD",
+    "record_id": "978088:44325",
+    "team": "Morocco",
+    "team_id": "31"
+  },
+  {
+    "match_id": "978088",
+    "name": "Abdessamad Ezzalzouli",
+    "player_id": "181421",
+    "position": "FWD",
+    "record_id": "978088:181421",
+    "team": "Morocco",
+    "team_id": "31"
+  },
+  {
+    "match_id": "978088",
+    "name": "Achraf Dari",
+    "player_id": "36540",
+    "position": "DEF",
+    "record_id": "978088:36540",
+    "team": "Morocco",
+    "team_id": "31"
+  },
+  {
+    "match_id": "978088",
+    "name": "Achraf Hakimi",
+    "player_id": "9",
+    "position": "DEF",
+    "record_id": "978088:9",
+    "team": "Morocco",
+    "team_id": "31"
+  },
+  {
+    "match_id": "978088",
+    "name": "Ahmed Reda Tagnaouti",
+    "player_id": "2703",
+    "position": "GK",
+    "record_id": "978088:2703",
+    "team": "Morocco",
+    "team_id": "31"
+  },
+  {
+    "match_id": "978088",
+    "name": "Anass Zaroury",
+    "player_id": "129169",
+    "position": "FWD",
+    "record_id": "978088:129169",
+    "team": "Morocco",
+    "team_id": "31"
+  },
+  {
+    "match_id": "978088",
+    "name": "Azzedine Ounahi",
+    "player_id": "129678",
+    "position": "MID",
+    "record_id": "978088:129678",
+    "team": "Morocco",
+    "team_id": "31"
+  },
+  {
+    "match_id": "978088",
+    "name": "Badr Benoun",
+    "player_id": "36556",
+    "position": "DEF",
+    "record_id": "978088:36556",
+    "team": "Morocco",
+    "team_id": "31"
+  },
+  {
+    "match_id": "978088",
+    "name": "Bilal El Khannouss",
+    "player_id": "340573",
+    "position": "MID",
+    "record_id": "978088:340573",
+    "team": "Morocco",
+    "team_id": "31"
+  },
+  {
+    "match_id": "978088",
+    "name": "Bono",
+    "player_id": "2701",
+    "position": "GK",
+    "record_id": "978088:2701",
+    "team": "Morocco",
+    "team_id": "31"
+  },
+  {
+    "match_id": "978088",
+    "name": "Hakim Ziyech",
+    "player_id": "548",
+    "position": "FWD",
+    "record_id": "978088:548",
+    "team": "Morocco",
+    "team_id": "31"
+  },
+  {
+    "match_id": "978088",
+    "name": "Ilias Chair",
+    "player_id": "17632",
+    "position": "MID",
+    "record_id": "978088:17632",
+    "team": "Morocco",
+    "team_id": "31"
+  },
+  {
+    "match_id": "978088",
+    "name": "Jawad El Yamiq",
+    "player_id": "31386",
+    "position": "DEF",
+    "record_id": "978088:31386",
+    "team": "Morocco",
+    "team_id": "31"
+  },
+  {
+    "match_id": "978088",
+    "name": "Monir El Kajoui",
+    "player_id": "2702",
+    "position": "GK",
+    "record_id": "978088:2702",
+    "team": "Morocco",
+    "team_id": "31"
+  },
+  {
+    "match_id": "978088",
+    "name": "Romain Sa\u00efss",
+    "player_id": "2716",
+    "position": "DEF",
+    "record_id": "978088:2716",
+    "team": "Morocco",
+    "team_id": "31"
+  },
+  {
+    "match_id": "978088",
+    "name": "Selim Amallah",
+    "player_id": "8587",
+    "position": "MID",
+    "record_id": "978088:8587",
+    "team": "Morocco",
+    "team_id": "31"
+  },
+  {
+    "match_id": "978088",
+    "name": "Sofiane Boufal",
+    "player_id": "2710",
+    "position": "FWD",
+    "record_id": "978088:2710",
+    "team": "Morocco",
+    "team_id": "31"
+  },
+  {
+    "match_id": "978088",
+    "name": "Sofyan Amrabat",
+    "player_id": "74",
+    "position": "MID",
+    "record_id": "978088:74",
+    "team": "Morocco",
+    "team_id": "31"
+  },
+  {
+    "match_id": "978088",
+    "name": "Walid Cheddira",
+    "player_id": "128478",
+    "position": "FWD",
+    "record_id": "978088:128478",
+    "team": "Morocco",
+    "team_id": "31"
+  },
+  {
+    "match_id": "978088",
+    "name": "Yahia Attiyat Allah",
+    "player_id": "135836",
+    "position": "DEF",
+    "record_id": "978088:135836",
+    "team": "Morocco",
+    "team_id": "31"
+  },
+  {
+    "match_id": "978088",
+    "name": "Yahya Jabrane",
+    "player_id": "36544",
+    "position": "MID",
+    "record_id": "978088:36544",
+    "team": "Morocco",
+    "team_id": "31"
+  },
+  {
+    "match_id": "978088",
+    "name": "Youssef En-Nesyri",
+    "player_id": "47422",
+    "position": "FWD",
+    "record_id": "978088:47422",
+    "team": "Morocco",
+    "team_id": "31"
+  },
+  {
+    "match_id": "978088",
+    "name": "Zakaria Aboukhlal",
+    "player_id": "243",
+    "position": "FWD",
+    "record_id": "978088:243",
+    "team": "Morocco",
+    "team_id": "31"
+  },
+  {
+    "match_id": "978088",
+    "name": "Andr\u00e9 Silva",
+    "player_id": "2063",
+    "position": "FWD",
+    "record_id": "978088:2063",
+    "team": "Portugal",
+    "team_id": "27"
+  },
+  {
+    "match_id": "978088",
+    "name": "Ant\u00f3nio Silva",
+    "player_id": "331832",
+    "position": "DEF",
+    "record_id": "978088:331832",
+    "team": "Portugal",
+    "team_id": "27"
+  },
+  {
+    "match_id": "978088",
+    "name": "Bernardo Silva",
+    "player_id": "636",
+    "position": "MID",
+    "record_id": "978088:636",
+    "team": "Portugal",
+    "team_id": "27"
+  },
+  {
+    "match_id": "978088",
+    "name": "Bruno Fernandes",
+    "player_id": "1485",
+    "position": "FWD",
+    "record_id": "978088:1485",
+    "team": "Portugal",
+    "team_id": "27"
+  },
+  {
+    "match_id": "978088",
+    "name": "Cristiano Ronaldo",
+    "player_id": "874",
+    "position": "FWD",
+    "record_id": "978088:874",
+    "team": "Portugal",
+    "team_id": "27"
+  },
+  {
+    "match_id": "978088",
+    "name": "Diogo Costa",
+    "player_id": "369",
+    "position": "GK",
+    "record_id": "978088:369",
+    "team": "Portugal",
+    "team_id": "27"
+  },
+  {
+    "match_id": "978088",
+    "name": "Diogo Dalot",
+    "player_id": "886",
+    "position": "DEF",
+    "record_id": "978088:886",
+    "team": "Portugal",
+    "team_id": "27"
+  },
+  {
+    "match_id": "978088",
+    "name": "Gon\u00e7alo Ramos",
+    "player_id": "41585",
+    "position": "FWD",
+    "record_id": "978088:41585",
+    "team": "Portugal",
+    "team_id": "27"
+  },
+  {
+    "match_id": "978088",
+    "name": "Jos\u00e9 S\u00e1",
+    "player_id": "1590",
+    "position": "GK",
+    "record_id": "978088:1590",
+    "team": "Portugal",
+    "team_id": "27"
+  },
+  {
+    "match_id": "978088",
+    "name": "Jo\u00e3o Cancelo",
+    "player_id": "855",
+    "position": "DEF",
+    "record_id": "978088:855",
+    "team": "Portugal",
+    "team_id": "27"
+  },
+  {
+    "match_id": "978088",
+    "name": "Jo\u00e3o F\u00e9lix",
+    "player_id": "583",
+    "position": "FWD",
+    "record_id": "978088:583",
+    "team": "Portugal",
+    "team_id": "27"
+  },
+  {
+    "match_id": "978088",
+    "name": "Jo\u00e3o M\u00e1rio",
+    "player_id": "206",
+    "position": "MID",
+    "record_id": "978088:206",
+    "team": "Portugal",
+    "team_id": "27"
+  },
+  {
+    "match_id": "978088",
+    "name": "Jo\u00e3o Palhinha",
+    "player_id": "41104",
+    "position": "MID",
+    "record_id": "978088:41104",
+    "team": "Portugal",
+    "team_id": "27"
+  },
+  {
+    "match_id": "978088",
+    "name": "Matheus Nunes",
+    "player_id": "41621",
+    "position": "MID",
+    "record_id": "978088:41621",
+    "team": "Portugal",
+    "team_id": "27"
+  },
+  {
+    "match_id": "978088",
+    "name": "Ot\u00e1vio",
+    "player_id": "380",
+    "position": "MID",
+    "record_id": "978088:380",
+    "team": "Portugal",
+    "team_id": "27"
+  },
+  {
+    "match_id": "978088",
+    "name": "Pepe",
+    "player_id": "373",
+    "position": "DEF",
+    "record_id": "978088:373",
+    "team": "Portugal",
+    "team_id": "27"
+  },
+  {
+    "match_id": "978088",
+    "name": "Rafael Le\u00e3o",
+    "player_id": "22236",
+    "position": "FWD",
+    "record_id": "978088:22236",
+    "team": "Portugal",
+    "team_id": "27"
+  },
+  {
+    "match_id": "978088",
+    "name": "Rapha\u00ebl Guerreiro",
+    "player_id": "8",
+    "position": "DEF",
+    "record_id": "978088:8",
+    "team": "Portugal",
+    "team_id": "27"
+  },
+  {
+    "match_id": "978088",
+    "name": "Ricardo Horta",
+    "player_id": "41103",
+    "position": "FWD",
+    "record_id": "978088:41103",
+    "team": "Portugal",
+    "team_id": "27"
+  },
+  {
+    "match_id": "978088",
+    "name": "Rui Patr\u00edcio",
+    "player_id": "2674",
+    "position": "GK",
+    "record_id": "978088:2674",
+    "team": "Portugal",
+    "team_id": "27"
+  },
+  {
+    "match_id": "978088",
+    "name": "R\u00faben Dias",
+    "player_id": "567",
+    "position": "DEF",
+    "record_id": "978088:567",
+    "team": "Portugal",
+    "team_id": "27"
+  },
+  {
+    "match_id": "978088",
+    "name": "R\u00faben Neves",
+    "player_id": "2676",
+    "position": "MID",
+    "record_id": "978088:2676",
+    "team": "Portugal",
+    "team_id": "27"
+  },
+  {
+    "match_id": "978088",
+    "name": "Vitinha",
+    "player_id": "128384",
+    "position": "MID",
+    "record_id": "978088:128384",
+    "team": "Portugal",
+    "team_id": "27"
+  },
+  {
+    "match_id": "978088",
+    "name": "William Carvalho",
+    "player_id": "1580",
+    "position": "MID",
+    "record_id": "978088:1580",
+    "team": "Portugal",
+    "team_id": "27"
+  },
+  {
+    "match_id": "979139",
+    "name": "Alexis Mac Allister",
+    "player_id": "6716",
+    "position": "MID",
+    "record_id": "979139:6716",
+    "team": "Argentina",
+    "team_id": "26"
+  },
+  {
+    "match_id": "979139",
+    "name": "Cristian Romero",
+    "player_id": "30776",
+    "position": "DEF",
+    "record_id": "979139:30776",
+    "team": "Argentina",
+    "team_id": "26"
+  },
+  {
+    "match_id": "979139",
+    "name": "Emiliano Mart\u00ednez",
+    "player_id": "19599",
+    "position": "GK",
+    "record_id": "979139:19599",
+    "team": "Argentina",
+    "team_id": "26"
+  },
+  {
+    "match_id": "979139",
+    "name": "Enzo Fern\u00e1ndez",
+    "player_id": "5996",
+    "position": "MID",
+    "record_id": "979139:5996",
+    "team": "Argentina",
+    "team_id": "26"
+  },
+  {
+    "match_id": "979139",
+    "name": "Exequiel Palacios",
+    "player_id": "6002",
+    "position": "MID",
+    "record_id": "979139:6002",
+    "team": "Argentina",
+    "team_id": "26"
+  },
+  {
+    "match_id": "979139",
+    "name": "Franco Armani",
+    "player_id": "2463",
+    "position": "GK",
+    "record_id": "979139:2463",
+    "team": "Argentina",
+    "team_id": "26"
+  },
+  {
+    "match_id": "979139",
+    "name": "Germ\u00e1n Pezzella",
+    "player_id": "2469",
+    "position": "DEF",
+    "record_id": "979139:2469",
+    "team": "Argentina",
+    "team_id": "26"
+  },
+  {
+    "match_id": "979139",
+    "name": "Ger\u00f3nimo Rulli",
+    "player_id": "47296",
+    "position": "GK",
+    "record_id": "979139:47296",
+    "team": "Argentina",
+    "team_id": "26"
+  },
+  {
+    "match_id": "979139",
+    "name": "Gonzalo Montiel",
+    "player_id": "2468",
+    "position": "DEF",
+    "record_id": "979139:2468",
+    "team": "Argentina",
+    "team_id": "26"
+  },
+  {
+    "match_id": "979139",
+    "name": "Guido Rodr\u00edguez",
+    "player_id": "2476",
+    "position": "MID",
+    "record_id": "979139:2476",
+    "team": "Argentina",
+    "team_id": "26"
+  },
+  {
+    "match_id": "979139",
+    "name": "Juan Foyth",
+    "player_id": "166",
+    "position": "DEF",
+    "record_id": "979139:166",
+    "team": "Argentina",
+    "team_id": "26"
+  },
+  {
+    "match_id": "979139",
+    "name": "Juli\u00e1n \u00c1lvarez",
+    "player_id": "6009",
+    "position": "FWD",
+    "record_id": "979139:6009",
+    "team": "Argentina",
+    "team_id": "26"
+  },
+  {
+    "match_id": "979139",
+    "name": "Lautaro Mart\u00ednez",
+    "player_id": "217",
+    "position": "FWD",
+    "record_id": "979139:217",
+    "team": "Argentina",
+    "team_id": "26"
+  },
+  {
+    "match_id": "979139",
+    "name": "Leandro Paredes",
+    "player_id": "271",
+    "position": "MID",
+    "record_id": "979139:271",
+    "team": "Argentina",
+    "team_id": "26"
+  },
+  {
+    "match_id": "979139",
+    "name": "Lionel Messi",
+    "player_id": "154",
+    "position": "FWD",
+    "record_id": "979139:154",
+    "team": "Argentina",
+    "team_id": "26"
+  },
+  {
+    "match_id": "979139",
+    "name": "Lisandro Mart\u00ednez",
+    "player_id": "2467",
+    "position": "DEF",
+    "record_id": "979139:2467",
+    "team": "Argentina",
+    "team_id": "26"
+  },
+  {
+    "match_id": "979139",
+    "name": "Marcos Acu\u00f1a",
+    "player_id": "1493",
+    "position": "DEF",
+    "record_id": "979139:1493",
+    "team": "Argentina",
+    "team_id": "26"
+  },
+  {
+    "match_id": "979139",
+    "name": "Nahuel Molina",
+    "player_id": "6503",
+    "position": "DEF",
+    "record_id": "979139:6503",
+    "team": "Argentina",
+    "team_id": "26"
+  },
+  {
+    "match_id": "979139",
+    "name": "Nicol\u00e1s Otamendi",
+    "player_id": "624",
+    "position": "DEF",
+    "record_id": "979139:624",
+    "team": "Argentina",
+    "team_id": "26"
+  },
+  {
+    "match_id": "979139",
+    "name": "Nicol\u00e1s Tagliafico",
+    "player_id": "529",
+    "position": "DEF",
+    "record_id": "979139:529",
+    "team": "Argentina",
+    "team_id": "26"
+  },
+  {
+    "match_id": "979139",
+    "name": "Papu G\u00f3mez",
+    "player_id": "30433",
+    "position": "MID",
+    "record_id": "979139:30433",
+    "team": "Argentina",
+    "team_id": "26"
+  },
+  {
+    "match_id": "979139",
+    "name": "Paulo Dybala",
+    "player_id": "875",
+    "position": "FWD",
+    "record_id": "979139:875",
+    "team": "Argentina",
+    "team_id": "26"
+  },
+  {
+    "match_id": "979139",
+    "name": "Rodrigo de Paul",
+    "player_id": "2472",
+    "position": "MID",
+    "record_id": "979139:2472",
+    "team": "Argentina",
+    "team_id": "26"
+  },
+  {
+    "match_id": "979139",
+    "name": "Thiago Almada",
+    "player_id": "6067",
+    "position": "MID",
+    "record_id": "979139:6067",
+    "team": "Argentina",
+    "team_id": "26"
+  },
+  {
+    "match_id": "979139",
+    "name": "\u00c1ngel Correa",
+    "player_id": "53",
+    "position": "FWD",
+    "record_id": "979139:53",
+    "team": "Argentina",
+    "team_id": "26"
+  },
+  {
+    "match_id": "979139",
+    "name": "\u00c1ngel Di Mar\u00eda",
+    "player_id": "266",
+    "position": "FWD",
+    "record_id": "979139:266",
+    "team": "Argentina",
+    "team_id": "26"
+  },
+  {
+    "match_id": "979139",
+    "name": "Adrien Rabiot",
+    "player_id": "272",
+    "position": "MID",
+    "record_id": "979139:272",
+    "team": "France",
+    "team_id": "2"
+  },
+  {
+    "match_id": "979139",
+    "name": "Alphonse Ar\u00e9ola",
+    "player_id": "253",
+    "position": "GK",
+    "record_id": "979139:253",
+    "team": "France",
+    "team_id": "2"
+  },
+  {
+    "match_id": "979139",
+    "name": "Antoine Griezmann",
+    "player_id": "56",
+    "position": "MID",
+    "record_id": "979139:56",
+    "team": "France",
+    "team_id": "2"
+  },
+  {
+    "match_id": "979139",
+    "name": "Aur\u00e9lien Tchouam\u00e9ni",
+    "player_id": "1271",
+    "position": "MID",
+    "record_id": "979139:1271",
+    "team": "France",
+    "team_id": "2"
+  },
+  {
+    "match_id": "979139",
+    "name": "Axel Disasi",
+    "player_id": "21998",
+    "position": "DEF",
+    "record_id": "979139:21998",
+    "team": "France",
+    "team_id": "2"
+  },
+  {
+    "match_id": "979139",
+    "name": "Benjamin Pavard",
+    "player_id": "2725",
+    "position": "DEF",
+    "record_id": "979139:2725",
+    "team": "France",
+    "team_id": "2"
+  },
+  {
+    "match_id": "979139",
+    "name": "Dayot Upamecano",
+    "player_id": "1149",
+    "position": "DEF",
+    "record_id": "979139:1149",
+    "team": "France",
+    "team_id": "2"
+  },
+  {
+    "match_id": "979139",
+    "name": "Eduardo Camavinga",
+    "player_id": "2207",
+    "position": "MID",
+    "record_id": "979139:2207",
+    "team": "France",
+    "team_id": "2"
+  },
+  {
+    "match_id": "979139",
+    "name": "Hugo Lloris",
+    "player_id": "159",
+    "position": "GK",
+    "record_id": "979139:159",
+    "team": "France",
+    "team_id": "2"
+  },
+  {
+    "match_id": "979139",
+    "name": "Ibrahima Konat\u00e9",
+    "player_id": "1145",
+    "position": "DEF",
+    "record_id": "979139:1145",
+    "team": "France",
+    "team_id": "2"
+  },
+  {
+    "match_id": "979139",
+    "name": "Jordan Veretout",
+    "player_id": "30409",
+    "position": "MID",
+    "record_id": "979139:30409",
+    "team": "France",
+    "team_id": "2"
+  },
+  {
+    "match_id": "979139",
+    "name": "Jules Kound\u00e9",
+    "player_id": "1257",
+    "position": "DEF",
+    "record_id": "979139:1257",
+    "team": "France",
+    "team_id": "2"
+  },
+  {
+    "match_id": "979139",
+    "name": "Kingsley Coman",
+    "player_id": "508",
+    "position": "FWD",
+    "record_id": "979139:508",
+    "team": "France",
+    "team_id": "2"
+  },
+  {
+    "match_id": "979139",
+    "name": "Kylian Mbapp\u00e9",
+    "player_id": "278",
+    "position": "MID",
+    "record_id": "979139:278",
+    "team": "France",
+    "team_id": "2"
+  },
+  {
+    "match_id": "979139",
+    "name": "Marcus Thuram",
+    "player_id": "21509",
+    "position": "FWD",
+    "record_id": "979139:21509",
+    "team": "France",
+    "team_id": "2"
+  },
+  {
+    "match_id": "979139",
+    "name": "Matt\u00e9o Guendouzi",
+    "player_id": "1454",
+    "position": "MID",
+    "record_id": "979139:1454",
+    "team": "France",
+    "team_id": "2"
+  },
+  {
+    "match_id": "979139",
+    "name": "Olivier Giroud",
+    "player_id": "2295",
+    "position": "FWD",
+    "record_id": "979139:2295",
+    "team": "France",
+    "team_id": "2"
+  },
+  {
+    "match_id": "979139",
+    "name": "Ousmane Demb\u00e9l\u00e9",
+    "player_id": "153",
+    "position": "MID",
+    "record_id": "979139:153",
+    "team": "France",
+    "team_id": "2"
+  },
+  {
+    "match_id": "979139",
+    "name": "Randal Kolo Muani",
+    "player_id": "21104",
+    "position": "FWD",
+    "record_id": "979139:21104",
+    "team": "France",
+    "team_id": "2"
+  },
+  {
+    "match_id": "979139",
+    "name": "Rapha\u00ebl Varane",
+    "player_id": "742",
+    "position": "DEF",
+    "record_id": "979139:742",
+    "team": "France",
+    "team_id": "2"
+  },
+  {
+    "match_id": "979139",
+    "name": "Steve Mandanda",
+    "player_id": "1897",
+    "position": "GK",
+    "record_id": "979139:1897",
+    "team": "France",
+    "team_id": "2"
+  },
+  {
+    "match_id": "979139",
+    "name": "Theo Hern\u00e1ndez",
+    "player_id": "47300",
+    "position": "DEF",
+    "record_id": "979139:47300",
+    "team": "France",
+    "team_id": "2"
+  },
+  {
+    "match_id": "979139",
+    "name": "William Saliba",
+    "player_id": "22090",
+    "position": "DEF",
+    "record_id": "979139:22090",
+    "team": "France",
+    "team_id": "2"
+  },
+  {
+    "match_id": "979139",
+    "name": "Youssouf Fofana",
+    "player_id": "22254",
+    "position": "MID",
+    "record_id": "979139:22254",
+    "team": "France",
+    "team_id": "2"
+  }
+]

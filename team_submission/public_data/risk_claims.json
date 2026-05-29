@@ -1,0 +1,1923 @@
+{
+  "available_claims": [
+    {
+      "category": "yellow",
+      "claim_id": "both_teams_score",
+      "claim_key": "855735:both_teams_score",
+      "description": "Both teams score at least once.",
+      "match_id": "855735",
+      "match_label": "England vs Iran",
+      "parameters": {
+        "match_id": "855735"
+      },
+      "required_fields": [
+        "match_id"
+      ]
+    },
+    {
+      "category": "red",
+      "claim_id": "exact_score",
+      "claim_key": "855735:exact_score",
+      "description": "The selected match finishes with the submitted home and away score.",
+      "match_id": "855735",
+      "match_label": "England vs Iran",
+      "parameter_options": {
+        "away_score": "non-negative integer",
+        "home_score": "non-negative integer"
+      },
+      "parameters": {
+        "match_id": "855735"
+      },
+      "required_fields": [
+        "match_id",
+        "home_score",
+        "away_score"
+      ]
+    },
+    {
+      "category": "green",
+      "claim_id": "goal_before_halftime",
+      "claim_key": "855735:goal_before_halftime",
+      "description": "At least one goal is scored before halftime.",
+      "match_id": "855735",
+      "match_label": "England vs Iran",
+      "parameters": {
+        "match_id": "855735"
+      },
+      "required_fields": [
+        "match_id"
+      ]
+    },
+    {
+      "category": "green",
+      "claim_id": "match_2plus_cards",
+      "claim_key": "855735:match_2plus_cards",
+      "description": "The selected match has at least 2 card events.",
+      "match_id": "855735",
+      "match_label": "England vs Iran",
+      "parameters": {
+        "match_id": "855735"
+      },
+      "required_fields": [
+        "match_id"
+      ]
+    },
+    {
+      "category": "green",
+      "claim_id": "match_2plus_goals",
+      "claim_key": "855735:match_2plus_goals",
+      "description": "The selected match finishes with at least 2 total goals.",
+      "match_id": "855735",
+      "match_label": "England vs Iran",
+      "parameters": {
+        "match_id": "855735"
+      },
+      "required_fields": [
+        "match_id"
+      ]
+    },
+    {
+      "category": "yellow",
+      "claim_id": "match_2plus_yellow_cards",
+      "claim_key": "855735:match_2plus_yellow_cards",
+      "description": "The selected match has at least 2 yellow-card events.",
+      "match_id": "855735",
+      "match_label": "England vs Iran",
+      "parameters": {
+        "match_id": "855735"
+      },
+      "required_fields": [
+        "match_id"
+      ]
+    },
+    {
+      "category": "yellow",
+      "claim_id": "match_over_2_5_goals",
+      "claim_key": "855735:match_over_2_5_goals",
+      "description": "The selected match finishes with 3 or more total goals.",
+      "match_id": "855735",
+      "match_label": "England vs Iran",
+      "parameters": {
+        "match_id": "855735"
+      },
+      "required_fields": [
+        "match_id"
+      ]
+    },
+    {
+      "category": "green",
+      "claim_id": "no_goal_first_10",
+      "claim_key": "855735:no_goal_first_10",
+      "description": "No goal is scored from minute 1 through minute 10.",
+      "match_id": "855735",
+      "match_label": "England vs Iran",
+      "parameters": {
+        "match_id": "855735"
+      },
+      "required_fields": [
+        "match_id"
+      ]
+    },
+    {
+      "category": "green",
+      "claim_id": "no_goal_stoppage_time",
+      "claim_key": "855735:no_goal_stoppage_time",
+      "description": "No goal is scored in first-half or second-half stoppage time.",
+      "match_id": "855735",
+      "match_label": "England vs Iran",
+      "parameters": {
+        "match_id": "855735"
+      },
+      "required_fields": [
+        "match_id"
+      ]
+    },
+    {
+      "category": "yellow",
+      "claim_id": "player_scores",
+      "claim_key": "855735:player_scores",
+      "description": "The selected player scores at least one non-own goal.",
+      "match_id": "855735",
+      "match_label": "England vs Iran",
+      "parameter_options": {
+        "player_id": {
+          "filter": {
+            "match_id": "855735"
+          },
+          "source_file": "players.json"
+        }
+      },
+      "parameters": {
+        "match_id": "855735"
+      },
+      "required_fields": [
+        "match_id",
+        "player_id"
+      ]
+    },
+    {
+      "category": "red",
+      "claim_id": "player_scores_2plus",
+      "claim_key": "855735:player_scores_2plus",
+      "description": "The selected player scores at least 2 non-own goals.",
+      "match_id": "855735",
+      "match_label": "England vs Iran",
+      "parameter_options": {
+        "player_id": {
+          "filter": {
+            "match_id": "855735"
+          },
+          "source_file": "players.json"
+        }
+      },
+      "parameters": {
+        "match_id": "855735"
+      },
+      "required_fields": [
+        "match_id",
+        "player_id"
+      ]
+    },
+    {
+      "category": "red",
+      "claim_id": "red_card_shown",
+      "claim_key": "855735:red_card_shown",
+      "description": "At least one red-card or second-yellow-red event is shown.",
+      "match_id": "855735",
+      "match_label": "England vs Iran",
+      "parameters": {
+        "match_id": "855735"
+      },
+      "required_fields": [
+        "match_id"
+      ]
+    },
+    {
+      "category": "red",
+      "claim_id": "team_comeback_win",
+      "claim_key": "855735:team_comeback_win",
+      "description": "The selected team concedes first and still wins the match.",
+      "match_id": "855735",
+      "match_label": "England vs Iran",
+      "parameter_options": {
+        "team_id": [
+          {
+            "id": "10",
+            "name": "England"
+          },
+          {
+            "id": "22",
+            "name": "Iran"
+          }
+        ]
+      },
+      "parameters": {
+        "match_id": "855735"
+      },
+      "required_fields": [
+        "match_id",
+        "team_id"
+      ]
+    },
+    {
+      "category": "yellow",
+      "claim_id": "team_scores_first",
+      "claim_key": "855735:team_scores_first",
+      "description": "The selected team scores the first countable goal.",
+      "match_id": "855735",
+      "match_label": "England vs Iran",
+      "parameter_options": {
+        "team_id": [
+          {
+            "id": "10",
+            "name": "England"
+          },
+          {
+            "id": "22",
+            "name": "Iran"
+          }
+        ]
+      },
+      "parameters": {
+        "match_id": "855735"
+      },
+      "required_fields": [
+        "match_id",
+        "team_id"
+      ]
+    },
+    {
+      "category": "red",
+      "claim_id": "team_wins_by_3plus",
+      "claim_key": "855735:team_wins_by_3plus",
+      "description": "The selected team wins by at least 3 goals.",
+      "match_id": "855735",
+      "match_label": "England vs Iran",
+      "parameter_options": {
+        "team_id": [
+          {
+            "id": "10",
+            "name": "England"
+          },
+          {
+            "id": "22",
+            "name": "Iran"
+          }
+        ]
+      },
+      "parameters": {
+        "match_id": "855735"
+      },
+      "required_fields": [
+        "match_id",
+        "team_id"
+      ]
+    },
+    {
+      "category": "yellow",
+      "claim_id": "both_teams_score",
+      "claim_key": "855767:both_teams_score",
+      "description": "Both teams score at least once.",
+      "match_id": "855767",
+      "match_label": "Canada vs Morocco",
+      "parameters": {
+        "match_id": "855767"
+      },
+      "required_fields": [
+        "match_id"
+      ]
+    },
+    {
+      "category": "red",
+      "claim_id": "exact_score",
+      "claim_key": "855767:exact_score",
+      "description": "The selected match finishes with the submitted home and away score.",
+      "match_id": "855767",
+      "match_label": "Canada vs Morocco",
+      "parameter_options": {
+        "away_score": "non-negative integer",
+        "home_score": "non-negative integer"
+      },
+      "parameters": {
+        "match_id": "855767"
+      },
+      "required_fields": [
+        "match_id",
+        "home_score",
+        "away_score"
+      ]
+    },
+    {
+      "category": "green",
+      "claim_id": "goal_before_halftime",
+      "claim_key": "855767:goal_before_halftime",
+      "description": "At least one goal is scored before halftime.",
+      "match_id": "855767",
+      "match_label": "Canada vs Morocco",
+      "parameters": {
+        "match_id": "855767"
+      },
+      "required_fields": [
+        "match_id"
+      ]
+    },
+    {
+      "category": "green",
+      "claim_id": "match_2plus_cards",
+      "claim_key": "855767:match_2plus_cards",
+      "description": "The selected match has at least 2 card events.",
+      "match_id": "855767",
+      "match_label": "Canada vs Morocco",
+      "parameters": {
+        "match_id": "855767"
+      },
+      "required_fields": [
+        "match_id"
+      ]
+    },
+    {
+      "category": "green",
+      "claim_id": "match_2plus_goals",
+      "claim_key": "855767:match_2plus_goals",
+      "description": "The selected match finishes with at least 2 total goals.",
+      "match_id": "855767",
+      "match_label": "Canada vs Morocco",
+      "parameters": {
+        "match_id": "855767"
+      },
+      "required_fields": [
+        "match_id"
+      ]
+    },
+    {
+      "category": "yellow",
+      "claim_id": "match_2plus_yellow_cards",
+      "claim_key": "855767:match_2plus_yellow_cards",
+      "description": "The selected match has at least 2 yellow-card events.",
+      "match_id": "855767",
+      "match_label": "Canada vs Morocco",
+      "parameters": {
+        "match_id": "855767"
+      },
+      "required_fields": [
+        "match_id"
+      ]
+    },
+    {
+      "category": "yellow",
+      "claim_id": "match_over_2_5_goals",
+      "claim_key": "855767:match_over_2_5_goals",
+      "description": "The selected match finishes with 3 or more total goals.",
+      "match_id": "855767",
+      "match_label": "Canada vs Morocco",
+      "parameters": {
+        "match_id": "855767"
+      },
+      "required_fields": [
+        "match_id"
+      ]
+    },
+    {
+      "category": "green",
+      "claim_id": "no_goal_first_10",
+      "claim_key": "855767:no_goal_first_10",
+      "description": "No goal is scored from minute 1 through minute 10.",
+      "match_id": "855767",
+      "match_label": "Canada vs Morocco",
+      "parameters": {
+        "match_id": "855767"
+      },
+      "required_fields": [
+        "match_id"
+      ]
+    },
+    {
+      "category": "green",
+      "claim_id": "no_goal_stoppage_time",
+      "claim_key": "855767:no_goal_stoppage_time",
+      "description": "No goal is scored in first-half or second-half stoppage time.",
+      "match_id": "855767",
+      "match_label": "Canada vs Morocco",
+      "parameters": {
+        "match_id": "855767"
+      },
+      "required_fields": [
+        "match_id"
+      ]
+    },
+    {
+      "category": "yellow",
+      "claim_id": "player_scores",
+      "claim_key": "855767:player_scores",
+      "description": "The selected player scores at least one non-own goal.",
+      "match_id": "855767",
+      "match_label": "Canada vs Morocco",
+      "parameter_options": {
+        "player_id": {
+          "filter": {
+            "match_id": "855767"
+          },
+          "source_file": "players.json"
+        }
+      },
+      "parameters": {
+        "match_id": "855767"
+      },
+      "required_fields": [
+        "match_id",
+        "player_id"
+      ]
+    },
+    {
+      "category": "red",
+      "claim_id": "player_scores_2plus",
+      "claim_key": "855767:player_scores_2plus",
+      "description": "The selected player scores at least 2 non-own goals.",
+      "match_id": "855767",
+      "match_label": "Canada vs Morocco",
+      "parameter_options": {
+        "player_id": {
+          "filter": {
+            "match_id": "855767"
+          },
+          "source_file": "players.json"
+        }
+      },
+      "parameters": {
+        "match_id": "855767"
+      },
+      "required_fields": [
+        "match_id",
+        "player_id"
+      ]
+    },
+    {
+      "category": "red",
+      "claim_id": "red_card_shown",
+      "claim_key": "855767:red_card_shown",
+      "description": "At least one red-card or second-yellow-red event is shown.",
+      "match_id": "855767",
+      "match_label": "Canada vs Morocco",
+      "parameters": {
+        "match_id": "855767"
+      },
+      "required_fields": [
+        "match_id"
+      ]
+    },
+    {
+      "category": "red",
+      "claim_id": "team_comeback_win",
+      "claim_key": "855767:team_comeback_win",
+      "description": "The selected team concedes first and still wins the match.",
+      "match_id": "855767",
+      "match_label": "Canada vs Morocco",
+      "parameter_options": {
+        "team_id": [
+          {
+            "id": "5529",
+            "name": "Canada"
+          },
+          {
+            "id": "31",
+            "name": "Morocco"
+          }
+        ]
+      },
+      "parameters": {
+        "match_id": "855767"
+      },
+      "required_fields": [
+        "match_id",
+        "team_id"
+      ]
+    },
+    {
+      "category": "yellow",
+      "claim_id": "team_scores_first",
+      "claim_key": "855767:team_scores_first",
+      "description": "The selected team scores the first countable goal.",
+      "match_id": "855767",
+      "match_label": "Canada vs Morocco",
+      "parameter_options": {
+        "team_id": [
+          {
+            "id": "5529",
+            "name": "Canada"
+          },
+          {
+            "id": "31",
+            "name": "Morocco"
+          }
+        ]
+      },
+      "parameters": {
+        "match_id": "855767"
+      },
+      "required_fields": [
+        "match_id",
+        "team_id"
+      ]
+    },
+    {
+      "category": "red",
+      "claim_id": "team_wins_by_3plus",
+      "claim_key": "855767:team_wins_by_3plus",
+      "description": "The selected team wins by at least 3 goals.",
+      "match_id": "855767",
+      "match_label": "Canada vs Morocco",
+      "parameter_options": {
+        "team_id": [
+          {
+            "id": "5529",
+            "name": "Canada"
+          },
+          {
+            "id": "31",
+            "name": "Morocco"
+          }
+        ]
+      },
+      "parameters": {
+        "match_id": "855767"
+      },
+      "required_fields": [
+        "match_id",
+        "team_id"
+      ]
+    },
+    {
+      "category": "yellow",
+      "claim_id": "both_teams_score",
+      "claim_key": "976534:both_teams_score",
+      "description": "Both teams score at least once.",
+      "match_id": "976534",
+      "match_label": "England vs Senegal",
+      "parameters": {
+        "match_id": "976534"
+      },
+      "required_fields": [
+        "match_id"
+      ]
+    },
+    {
+      "category": "red",
+      "claim_id": "exact_score",
+      "claim_key": "976534:exact_score",
+      "description": "The selected match finishes with the submitted home and away score.",
+      "match_id": "976534",
+      "match_label": "England vs Senegal",
+      "parameter_options": {
+        "away_score": "non-negative integer",
+        "home_score": "non-negative integer"
+      },
+      "parameters": {
+        "match_id": "976534"
+      },
+      "required_fields": [
+        "match_id",
+        "home_score",
+        "away_score"
+      ]
+    },
+    {
+      "category": "green",
+      "claim_id": "goal_before_halftime",
+      "claim_key": "976534:goal_before_halftime",
+      "description": "At least one goal is scored before halftime.",
+      "match_id": "976534",
+      "match_label": "England vs Senegal",
+      "parameters": {
+        "match_id": "976534"
+      },
+      "required_fields": [
+        "match_id"
+      ]
+    },
+    {
+      "category": "green",
+      "claim_id": "match_2plus_cards",
+      "claim_key": "976534:match_2plus_cards",
+      "description": "The selected match has at least 2 card events.",
+      "match_id": "976534",
+      "match_label": "England vs Senegal",
+      "parameters": {
+        "match_id": "976534"
+      },
+      "required_fields": [
+        "match_id"
+      ]
+    },
+    {
+      "category": "green",
+      "claim_id": "match_2plus_goals",
+      "claim_key": "976534:match_2plus_goals",
+      "description": "The selected match finishes with at least 2 total goals.",
+      "match_id": "976534",
+      "match_label": "England vs Senegal",
+      "parameters": {
+        "match_id": "976534"
+      },
+      "required_fields": [
+        "match_id"
+      ]
+    },
+    {
+      "category": "yellow",
+      "claim_id": "match_2plus_yellow_cards",
+      "claim_key": "976534:match_2plus_yellow_cards",
+      "description": "The selected match has at least 2 yellow-card events.",
+      "match_id": "976534",
+      "match_label": "England vs Senegal",
+      "parameters": {
+        "match_id": "976534"
+      },
+      "required_fields": [
+        "match_id"
+      ]
+    },
+    {
+      "category": "red",
+      "claim_id": "match_goes_to_extra_time",
+      "claim_key": "976534:match_goes_to_extra_time",
+      "description": "The knockout match reaches extra time.",
+      "match_id": "976534",
+      "match_label": "England vs Senegal",
+      "parameters": {
+        "match_id": "976534"
+      },
+      "required_fields": [
+        "match_id"
+      ]
+    },
+    {
+      "category": "red",
+      "claim_id": "match_goes_to_penalties",
+      "claim_key": "976534:match_goes_to_penalties",
+      "description": "The knockout match reaches a penalty shootout.",
+      "match_id": "976534",
+      "match_label": "England vs Senegal",
+      "parameters": {
+        "match_id": "976534"
+      },
+      "required_fields": [
+        "match_id"
+      ]
+    },
+    {
+      "category": "yellow",
+      "claim_id": "match_over_2_5_goals",
+      "claim_key": "976534:match_over_2_5_goals",
+      "description": "The selected match finishes with 3 or more total goals.",
+      "match_id": "976534",
+      "match_label": "England vs Senegal",
+      "parameters": {
+        "match_id": "976534"
+      },
+      "required_fields": [
+        "match_id"
+      ]
+    },
+    {
+      "category": "green",
+      "claim_id": "no_goal_first_10",
+      "claim_key": "976534:no_goal_first_10",
+      "description": "No goal is scored from minute 1 through minute 10.",
+      "match_id": "976534",
+      "match_label": "England vs Senegal",
+      "parameters": {
+        "match_id": "976534"
+      },
+      "required_fields": [
+        "match_id"
+      ]
+    },
+    {
+      "category": "green",
+      "claim_id": "no_goal_stoppage_time",
+      "claim_key": "976534:no_goal_stoppage_time",
+      "description": "No goal is scored in first-half or second-half stoppage time.",
+      "match_id": "976534",
+      "match_label": "England vs Senegal",
+      "parameters": {
+        "match_id": "976534"
+      },
+      "required_fields": [
+        "match_id"
+      ]
+    },
+    {
+      "category": "yellow",
+      "claim_id": "player_scores",
+      "claim_key": "976534:player_scores",
+      "description": "The selected player scores at least one non-own goal.",
+      "match_id": "976534",
+      "match_label": "England vs Senegal",
+      "parameter_options": {
+        "player_id": {
+          "filter": {
+            "match_id": "976534"
+          },
+          "source_file": "players.json"
+        }
+      },
+      "parameters": {
+        "match_id": "976534"
+      },
+      "required_fields": [
+        "match_id",
+        "player_id"
+      ]
+    },
+    {
+      "category": "red",
+      "claim_id": "player_scores_2plus",
+      "claim_key": "976534:player_scores_2plus",
+      "description": "The selected player scores at least 2 non-own goals.",
+      "match_id": "976534",
+      "match_label": "England vs Senegal",
+      "parameter_options": {
+        "player_id": {
+          "filter": {
+            "match_id": "976534"
+          },
+          "source_file": "players.json"
+        }
+      },
+      "parameters": {
+        "match_id": "976534"
+      },
+      "required_fields": [
+        "match_id",
+        "player_id"
+      ]
+    },
+    {
+      "category": "red",
+      "claim_id": "red_card_shown",
+      "claim_key": "976534:red_card_shown",
+      "description": "At least one red-card or second-yellow-red event is shown.",
+      "match_id": "976534",
+      "match_label": "England vs Senegal",
+      "parameters": {
+        "match_id": "976534"
+      },
+      "required_fields": [
+        "match_id"
+      ]
+    },
+    {
+      "category": "red",
+      "claim_id": "team_comeback_win",
+      "claim_key": "976534:team_comeback_win",
+      "description": "The selected team concedes first and still wins the match.",
+      "match_id": "976534",
+      "match_label": "England vs Senegal",
+      "parameter_options": {
+        "team_id": [
+          {
+            "id": "10",
+            "name": "England"
+          },
+          {
+            "id": "13",
+            "name": "Senegal"
+          }
+        ]
+      },
+      "parameters": {
+        "match_id": "976534"
+      },
+      "required_fields": [
+        "match_id",
+        "team_id"
+      ]
+    },
+    {
+      "category": "yellow",
+      "claim_id": "team_scores_first",
+      "claim_key": "976534:team_scores_first",
+      "description": "The selected team scores the first countable goal.",
+      "match_id": "976534",
+      "match_label": "England vs Senegal",
+      "parameter_options": {
+        "team_id": [
+          {
+            "id": "10",
+            "name": "England"
+          },
+          {
+            "id": "13",
+            "name": "Senegal"
+          }
+        ]
+      },
+      "parameters": {
+        "match_id": "976534"
+      },
+      "required_fields": [
+        "match_id",
+        "team_id"
+      ]
+    },
+    {
+      "category": "red",
+      "claim_id": "team_wins_by_3plus",
+      "claim_key": "976534:team_wins_by_3plus",
+      "description": "The selected team wins by at least 3 goals.",
+      "match_id": "976534",
+      "match_label": "England vs Senegal",
+      "parameter_options": {
+        "team_id": [
+          {
+            "id": "10",
+            "name": "England"
+          },
+          {
+            "id": "13",
+            "name": "Senegal"
+          }
+        ]
+      },
+      "parameters": {
+        "match_id": "976534"
+      },
+      "required_fields": [
+        "match_id",
+        "team_id"
+      ]
+    },
+    {
+      "category": "yellow",
+      "claim_id": "both_teams_score",
+      "claim_key": "977345:both_teams_score",
+      "description": "Both teams score at least once.",
+      "match_id": "977345",
+      "match_label": "Morocco vs Spain",
+      "parameters": {
+        "match_id": "977345"
+      },
+      "required_fields": [
+        "match_id"
+      ]
+    },
+    {
+      "category": "red",
+      "claim_id": "exact_score",
+      "claim_key": "977345:exact_score",
+      "description": "The selected match finishes with the submitted home and away score.",
+      "match_id": "977345",
+      "match_label": "Morocco vs Spain",
+      "parameter_options": {
+        "away_score": "non-negative integer",
+        "home_score": "non-negative integer"
+      },
+      "parameters": {
+        "match_id": "977345"
+      },
+      "required_fields": [
+        "match_id",
+        "home_score",
+        "away_score"
+      ]
+    },
+    {
+      "category": "green",
+      "claim_id": "goal_before_halftime",
+      "claim_key": "977345:goal_before_halftime",
+      "description": "At least one goal is scored before halftime.",
+      "match_id": "977345",
+      "match_label": "Morocco vs Spain",
+      "parameters": {
+        "match_id": "977345"
+      },
+      "required_fields": [
+        "match_id"
+      ]
+    },
+    {
+      "category": "green",
+      "claim_id": "match_2plus_cards",
+      "claim_key": "977345:match_2plus_cards",
+      "description": "The selected match has at least 2 card events.",
+      "match_id": "977345",
+      "match_label": "Morocco vs Spain",
+      "parameters": {
+        "match_id": "977345"
+      },
+      "required_fields": [
+        "match_id"
+      ]
+    },
+    {
+      "category": "green",
+      "claim_id": "match_2plus_goals",
+      "claim_key": "977345:match_2plus_goals",
+      "description": "The selected match finishes with at least 2 total goals.",
+      "match_id": "977345",
+      "match_label": "Morocco vs Spain",
+      "parameters": {
+        "match_id": "977345"
+      },
+      "required_fields": [
+        "match_id"
+      ]
+    },
+    {
+      "category": "yellow",
+      "claim_id": "match_2plus_yellow_cards",
+      "claim_key": "977345:match_2plus_yellow_cards",
+      "description": "The selected match has at least 2 yellow-card events.",
+      "match_id": "977345",
+      "match_label": "Morocco vs Spain",
+      "parameters": {
+        "match_id": "977345"
+      },
+      "required_fields": [
+        "match_id"
+      ]
+    },
+    {
+      "category": "red",
+      "claim_id": "match_goes_to_extra_time",
+      "claim_key": "977345:match_goes_to_extra_time",
+      "description": "The knockout match reaches extra time.",
+      "match_id": "977345",
+      "match_label": "Morocco vs Spain",
+      "parameters": {
+        "match_id": "977345"
+      },
+      "required_fields": [
+        "match_id"
+      ]
+    },
+    {
+      "category": "red",
+      "claim_id": "match_goes_to_penalties",
+      "claim_key": "977345:match_goes_to_penalties",
+      "description": "The knockout match reaches a penalty shootout.",
+      "match_id": "977345",
+      "match_label": "Morocco vs Spain",
+      "parameters": {
+        "match_id": "977345"
+      },
+      "required_fields": [
+        "match_id"
+      ]
+    },
+    {
+      "category": "yellow",
+      "claim_id": "match_over_2_5_goals",
+      "claim_key": "977345:match_over_2_5_goals",
+      "description": "The selected match finishes with 3 or more total goals.",
+      "match_id": "977345",
+      "match_label": "Morocco vs Spain",
+      "parameters": {
+        "match_id": "977345"
+      },
+      "required_fields": [
+        "match_id"
+      ]
+    },
+    {
+      "category": "green",
+      "claim_id": "no_goal_first_10",
+      "claim_key": "977345:no_goal_first_10",
+      "description": "No goal is scored from minute 1 through minute 10.",
+      "match_id": "977345",
+      "match_label": "Morocco vs Spain",
+      "parameters": {
+        "match_id": "977345"
+      },
+      "required_fields": [
+        "match_id"
+      ]
+    },
+    {
+      "category": "green",
+      "claim_id": "no_goal_stoppage_time",
+      "claim_key": "977345:no_goal_stoppage_time",
+      "description": "No goal is scored in first-half or second-half stoppage time.",
+      "match_id": "977345",
+      "match_label": "Morocco vs Spain",
+      "parameters": {
+        "match_id": "977345"
+      },
+      "required_fields": [
+        "match_id"
+      ]
+    },
+    {
+      "category": "yellow",
+      "claim_id": "player_scores",
+      "claim_key": "977345:player_scores",
+      "description": "The selected player scores at least one non-own goal.",
+      "match_id": "977345",
+      "match_label": "Morocco vs Spain",
+      "parameter_options": {
+        "player_id": {
+          "filter": {
+            "match_id": "977345"
+          },
+          "source_file": "players.json"
+        }
+      },
+      "parameters": {
+        "match_id": "977345"
+      },
+      "required_fields": [
+        "match_id",
+        "player_id"
+      ]
+    },
+    {
+      "category": "red",
+      "claim_id": "player_scores_2plus",
+      "claim_key": "977345:player_scores_2plus",
+      "description": "The selected player scores at least 2 non-own goals.",
+      "match_id": "977345",
+      "match_label": "Morocco vs Spain",
+      "parameter_options": {
+        "player_id": {
+          "filter": {
+            "match_id": "977345"
+          },
+          "source_file": "players.json"
+        }
+      },
+      "parameters": {
+        "match_id": "977345"
+      },
+      "required_fields": [
+        "match_id",
+        "player_id"
+      ]
+    },
+    {
+      "category": "red",
+      "claim_id": "red_card_shown",
+      "claim_key": "977345:red_card_shown",
+      "description": "At least one red-card or second-yellow-red event is shown.",
+      "match_id": "977345",
+      "match_label": "Morocco vs Spain",
+      "parameters": {
+        "match_id": "977345"
+      },
+      "required_fields": [
+        "match_id"
+      ]
+    },
+    {
+      "category": "red",
+      "claim_id": "team_comeback_win",
+      "claim_key": "977345:team_comeback_win",
+      "description": "The selected team concedes first and still wins the match.",
+      "match_id": "977345",
+      "match_label": "Morocco vs Spain",
+      "parameter_options": {
+        "team_id": [
+          {
+            "id": "31",
+            "name": "Morocco"
+          },
+          {
+            "id": "9",
+            "name": "Spain"
+          }
+        ]
+      },
+      "parameters": {
+        "match_id": "977345"
+      },
+      "required_fields": [
+        "match_id",
+        "team_id"
+      ]
+    },
+    {
+      "category": "yellow",
+      "claim_id": "team_scores_first",
+      "claim_key": "977345:team_scores_first",
+      "description": "The selected team scores the first countable goal.",
+      "match_id": "977345",
+      "match_label": "Morocco vs Spain",
+      "parameter_options": {
+        "team_id": [
+          {
+            "id": "31",
+            "name": "Morocco"
+          },
+          {
+            "id": "9",
+            "name": "Spain"
+          }
+        ]
+      },
+      "parameters": {
+        "match_id": "977345"
+      },
+      "required_fields": [
+        "match_id",
+        "team_id"
+      ]
+    },
+    {
+      "category": "red",
+      "claim_id": "team_wins_by_3plus",
+      "claim_key": "977345:team_wins_by_3plus",
+      "description": "The selected team wins by at least 3 goals.",
+      "match_id": "977345",
+      "match_label": "Morocco vs Spain",
+      "parameter_options": {
+        "team_id": [
+          {
+            "id": "31",
+            "name": "Morocco"
+          },
+          {
+            "id": "9",
+            "name": "Spain"
+          }
+        ]
+      },
+      "parameters": {
+        "match_id": "977345"
+      },
+      "required_fields": [
+        "match_id",
+        "team_id"
+      ]
+    },
+    {
+      "category": "yellow",
+      "claim_id": "both_teams_score",
+      "claim_key": "978088:both_teams_score",
+      "description": "Both teams score at least once.",
+      "match_id": "978088",
+      "match_label": "Morocco vs Portugal",
+      "parameters": {
+        "match_id": "978088"
+      },
+      "required_fields": [
+        "match_id"
+      ]
+    },
+    {
+      "category": "red",
+      "claim_id": "exact_score",
+      "claim_key": "978088:exact_score",
+      "description": "The selected match finishes with the submitted home and away score.",
+      "match_id": "978088",
+      "match_label": "Morocco vs Portugal",
+      "parameter_options": {
+        "away_score": "non-negative integer",
+        "home_score": "non-negative integer"
+      },
+      "parameters": {
+        "match_id": "978088"
+      },
+      "required_fields": [
+        "match_id",
+        "home_score",
+        "away_score"
+      ]
+    },
+    {
+      "category": "green",
+      "claim_id": "goal_before_halftime",
+      "claim_key": "978088:goal_before_halftime",
+      "description": "At least one goal is scored before halftime.",
+      "match_id": "978088",
+      "match_label": "Morocco vs Portugal",
+      "parameters": {
+        "match_id": "978088"
+      },
+      "required_fields": [
+        "match_id"
+      ]
+    },
+    {
+      "category": "green",
+      "claim_id": "match_2plus_cards",
+      "claim_key": "978088:match_2plus_cards",
+      "description": "The selected match has at least 2 card events.",
+      "match_id": "978088",
+      "match_label": "Morocco vs Portugal",
+      "parameters": {
+        "match_id": "978088"
+      },
+      "required_fields": [
+        "match_id"
+      ]
+    },
+    {
+      "category": "green",
+      "claim_id": "match_2plus_goals",
+      "claim_key": "978088:match_2plus_goals",
+      "description": "The selected match finishes with at least 2 total goals.",
+      "match_id": "978088",
+      "match_label": "Morocco vs Portugal",
+      "parameters": {
+        "match_id": "978088"
+      },
+      "required_fields": [
+        "match_id"
+      ]
+    },
+    {
+      "category": "yellow",
+      "claim_id": "match_2plus_yellow_cards",
+      "claim_key": "978088:match_2plus_yellow_cards",
+      "description": "The selected match has at least 2 yellow-card events.",
+      "match_id": "978088",
+      "match_label": "Morocco vs Portugal",
+      "parameters": {
+        "match_id": "978088"
+      },
+      "required_fields": [
+        "match_id"
+      ]
+    },
+    {
+      "category": "red",
+      "claim_id": "match_goes_to_extra_time",
+      "claim_key": "978088:match_goes_to_extra_time",
+      "description": "The knockout match reaches extra time.",
+      "match_id": "978088",
+      "match_label": "Morocco vs Portugal",
+      "parameters": {
+        "match_id": "978088"
+      },
+      "required_fields": [
+        "match_id"
+      ]
+    },
+    {
+      "category": "red",
+      "claim_id": "match_goes_to_penalties",
+      "claim_key": "978088:match_goes_to_penalties",
+      "description": "The knockout match reaches a penalty shootout.",
+      "match_id": "978088",
+      "match_label": "Morocco vs Portugal",
+      "parameters": {
+        "match_id": "978088"
+      },
+      "required_fields": [
+        "match_id"
+      ]
+    },
+    {
+      "category": "yellow",
+      "claim_id": "match_over_2_5_goals",
+      "claim_key": "978088:match_over_2_5_goals",
+      "description": "The selected match finishes with 3 or more total goals.",
+      "match_id": "978088",
+      "match_label": "Morocco vs Portugal",
+      "parameters": {
+        "match_id": "978088"
+      },
+      "required_fields": [
+        "match_id"
+      ]
+    },
+    {
+      "category": "green",
+      "claim_id": "no_goal_first_10",
+      "claim_key": "978088:no_goal_first_10",
+      "description": "No goal is scored from minute 1 through minute 10.",
+      "match_id": "978088",
+      "match_label": "Morocco vs Portugal",
+      "parameters": {
+        "match_id": "978088"
+      },
+      "required_fields": [
+        "match_id"
+      ]
+    },
+    {
+      "category": "green",
+      "claim_id": "no_goal_stoppage_time",
+      "claim_key": "978088:no_goal_stoppage_time",
+      "description": "No goal is scored in first-half or second-half stoppage time.",
+      "match_id": "978088",
+      "match_label": "Morocco vs Portugal",
+      "parameters": {
+        "match_id": "978088"
+      },
+      "required_fields": [
+        "match_id"
+      ]
+    },
+    {
+      "category": "yellow",
+      "claim_id": "player_scores",
+      "claim_key": "978088:player_scores",
+      "description": "The selected player scores at least one non-own goal.",
+      "match_id": "978088",
+      "match_label": "Morocco vs Portugal",
+      "parameter_options": {
+        "player_id": {
+          "filter": {
+            "match_id": "978088"
+          },
+          "source_file": "players.json"
+        }
+      },
+      "parameters": {
+        "match_id": "978088"
+      },
+      "required_fields": [
+        "match_id",
+        "player_id"
+      ]
+    },
+    {
+      "category": "red",
+      "claim_id": "player_scores_2plus",
+      "claim_key": "978088:player_scores_2plus",
+      "description": "The selected player scores at least 2 non-own goals.",
+      "match_id": "978088",
+      "match_label": "Morocco vs Portugal",
+      "parameter_options": {
+        "player_id": {
+          "filter": {
+            "match_id": "978088"
+          },
+          "source_file": "players.json"
+        }
+      },
+      "parameters": {
+        "match_id": "978088"
+      },
+      "required_fields": [
+        "match_id",
+        "player_id"
+      ]
+    },
+    {
+      "category": "red",
+      "claim_id": "red_card_shown",
+      "claim_key": "978088:red_card_shown",
+      "description": "At least one red-card or second-yellow-red event is shown.",
+      "match_id": "978088",
+      "match_label": "Morocco vs Portugal",
+      "parameters": {
+        "match_id": "978088"
+      },
+      "required_fields": [
+        "match_id"
+      ]
+    },
+    {
+      "category": "red",
+      "claim_id": "team_comeback_win",
+      "claim_key": "978088:team_comeback_win",
+      "description": "The selected team concedes first and still wins the match.",
+      "match_id": "978088",
+      "match_label": "Morocco vs Portugal",
+      "parameter_options": {
+        "team_id": [
+          {
+            "id": "31",
+            "name": "Morocco"
+          },
+          {
+            "id": "27",
+            "name": "Portugal"
+          }
+        ]
+      },
+      "parameters": {
+        "match_id": "978088"
+      },
+      "required_fields": [
+        "match_id",
+        "team_id"
+      ]
+    },
+    {
+      "category": "yellow",
+      "claim_id": "team_scores_first",
+      "claim_key": "978088:team_scores_first",
+      "description": "The selected team scores the first countable goal.",
+      "match_id": "978088",
+      "match_label": "Morocco vs Portugal",
+      "parameter_options": {
+        "team_id": [
+          {
+            "id": "31",
+            "name": "Morocco"
+          },
+          {
+            "id": "27",
+            "name": "Portugal"
+          }
+        ]
+      },
+      "parameters": {
+        "match_id": "978088"
+      },
+      "required_fields": [
+        "match_id",
+        "team_id"
+      ]
+    },
+    {
+      "category": "red",
+      "claim_id": "team_wins_by_3plus",
+      "claim_key": "978088:team_wins_by_3plus",
+      "description": "The selected team wins by at least 3 goals.",
+      "match_id": "978088",
+      "match_label": "Morocco vs Portugal",
+      "parameter_options": {
+        "team_id": [
+          {
+            "id": "31",
+            "name": "Morocco"
+          },
+          {
+            "id": "27",
+            "name": "Portugal"
+          }
+        ]
+      },
+      "parameters": {
+        "match_id": "978088"
+      },
+      "required_fields": [
+        "match_id",
+        "team_id"
+      ]
+    },
+    {
+      "category": "yellow",
+      "claim_id": "both_teams_score",
+      "claim_key": "979139:both_teams_score",
+      "description": "Both teams score at least once.",
+      "match_id": "979139",
+      "match_label": "Argentina vs France",
+      "parameters": {
+        "match_id": "979139"
+      },
+      "required_fields": [
+        "match_id"
+      ]
+    },
+    {
+      "category": "red",
+      "claim_id": "exact_score",
+      "claim_key": "979139:exact_score",
+      "description": "The selected match finishes with the submitted home and away score.",
+      "match_id": "979139",
+      "match_label": "Argentina vs France",
+      "parameter_options": {
+        "away_score": "non-negative integer",
+        "home_score": "non-negative integer"
+      },
+      "parameters": {
+        "match_id": "979139"
+      },
+      "required_fields": [
+        "match_id",
+        "home_score",
+        "away_score"
+      ]
+    },
+    {
+      "category": "green",
+      "claim_id": "goal_before_halftime",
+      "claim_key": "979139:goal_before_halftime",
+      "description": "At least one goal is scored before halftime.",
+      "match_id": "979139",
+      "match_label": "Argentina vs France",
+      "parameters": {
+        "match_id": "979139"
+      },
+      "required_fields": [
+        "match_id"
+      ]
+    },
+    {
+      "category": "green",
+      "claim_id": "match_2plus_cards",
+      "claim_key": "979139:match_2plus_cards",
+      "description": "The selected match has at least 2 card events.",
+      "match_id": "979139",
+      "match_label": "Argentina vs France",
+      "parameters": {
+        "match_id": "979139"
+      },
+      "required_fields": [
+        "match_id"
+      ]
+    },
+    {
+      "category": "green",
+      "claim_id": "match_2plus_goals",
+      "claim_key": "979139:match_2plus_goals",
+      "description": "The selected match finishes with at least 2 total goals.",
+      "match_id": "979139",
+      "match_label": "Argentina vs France",
+      "parameters": {
+        "match_id": "979139"
+      },
+      "required_fields": [
+        "match_id"
+      ]
+    },
+    {
+      "category": "yellow",
+      "claim_id": "match_2plus_yellow_cards",
+      "claim_key": "979139:match_2plus_yellow_cards",
+      "description": "The selected match has at least 2 yellow-card events.",
+      "match_id": "979139",
+      "match_label": "Argentina vs France",
+      "parameters": {
+        "match_id": "979139"
+      },
+      "required_fields": [
+        "match_id"
+      ]
+    },
+    {
+      "category": "red",
+      "claim_id": "match_goes_to_extra_time",
+      "claim_key": "979139:match_goes_to_extra_time",
+      "description": "The knockout match reaches extra time.",
+      "match_id": "979139",
+      "match_label": "Argentina vs France",
+      "parameters": {
+        "match_id": "979139"
+      },
+      "required_fields": [
+        "match_id"
+      ]
+    },
+    {
+      "category": "red",
+      "claim_id": "match_goes_to_penalties",
+      "claim_key": "979139:match_goes_to_penalties",
+      "description": "The knockout match reaches a penalty shootout.",
+      "match_id": "979139",
+      "match_label": "Argentina vs France",
+      "parameters": {
+        "match_id": "979139"
+      },
+      "required_fields": [
+        "match_id"
+      ]
+    },
+    {
+      "category": "yellow",
+      "claim_id": "match_over_2_5_goals",
+      "claim_key": "979139:match_over_2_5_goals",
+      "description": "The selected match finishes with 3 or more total goals.",
+      "match_id": "979139",
+      "match_label": "Argentina vs France",
+      "parameters": {
+        "match_id": "979139"
+      },
+      "required_fields": [
+        "match_id"
+      ]
+    },
+    {
+      "category": "green",
+      "claim_id": "no_goal_first_10",
+      "claim_key": "979139:no_goal_first_10",
+      "description": "No goal is scored from minute 1 through minute 10.",
+      "match_id": "979139",
+      "match_label": "Argentina vs France",
+      "parameters": {
+        "match_id": "979139"
+      },
+      "required_fields": [
+        "match_id"
+      ]
+    },
+    {
+      "category": "green",
+      "claim_id": "no_goal_stoppage_time",
+      "claim_key": "979139:no_goal_stoppage_time",
+      "description": "No goal is scored in first-half or second-half stoppage time.",
+      "match_id": "979139",
+      "match_label": "Argentina vs France",
+      "parameters": {
+        "match_id": "979139"
+      },
+      "required_fields": [
+        "match_id"
+      ]
+    },
+    {
+      "category": "yellow",
+      "claim_id": "player_scores",
+      "claim_key": "979139:player_scores",
+      "description": "The selected player scores at least one non-own goal.",
+      "match_id": "979139",
+      "match_label": "Argentina vs France",
+      "parameter_options": {
+        "player_id": {
+          "filter": {
+            "match_id": "979139"
+          },
+          "source_file": "players.json"
+        }
+      },
+      "parameters": {
+        "match_id": "979139"
+      },
+      "required_fields": [
+        "match_id",
+        "player_id"
+      ]
+    },
+    {
+      "category": "red",
+      "claim_id": "player_scores_2plus",
+      "claim_key": "979139:player_scores_2plus",
+      "description": "The selected player scores at least 2 non-own goals.",
+      "match_id": "979139",
+      "match_label": "Argentina vs France",
+      "parameter_options": {
+        "player_id": {
+          "filter": {
+            "match_id": "979139"
+          },
+          "source_file": "players.json"
+        }
+      },
+      "parameters": {
+        "match_id": "979139"
+      },
+      "required_fields": [
+        "match_id",
+        "player_id"
+      ]
+    },
+    {
+      "category": "red",
+      "claim_id": "red_card_shown",
+      "claim_key": "979139:red_card_shown",
+      "description": "At least one red-card or second-yellow-red event is shown.",
+      "match_id": "979139",
+      "match_label": "Argentina vs France",
+      "parameters": {
+        "match_id": "979139"
+      },
+      "required_fields": [
+        "match_id"
+      ]
+    },
+    {
+      "category": "red",
+      "claim_id": "team_comeback_win",
+      "claim_key": "979139:team_comeback_win",
+      "description": "The selected team concedes first and still wins the match.",
+      "match_id": "979139",
+      "match_label": "Argentina vs France",
+      "parameter_options": {
+        "team_id": [
+          {
+            "id": "26",
+            "name": "Argentina"
+          },
+          {
+            "id": "2",
+            "name": "France"
+          }
+        ]
+      },
+      "parameters": {
+        "match_id": "979139"
+      },
+      "required_fields": [
+        "match_id",
+        "team_id"
+      ]
+    },
+    {
+      "category": "yellow",
+      "claim_id": "team_scores_first",
+      "claim_key": "979139:team_scores_first",
+      "description": "The selected team scores the first countable goal.",
+      "match_id": "979139",
+      "match_label": "Argentina vs France",
+      "parameter_options": {
+        "team_id": [
+          {
+            "id": "26",
+            "name": "Argentina"
+          },
+          {
+            "id": "2",
+            "name": "France"
+          }
+        ]
+      },
+      "parameters": {
+        "match_id": "979139"
+      },
+      "required_fields": [
+        "match_id",
+        "team_id"
+      ]
+    },
+    {
+      "category": "red",
+      "claim_id": "team_wins_by_3plus",
+      "claim_key": "979139:team_wins_by_3plus",
+      "description": "The selected team wins by at least 3 goals.",
+      "match_id": "979139",
+      "match_label": "Argentina vs France",
+      "parameter_options": {
+        "team_id": [
+          {
+            "id": "26",
+            "name": "Argentina"
+          },
+          {
+            "id": "2",
+            "name": "France"
+          }
+        ]
+      },
+      "parameters": {
+        "match_id": "979139"
+      },
+      "required_fields": [
+        "match_id",
+        "team_id"
+      ]
+    }
+  ],
+  "claim_types": [
+    {
+      "api_status": "supported",
+      "category": "yellow",
+      "claim_id": "both_teams_score",
+      "description": "Both teams score at least once.",
+      "required_fields": [
+        "match_id"
+      ]
+    },
+    {
+      "api_status": "supported",
+      "category": "red",
+      "claim_id": "exact_score",
+      "description": "The selected match finishes with the submitted home and away score.",
+      "required_fields": [
+        "match_id",
+        "home_score",
+        "away_score"
+      ]
+    },
+    {
+      "api_status": "supported",
+      "category": "green",
+      "claim_id": "goal_before_halftime",
+      "description": "At least one goal is scored before halftime.",
+      "required_fields": [
+        "match_id"
+      ]
+    },
+    {
+      "api_status": "supported",
+      "category": "green",
+      "claim_id": "match_2plus_cards",
+      "description": "The selected match has at least 2 card events.",
+      "required_fields": [
+        "match_id"
+      ]
+    },
+    {
+      "api_status": "supported",
+      "category": "green",
+      "claim_id": "match_2plus_goals",
+      "description": "The selected match finishes with at least 2 total goals.",
+      "required_fields": [
+        "match_id"
+      ]
+    },
+    {
+      "api_status": "supported",
+      "category": "yellow",
+      "claim_id": "match_2plus_yellow_cards",
+      "description": "The selected match has at least 2 yellow-card events.",
+      "required_fields": [
+        "match_id"
+      ]
+    },
+    {
+      "api_status": "supported_knockout_only",
+      "category": "red",
+      "claim_id": "match_goes_to_extra_time",
+      "description": "The knockout match reaches extra time.",
+      "required_fields": [
+        "match_id"
+      ]
+    },
+    {
+      "api_status": "supported_knockout_only",
+      "category": "red",
+      "claim_id": "match_goes_to_penalties",
+      "description": "The knockout match reaches a penalty shootout.",
+      "required_fields": [
+        "match_id"
+      ]
+    },
+    {
+      "api_status": "supported",
+      "category": "yellow",
+      "claim_id": "match_over_2_5_goals",
+      "description": "The selected match finishes with 3 or more total goals.",
+      "required_fields": [
+        "match_id"
+      ]
+    },
+    {
+      "api_status": "supported",
+      "category": "green",
+      "claim_id": "no_goal_first_10",
+      "description": "No goal is scored from minute 1 through minute 10.",
+      "required_fields": [
+        "match_id"
+      ]
+    },
+    {
+      "api_status": "supported",
+      "category": "green",
+      "claim_id": "no_goal_stoppage_time",
+      "description": "No goal is scored in first-half or second-half stoppage time.",
+      "required_fields": [
+        "match_id"
+      ]
+    },
+    {
+      "api_status": "supported",
+      "category": "yellow",
+      "claim_id": "player_scores",
+      "description": "The selected player scores at least one non-own goal.",
+      "required_fields": [
+        "match_id",
+        "player_id"
+      ]
+    },
+    {
+      "api_status": "supported",
+      "category": "red",
+      "claim_id": "player_scores_2plus",
+      "description": "The selected player scores at least 2 non-own goals.",
+      "required_fields": [
+        "match_id",
+        "player_id"
+      ]
+    },
+    {
+      "api_status": "supported",
+      "category": "red",
+      "claim_id": "red_card_shown",
+      "description": "At least one red-card or second-yellow-red event is shown.",
+      "required_fields": [
+        "match_id"
+      ]
+    },
+    {
+      "api_status": "supported",
+      "category": "red",
+      "claim_id": "team_comeback_win",
+      "description": "The selected team concedes first and still wins the match.",
+      "required_fields": [
+        "match_id",
+        "team_id"
+      ]
+    },
+    {
+      "api_status": "supported",
+      "category": "yellow",
+      "claim_id": "team_scores_first",
+      "description": "The selected team scores the first countable goal.",
+      "required_fields": [
+        "match_id",
+        "team_id"
+      ]
+    },
+    {
+      "api_status": "supported",
+      "category": "red",
+      "claim_id": "team_wins_by_3plus",
+      "description": "The selected team wins by at least 3 goals.",
+      "required_fields": [
+        "match_id",
+        "team_id"
+      ]
+    }
+  ],
+  "matchday_id": "truth-test-world-cup-2022",
+  "schema_version": "fantasy-cup-public-context-v1",
+  "stake_rules": {
+    "green": "15% of the team's points before the matchday",
+    "red": "35% of the team's points before the matchday",
+    "yellow": "25% of the team's points before the matchday"
+  }
+}

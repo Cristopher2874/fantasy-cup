@@ -1,0 +1,128 @@
+[
+  {
+    "id": "26",
+    "matches": [
+      {
+        "match_id": "979139",
+        "opponent": "France",
+        "opponent_team_id": "2",
+        "side": "home"
+      }
+    ],
+    "name": "Argentina"
+  },
+  {
+    "id": "5529",
+    "matches": [
+      {
+        "match_id": "855767",
+        "opponent": "Morocco",
+        "opponent_team_id": "31",
+        "side": "home"
+      }
+    ],
+    "name": "Canada"
+  },
+  {
+    "id": "10",
+    "matches": [
+      {
+        "match_id": "855735",
+        "opponent": "Iran",
+        "opponent_team_id": "22",
+        "side": "home"
+      },
+      {
+        "match_id": "976534",
+        "opponent": "Senegal",
+        "opponent_team_id": "13",
+        "side": "home"
+      }
+    ],
+    "name": "England"
+  },
+  {
+    "id": "2",
+    "matches": [
+      {
+        "match_id": "979139",
+        "opponent": "Argentina",
+        "opponent_team_id": "26",
+        "side": "away"
+      }
+    ],
+    "name": "France"
+  },
+  {
+    "id": "22",
+    "matches": [
+      {
+        "match_id": "855735",
+        "opponent": "England",
+        "opponent_team_id": "10",
+        "side": "away"
+      }
+    ],
+    "name": "Iran"
+  },
+  {
+    "id": "31",
+    "matches": [
+      {
+        "match_id": "855767",
+        "opponent": "Canada",
+        "opponent_team_id": "5529",
+        "side": "away"
+      },
+      {
+        "match_id": "977345",
+        "opponent": "Spain",
+        "opponent_team_id": "9",
+        "side": "home"
+      },
+      {
+        "match_id": "978088",
+        "opponent": "Portugal",
+        "opponent_team_id": "27",
+        "side": "home"
+      }
+    ],
+    "name": "Morocco"
+  },
+  {
+    "id": "27",
+    "matches": [
+      {
+        "match_id": "978088",
+        "opponent": "Morocco",
+        "opponent_team_id": "31",
+        "side": "away"
+      }
+    ],
+    "name": "Portugal"
+  },
+  {
+    "id": "13",
+    "matches": [
+      {
+        "match_id": "976534",
+        "opponent": "England",
+        "opponent_team_id": "10",
+        "side": "away"
+      }
+    ],
+    "name": "Senegal"
+  },
+  {
+    "id": "9",
+    "matches": [
+      {
+        "match_id": "977345",
+        "opponent": "Morocco",
+        "opponent_team_id": "31",
+        "side": "away"
+      }
+    ],
+    "name": "Spain"
+  }
+]

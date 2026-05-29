@@ -1,0 +1,98 @@
+[
+  {
+    "away_team": {
+      "id": "22",
+      "name": "Iran"
+    },
+    "home_team": {
+      "id": "10",
+      "name": "England"
+    },
+    "id": "855735",
+    "kickoff": "2022-11-21T13:00:00+00:00",
+    "provider": "api-football",
+    "provider_fixture_id": "855735",
+    "round": "Group Stage - 1",
+    "stage": "league"
+  },
+  {
+    "away_team": {
+      "id": "31",
+      "name": "Morocco"
+    },
+    "home_team": {
+      "id": "5529",
+      "name": "Canada"
+    },
+    "id": "855767",
+    "kickoff": "2022-12-01T15:00:00+00:00",
+    "provider": "api-football",
+    "provider_fixture_id": "855767",
+    "round": "Group Stage - 3",
+    "stage": "league"
+  },
+  {
+    "away_team": {
+      "id": "13",
+      "name": "Senegal"
+    },
+    "home_team": {
+      "id": "10",
+      "name": "England"
+    },
+    "id": "976534",
+    "kickoff": "2022-12-04T19:00:00+00:00",
+    "provider": "api-football",
+    "provider_fixture_id": "976534",
+    "round": "Round of 16",
+    "stage": "knockout"
+  },
+  {
+    "away_team": {
+      "id": "9",
+      "name": "Spain"
+    },
+    "home_team": {
+      "id": "31",
+      "name": "Morocco"
+    },
+    "id": "977345",
+    "kickoff": "2022-12-06T15:00:00+00:00",
+    "provider": "api-football",
+    "provider_fixture_id": "977345",
+    "round": "Round of 16",
+    "stage": "knockout"
+  },
+  {
+    "away_team": {
+      "id": "27",
+      "name": "Portugal"
+    },
+    "home_team": {
+      "id": "31",
+      "name": "Morocco"
+    },
+    "id": "978088",
+    "kickoff": "2022-12-10T15:00:00+00:00",
+    "provider": "api-football",
+    "provider_fixture_id": "978088",
+    "round": "Quarter-finals",
+    "stage": "knockout"
+  },
+  {
+    "away_team": {
+      "id": "2",
+      "name": "France"
+    },
+    "home_team": {
+      "id": "26",
+      "name": "Argentina"
+    },
+    "id": "979139",
+    "kickoff": "2022-12-18T15:00:00+00:00",
+    "provider": "api-football",
+    "provider_fixture_id": "979139",
+    "round": "Final",
+    "stage": "knockout"
+  }
+]

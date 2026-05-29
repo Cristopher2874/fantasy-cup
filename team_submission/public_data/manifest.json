@@ -1,0 +1,29 @@
+{
+  "files": {
+    "answer_template": "answer_template.json",
+    "catalog": "public_data_catalog.md",
+    "matchday": "matchday.json",
+    "matches": "matches.json",
+    "players": "players.json",
+    "risk_claims": "risk_claims.json",
+    "teams": "teams.json"
+  },
+  "generated_at": "2026-05-29T16:02:03Z",
+  "matchday_id": "truth-test-world-cup-2022",
+  "redaction": "Public files omit post-match outcomes and scoring truth.",
+  "schema_version": "fantasy-cup-public-context-v1",
+  "source": {
+    "fixture_ids": [
+      "855735",
+      "855767",
+      "976534",
+      "977345",
+      "978088",
+      "979139"
+    ],
+    "league_id": "1",
+    "provider": "api-football",
+    "season": "2022",
+    "source_mode": "fixture_ids"
+  }
+}

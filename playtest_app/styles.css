@@ -169,6 +169,7 @@ h2 {
 .selected-panel,
 .player-panel,
 .risk-panel,
+.rules-panel,
 .json-panel,
 .results-panel,
 .leaderboard-panel {
@@ -180,6 +181,7 @@ h2 {
 
 .selected-panel,
 .risk-panel,
+.rules-panel,
 .json-panel,
 .results-panel,
 .leaderboard-panel {
@@ -188,6 +190,35 @@ h2 {
 
 .player-panel {
   padding: 14px;
+}
+
+.rules-panel {
+  margin-top: 16px;
+}
+
+.rules-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 8px;
+}
+
+.rule-chip {
+  display: flex;
+  min-height: 42px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 8px 10px;
+  background: var(--green-soft);
+  color: var(--teal-dark);
+  font-size: 0.85rem;
+}
+
+.rule-chip.negative {
+  background: var(--red-soft);
+  color: #8c2c22;
 }
 
 .panel-heading {
@@ -393,6 +424,85 @@ pre {
 .score-card strong {
   display: block;
   margin-bottom: 4px;
+}
+
+.mini-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px;
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.points-positive {
+  color: var(--teal-dark);
+}
+
+.points-negative {
+  color: var(--coral);
+}
+
+.score-card-wide {
+  background: #fffefa;
+}
+
+.player-breakdown {
+  display: grid;
+  gap: 8px;
+  max-height: 520px;
+  overflow: auto;
+  margin-top: 10px;
+  padding-right: 4px;
+}
+
+.breakdown-player {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 10px;
+  background: var(--surface);
+}
+
+.breakdown-player-head {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.breakdown-player-head strong {
+  margin-bottom: 0;
+}
+
+.breakdown-player-head span {
+  display: block;
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.breakdown-list {
+  display: grid;
+  gap: 5px;
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.breakdown-line {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  border-top: 1px solid #ece4d5;
+  padding-top: 5px;
+  font-size: 0.82rem;
+}
+
+.breakdown-line strong {
+  display: inline;
+  margin-bottom: 0;
 }
 
 table {

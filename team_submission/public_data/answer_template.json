@@ -1,0 +1,44 @@
+{
+  "answers": {
+    "fantasy_xi": [
+      {
+        "record_id": "replace-with-player-record-id-1"
+      },
+      {
+        "record_id": "replace-with-player-record-id-2"
+      },
+      {
+        "record_id": "replace-with-player-record-id-3"
+      },
+      {
+        "record_id": "replace-with-player-record-id-4"
+      },
+      {
+        "record_id": "replace-with-player-record-id-5"
+      },
+      {
+        "record_id": "replace-with-player-record-id-6"
+      },
+      {
+        "record_id": "replace-with-player-record-id-7"
+      },
+      {
+        "record_id": "replace-with-player-record-id-8"
+      },
+      {
+        "record_id": "replace-with-player-record-id-9"
+      },
+      {
+        "record_id": "replace-with-player-record-id-10"
+      },
+      {
+        "record_id": "replace-with-player-record-id-11"
+      }
+    ],
+    "risk_play": null,
+    "strategy_summary": "One short paragraph explaining the picks."
+  },
+  "matchday_id": "truth-test-world-cup-2022",
+  "team_id": "replace-with-team-id",
+  "team_name": "Replace With Team Name"
+}

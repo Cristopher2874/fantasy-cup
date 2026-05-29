@@ -1,0 +1,70 @@
+{
+  "competition": {
+    "league_id": "1",
+    "provider": "api-football",
+    "season": "2022"
+  },
+  "fantasy_xi_rules": {
+    "positions": {
+      "DEF": {
+        "label": "Defender",
+        "max": 5,
+        "min": 3
+      },
+      "FWD": {
+        "label": "Forward",
+        "max": 3,
+        "min": 1
+      },
+      "GK": {
+        "label": "Goalkeeper",
+        "max": 1,
+        "min": 1
+      },
+      "MID": {
+        "label": "Midfielder",
+        "max": 5,
+        "min": 3
+      }
+    },
+    "selection_count": 11,
+    "selection_id": "Use players[].record_id from players.json."
+  },
+  "fixture_ids": [
+    "855735",
+    "855767",
+    "976534",
+    "977345",
+    "978088",
+    "979139"
+  ],
+  "generated_at": "2026-05-29T16:02:03Z",
+  "hidden_until_scoring": [
+    "fixture status and final score",
+    "lineups and starters",
+    "event timeline",
+    "player minutes",
+    "goals, assists, cards, saves, own goals, and clean-sheet truth",
+    "fantasy points and point breakdowns",
+    "risk claim outcomes and evidence"
+  ],
+  "matchday_id": "truth-test-world-cup-2022",
+  "point_rules": {
+    "assist": 4,
+    "clean_sheet": 4,
+    "goal": 6,
+    "goalkeeper_saves": 2,
+    "own_goal": -3,
+    "plays_60": 2,
+    "red_card": -3,
+    "starts": 2,
+    "yellow_card": -1
+  },
+  "public_run_mode": "historical fixtures redacted as pre-match context",
+  "risk_play_rules": {
+    "claim_source": "risk_claims.json",
+    "optional": true,
+    "select_at_most": 1
+  },
+  "schema_version": "fantasy-cup-public-context-v1"
+}

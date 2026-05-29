@@ -1,0 +1,115 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fantasy-cup.local/schemas/team_submission.schema.json",
+  "title": "Fantasy Cup Team Submission",
+  "type": "object",
+  "required": ["team_id", "team_name", "matchday_id", "answers"],
+  "additionalProperties": false,
+  "properties": {
+    "team_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "team_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "matchday_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "answers": {
+      "type": "object",
+      "required": ["fantasy_xi", "risk_play", "strategy_summary"],
+      "additionalProperties": false,
+      "properties": {
+        "fantasy_xi": {
+          "type": "array",
+          "minItems": 11,
+          "maxItems": 11,
+          "items": {
+            "oneOf": [
+              {
+                "type": "string",
+                "pattern": "^[0-9]+:[0-9]+$"
+              },
+              {
+                "type": "object",
+                "required": ["record_id"],
+                "additionalProperties": false,
+                "properties": {
+                  "record_id": {
+                    "type": "string",
+                    "pattern": "^[0-9]+:[0-9]+$"
+                  }
+                }
+              },
+              {
+                "type": "object",
+                "required": ["match_id", "player_id"],
+                "additionalProperties": false,
+                "properties": {
+                  "match_id": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "player_id": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "risk_play": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "object",
+              "required": ["claim_id", "match_id"],
+              "additionalProperties": true,
+              "properties": {
+                "claim_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "match_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "category": {
+                  "type": "string",
+                  "enum": ["green", "yellow", "red"]
+                },
+                "team_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "player_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "home_score": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "away_score": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              }
+            }
+          ]
+        },
+        "strategy_summary": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1200
+        }
+      }
+    }
+  }
+}

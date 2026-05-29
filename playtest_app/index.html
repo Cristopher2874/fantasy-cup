@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Fantasy Cup Playtest</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=20260528-rules" />
   </head>
   <body>
     <main class="shell">
@@ -29,6 +29,14 @@
           <input id="team-id" type="text" autocomplete="off" />
         </label>
         <div class="baseline-note">Starting points: 100</div>
+      </section>
+
+      <section class="rules-panel" aria-label="Scoring rules">
+        <div class="panel-heading">
+          <h2>Player Point Rules</h2>
+          <span>Shown before picks; exact player results appear after submit</span>
+        </div>
+        <div id="rules-list" class="rules-grid"></div>
       </section>
 
       <section class="workspace">
@@ -130,6 +138,6 @@
       </section>
     </main>
 
-    <script src="app.js"></script>
+    <script src="app.js?v=20260528-rules"></script>
   </body>
 </html>

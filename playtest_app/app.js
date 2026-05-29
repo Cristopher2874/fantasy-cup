@@ -6,6 +6,28 @@
     MID: [3, 5],
     FWD: [1, 3],
   };
+  const POINT_RULE_LABELS = {
+    starts: "Started",
+    plays_60: "Played 60+",
+    goal: "Goal",
+    assist: "Assist",
+    clean_sheet: "Clean sheet",
+    goalkeeper_saves: "GK 3+ saves",
+    yellow_card: "Yellow card",
+    red_card: "Red card",
+    own_goal: "Own goal",
+  };
+  const POINT_RULE_ORDER = [
+    "starts",
+    "plays_60",
+    "goal",
+    "assist",
+    "clean_sheet",
+    "goalkeeper_saves",
+    "yellow_card",
+    "red_card",
+    "own_goal",
+  ];
 
   const dom = {
     fixtureCount: document.getElementById("fixture-count"),
@@ -32,6 +54,7 @@
     saveStatus: document.getElementById("save-status"),
     scoreResult: document.getElementById("score-result"),
     leaderboardBody: document.getElementById("leaderboard-body"),
+    rulesList: document.getElementById("rules-list"),
   };
 
   let state = null;
@@ -399,20 +422,34 @@
     }
     const fantasyErrors = result.fantasy.errors || [];
     const riskErrorsList = result.risk.errors || [];
+    const fantasyTotals = fantasyBreakdownTotals(result.fantasy.players);
+    const riskPoints = Number(result.risk_points || 0);
     dom.scoreResult.innerHTML = `
       <div class="score-card">
         <strong>Fantasy XI</strong>
-        <span>${formatPoints(result.fantasy_points)} points</span>
+        <span>${formatPoints(result.fantasy_points)} net points</span>
+        <div class="mini-grid">
+          <span>Earned ${signedPoints(fantasyTotals.earned)}</span>
+          <span>Lost ${signedPoints(fantasyTotals.lost)}</span>
+        </div>
         ${fantasyErrors.length ? `<p class="muted">${escapeHtml(fantasyErrors[0])}</p>` : ""}
       </div>
       <div class="score-card">
         <strong>Risk Play</strong>
-        <span>${escapeHtml(result.risk.outcome)} | ${signedPoints(result.risk_points)}</span>
+        <span>${escapeHtml(result.risk.outcome)} | <span class="${pointClass(riskPoints)}">${signedPoints(riskPoints)}</span></span>
+        <div class="mini-grid">
+          <span>Category ${escapeHtml(result.risk.category || "none")}</span>
+          <span>Stake ${formatPoints(result.risk.stake || 0)}</span>
+        </div>
         ${riskErrorsList.length ? `<p class="muted">${escapeHtml(riskErrorsList[0])}</p>` : ""}
       </div>
       <div class="score-card">
         <strong>Total</strong>
         <span>${formatPoints(result.previous_total_points)} to ${formatPoints(result.new_total_points)}</span>
+      </div>
+      <div class="score-card score-card-wide">
+        <strong>Player Breakdown</strong>
+        ${renderPlayerBreakdown(result.fantasy.players)}
       </div>
     `;
   }
@@ -426,6 +463,86 @@
     const number = Number(value || 0);
     const text = formatPoints(number);
     return number > 0 ? `+${text}` : text;
+  }
+
+  function pointClass(value) {
+    return Number(value || 0) < 0 ? "points-negative" : "points-positive";
+  }
+
+  function renderPointRules() {
+    const rules = state.truth.point_rules || {};
+    dom.rulesList.innerHTML = POINT_RULE_ORDER.filter((key) => rules[key] !== undefined)
+      .map((key) => {
+        const value = Number(rules[key] || 0);
+        return `
+          <div class="rule-chip ${value < 0 ? "negative" : ""}">
+            <span>${escapeHtml(POINT_RULE_LABELS[key] || claimLabel(key))}</span>
+            <strong>${signedPoints(value)}</strong>
+          </div>
+        `;
+      })
+      .join("");
+  }
+
+  function fantasyBreakdownTotals(players) {
+    return (players || []).reduce(
+      (totals, player) => {
+        (player.breakdown || []).forEach((item) => {
+          const points = Number(item.points || 0);
+          if (points >= 0) {
+            totals.earned += points;
+          } else {
+            totals.lost += points;
+          }
+        });
+        return totals;
+      },
+      { earned: 0, lost: 0 }
+    );
+  }
+
+  function renderBreakdownItem(item) {
+    const points = Number(item.points || 0);
+    return `
+      <li class="breakdown-line">
+        <span>${escapeHtml(item.label)}</span>
+        <strong class="${pointClass(points)}">${signedPoints(points)}</strong>
+      </li>
+    `;
+  }
+
+  function renderPlayerBreakdown(players) {
+    if (!players || !players.length) {
+      return '<p class="muted">No player details available.</p>';
+    }
+
+    return `
+      <div class="player-breakdown">
+        ${players
+          .map((player) => {
+            const breakdown = player.breakdown || [];
+            return `
+              <article class="breakdown-player">
+                <div class="breakdown-player-head">
+                  <div>
+                    <strong>${escapeHtml(player.name)}</strong>
+                    <span>${escapeHtml(player.position)} | ${escapeHtml(player.team)}</span>
+                  </div>
+                  <strong class="${pointClass(player.points)}">${signedPoints(player.points)}</strong>
+                </div>
+                <ul class="breakdown-list">
+                  ${
+                    breakdown.length
+                      ? breakdown.map(renderBreakdownItem).join("")
+                      : '<li class="breakdown-line muted"><span>No scoring events</span><strong>0</strong></li>'
+                  }
+                </ul>
+              </article>
+            `;
+          })
+          .join("")}
+      </div>
+    `;
   }
 
   function updatePreview() {
@@ -558,6 +675,7 @@
     dom.fixtureCount.textContent = `${state.truth.matches.length} matches`;
     dom.playerCount.textContent = `${state.truth.players.length} players`;
 
+    renderPointRules();
     renderMatchOptions();
     renderRiskClaimOptions();
     renderRiskFields();
