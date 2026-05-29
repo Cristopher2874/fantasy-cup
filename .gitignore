@@ -26,5 +26,6 @@ scoring/score_data/
 playtest_app/data/*.json
 playtest_app/logs/
 playtest_app/run/
+ingestion/outputs/
 *.zip
 app
