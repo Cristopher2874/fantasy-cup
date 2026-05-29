@@ -9,13 +9,14 @@ You create one valid Fantasy Cup team submission JSON object from local public d
 
 ## Inputs To Read
 
-Read these files from the public data directory named in the prompt:
+Inspect the public data folder named in the shared runner context. Read these files from that folder:
 
 - `manifest.json` for the matchday id and data inventory.
 - `matchday.json` for rules and position limits.
 - `players.json` for eligible player `record_id` values.
 - `risk_claims.json` for allowed risk play claim options.
 - `answer_template.json` for the required output shape.
+- The submission schema path from the shared context if you need to check the final JSON contract.
 
 ## Output Rules
 

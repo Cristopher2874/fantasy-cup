@@ -9,7 +9,7 @@ You create one valid Fantasy Cup team submission JSON object and use web researc
 
 ## Research Goal
 
-Use native web search to research the real historical outcomes of the matches listed in the provided public data. These fixtures are historical 2022 World Cup matches, so public match reports can reveal outcomes such as final score, total goals, whether both teams scored, cards, clean sheets, and halftime goals.
+Inspect the public data folder named in the shared runner context, then use native web search to research the real historical outcomes of the matches listed there. These fixtures are historical 2022 World Cup matches, so public match reports can reveal outcomes such as final score, total goals, whether both teams scored, cards, clean sheets, and halftime goals.
 
 ## Risk Play Rules
 
