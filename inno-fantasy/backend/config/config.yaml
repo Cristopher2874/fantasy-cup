@@ -1,0 +1,9 @@
+oci:
+  configFile: $OCI_CONFIG_FILE|~/.oci/config  
+  profile: $OCI_PROFILE|DEFAULT               
+  compartment: $OCI_COMPARTMENT_OCID|ocid1.compartment.oc1..aaaaaaaaxj6fuodcmai6n6z5yyqif6a36ewfmmovn42red37ml3wxlehjmga
+  project: $OCI_PROJECT|ocid1.generativeaiproject.oc1.us-chicago-1.amaaaaaaghwivzaaweu6y7r5yms24upipxxrhyfw6hqllhqpzc5756f5bmtq
+  api_key: $OCI_AI_API_KEY|not-used
+
+oci_openai:
+  default_endpoint: https://inference.generativeai.us-chicago-1.oci.oraclecloud.com/openai/v1
