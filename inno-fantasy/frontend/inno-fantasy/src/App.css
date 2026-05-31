@@ -362,6 +362,7 @@
 .info-card,
 .submission-panel,
 .run-panel,
+.data-panel,
 .result-card {
   border: 1px solid rgba(22, 21, 19, 0.1);
   border-radius: 8px;
@@ -521,6 +522,7 @@
 .info-card h2,
 .submission-panel h2,
 .run-panel h2,
+.data-panel h2,
 .result-card h3 {
   margin: 0 0 12px;
   font-size: 1.25rem;
@@ -680,8 +682,15 @@ th:last-child {
 }
 
 .submission-panel,
-.run-panel {
+.run-panel,
+.data-panel {
   padding: 24px;
+}
+
+.submit-side-stack {
+  display: grid;
+  gap: 16px;
+  align-content: start;
 }
 
 .field-group {
@@ -801,6 +810,11 @@ input:not([type]) {
 .status-working {
   background: rgba(47, 111, 159, 0.12);
   color: var(--redwood-blue);
+}
+
+.status-warning {
+  background: rgba(163, 107, 0, 0.12);
+  color: var(--redwood-yellow);
 }
 
 .status-neutral {
@@ -929,6 +943,54 @@ input:not([type]) {
   margin-top: 18px;
   padding-top: 18px;
   border-top: 1px solid rgba(22, 21, 19, 0.1);
+}
+
+.data-panel {
+  display: grid;
+  gap: 14px;
+}
+
+.data-meta {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+}
+
+.data-meta div {
+  display: grid;
+  grid-template-columns: 108px 1fr;
+  gap: 12px;
+}
+
+.data-meta dt {
+  color: var(--redwood-ink-soft);
+  font-weight: 800;
+}
+
+.data-meta dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+  font-weight: 800;
+}
+
+.file-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.file-chip-row span {
+  padding: 6px 8px;
+  border: 1px solid var(--redwood-line);
+  border-radius: 6px;
+  background: var(--redwood-stone);
+  color: var(--redwood-ink-soft);
+  font-size: 0.76rem;
+  font-weight: 800;
+}
+
+.data-refresh {
+  width: fit-content;
 }
 
 .score-inline-grid {
@@ -1411,7 +1473,8 @@ input:not([type]) {
   }
 
   .file-list li,
-  .job-meta div {
+  .job-meta div,
+  .data-meta div {
     align-items: start;
     grid-template-columns: 1fr;
   }

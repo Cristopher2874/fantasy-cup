@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { ResultMessages } from '../ResultMessages';
-import { fetchScore, scoreExecutionJob } from '../../services/api';
+import { fetchScore } from '../../services/api';
 import { PipelineJob, ScoreResult } from '../../types';
 import { formatTimestamp } from '../../utils/formatters';
 import { formatPoints, getScoreResult, scoreTone } from '../../utils/scoreUtils';
@@ -14,7 +14,6 @@ export function ScoreResultPanel({ job, jobId }: ScoreResultPanelProps) {
   const [score, setScore] = useState<ScoreResult | null>(getScoreResult(job));
   const [scoreIssues, setScoreIssues] = useState<string[]>(job?.score?.issues ?? []);
   const [lookupError, setLookupError] = useState<string | null>(null);
-  const [isScoring, setIsScoring] = useState(false);
   const [lookedUpJobId, setLookedUpJobId] = useState<string | null>(null);
 
   const isReadyForScoring =
@@ -57,22 +56,6 @@ export function ScoreResultPanel({ job, jobId }: ScoreResultPanelProps) {
     [job?.score?.issues, scoreIssues],
   );
 
-  async function handleScoreJob() {
-    setIsScoring(true);
-    setLookupError(null);
-    try {
-      const scored = await scoreExecutionJob(jobId);
-      setScoreIssues(scored.issues ?? []);
-      if (scored.result) {
-        setScore(scored.result);
-      }
-    } catch (error) {
-      setLookupError(error instanceof Error ? error.message : 'Scoring failed.');
-    } finally {
-      setIsScoring(false);
-    }
-  }
-
   if (!score) {
     return (
       <section className="score-panel" aria-label="Score result">
@@ -81,15 +64,10 @@ export function ScoreResultPanel({ job, jobId }: ScoreResultPanelProps) {
             <span className="section-kicker">Final score</span>
             <h4>Awaiting scored output</h4>
           </div>
-          {isReadyForScoring && (
-            <button className="button button-secondary compact-button" type="button" onClick={handleScoreJob} disabled={isScoring}>
-              {isScoring ? 'Scoring...' : 'Score result'}
-            </button>
-          )}
         </div>
         <p className="muted-text">
           {isReadyForScoring
-            ? 'This run produced a submission JSON. Use the scoring route to calculate FantasyXI, Risk Play, and total points.'
+            ? 'This run produced a submission JSON. Waiting for the automatic scoring result from the backend.'
             : 'The score appears here after execution reaches the backend scoring stage.'}
         </p>
         <ResultMessages title="Scoring issues" messages={issues} tone="error" />

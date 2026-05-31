@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { PublicDataPanel } from '../components/data/PublicDataPanel';
 import { ResultsSection } from '../components/submit/ResultsSection';
 import { RunStatusPanel } from '../components/submit/RunStatusPanel';
 import { SubmissionForm } from '../components/submit/SubmissionForm';
@@ -78,14 +79,17 @@ export function SubmitPage() {
               onSubmit={handleSubmit}
               onTeamIdChange={submission.setTeamId}
             />
-            <RunStatusPanel
-              acceptedResults={submission.acceptedResults}
-              executionResults={submission.executionResults}
-              isSubmitting={submission.isSubmitting}
-              progressJobs={submission.progressJobs}
-              rejectedResults={submission.rejectedResults}
-              uploadResponse={submission.uploadResponse}
-            />
+            <div className="submit-side-stack">
+              <RunStatusPanel
+                acceptedResults={submission.acceptedResults}
+                executionResults={submission.executionResults}
+                isSubmitting={submission.isSubmitting}
+                progressJobs={submission.progressJobs}
+                rejectedResults={submission.rejectedResults}
+                uploadResponse={submission.uploadResponse}
+              />
+              <PublicDataPanel />
+            </div>
           </section>
         )}
 

@@ -134,6 +134,28 @@ export type ScoresResponse = {
   scores: ScoreResult[];
 };
 
+export type PublicDataManifest = {
+  schema_version?: string;
+  generated_at?: string;
+  matchday_id?: string;
+  match_date?: string;
+  source?: {
+    provider?: string;
+    league_id?: string;
+    season?: string;
+    source_mode?: string;
+  };
+  files?: Record<string, string>;
+  redaction?: string;
+};
+
+export type PublicDataIndex = {
+  available: boolean;
+  path: string;
+  manifest: PublicDataManifest | null;
+  files: string[];
+};
+
 export type PipelineJob = {
   job_id: string;
   validation_job_id?: string;
@@ -145,10 +167,12 @@ export type PipelineJob = {
   message?: string;
   created_at?: string;
   updated_at?: string;
+  run_dir?: string | null;
+  submission_path?: string | null;
+  score_result_path?: string | null;
   issues?: string[];
   warnings?: string[];
   runner?: RunnerResult | null;
-  score_result_path?: string | null;
   score?: ScoreRunResult | null;
 };
 

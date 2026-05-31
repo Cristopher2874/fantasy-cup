@@ -1,4 +1,11 @@
-import { PipelineJob, ScoreResult, ScoreRunResult, ScoresResponse, UploadResponse } from '../types';
+import {
+  PipelineJob,
+  PublicDataIndex,
+  ScoreResult,
+  ScoreRunResult,
+  ScoresResponse,
+  UploadResponse,
+} from '../types';
 import { apiEndpoints } from './endpoints';
 
 export async function uploadSkillBatch(files: File[], teamId: string): Promise<UploadResponse> {
@@ -33,6 +40,17 @@ export async function fetchProgressJobs(): Promise<PipelineJob[]> {
   return Array.isArray(payload.jobs) ? (payload.jobs as PipelineJob[]) : [];
 }
 
+export async function fetchPublicDataIndex(): Promise<PublicDataIndex> {
+  const response = await fetch(apiEndpoints.publicData);
+  const payload = await parseResponse(response);
+
+  if (!response.ok) {
+    throw new Error(formatApiError(payload));
+  }
+
+  return payload as PublicDataIndex;
+}
+
 export async function fetchScores(): Promise<ScoresResponse> {
   const response = await fetch(apiEndpoints.scores);
   const payload = await parseResponse(response);
@@ -59,9 +77,10 @@ export async function fetchScore(jobId: string): Promise<ScoreResult | null> {
   return payload as ScoreResult;
 }
 
-export async function scoreExecutionJob(jobId: string, force = false): Promise<ScoreRunResult> {
+export async function scoreExecutionJob(jobId: string, force = false, adminToken?: string): Promise<ScoreRunResult> {
   const response = await fetch(apiEndpoints.scoreJob(jobId, force), {
     method: 'POST',
+    headers: adminToken ? { 'x-admin-token': adminToken } : undefined,
   });
   const payload = await parseResponse(response);
 
