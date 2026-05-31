@@ -4,7 +4,7 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any
 
-from backend.models.structured_outpus import GuardrailDecision
+from models.structured_outpus import GuardrailDecision
 
 
 MAX_GUARDRAIL_FILES = 30
@@ -20,7 +20,7 @@ class SkillGuardrail:
         self._client_runner: Any | None = None
         self._init_error: str | None = None
         try:
-            from backend.integrations.genai_runner import OpenAIClientRunner
+            from integrations.genai_runner import OpenAIClientRunner
 
             self._client_runner = OpenAIClientRunner()
         except Exception as exc:  # pragma: no cover - depends on local OCI/OpenAI config

@@ -7,8 +7,8 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Iterable
 
-from backend.services.validator.skill_validator import SkillValidator
-from backend.services.validator.zip_handler import MAX_UPLOADS, ExtractedSkill, ZipHandler
+from services.validator.skill_validator import SkillValidator
+from services.validator.zip_handler import MAX_UPLOADS, ExtractedSkill, ZipHandler
 
 
 _VALIDATED_SKILL_PATHS: dict[str, Path] = {}

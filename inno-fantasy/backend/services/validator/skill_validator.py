@@ -5,7 +5,7 @@ import re
 from dataclasses import dataclass, field
 from pathlib import Path
 
-from backend.services.validator.skill_guardrail import SkillGuardrail
+from services.validator.skill_guardrail import SkillGuardrail
 
 
 MAX_SKILL_MD_BYTES = 250_000

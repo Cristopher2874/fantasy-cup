@@ -13,9 +13,9 @@ from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
-from backend.services.codex_runner.skill_runner import CodexRunRequest, SkillRunner
-from backend.services.data_generator.public_data import create_public_data_snapshot
-from backend.services.validator.main_validator import get_validated_skill_path, release_validated_skill
+from services.codex_runner.skill_runner import CodexRunRequest, SkillRunner
+from services.data_generator.public_data import create_public_data_snapshot
+from services.validator.main_validator import get_validated_skill_path, release_validated_skill
 
 
 BACKEND_ROOT = Path(__file__).resolve().parents[1]

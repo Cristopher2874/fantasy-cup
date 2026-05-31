@@ -8,7 +8,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
-from backend.services.codex_runner.windows_helpers import prepare_windows_codex_launch
+from services.codex_runner.windows_helpers import prepare_windows_codex_launch
 
 
 CODEX_COMMAND = os.getenv("FANTASY_CUP_CODEX_COMMAND", "codex")

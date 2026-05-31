@@ -10,13 +10,14 @@ from pathlib import Path
 WINDOWS_FILE_ACCESS_GUIDANCE = """This run is using Windows Codex CLI workarounds.
 
 When reading local files, use simple read-only PowerShell commands only:
-- `Get-ChildItem -Force .\\team_submission\\public_data`
-- `Get-Content -Raw -LiteralPath '.\\team_submission\\public_data\\manifest.json'`
-- `Get-Content -Raw -LiteralPath '.\\team_submission\\public_data\\matchday.json'`
-- `Get-Content -Raw -LiteralPath '.\\team_submission\\public_data\\players.json'`
-- `Get-Content -Raw -LiteralPath '.\\team_submission\\public_data\\risk_claims.json'`
-- `Get-Content -Raw -LiteralPath '.\\team_submission\\public_data\\answer_template.json'`
-- `Get-Content -Raw -LiteralPath '.\\team_submission\\schemas\\team_submission.schema.json'`
+- Use the exact Skill folder, Public data folder, and Submission schema paths
+  listed in the prompt.
+- `Get-ChildItem -Force -LiteralPath '<public data folder from prompt>'`
+- `Get-Content -Raw -LiteralPath '<public data folder from prompt>\\manifest.json'`
+- `Get-Content -Raw -LiteralPath '<public data folder from prompt>\\matchday.json'`
+- `Get-Content -Raw -LiteralPath '<public data folder from prompt>\\players.json'`
+- `Get-Content -Raw -LiteralPath '<public data folder from prompt>\\risk_claims.json'`
+- `Get-Content -Raw -LiteralPath '<submission schema path from prompt>'`
 
 Avoid compound PowerShell scripts, variables, loops, pipelines, ConvertFrom-Json,
 Join-Path, redirection, Python, Node, or commands that would require approval.

@@ -1,5 +1,5 @@
-from backend.integrations.oci_client_provider import OCIOpenAIClientProvider
-from backend.models.structured_outpus import GuardrailDecision
+from integrations.oci_client_provider import OCIOpenAIClientProvider
+from models.structured_outpus import GuardrailDecision
 
 class OpenAIClientRunner:
     """ Uses GenAI connection to run OpenAI LLM calls """

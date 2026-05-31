@@ -5,8 +5,8 @@ from typing import Annotated
 
 from fastapi import APIRouter, BackgroundTasks, File, Form, HTTPException, UploadFile
 
-from backend.services.pipeline import enqueue_validated_skill, run_pipeline_job
-from backend.services.validator.main_validator import ValidationBatchError, run_validator
+from services.pipeline import enqueue_validated_skill, run_pipeline_job
+from services.validator.main_validator import ValidationBatchError, run_validator
 
 
 router = APIRouter(tags=["upload"])

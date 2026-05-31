@@ -3,7 +3,7 @@ import logging
 
 from openai import OpenAI
 from oci_genai_auth import OciUserPrincipalAuth
-from backend.config.config_provider import GlobalConfigProvider
+from config.config_provider import GlobalConfigProvider
 
 class OCIOpenAIConfigKeyNotFound(Exception):
     """Raised when required config keys are missing."""

@@ -7,7 +7,7 @@ import json
 from fastapi import APIRouter, HTTPException
 from fastapi.responses import StreamingResponse
 
-from backend.services.pipeline import get_pipeline_job, list_pipeline_jobs
+from services.pipeline import get_pipeline_job, list_pipeline_jobs
 
 
 router = APIRouter(tags=["progress"])
