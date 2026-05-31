@@ -34,3 +34,8 @@ class OpenAIClientRunner:
             return GuardrailDecision(valid=False, issues=[f"error on guardrail: {e}"])
 
         return raw_response.output_parsed
+
+
+if __name__ == "__main__":
+    client = OpenAIClientRunner()
+    client.call_openai_client("sample")

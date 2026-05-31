@@ -22,6 +22,7 @@ class OCIOpenAIClientProvider:
         if hasattr(self, "_initialized") and self._initialized:
             return
         self._scfg=GlobalConfigProvider()
+        self.config_path=self._scfg.get_config_value("oci", "configFile", "~/.oci/config")
         self._openai_endpoint = self._scfg.get_config_value("oci_openai","default_endpoint","")
         self._oci_api_key = self._scfg.get_config_value("oci", "api_key", "not-used")
         self._oci_project = self._scfg.get_config_value("oci", "project", "")

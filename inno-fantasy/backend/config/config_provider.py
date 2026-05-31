@@ -5,7 +5,7 @@ from envyaml import EnvYAML
 from dotenv import load_dotenv
 load_dotenv()
 
-DEFAULT_APP_CONFIG="./backend/config/config.yaml"
+DEFAULT_APP_CONFIG="./config/config.yaml"
 
 class GlobalConfigProvider:
 

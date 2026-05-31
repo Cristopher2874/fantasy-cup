@@ -14,8 +14,8 @@ export function TopBar({ activeView, onNavigate }: TopBarProps) {
           IF
         </span>
         <span>
-          <span className="brand-eyebrow">Oracle AI fantasy lab</span>
-          <span className="brand-name">Inno Fantasy Cup</span>
+          <span className="brand-eyebrow">InnovationLab</span>
+          <span className="brand-name">FantasyXI</span>
         </span>
       </button>
 

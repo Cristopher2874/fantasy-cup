@@ -31,3 +31,7 @@ ingestion/outputs/
 app
 
 node_modules
+
+runs
+public_data
+source

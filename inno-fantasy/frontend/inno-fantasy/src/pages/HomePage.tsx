@@ -11,8 +11,8 @@ export function HomePage({ onNavigate }: HomePageProps) {
       <section className="hero-band">
         <div className="hero-content">
           <div className="hero-copy">
-            <span className="section-kicker">Matchday skill operations</span>
-            <h1>Submit an AI skill, validate the package, and watch the run move toward scoring.</h1>
+            <span className="section-kicker">InnovationLab</span>
+            <h1>FantasyXI skill operations for matchday decisions.</h1>
             <p>
               The first release focuses on a tight tournament loop: teams upload skill ZIPs, the backend validates
               them, accepted snapshots execute in isolation, and the app keeps the team informed until the result is
@@ -28,7 +28,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
             </div>
           </div>
 
-          <div className="matchday-visual" aria-label="Fantasy Cup run stages">
+          <div className="matchday-visual" aria-label="FantasyXI run stages">
             <div className="pitch-grid">
               {pitchMarkers.map((label, index) => (
                 <span key={`${label}-${index}`}>{label}</span>
@@ -52,7 +52,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
             <p>Teams submit decision-making skills instead of manual daily picks.</p>
           </article>
           <article className="metric-card">
-            <span className="metric-label">Fantasy XI</span>
+            <span className="metric-label">FantasyXI</span>
             <strong>11</strong>
             <p>Agents must return valid player records from the official matchday data.</p>
           </article>

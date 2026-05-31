@@ -37,8 +37,8 @@ export function SubmitPage() {
     <>
       <section className="page-header submit-header">
         <div>
-          <span className="section-kicker">Skill submission</span>
-          <h1>Upload, validate, execute, and inspect the run state.</h1>
+          <span className="section-kicker">InnovationLab</span>
+          <h1>FantasyXI skill submission.</h1>
         </div>
         <button className="button button-secondary" type="button" onClick={handleRefreshJobs}>
           Refresh execution jobs

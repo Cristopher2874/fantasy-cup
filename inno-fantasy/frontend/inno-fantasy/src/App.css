@@ -494,6 +494,11 @@
   align-items: start;
 }
 
+.reference-table-wrap {
+  overflow-x: auto;
+  margin-top: 14px;
+}
+
 table {
   width: 100%;
   border-collapse: collapse;
@@ -522,6 +527,33 @@ th:last-child {
   width: 120px;
   text-align: right;
   font-weight: 900;
+}
+
+.reference-table {
+  min-width: 920px;
+}
+
+.reference-table th,
+.reference-table td,
+.reference-table th:last-child,
+.reference-table td:last-child {
+  width: auto;
+  text-align: left;
+  font-weight: 500;
+  vertical-align: top;
+}
+
+.reference-table td:nth-child(2) {
+  font-weight: 900;
+}
+
+.reference-table code {
+  display: inline-block;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: var(--redwood-stone);
+  color: var(--oracle-red-dark);
+  white-space: nowrap;
 }
 
 .risk-grid {

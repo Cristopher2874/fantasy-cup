@@ -10,6 +10,7 @@ dependencies = [
     "httpx>=0.28.1",
     "oci-genai-auth>=1.0.0",
     "openai>=2.38.0",
+    "python-dotenv>=1.2.2",
     "python-multipart>=0.0.29",
     "uvicorn>=0.48.0",
 ]

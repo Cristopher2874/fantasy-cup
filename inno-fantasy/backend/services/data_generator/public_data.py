@@ -12,6 +12,7 @@ import http.client
 import json
 import os
 import shutil
+import time
 from dataclasses import dataclass
 from datetime import UTC, date, datetime
 from pathlib import Path
@@ -32,6 +33,7 @@ DEFAULT_SCHEMA_PATH = BACKEND_ROOT / "models" / "team_submission.schema.json"
 PUBLIC_DATA_FILES = (
     "manifest.json",
     "matchday.json",
+    "matchdays_index.json",
     "matches.json",
     "teams.json",
     "players.json",
@@ -146,30 +148,43 @@ class ApiFootballClient:
     def __init__(self, api_key: str | None = None, raw_source_dir: Path = DEFAULT_RAW_SOURCE_DIR):
         self.api_key = api_key or resolve_api_key()
         self.raw_source_dir = raw_source_dir
+        self.min_interval_seconds = _float_env("API_FOOTBALL_MIN_INTERVAL_SECONDS", 7.0)
+        self.rate_limit_retries = _int_env("API_FOOTBALL_RATE_LIMIT_RETRIES", 5)
+        self.rate_limit_sleep_seconds = _float_env("API_FOOTBALL_RATE_LIMIT_SLEEP_SECONDS", 20.0)
+        self._last_request_at = 0.0
 
-    def get(self, endpoint: str, params: dict[str, str | int], refresh: bool = False) -> dict[str, Any]:
+    def get(
+        self,
+        endpoint: str,
+        params: dict[str, str | int],
+        refresh: bool = False,
+        raise_on_errors: bool = True,
+    ) -> dict[str, Any]:
         endpoint = endpoint.strip("/")
         cache_path = self._cache_path(endpoint, params)
         if cache_path.is_file() and not refresh:
-            return json.loads(cache_path.read_text(encoding="utf-8"))
+            cached_payload = json.loads(cache_path.read_text(encoding="utf-8"))
+            if not _is_rate_limit_error(cached_payload):
+                return cached_payload
 
         if not self.api_key:
             raise RuntimeError("API-Football key is not configured. Set APISPORTS_KEY or API_FOOTBALL_KEY.")
 
         query = urlencode({key: value for key, value in params.items() if value is not None})
         path = f"/{endpoint}?{query}" if query else f"/{endpoint}"
-        connection = http.client.HTTPSConnection("v3.football.api-sports.io")
-        try:
-            connection.request("GET", path, headers={"x-apisports-key": self.api_key})
-            response = connection.getresponse()
-            body = response.read().decode("utf-8")
-        finally:
-            connection.close()
 
-        payload = json.loads(body)
-        cache_path.parent.mkdir(parents=True, exist_ok=True)
-        cache_path.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
-        if payload.get("errors"):
+        payload: dict[str, Any] = {}
+        for attempt in range(self.rate_limit_retries + 1):
+            self._wait_for_rate_window()
+            payload = self._request_json(path)
+            if not _is_rate_limit_error(payload):
+                cache_path.parent.mkdir(parents=True, exist_ok=True)
+                cache_path.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+                break
+            if attempt < self.rate_limit_retries:
+                time.sleep(self.rate_limit_sleep_seconds)
+
+        if payload.get("errors") and raise_on_errors:
             raise RuntimeError(f"API-Football returned errors for {endpoint}: {payload['errors']}")
         return payload
 
@@ -178,7 +193,16 @@ class ApiFootballClient:
         responses = list(first.get("response") or [])
         total_pages = int((first.get("paging") or {}).get("total") or 1)
         for page in range(2, total_pages + 1):
-            payload = self.get(endpoint, {**params, "page": page}, refresh=refresh)
+            payload = self.get(endpoint, {**params, "page": page}, refresh=refresh, raise_on_errors=False)
+            if payload.get("errors"):
+                if _is_free_page_limit_error(payload):
+                    break
+                if _is_rate_limit_error(payload):
+                    raise RuntimeError(
+                        "API-Football per-minute rate limit is still active after retries. "
+                        "Increase API_FOOTBALL_RATE_LIMIT_SLEEP_SECONDS or API_FOOTBALL_MIN_INTERVAL_SECONDS."
+                    )
+                raise RuntimeError(f"API-Football returned errors for {endpoint}: {payload['errors']}")
             responses.extend(payload.get("response") or [])
         return responses
 
@@ -186,6 +210,23 @@ class ApiFootballClient:
         clean_params = {key: params[key] for key in sorted(params) if params[key] is not None}
         digest = hashlib.sha256(json.dumps(clean_params, sort_keys=True).encode("utf-8")).hexdigest()[:16]
         return self.raw_source_dir / f"{endpoint}-{digest}.json"
+
+    def _wait_for_rate_window(self) -> None:
+        elapsed = time.monotonic() - self._last_request_at
+        wait_seconds = self.min_interval_seconds - elapsed
+        if wait_seconds > 0:
+            time.sleep(wait_seconds)
+        self._last_request_at = time.monotonic()
+
+    def _request_json(self, path: str) -> dict[str, Any]:
+        connection = http.client.HTTPSConnection("v3.football.api-sports.io")
+        try:
+            connection.request("GET", path, headers={"x-apisports-key": self.api_key})
+            response = connection.getresponse()
+            body = response.read().decode("utf-8")
+        finally:
+            connection.close()
+        return json.loads(body)
 
 
 def build_public_data(
@@ -199,9 +240,15 @@ def build_public_data(
     client = ApiFootballClient()
     fixtures = client.get("fixtures", {"league": league_id, "season": season}, refresh=refresh).get("response") or []
     teams_payload = client.get("teams", {"league": league_id, "season": season}, refresh=refresh).get("response") or []
-    players_payload = client.get_all_pages("players", {"league": league_id, "season": season}, refresh=refresh)
 
     incoming_fixtures = [fixture for fixture in fixtures if _fixture_date(fixture) == as_of_date]
+    players_payload = _fetch_players_for_fixtures(
+        client=client,
+        incoming_fixtures=incoming_fixtures,
+        league_id=league_id,
+        season=season,
+        refresh=refresh,
+    )
     prior_fixtures = [
         fixture
         for fixture in fixtures
@@ -219,28 +266,45 @@ def build_public_data(
     players = _build_players(players_payload, incoming_fixtures, player_prior_stats)
     risk_claims = _build_risk_claims(matchday_id, incoming_fixtures)
 
-    output_dir.mkdir(parents=True, exist_ok=True)
-    outputs: list[tuple[Path, dict[str, Any] | list[dict[str, Any]] | str]] = [
-        (output_dir / "manifest.json", _build_manifest(generated_at, matchday_id, league_id, season)),
-        (output_dir / "matchday.json", _build_matchday(generated_at, matchday_id, league_id, season, matches)),
-        (output_dir / "matches.json", matches),
-        (output_dir / "teams.json", teams),
-        (output_dir / "players.json", players),
-        (output_dir / "risk_claims.json", risk_claims),
-        (output_dir / "prior_matches.json", prior_matches),
-        (output_dir / "team_prior_stats.json", sorted(team_prior_stats.values(), key=lambda item: item["team_name"])),
-        (output_dir / "player_prior_stats.json", sorted(player_prior_stats.values(), key=lambda item: item["player_name"])),
-        (output_dir / "answer_template.json", _build_answer_template(matchday_id)),
-        (output_dir / "public_data_catalog.md", _build_catalog(matchday_id, matches, prior_matches, teams, players, risk_claims)),
-    ]
+    payloads: dict[str, dict[str, Any] | list[dict[str, Any]] | str] = {
+        "manifest.json": _build_manifest(generated_at, matchday_id, as_of_date, league_id, season),
+        "matchday.json": _build_matchday(generated_at, matchday_id, as_of_date, league_id, season, matches),
+        "matches.json": matches,
+        "teams.json": teams,
+        "players.json": players,
+        "risk_claims.json": risk_claims,
+        "prior_matches.json": prior_matches,
+        "team_prior_stats.json": sorted(team_prior_stats.values(), key=lambda item: item["team_name"]),
+        "player_prior_stats.json": sorted(player_prior_stats.values(), key=lambda item: item["player_name"]),
+        "answer_template.json": _build_answer_template(matchday_id),
+        "public_data_catalog.md": _build_catalog(matchday_id, matches, prior_matches, teams, players, risk_claims),
+    }
 
+    output_dir.mkdir(parents=True, exist_ok=True)
+    archive_dir = output_dir / "by_date" / as_of_date.isoformat()
+    archive_dir.mkdir(parents=True, exist_ok=True)
     written = []
-    for path, payload in outputs:
-        if isinstance(payload, str):
-            path.write_text(payload, encoding="utf-8")
-        else:
-            path.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    for filename, payload in payloads.items():
+        path = output_dir / filename
+        _write_public_payload(path, payload)
+        _write_public_payload(archive_dir / filename, payload)
         written.append(path)
+
+    index_payload = _update_matchdays_index(
+        output_dir=output_dir,
+        generated_at=generated_at,
+        matchday_id=matchday_id,
+        match_date=as_of_date,
+        league_id=league_id,
+        season=season,
+        fixture_ids=[match["id"] for match in matches],
+        archive_dir=archive_dir,
+        fixture_count=len(matches),
+        prior_match_count=len(prior_matches),
+    )
+    _write_public_payload(output_dir / "matchdays_index.json", index_payload)
+    _write_public_payload(archive_dir / "matchdays_index.json", index_payload)
+    written.append(output_dir / "matchdays_index.json")
 
     return PublicDataBuildResult(
         output_dir=output_dir,
@@ -276,6 +340,139 @@ def create_public_data_snapshot(run_dir: Path, source_public_data_dir: Path, sou
 
     shutil.copy2(source_schema_path, schema_path)
     return PublicDataSnapshot(public_data_dir=public_data_dir, schema_path=schema_path, files=[*copied_files, schema_path])
+
+
+def _fetch_players_for_fixtures(
+    *,
+    client: ApiFootballClient,
+    incoming_fixtures: list[dict[str, Any]],
+    league_id: str,
+    season: str,
+    refresh: bool,
+) -> list[dict[str, Any]]:
+    """Temporary free-plan-friendly player discovery.
+
+    API-Football free plans cap the broad ``players`` endpoint at page 3.
+    Fetching only the teams in the active matchday keeps the public bundle
+    useful without changing the data shape consumed by the rest of the app.
+    """
+    team_ids = sorted(
+        {
+            str((fixture.get("teams") or {}).get(side, {}).get("id"))
+            for fixture in incoming_fixtures
+            for side in ("home", "away")
+            if (fixture.get("teams") or {}).get(side, {}).get("id") is not None
+        }
+    )
+    players_by_team_and_id: dict[str, dict[str, Any]] = {}
+    for team_id in team_ids:
+        team_players = client.get_all_pages(
+            "players",
+            {"league": league_id, "season": season, "team": team_id},
+            refresh=refresh,
+        )
+        for item in team_players:
+            player = item.get("player") or {}
+            player_id = player.get("id")
+            if player_id is None:
+                continue
+            players_by_team_and_id[f"{team_id}:{player_id}"] = item
+    return list(players_by_team_and_id.values())
+
+
+def _is_free_page_limit_error(payload: dict[str, Any]) -> bool:
+    message = _error_message(payload)
+    return "free plans are limited" in message and "page" in message
+
+
+def _is_rate_limit_error(payload: dict[str, Any]) -> bool:
+    message = _error_message(payload)
+    return "ratelimit" in message or "per-minute request limit" in message or "too many requests" in message
+
+
+def _error_message(payload: dict[str, Any]) -> str:
+    errors = payload.get("errors") or {}
+    if isinstance(errors, dict):
+        message = " ".join(str(value) for value in errors.values())
+    else:
+        message = str(errors)
+    return message.lower()
+
+
+def _float_env(name: str, default: float) -> float:
+    raw_value = os.getenv(name, "").strip()
+    if not raw_value:
+        return default
+    try:
+        return float(raw_value)
+    except ValueError:
+        return default
+
+
+def _int_env(name: str, default: int) -> int:
+    raw_value = os.getenv(name, "").strip()
+    if not raw_value:
+        return default
+    try:
+        return int(raw_value)
+    except ValueError:
+        return default
+
+
+def _write_public_payload(path: Path, payload: dict[str, Any] | list[dict[str, Any]] | str) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    if isinstance(payload, str):
+        path.write_text(payload, encoding="utf-8")
+        return
+    path.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+
+
+def _update_matchdays_index(
+    *,
+    output_dir: Path,
+    generated_at: str,
+    matchday_id: str,
+    match_date: date,
+    league_id: str,
+    season: str,
+    fixture_ids: list[str],
+    archive_dir: Path,
+    fixture_count: int,
+    prior_match_count: int,
+) -> dict[str, Any]:
+    index_path = output_dir / "matchdays_index.json"
+    existing_entries: list[dict[str, Any]] = []
+    if index_path.is_file():
+        try:
+            existing = json.loads(index_path.read_text(encoding="utf-8"))
+            existing_entries = list(existing.get("matchdays") or [])
+        except json.JSONDecodeError:
+            existing_entries = []
+
+    new_entry = {
+        "matchday_id": matchday_id,
+        "match_date": match_date.isoformat(),
+        "generated_at": generated_at,
+        "provider": "api-football",
+        "league_id": league_id,
+        "season": season,
+        "fixture_ids": fixture_ids,
+        "fixture_count": fixture_count,
+        "prior_match_count": prior_match_count,
+        "archive_path": str(archive_dir),
+    }
+    entries = [
+        entry
+        for entry in existing_entries
+        if entry.get("match_date") != match_date.isoformat() and entry.get("matchday_id") != matchday_id
+    ]
+    entries.append(new_entry)
+    entries.sort(key=lambda item: item.get("match_date") or "")
+    return {
+        "schema_version": "fantasy-cup-public-matchday-index-v1",
+        "updated_at": generated_at,
+        "matchdays": entries,
+    }
 
 
 def resolve_api_key() -> str:
@@ -590,30 +787,39 @@ def _event_counts(events: list[dict[str, Any]]) -> dict[str, int]:
     return counts
 
 
-def _build_manifest(generated_at: str, matchday_id: str, league_id: str, season: str) -> dict[str, Any]:
+def _build_manifest(generated_at: str, matchday_id: str, match_date: date, league_id: str, season: str) -> dict[str, Any]:
     return {
         "schema_version": "fantasy-cup-public-context-v1",
         "generated_at": generated_at,
         "matchday_id": matchday_id,
+        "match_date": match_date.isoformat(),
         "source": {
             "provider": "api-football",
             "league_id": league_id,
             "season": season,
-            "source_mode": "simulated-2022-as-live",
+            "source_mode": "simulated-world-cup-as-live",
         },
         "files": {filename.removesuffix(".json").replace("_", "-"): filename for filename in PUBLIC_DATA_FILES},
         "redaction": "Incoming fixture results, events, and scoring truth are omitted until the next daily generation.",
     }
 
 
-def _build_matchday(generated_at: str, matchday_id: str, league_id: str, season: str, matches: list[dict[str, Any]]) -> dict[str, Any]:
+def _build_matchday(
+    generated_at: str,
+    matchday_id: str,
+    match_date: date,
+    league_id: str,
+    season: str,
+    matches: list[dict[str, Any]],
+) -> dict[str, Any]:
     return {
         "schema_version": "fantasy-cup-public-context-v1",
         "generated_at": generated_at,
         "matchday_id": matchday_id,
+        "match_date": match_date.isoformat(),
         "competition": {"provider": "api-football", "league_id": league_id, "season": season},
         "fixture_ids": [match["id"] for match in matches],
-        "public_run_mode": "2022 World Cup simulated as pre-match context",
+        "public_run_mode": "World Cup simulated as pre-match context",
         "fantasy_xi_rules": {
             "selection_count": 11,
             "selection_id": "Use players[].record_id from players.json.",
@@ -745,7 +951,7 @@ def _utc_now() -> str:
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Generate public Fantasy Cup data for one simulated 2022 World Cup day.")
+    parser = argparse.ArgumentParser(description="Generate public Fantasy Cup data for one simulated World Cup day.")
     parser.add_argument("--as-of-date", required=True, help="Simulated morning date in YYYY-MM-DD format, e.g. 2022-11-20.")
     parser.add_argument("--league-id", default=DEFAULT_LEAGUE_ID)
     parser.add_argument("--season", default=DEFAULT_SEASON)
