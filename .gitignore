@@ -30,6 +30,8 @@ scoring/score_data/
 playtest_app/data/*.json
 playtest_app/logs/
 playtest_app/run/
+inno-fantasy/logs/
+inno-fantasy/run/
 ingestion/outputs/
 *.zip
 app

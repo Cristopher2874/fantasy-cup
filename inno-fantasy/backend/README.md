@@ -10,7 +10,7 @@ the current source-of-truth file, and exposes progress plus score results.
 From this folder:
 
 ```powershell
-uv run uvicorn main:app --host 127.0.0.1 --port 8000
+uv run uvicorn main:app --host 127.0.0.1 --port 10006
 ```
 
 On Linux VM deployments, prefer the app-level script from the `inno-fantasy`
@@ -133,11 +133,16 @@ The backend routes are relative and do not hardcode a public host. A reverse
 proxy can safely expose them as long as it forwards to the same route paths the
 FastAPI app defines.
 
+For the current full-app VM deployment that replaces `playtest_app`, prefer the
+app-level web/proxy wrapper from `../scripts/start_bg.sh`. It keeps nginx pointed
+at `127.0.0.1:6004` under `/edge_agentapp/`, serves the React build, and proxies
+API routes to this backend on `127.0.0.1:10006`.
+
 Recommended VM command behind a local reverse proxy:
 
 ```bash
 cd /opt/fantasy-cup/inno-fantasy/backend
-uv run uvicorn main:app --host 127.0.0.1 --port 8000 --proxy-headers --forwarded-allow-ips="127.0.0.1"
+uv run uvicorn main:app --host 127.0.0.1 --port 10006 --proxy-headers --forwarded-allow-ips="127.0.0.1"
 ```
 
 Preferred wrapper from the app root:
@@ -158,7 +163,7 @@ forwarding to uvicorn. For example, with nginx:
 client_max_body_size 25m;
 
 location /api/ {
-    proxy_pass http://127.0.0.1:8000/;
+    proxy_pass http://127.0.0.1:10006/;
     proxy_http_version 1.1;
     proxy_set_header Host $host;
     proxy_set_header X-Forwarded-Host $host;
@@ -169,7 +174,7 @@ location /api/ {
 }
 ```
 
-The trailing slash on `proxy_pass http://127.0.0.1:8000/;` is intentional: it
+The trailing slash on `proxy_pass http://127.0.0.1:10006/;` is intentional: it
 forwards `/api/upload` to backend route `/upload`. If the proxy does not strip
 the prefix, the backend routes will not match `/api/...` without additional
 routing changes.
@@ -299,7 +304,7 @@ header:
 ```bash
 curl -X POST \
   -H "x-admin-token: ${INNO_FANTASY_ADMIN_TOKEN}" \
-  "http://127.0.0.1:8000/scores/<job_id>/score?force=true"
+  "http://127.0.0.1:10006/scores/<job_id>/score?force=true"
 ```
 
 This protection does not affect automatic scoring inside the upload pipeline.

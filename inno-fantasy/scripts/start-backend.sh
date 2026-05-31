@@ -8,7 +8,7 @@ set -euo pipefail
 #
 # Optional environment knobs:
 #   BACKEND_HOST=127.0.0.1
-#   BACKEND_PORT=8000
+#   BACKEND_PORT=10006
 #   FORWARDED_ALLOW_IPS=127.0.0.1
 #   LOG_LEVEL=info
 #   BACKEND_RELOAD=1                 # local/dev only
@@ -20,7 +20,7 @@ APP_ROOT="$(cd -- "${SCRIPT_DIR}/.." && pwd)"
 BACKEND_DIR="${APP_ROOT}/backend"
 
 HOST="${BACKEND_HOST:-127.0.0.1}"
-PORT="${BACKEND_PORT:-8000}"
+PORT="${BACKEND_PORT:-10006}"
 FORWARDED_ALLOW_IPS="${FORWARDED_ALLOW_IPS:-127.0.0.1}"
 LOG_LEVEL="${LOG_LEVEL:-info}"
 WORKERS="${BACKEND_WORKERS:-1}"

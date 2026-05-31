@@ -1,9 +1,9 @@
 # Inno Fantasy
 
 Inno Fantasy is the final standalone app for the fantasy World Cup pipeline.
-The production flow lives in the backend. The frontend folder is included as a
-local test UI, but the team-owned UI/auth platform should integrate directly
-with the backend HTTP endpoints.
+The production flow lives in the backend. The included frontend can be built
+and served by the VM wrapper for the current full-app deployment, while auth
+can still be owned by the gateway or a team-owned platform layer.
 
 ## App Modules
 
@@ -18,9 +18,9 @@ with the backend HTTP endpoints.
 | `backend/services/score_engine.py` | Compares Codex claims against source-of-truth data and writes score results. |
 | `backend/config/` | Non-secret runtime configuration loaded from `config.yaml`. |
 | `data/` | Generated JSON files and small samples that show expected public-data, source-of-truth, run, claim, and score shapes. |
-| `scripts/` | Preferred Linux VM entrypoints for backend startup and daily data generation. |
+| `scripts/` | Preferred Linux VM entrypoints for final app startup, backend startup, and daily data generation. |
 | `skills/` | Example app skill content. |
-| `frontend/` | Local test UI only. The production UI/auth work is owned outside this app. |
+| `frontend/` | React UI for the final VM-facing app build. Auth is still expected to live at the gateway or consuming platform layer. |
 
 ## Runtime Flow
 
@@ -53,7 +53,20 @@ Generate public data before users upload skills:
 bash scripts/generate-game-data.sh public 2022-11-21
 ```
 
-Start the backend:
+Start the final app on the existing `/edge_agentapp/` nginx route:
+
+```bash
+bash scripts/start_bg.sh
+```
+
+Inspect or stop the deployed app:
+
+```bash
+bash scripts/status.sh
+bash scripts/stop.sh
+```
+
+Start the backend only:
 
 ```bash
 bash scripts/start-backend.sh
@@ -77,7 +90,9 @@ bash scripts/generate-game-data.sh all 2022-11-21
 | Script | Calls | Use |
 | --- | --- | --- |
 | `scripts/preflight-backend.sh` | Imports `backend/main.py` and checks config/Codex/API credentials | VM readiness check before sharing with the UI team. |
-| `scripts/start-backend.sh` | `uv run uvicorn main:app` from `backend/` | Starts the FastAPI backend behind the reverse proxy. |
+| `scripts/start_bg.sh` | Starts `backend/main.py` on `127.0.0.1:10006` and `server.py` on `127.0.0.1:6004` | Runs the full VM app behind the existing `/edge_agentapp/` nginx route. |
+| `scripts/run_fg.sh` | Same app stack as `start_bg.sh`, with the web/proxy server in the foreground | Foreground smoke test or manual VM run. |
+| `scripts/start-backend.sh` | `uv run uvicorn main:app` from `backend/` | Starts only the FastAPI backend. |
 | `scripts/generate-game-data.sh public` | `scripts/generate-public-data.sh` -> `python -m services.daily_source_gen` | Creates public data consumed by uploaded skills. |
 | `scripts/generate-game-data.sh truth` | `scripts/generate-source-truth.sh` -> `python -m services.daily_truth_gen` | Creates source-of-truth data consumed by scoring. |
 
