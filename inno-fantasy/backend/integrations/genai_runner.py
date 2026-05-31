@@ -1,4 +1,4 @@
-from integrations.oci_client_provider import OCIOpenAIClientProvider
+from backend.integrations.oci_client_provider import OCIOpenAIClientProvider
 from backend.models.structured_outpus import GuardrailDecision
 
 class OpenAIClientRunner:
@@ -33,5 +33,4 @@ class OpenAIClientRunner:
         except Exception as e:
             return GuardrailDecision(valid=False, issues=[f"error on guardrail: {e}"])
 
-        #TODO: check if is possible to return from the same object
         return raw_response.output_parsed

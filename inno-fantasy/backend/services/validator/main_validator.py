@@ -7,11 +7,12 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Iterable
 
-from services.validator.skill_validator import SkillValidator
-from services.validator.zip_handler import MAX_UPLOADS, ExtractedSkill, ZipHandler
+from backend.services.validator.skill_validator import SkillValidator
+from backend.services.validator.zip_handler import MAX_UPLOADS, ExtractedSkill, ZipHandler
 
 
 _VALIDATED_SKILL_PATHS: dict[str, Path] = {}
+_VALIDATED_SKILL_WORK_DIRS: dict[str, Path] = {}
 
 
 class ValidationBatchError(ValueError):
@@ -102,6 +103,7 @@ async def _validate_one_upload(upload_file: Any) -> ValidationResult:
             staged_zip.cleanup()
         elif valid and validated_path is not None:
             _VALIDATED_SKILL_PATHS[job_id] = validated_path
+            _VALIDATED_SKILL_WORK_DIRS[job_id] = staged_zip.work_dir
 
         return ValidationResult(
             job_id=job_id,
@@ -134,6 +136,16 @@ def _validate_skill_folder(skill_root: Path, require_folder_name: bool):
 def get_validated_skill_path(job_id: str) -> Path | None:
     """Resolve a validated upload job to its staged skill path for dispatch."""
     return _VALIDATED_SKILL_PATHS.get(job_id)
+
+
+def release_validated_skill(job_id: str) -> None:
+    """Release temporary validation files after the pipeline snapshots them."""
+    _VALIDATED_SKILL_PATHS.pop(job_id, None)
+    work_dir = _VALIDATED_SKILL_WORK_DIRS.pop(job_id, None)
+    if work_dir is not None:
+        import shutil
+
+        shutil.rmtree(work_dir, ignore_errors=True)
 
 
 def _normalize_uploads(files: Any) -> list[Any]:

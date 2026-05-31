@@ -4,7 +4,7 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any
 
-from models.structured_outpus import GuardrailDecision
+from backend.models.structured_outpus import GuardrailDecision
 
 
 MAX_GUARDRAIL_FILES = 30
