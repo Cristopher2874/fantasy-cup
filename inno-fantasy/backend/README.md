@@ -24,25 +24,35 @@ The backend uses local imports, so run commands from `inno-fantasy/backend`.
 ## Required Runtime Services
 
 - `codex` CLI must be installed on the deployment host and available on `PATH`,
-  or configured with `FANTASY_CUP_CODEX_COMMAND`.
+  or configured with `codex_runner.command` in `config/config.yaml`.
 - API-Football credentials are required for scheduled data generation:
   `APISPORTS_KEY` or `API_FOOTBALL_KEY`.
 - OCI guardrail credentials are expected to be configured in the deployment
   environment for validation.
 - Auth is intentionally left to the consuming platform or gateway.
 
-Useful environment variables:
+## Configuration
 
-| Variable | Purpose | Default |
+Non-secret operational settings live in `config/config.yaml`:
+
+| YAML key | Purpose | Default |
 | --- | --- | --- |
-| `FANTASY_CUP_CODEX_COMMAND` | Codex CLI command/path | `codex` |
-| `FANTASY_CUP_CODEX_SANDBOX` | Codex sandbox mode | `read-only` |
-| `FANTASY_CUP_CODEX_TIMEOUT_SECONDS` | Per-skill Codex timeout | `300` |
-| `FANTASY_CUP_CODEX_ENABLE_SEARCH` | Enables Codex web search for special tests | `false` |
-| `FANTASY_CUP_INITIAL_TEAM_POINTS` | Starting bankroll used by risk scoring | `0` |
-| `API_FOOTBALL_MIN_INTERVAL_SECONDS` | Delay between API-Football calls | `7.0` |
-| `API_FOOTBALL_RATE_LIMIT_RETRIES` | API-Football retry attempts | `5` |
-| `API_FOOTBALL_RATE_LIMIT_SLEEP_SECONDS` | Sleep after rate-limit responses | `20.0` |
+| `game.default_league_id` | API-Football league id for scheduled jobs | `"1"` |
+| `game.default_season` | API-Football season for scheduled jobs | `"2022"` |
+| `codex_runner.command` | Codex CLI command/path | `codex` |
+| `codex_runner.sandbox` | Codex sandbox mode | `read-only` |
+| `codex_runner.timeout_seconds` | Per-skill Codex timeout | `300` |
+| `codex_runner.enable_search` | Enables Codex web search for special tests | `false` |
+| `api_football.min_interval_seconds` | Delay between API-Football calls | `7.0` |
+| `api_football.rate_limit_retries` | API-Football retry attempts | `5` |
+| `api_football.rate_limit_sleep_seconds` | Sleep after rate-limit responses | `20.0` |
+| `scoring.initial_team_points` | Starting bankroll used by risk scoring | `0` |
+
+Environment variables should be reserved for secrets or deployment-specific
+credential paths:
+
+- `APISPORTS_KEY` or `API_FOOTBALL_KEY`.
+- OCI credential variables referenced by the existing `oci` config block.
 
 ## UI Integration Endpoints
 

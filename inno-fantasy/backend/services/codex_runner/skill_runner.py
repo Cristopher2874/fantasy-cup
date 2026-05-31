@@ -2,19 +2,20 @@
 from __future__ import annotations
 
 import json
-import os
 import subprocess
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
+from config.config_provider import GlobalConfigProvider
 from services.codex_runner.windows_helpers import prepare_windows_codex_launch
 
 
-CODEX_COMMAND = os.getenv("FANTASY_CUP_CODEX_COMMAND", "codex")
-CODEX_SANDBOX_MODE = os.getenv("FANTASY_CUP_CODEX_SANDBOX", "read-only")
-CODEX_TIMEOUT_SECONDS = int(os.getenv("FANTASY_CUP_CODEX_TIMEOUT_SECONDS", "300"))
-ENABLE_CODEX_SEARCH = os.getenv("FANTASY_CUP_CODEX_ENABLE_SEARCH", "false").casefold() in {"1", "true", "yes"}
+CONFIG = GlobalConfigProvider()
+CODEX_COMMAND = CONFIG.get_str("codex_runner", "command", "codex")
+CODEX_SANDBOX_MODE = CONFIG.get_str("codex_runner", "sandbox", "read-only")
+CODEX_TIMEOUT_SECONDS = CONFIG.get_int("codex_runner", "timeout_seconds", 300)
+ENABLE_CODEX_SEARCH = CONFIG.get_bool("codex_runner", "enable_search", False)
 
 BACKEND_ROOT = Path(__file__).resolve().parents[2]
 INNO_ROOT = BACKEND_ROOT.parent
@@ -298,7 +299,3 @@ def _write_metadata(metadata_path: Path, request: CodexRunRequest, notes: list[s
         + "\n",
         encoding="utf-8",
     )
-
-
-# Backwards-compatible alias for the previous misspelled class name.
-SkillRuner = SkillRunner

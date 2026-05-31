@@ -12,8 +12,8 @@ set -euo pipefail
 #
 # Optional environment knobs:
 #   FANTASY_CUP_AS_OF_DATE=2022-11-21  # used when no date argument is passed
-#   LEAGUE_ID=1
-#   SEASON=2022
+#   LEAGUE_ID=1                        # optional one-off override; default comes from backend/config/config.yaml
+#   SEASON=2022                        # optional one-off override; default comes from backend/config/config.yaml
 #   REFRESH=1                          # force live API-Football calls instead of cache
 #
 # Example cron:
@@ -24,8 +24,8 @@ APP_ROOT="$(cd -- "${SCRIPT_DIR}/.." && pwd)"
 BACKEND_DIR="${APP_ROOT}/backend"
 
 AS_OF_DATE="${1:-${FANTASY_CUP_AS_OF_DATE:-}}"
-LEAGUE_ID="${LEAGUE_ID:-1}"
-SEASON="${SEASON:-2022}"
+LEAGUE_ID="${LEAGUE_ID:-}"
+SEASON="${SEASON:-}"
 
 if [[ -z "${AS_OF_DATE}" ]]; then
   echo "Missing as-of date. Pass YYYY-MM-DD or set FANTASY_CUP_AS_OF_DATE." >&2
@@ -36,9 +36,15 @@ fi
 cmd=(
   uv run python -m services.daily_source_gen
   --as-of-date "${AS_OF_DATE}"
-  --league-id "${LEAGUE_ID}"
-  --season "${SEASON}"
 )
+
+if [[ -n "${LEAGUE_ID}" ]]; then
+  cmd+=(--league-id "${LEAGUE_ID}")
+fi
+
+if [[ -n "${SEASON}" ]]; then
+  cmd+=(--season "${SEASON}")
+fi
 
 if [[ "${REFRESH:-0}" == "1" ]]; then
   cmd+=(--refresh)
@@ -46,6 +52,6 @@ fi
 
 cd "${BACKEND_DIR}"
 
-echo "[public-data] generating as_of_date=${AS_OF_DATE} league_id=${LEAGUE_ID} season=${SEASON}"
+echo "[public-data] generating as_of_date=${AS_OF_DATE} league_id=${LEAGUE_ID:-config.yaml} season=${SEASON:-config.yaml}"
 "${cmd[@]}"
 echo "[public-data] written to ${APP_ROOT}/data/public_data"

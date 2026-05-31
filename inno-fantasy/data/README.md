@@ -40,12 +40,16 @@ The game flow depends on two scheduled data jobs. Run them from the
 ./scripts/generate-source-truth.sh 2022-11-21
 ```
 
-Use these environment variables in deployment:
+Use these settings in deployment:
 
 - `APISPORTS_KEY` or `API_FOOTBALL_KEY` for API-Football.
-- `LEAGUE_ID`, default `1`.
-- `SEASON`, default `2022` for the current simulation.
+- `backend/config/config.yaml` for league, season, Codex runner, rate-limit,
+  and scoring defaults.
 - `REFRESH=1` to bypass cached API responses.
+
+The scripts still accept `LEAGUE_ID` and `SEASON` as one-off overrides, but if
+they are omitted the Python generators use `game.default_league_id` and
+`game.default_season` from `config.yaml`.
 
 Expected daily rhythm:
 

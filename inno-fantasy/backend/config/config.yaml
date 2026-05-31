@@ -7,3 +7,21 @@ oci:
 
 oci_openai:
   default_endpoint: https://inference.generativeai.us-chicago-1.oci.oraclecloud.com/openai/v1
+
+game:
+  default_league_id: "1"
+  default_season: "2022"
+
+codex_runner:
+  command: codex
+  sandbox: read-only
+  timeout_seconds: 300
+  enable_search: false
+
+api_football:
+  min_interval_seconds: 7.0
+  rate_limit_retries: 5
+  rate_limit_sleep_seconds: 20.0
+
+scoring:
+  initial_team_points: 0

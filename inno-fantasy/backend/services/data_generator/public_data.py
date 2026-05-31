@@ -19,13 +19,16 @@ from pathlib import Path
 from typing import Any
 from urllib.parse import urlencode
 
+from config.config_provider import GlobalConfigProvider
+
 
 BACKEND_ROOT = Path(__file__).resolve().parents[2]
 INNO_ROOT = BACKEND_ROOT.parent
 DATA_ROOT = INNO_ROOT / "data"
 
-DEFAULT_LEAGUE_ID = "1"
-DEFAULT_SEASON = "2022"
+CONFIG = GlobalConfigProvider()
+DEFAULT_LEAGUE_ID = CONFIG.get_str("game", "default_league_id", "1")
+DEFAULT_SEASON = CONFIG.get_str("game", "default_season", "2022")
 DEFAULT_PUBLIC_DATA_DIR = DATA_ROOT / "public_data"
 DEFAULT_RAW_SOURCE_DIR = DATA_ROOT / "source" / "api-football"
 DEFAULT_SCHEMA_PATH = BACKEND_ROOT / "models" / "team_submission.schema.json"
@@ -148,9 +151,9 @@ class ApiFootballClient:
     def __init__(self, api_key: str | None = None, raw_source_dir: Path = DEFAULT_RAW_SOURCE_DIR):
         self.api_key = api_key or resolve_api_key()
         self.raw_source_dir = raw_source_dir
-        self.min_interval_seconds = _float_env("API_FOOTBALL_MIN_INTERVAL_SECONDS", 7.0)
-        self.rate_limit_retries = _int_env("API_FOOTBALL_RATE_LIMIT_RETRIES", 5)
-        self.rate_limit_sleep_seconds = _float_env("API_FOOTBALL_RATE_LIMIT_SLEEP_SECONDS", 20.0)
+        self.min_interval_seconds = CONFIG.get_float("api_football", "min_interval_seconds", 7.0)
+        self.rate_limit_retries = CONFIG.get_int("api_football", "rate_limit_retries", 5)
+        self.rate_limit_sleep_seconds = CONFIG.get_float("api_football", "rate_limit_sleep_seconds", 20.0)
         self._last_request_at = 0.0
 
     def get(
@@ -200,7 +203,7 @@ class ApiFootballClient:
                 if _is_rate_limit_error(payload):
                     raise RuntimeError(
                         "API-Football per-minute rate limit is still active after retries. "
-                        "Increase API_FOOTBALL_RATE_LIMIT_SLEEP_SECONDS or API_FOOTBALL_MIN_INTERVAL_SECONDS."
+                        "Increase api_football.rate_limit_sleep_seconds or api_football.min_interval_seconds."
                     )
                 raise RuntimeError(f"API-Football returned errors for {endpoint}: {payload['errors']}")
             responses.extend(payload.get("response") or [])
@@ -397,26 +400,6 @@ def _error_message(payload: dict[str, Any]) -> str:
     else:
         message = str(errors)
     return message.lower()
-
-
-def _float_env(name: str, default: float) -> float:
-    raw_value = os.getenv(name, "").strip()
-    if not raw_value:
-        return default
-    try:
-        return float(raw_value)
-    except ValueError:
-        return default
-
-
-def _int_env(name: str, default: int) -> int:
-    raw_value = os.getenv(name, "").strip()
-    if not raw_value:
-        return default
-    try:
-        return int(raw_value)
-    except ValueError:
-        return default
 
 
 def _write_public_payload(path: Path, payload: dict[str, Any] | list[dict[str, Any]] | str) -> None:

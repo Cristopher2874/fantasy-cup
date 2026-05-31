@@ -13,8 +13,8 @@ set -euo pipefail
 #
 # Optional environment knobs:
 #   FANTASY_CUP_MATCH_DATE=2022-11-21  # used when no date argument is passed
-#   LEAGUE_ID=1
-#   SEASON=2022
+#   LEAGUE_ID=1                        # optional one-off override; default comes from backend/config/config.yaml
+#   SEASON=2022                        # optional one-off override; default comes from backend/config/config.yaml
 #   MATCHDAY_ID=wc-2022-20221121
 #   REFRESH=1                          # force live API-Football calls instead of cache
 #   ALLOW_INCOMPLETE=1                 # write an inspection file even if games are not FT/AET/PEN
@@ -29,8 +29,8 @@ APP_ROOT="$(cd -- "${SCRIPT_DIR}/.." && pwd)"
 BACKEND_DIR="${APP_ROOT}/backend"
 
 MATCH_DATE="${1:-${FANTASY_CUP_MATCH_DATE:-}}"
-LEAGUE_ID="${LEAGUE_ID:-1}"
-SEASON="${SEASON:-2022}"
+LEAGUE_ID="${LEAGUE_ID:-}"
+SEASON="${SEASON:-}"
 
 if [[ -z "${MATCH_DATE}" ]]; then
   echo "Missing match date. Pass YYYY-MM-DD or set FANTASY_CUP_MATCH_DATE." >&2
@@ -41,9 +41,15 @@ fi
 cmd=(
   uv run python -m services.daily_truth_gen
   --match-date "${MATCH_DATE}"
-  --league-id "${LEAGUE_ID}"
-  --season "${SEASON}"
 )
+
+if [[ -n "${LEAGUE_ID}" ]]; then
+  cmd+=(--league-id "${LEAGUE_ID}")
+fi
+
+if [[ -n "${SEASON}" ]]; then
+  cmd+=(--season "${SEASON}")
+fi
 
 if [[ -n "${MATCHDAY_ID:-}" ]]; then
   cmd+=(--matchday-id "${MATCHDAY_ID}")
@@ -73,6 +79,6 @@ fi
 
 cd "${BACKEND_DIR}"
 
-echo "[source-truth] generating match_date=${MATCH_DATE} league_id=${LEAGUE_ID} season=${SEASON}"
+echo "[source-truth] generating match_date=${MATCH_DATE} league_id=${LEAGUE_ID:-config.yaml} season=${SEASON:-config.yaml}"
 "${cmd[@]}"
 echo "[source-truth] written to ${APP_ROOT}/data/source_of_truth"

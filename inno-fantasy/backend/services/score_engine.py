@@ -2,13 +2,13 @@
 from __future__ import annotations
 
 import json
-import os
 import shutil
 from dataclasses import dataclass, field
 from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
+from config.config_provider import GlobalConfigProvider
 from services.data_generator.source_of_truth import DEFAULT_TRUTH_DIR, create_source_truth_snapshot
 
 
@@ -18,7 +18,7 @@ RUNS_ROOT = INNO_ROOT / "data" / "runs"
 SCORES_ROOT = INNO_ROOT / "data" / "scores"
 LEADERBOARD_PATH = SCORES_ROOT / "leaderboard.json"
 SCORED_JOBS_DIR = SCORES_ROOT / "jobs"
-INITIAL_TEAM_POINTS = float(os.getenv("FANTASY_CUP_INITIAL_TEAM_POINTS", "0"))
+INITIAL_TEAM_POINTS = GlobalConfigProvider().get_float("scoring", "initial_team_points", 0.0)
 
 POSITION_RULES = {
     "GK": (1, 1),
