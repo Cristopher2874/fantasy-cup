@@ -15,6 +15,7 @@ from typing import Any
 
 from services.codex_runner.skill_runner import CodexRunRequest, SkillRunner
 from services.data_generator.public_data import create_public_data_snapshot
+from services.score_engine import score_codex_submission
 from services.validator.main_validator import get_validated_skill_path, release_validated_skill
 
 
@@ -51,9 +52,11 @@ class PipelineJob:
     updated_at: str = field(default_factory=_utc_now)
     run_dir: Path | None = None
     submission_path: Path | None = None
+    score_result_path: Path | None = None
     issues: list[str] = field(default_factory=list)
     warnings: list[str] = field(default_factory=list)
     runner: dict[str, Any] | None = None
+    score: dict[str, Any] | None = None
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -69,9 +72,11 @@ class PipelineJob:
             "updated_at": self.updated_at,
             "run_dir": str(self.run_dir) if self.run_dir else None,
             "submission_path": str(self.submission_path) if self.submission_path else None,
+            "score_result_path": str(self.score_result_path) if self.score_result_path else None,
             "issues": self.issues,
             "warnings": self.warnings,
             "runner": self.runner,
+            "score": self.score,
         }
 
 
@@ -162,7 +167,19 @@ def _run_pipeline_job_sync(job_id: str) -> PipelineJob:
         job.runner = result.to_dict()
         if result.success:
             job.submission_path = result.submission_path
-            _update_job(job, status=STATUS_COMPLETED, stage="completed", message="Codex execution completed.")
+            _update_job(job, stage="scoring", message="Scoring Codex submission against source of truth.")
+            score_result = score_codex_submission(
+                job_id=job.job_id,
+                submission_path=result.submission_path,
+                run_dir=run_dir,
+            )
+            job.score = score_result.to_dict()
+            job.score_result_path = score_result.result_path
+            if score_result.success:
+                _update_job(job, status=STATUS_COMPLETED, stage="scored", message="Codex execution and scoring completed.")
+            else:
+                job.issues.extend(score_result.issues)
+                _update_job(job, status=STATUS_FAILED, stage="scoring_failed", message="Scoring failed.")
         else:
             job.issues.extend(result.issues)
             _update_job(job, status=STATUS_FAILED, stage="failed", message="Codex execution failed.")

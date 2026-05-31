@@ -1,4 +1,5 @@
 import { ResultMessages } from '../ResultMessages';
+import { ScoreResultPanel } from '../scores/ScoreResultPanel';
 import { PipelineJob } from '../../types';
 import { formatTimestamp, statusClass } from '../../utils/formatters';
 
@@ -48,6 +49,8 @@ export function ExecutionDetails({ job, jobId, streamAlert }: ExecutionDetailsPr
       {job.runner?.submission_path && (
         <div className="success-note">Submission JSON produced and ready for the scoring phase.</div>
       )}
+
+      <ScoreResultPanel job={job} jobId={jobId} />
 
       <ResultMessages title="Execution issues" messages={job.issues ?? []} tone="error" />
       <ResultMessages title="Execution warnings" messages={job.warnings ?? []} tone="warning" />

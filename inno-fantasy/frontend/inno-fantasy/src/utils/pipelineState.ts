@@ -1,4 +1,5 @@
 import { PipelineJob, TimelineState, ValidationResult } from '../types';
+import { hasScoreResult } from './scoreUtils';
 
 export function executionState(
   results: ValidationResult[],
@@ -20,7 +21,19 @@ export function executionState(
 
 export function scoreState(results: ValidationResult[], progressJobs: Record<string, PipelineJob>): TimelineState {
   const jobs = getExecutionJobs(results, progressJobs);
-  return jobs.length > 0 && jobs.every((job) => job.status === 'completed') ? 'active' : 'idle';
+  if (jobs.length === 0) {
+    return 'idle';
+  }
+  if (jobs.some((job) => job.stage === 'scoring_failed' || job.score?.success === false)) {
+    return 'warning';
+  }
+  if (jobs.every((job) => hasScoreResult(job) || job.stage === 'scored')) {
+    return 'complete';
+  }
+  if (jobs.some((job) => job.stage === 'scoring' || job.status === 'completed')) {
+    return 'active';
+  }
+  return 'idle';
 }
 
 function getExecutionJobs(results: ValidationResult[], progressJobs: Record<string, PipelineJob>) {

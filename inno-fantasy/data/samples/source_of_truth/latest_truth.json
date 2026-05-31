@@ -1,0 +1,84 @@
+{
+  "schema_version": "fantasy-cup-source-truth-v1",
+  "generated_at": "2026-05-31T00:00:00Z",
+  "matchday_id": "wc-2022-20221121",
+  "match_date": "2022-11-21",
+  "state": {
+    "complete": true,
+    "finished_statuses": [
+      "FT",
+      "AET",
+      "PEN"
+    ]
+  },
+  "matches": [
+    {
+      "id": "855735",
+      "label": "England vs Iran",
+      "home_team": {
+        "id": "10",
+        "name": "England"
+      },
+      "away_team": {
+        "id": "22",
+        "name": "Iran"
+      },
+      "score": {
+        "home": 6,
+        "away": 2
+      },
+      "risk_truth": {
+        "match_claims": {
+          "match_2plus_goals": true,
+          "both_teams_score": true,
+          "match_over_2_5_goals": true
+        },
+        "parameterized_claims": {
+          "exact_score": {
+            "home_score": 6,
+            "away_score": 2
+          }
+        }
+      }
+    }
+  ],
+  "players": [
+    {
+      "record_id": "855735:909",
+      "id": "909",
+      "name": "Harry Kane",
+      "position": "FWD",
+      "team": "England",
+      "match_id": "855735",
+      "fantasy_points": 4,
+      "breakdown": [
+        {
+          "label": "Started",
+          "points": 2
+        },
+        {
+          "label": "Played 60+ minutes",
+          "points": 2
+        }
+      ]
+    }
+  ],
+  "capabilities": {
+    "risk_claims": {
+      "match_2plus_goals": {
+        "category": "green",
+        "required_fields": [
+          "match_id"
+        ]
+      },
+      "exact_score": {
+        "category": "red",
+        "required_fields": [
+          "match_id",
+          "home_score",
+          "away_score"
+        ]
+      }
+    }
+  }
+}

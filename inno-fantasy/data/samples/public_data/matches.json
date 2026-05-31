@@ -1,0 +1,25 @@
+[
+  {
+    "id": "855735",
+    "provider": "api-football",
+    "provider_fixture_id": "855735",
+    "kickoff": "2022-11-21T13:00:00+00:00",
+    "round": "Group Stage - 1",
+    "stage": "group",
+    "home_team": {
+      "id": "10",
+      "name": "England",
+      "logo": "https://media.api-sports.io/football/teams/10.png"
+    },
+    "away_team": {
+      "id": "22",
+      "name": "Iran",
+      "logo": "https://media.api-sports.io/football/teams/22.png"
+    },
+    "venue": {
+      "id": 22430,
+      "name": "Khalifa International Stadium",
+      "city": "Ar-Rayyan"
+    }
+  }
+]

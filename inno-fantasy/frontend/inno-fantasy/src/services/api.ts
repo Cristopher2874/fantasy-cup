@@ -1,4 +1,4 @@
-import { PipelineJob, UploadResponse } from '../types';
+import { PipelineJob, ScoreResult, ScoreRunResult, ScoresResponse, UploadResponse } from '../types';
 import { apiEndpoints } from './endpoints';
 
 export async function uploadSkillBatch(files: File[], teamId: string): Promise<UploadResponse> {
@@ -31,6 +31,45 @@ export async function fetchProgressJobs(): Promise<PipelineJob[]> {
   }
 
   return Array.isArray(payload.jobs) ? (payload.jobs as PipelineJob[]) : [];
+}
+
+export async function fetchScores(): Promise<ScoresResponse> {
+  const response = await fetch(apiEndpoints.scores);
+  const payload = await parseResponse(response);
+
+  if (!response.ok) {
+    throw new Error(formatApiError(payload));
+  }
+
+  return payload as ScoresResponse;
+}
+
+export async function fetchScore(jobId: string): Promise<ScoreResult | null> {
+  const response = await fetch(apiEndpoints.score(jobId));
+  const payload = await parseResponse(response);
+
+  if (response.status === 404) {
+    return null;
+  }
+
+  if (!response.ok) {
+    throw new Error(formatApiError(payload));
+  }
+
+  return payload as ScoreResult;
+}
+
+export async function scoreExecutionJob(jobId: string, force = false): Promise<ScoreRunResult> {
+  const response = await fetch(apiEndpoints.scoreJob(jobId, force), {
+    method: 'POST',
+  });
+  const payload = await parseResponse(response);
+
+  if (!response.ok) {
+    throw new Error(formatApiError(payload));
+  }
+
+  return payload as ScoreRunResult;
 }
 
 async function parseResponse(response: Response): Promise<Record<string, unknown>> {

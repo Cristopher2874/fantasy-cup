@@ -11,7 +11,7 @@ export function TopBar({ activeView, onNavigate }: TopBarProps) {
     <header className="topbar">
       <button className="brand-lockup" type="button" onClick={() => onNavigate('home')}>
         <span className="brand-mark" aria-hidden="true">
-          IF
+          O
         </span>
         <span>
           <span className="brand-eyebrow">InnovationLab</span>

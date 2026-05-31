@@ -1,0 +1,19 @@
+{
+  "schema_version": "fantasy-cup-public-data-v1",
+  "generated_at": "2026-05-31T00:00:00Z",
+  "as_of_date": "2022-11-21",
+  "matchday_id": "wc-2022-20221121",
+  "source": {
+    "provider": "api-football",
+    "league_id": "1",
+    "season": "2022"
+  },
+  "files": [
+    "manifest.json",
+    "matchday.json",
+    "matches.json",
+    "players.json",
+    "risk_claims.json",
+    "answer_template.json"
+  ]
+}

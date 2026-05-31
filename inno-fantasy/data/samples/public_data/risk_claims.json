@@ -1,0 +1,40 @@
+{
+  "available_claims": [
+    {
+      "claim_key": "855735:match_2plus_goals",
+      "claim_id": "match_2plus_goals",
+      "category": "green",
+      "match_id": "855735",
+      "match_label": "England vs Iran",
+      "description": "The selected match finishes with at least 2 total goals.",
+      "required_fields": [
+        "claim_id",
+        "match_id"
+      ],
+      "parameters": {
+        "match_id": "855735"
+      }
+    },
+    {
+      "claim_key": "855735:exact_score",
+      "claim_id": "exact_score",
+      "category": "red",
+      "match_id": "855735",
+      "match_label": "England vs Iran",
+      "description": "The selected match finishes with the submitted home and away score.",
+      "required_fields": [
+        "claim_id",
+        "match_id",
+        "home_score",
+        "away_score"
+      ],
+      "parameter_options": {
+        "home_score": "non-negative integer",
+        "away_score": "non-negative integer"
+      },
+      "parameters": {
+        "match_id": "855735"
+      }
+    }
+  ]
+}

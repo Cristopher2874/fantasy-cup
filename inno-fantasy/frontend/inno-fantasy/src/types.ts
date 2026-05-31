@@ -42,6 +42,98 @@ export type RunnerResult = {
   return_code?: number | null;
 };
 
+export type ScorePlayer = {
+  record_id: string;
+  match_id: string;
+  player_id: string;
+  name: string;
+  team: string;
+  position: 'GK' | 'DEF' | 'MID' | 'FWD' | string;
+  points: number;
+  breakdown?: string[];
+};
+
+export type FantasyScore = {
+  valid: boolean;
+  points: number;
+  errors: string[];
+  warnings: string[];
+  players: ScorePlayer[];
+  position_counts: Record<string, number>;
+};
+
+export type RiskScore = {
+  valid: boolean;
+  outcome: 'skipped' | 'invalid' | 'correct' | 'incorrect' | string;
+  points: number;
+  stake: number;
+  errors: string[];
+  warnings: string[];
+  claim_id?: string | null;
+  category?: 'green' | 'yellow' | 'red' | string;
+  correct?: boolean;
+  match_id?: string;
+  evidence_path?: string;
+};
+
+export type TeamScoreResult = {
+  team_id: string;
+  team_name: string;
+  previous_total_points: number;
+  fantasy: FantasyScore;
+  risk: RiskScore;
+  strategy_summary?: string;
+  fantasy_points: number;
+  risk_points: number;
+  total_delta: number;
+  new_total_points: number;
+  status: 'scored' | 'scored_with_errors' | string;
+  matchday_id?: string | null;
+};
+
+export type ScoreResult = {
+  schema_version: string;
+  generated_at: string;
+  job_id: string;
+  matchday_id?: string | null;
+  truth_path?: string | null;
+  submission_path?: string | null;
+  leaderboard_path?: string | null;
+  result: TeamScoreResult;
+};
+
+export type ScoreRunResult = {
+  success: boolean;
+  result_path?: string | null;
+  leaderboard_path?: string | null;
+  truth_path?: string | null;
+  issues: string[];
+  result?: ScoreResult | null;
+};
+
+export type LeaderboardTeam = {
+  rank?: number;
+  team_id: string;
+  team_name: string;
+  total_points: number;
+  fantasy_points: number;
+  risk_points: number;
+  matchdays_played: number;
+  last_status?: string;
+  last_scored_at?: string;
+};
+
+export type Leaderboard = {
+  schema_version: string;
+  updated_at?: string | null;
+  teams: LeaderboardTeam[];
+};
+
+export type ScoresResponse = {
+  leaderboard: Leaderboard;
+  scores: ScoreResult[];
+};
+
 export type PipelineJob = {
   job_id: string;
   validation_job_id?: string;
@@ -56,6 +148,8 @@ export type PipelineJob = {
   issues?: string[];
   warnings?: string[];
   runner?: RunnerResult | null;
+  score_result_path?: string | null;
+  score?: ScoreRunResult | null;
 };
 
 export type FileCheck = {

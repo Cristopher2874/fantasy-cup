@@ -1,4 +1,5 @@
 import { RecentJobCard, ValidationJobCard } from '../jobs/JobCard';
+import { ScoreboardPanel } from '../scores/ScoreboardPanel';
 import { PipelineJob, UploadResponse } from '../../types';
 
 type ResultsSectionProps = {
@@ -11,16 +12,21 @@ type ResultsSectionProps = {
 export function ResultsSection({ progressJobs, recentJobs, streamAlerts, uploadResponse }: ResultsSectionProps) {
   if (!uploadResponse && recentJobs.length === 0) {
     return (
-      <section className="empty-section">
-        <span className="section-kicker">Server feedback</span>
-        <h2>No results yet</h2>
-        <p>Submit a ZIP batch or refresh execution jobs to inspect backend feedback.</p>
-      </section>
+      <div className="result-band">
+        <ScoreboardPanel />
+        <section className="empty-section">
+          <span className="section-kicker">Server feedback</span>
+          <h2>No results yet</h2>
+          <p>Submit a ZIP batch or refresh execution jobs to inspect backend feedback.</p>
+        </section>
+      </div>
     );
   }
 
   return (
     <section className="result-band">
+      <ScoreboardPanel />
+
       <div className="result-header">
         <div>
           <span className="section-kicker">Server feedback</span>

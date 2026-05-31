@@ -1,6 +1,7 @@
 import { TimelineStep } from '../TimelineStep';
 import { PipelineJob, UploadResponse, ValidationResult } from '../../types';
 import { executionState, scoreState } from '../../utils/pipelineState';
+import { formatPoints, getTeamScore } from '../../utils/scoreUtils';
 
 type RunStatusPanelProps = {
   acceptedResults: ValidationResult[];
@@ -19,6 +20,12 @@ export function RunStatusPanel({
   rejectedResults,
   uploadResponse,
 }: RunStatusPanelProps) {
+  const executionJobs = executionResults
+    .map((result) => (result.execution_job_id ? progressJobs[result.execution_job_id] : undefined))
+    .filter(Boolean) as PipelineJob[];
+  const scoredTeams = executionJobs.map(getTeamScore).filter(Boolean);
+  const latestScore = scoredTeams[0];
+
   return (
     <aside className="run-panel" aria-label="Submission status">
       <div className="panel-heading">
@@ -60,10 +67,32 @@ export function RunStatusPanel({
 
       <div className="score-placeholder">
         <span className="section-kicker">Scoring</span>
-        <p>
-          Scoring is reserved for the next backend phase. Once scores are published, this panel can show matchday
-          points, Risk Play delta, and final standing impact.
-        </p>
+        {scoredTeams.length > 0 && latestScore ? (
+          <>
+            <div className="score-inline-grid">
+              <div>
+                <span>Scored</span>
+                <strong>
+                  {scoredTeams.length}/{executionResults.length}
+                </strong>
+              </div>
+              <div>
+                <span>Latest delta</span>
+                <strong>{formatPoints(latestScore.total_delta, true)}</strong>
+              </div>
+              <div>
+                <span>New total</span>
+                <strong>{formatPoints(latestScore.new_total_points)}</strong>
+              </div>
+            </div>
+            <p>Open Results for the FantasyXI roster, Risk Play outcome, and point breakdown.</p>
+          </>
+        ) : (
+          <p>
+            Final scores appear when the backend scoring route finishes FantasyXI validation, Risk Play resolution, and
+            leaderboard impact.
+          </p>
+        )}
       </div>
     </aside>
   );
