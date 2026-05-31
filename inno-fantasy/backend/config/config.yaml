@@ -17,6 +17,7 @@ codex_runner:
   sandbox: read-only
   timeout_seconds: 300
   enable_search: false
+  log_output_chars: 4000
 
 api_football:
   min_interval_seconds: 7.0

@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import json
+import logging
 import subprocess
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -16,9 +17,11 @@ CODEX_COMMAND = CONFIG.get_str("codex_runner", "command", "codex")
 CODEX_SANDBOX_MODE = CONFIG.get_str("codex_runner", "sandbox", "read-only")
 CODEX_TIMEOUT_SECONDS = CONFIG.get_int("codex_runner", "timeout_seconds", 300)
 ENABLE_CODEX_SEARCH = CONFIG.get_bool("codex_runner", "enable_search", False)
+LOG_OUTPUT_CHARS = CONFIG.get_int("codex_runner", "log_output_chars", 4000)
 
 BACKEND_ROOT = Path(__file__).resolve().parents[2]
 INNO_ROOT = BACKEND_ROOT.parent
+LOGGER = logging.getLogger("uvicorn.error")
 
 
 @dataclass(frozen=True)
@@ -80,6 +83,16 @@ class SkillRunner:
             command.append("--search")
         command.extend(["exec", "--output-last-message", str(final_message_path), "-"])
 
+        LOGGER.info(
+            "Starting Codex skill run job_id=%s skill=%s run_dir=%s sandbox=%s search_enabled=%s command=%s",
+            request.job_id,
+            request.skill_name or request.skill_dir.name,
+            request.run_dir,
+            CODEX_SANDBOX_MODE,
+            ENABLE_CODEX_SEARCH,
+            _format_command(command),
+        )
+
         try:
             completed = subprocess.run(
                 command,
@@ -95,12 +108,30 @@ class SkillRunner:
             issue = f"Codex CLI command was not found: {exc}"
             stderr_path.write_text(issue + "\n", encoding="utf-8")
             _write_metadata(metadata_path, request, launch.notes, None)
+            LOGGER.exception(
+                "Codex command was not found job_id=%s skill=%s run_dir=%s stderr_path=%s",
+                request.job_id,
+                request.skill_name or request.skill_dir.name,
+                request.run_dir,
+                stderr_path,
+            )
             return CodexRunResult(False, None, final_message_path, stdout_path, stderr_path, prompt_path, [issue], launch.notes)
         except subprocess.TimeoutExpired as exc:
             issue = f"Codex CLI timed out after {CODEX_TIMEOUT_SECONDS} seconds."
             stdout_path.write_text(exc.stdout or "", encoding="utf-8")
             stderr_path.write_text((exc.stderr or "") + "\n" + issue + "\n", encoding="utf-8")
             _write_metadata(metadata_path, request, launch.notes, None)
+            LOGGER.error(
+                "Codex timed out job_id=%s skill=%s timeout_seconds=%s run_dir=%s stdout_path=%s stderr_path=%s stdout_tail=%r stderr_tail=%r",
+                request.job_id,
+                request.skill_name or request.skill_dir.name,
+                CODEX_TIMEOUT_SECONDS,
+                request.run_dir,
+                stdout_path,
+                stderr_path,
+                _tail_for_log(exc.stdout or ""),
+                _tail_for_log(exc.stderr or ""),
+            )
             return CodexRunResult(False, None, final_message_path, stdout_path, stderr_path, prompt_path, [issue], launch.notes)
 
         stdout_path.write_text(completed.stdout, encoding="utf-8")
@@ -108,6 +139,19 @@ class SkillRunner:
         _write_metadata(metadata_path, request, launch.notes, completed.returncode)
 
         if completed.returncode != 0:
+            LOGGER.error(
+                "Codex CLI failed job_id=%s skill=%s return_code=%s run_dir=%s prompt_path=%s stdout_path=%s stderr_path=%s final_message_path=%s stdout_tail=%r stderr_tail=%r",
+                request.job_id,
+                request.skill_name or request.skill_dir.name,
+                completed.returncode,
+                request.run_dir,
+                prompt_path,
+                stdout_path,
+                stderr_path,
+                final_message_path,
+                _tail_for_log(completed.stdout),
+                _tail_for_log(completed.stderr),
+            )
             return CodexRunResult(
                 success=False,
                 final_message_path=final_message_path,
@@ -124,6 +168,17 @@ class SkillRunner:
             submission = extract_json_object(response_text)
             validation_issues = validate_submission_contract(submission, request.public_data_dir)
         except ValueError as exc:
+            LOGGER.error(
+                "Codex output was not valid submission JSON job_id=%s skill=%s run_dir=%s final_message_path=%s stdout_path=%s stderr_path=%s issue=%s response_tail=%r",
+                request.job_id,
+                request.skill_name or request.skill_dir.name,
+                request.run_dir,
+                final_message_path,
+                stdout_path,
+                stderr_path,
+                exc,
+                _tail_for_log(response_text),
+            )
             return CodexRunResult(
                 success=False,
                 final_message_path=final_message_path,
@@ -136,6 +191,14 @@ class SkillRunner:
             )
 
         if validation_issues:
+            LOGGER.error(
+                "Codex submission contract failed job_id=%s skill=%s run_dir=%s submission_issues=%s final_message_path=%s",
+                request.job_id,
+                request.skill_name or request.skill_dir.name,
+                request.run_dir,
+                validation_issues,
+                final_message_path,
+            )
             return CodexRunResult(
                 success=False,
                 final_message_path=final_message_path,
@@ -148,6 +211,13 @@ class SkillRunner:
             )
 
         submission_path.write_text(json.dumps(submission, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+        LOGGER.info(
+            "Codex skill run completed job_id=%s skill=%s return_code=%s submission_path=%s",
+            request.job_id,
+            request.skill_name or request.skill_dir.name,
+            completed.returncode,
+            submission_path,
+        )
         return CodexRunResult(
             success=True,
             submission_path=submission_path,
@@ -275,6 +345,23 @@ def _load_public_record_ids(public_data_dir: Path) -> set[str]:
     if not isinstance(players, list):
         return set()
     return {player["record_id"] for player in players if isinstance(player, dict) and isinstance(player.get("record_id"), str)}
+
+
+def _format_command(command: list[str]) -> str:
+    return " ".join(str(part) for part in command)
+
+
+def _tail_for_log(value: str | bytes | None) -> str:
+    if value is None:
+        return ""
+    if isinstance(value, bytes):
+        text = value.decode("utf-8", errors="replace")
+    else:
+        text = value
+    text = text.strip()
+    if len(text) <= LOG_OUTPUT_CHARS:
+        return text
+    return "... " + text[-LOG_OUTPUT_CHARS:]
 
 
 def _write_metadata(metadata_path: Path, request: CodexRunRequest, notes: list[str], return_code: int | None) -> None:

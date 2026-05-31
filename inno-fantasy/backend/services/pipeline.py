@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import asyncio
 import json
+import logging
 import shutil
 from dataclasses import dataclass, field
 from datetime import UTC, datetime
@@ -32,6 +33,7 @@ STATUS_FAILED = "failed"
 
 _PIPELINE_JOBS: dict[str, "PipelineJob"] = {}
 _PIPELINE_LOCK = asyncio.Lock()
+LOGGER = logging.getLogger("uvicorn.error")
 
 
 def _utc_now() -> str:
@@ -143,6 +145,14 @@ def _run_pipeline_job_sync(job_id: str) -> PipelineJob:
     try:
         _update_job(job, status=STATUS_RUNNING, stage="snapshot", message="Creating immutable run snapshot.")
         run_dir = _new_run_dir(job)
+        LOGGER.info(
+            "Pipeline job started job_id=%s skill=%s filename=%s team_id=%s run_dir=%s",
+            job.job_id,
+            job.skill_name,
+            job.filename,
+            job.team_id,
+            run_dir,
+        )
         skill_snapshot_dir = run_dir / "skill"
         shutil.copytree(staged_skill_path, skill_snapshot_dir, dirs_exist_ok=True)
         release_validated_skill(job.validation_job_id)
@@ -176,15 +186,34 @@ def _run_pipeline_job_sync(job_id: str) -> PipelineJob:
             job.score = score_result.to_dict()
             job.score_result_path = score_result.result_path
             if score_result.success:
+                LOGGER.info(
+                    "Pipeline job scored job_id=%s score_result_path=%s",
+                    job.job_id,
+                    score_result.result_path,
+                )
                 _update_job(job, status=STATUS_COMPLETED, stage="scored", message="Codex execution and scoring completed.")
             else:
                 job.issues.extend(score_result.issues)
+                LOGGER.error(
+                    "Pipeline scoring failed job_id=%s run_dir=%s issues=%s",
+                    job.job_id,
+                    run_dir,
+                    score_result.issues,
+                )
                 _update_job(job, status=STATUS_FAILED, stage="scoring_failed", message="Scoring failed.")
         else:
             job.issues.extend(result.issues)
+            LOGGER.error(
+                "Pipeline Codex execution failed job_id=%s run_dir=%s issues=%s runner=%s",
+                job.job_id,
+                run_dir,
+                result.issues,
+                result.to_dict(),
+            )
             _update_job(job, status=STATUS_FAILED, stage="failed", message="Codex execution failed.")
         return job
     except Exception as exc:  # pragma: no cover - defensive boundary for background jobs
+        LOGGER.exception("Pipeline execution crashed job_id=%s skill=%s", job.job_id, job.skill_name)
         _mark_failed(job, f"Pipeline execution failed: {exc}")
         return job
 

@@ -43,6 +43,7 @@ Non-secret operational settings live in `config/config.yaml`:
 | `codex_runner.sandbox` | Codex sandbox mode | `read-only` |
 | `codex_runner.timeout_seconds` | Per-skill Codex timeout | `300` |
 | `codex_runner.enable_search` | Enables Codex web search for special tests | `false` |
+| `codex_runner.log_output_chars` | Max stdout/stderr characters echoed to uvicorn logs on failure | `4000` |
 | `api_football.min_interval_seconds` | Delay between API-Football calls | `7.0` |
 | `api_football.rate_limit_retries` | API-Football retry attempts | `5` |
 | `api_football.rate_limit_sleep_seconds` | Sleep after rate-limit responses | `20.0` |
