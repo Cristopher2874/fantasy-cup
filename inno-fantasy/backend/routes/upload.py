@@ -1,39 +1,24 @@
-""" endpoint to use for zip uploads """
+"""Upload endpoint for skill zip validation."""
+from __future__ import annotations
 
-#receive the uploaded zip
+from typing import Annotated
 
-#generate a job_id for async jobs
+from fastapi import APIRouter, File, Form, HTTPException, UploadFile
 
-#call the zip_handler.py with method:
-#extract and save zip file
+from services.validator.main_validator import ValidationBatchError, run_validator
 
-# call the skill_validator.py
-
-#return job id to client
-
-#clean up temp
-
-# POST /upload
-
-# save_and_extract(file, job_id)
-# result = validate(job_id)
-# enqueue(job_id)
-# return {job_id, status}
-
-from pathlib import Path
-import shutil
-
-from fastapi import APIRouter, File, Header, HTTPException, UploadFile
-from pydantic import BaseModel, Field
-
-from backend.config import settings
-from backend.services.validator.main_validator import run_validator
-from schemas.models.payload_schemas import UploadSkillRequest
 
 router = APIRouter(tags=["upload"])
 
-@router.post("/upload")
-def upload_skill(payload: UploadSkillRequest) -> dict:
-    validator_response = run_validator(payload.file)
 
-    return {"status": validator_response.status, "job_id": validator_response.job_id}
+@router.post("/upload")
+async def upload_skill(
+    file_uploads: Annotated[list[UploadFile] | None, File(alias="file")] = None,
+    files_uploads: Annotated[list[UploadFile] | None, File(alias="files")] = None,
+    team_id: Annotated[str | None, Form()] = None,
+) -> dict:
+    uploads = [*(file_uploads or []), *(files_uploads or [])]
+    try:
+        return await run_validator(uploads, team_id=team_id)
+    except ValidationBatchError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc

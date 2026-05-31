@@ -1,6 +1,6 @@
-""" Run actual flow """
+""" Run actual flow to generate JSON form skill"""
 
-from backend.services.codex_runner.skill_runner import SkillRuner
+from services.codex_runner.skill_runner import SkillRuner
 
 def run_skill_pipeline(data):
     runner = SkillRuner().call_skill_runner(data)

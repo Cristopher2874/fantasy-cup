@@ -1,0 +1,1 @@
+""" This module generates the  file once the match days are done so the team claims can be checked against it"""

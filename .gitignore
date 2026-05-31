@@ -29,3 +29,5 @@ playtest_app/run/
 ingestion/outputs/
 *.zip
 app
+
+node_modules

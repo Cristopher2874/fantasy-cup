@@ -6,9 +6,9 @@ import shutil
 from fastapi import APIRouter, File, Header, HTTPException, UploadFile
 from pydantic import BaseModel, Field
 
-from backend.config import settings
-from backend.services.pipeline import run_skill_pipeline
-from schemas.models.payload_schemas import UploadSkillRequest
+from config.config_provider import GlobalConfigProvider
+from services.pipeline import run_skill_pipeline
+from backend.models.payload_schemas import UploadSkillRequest
 
 router = APIRouter(tags=["progress"])
 

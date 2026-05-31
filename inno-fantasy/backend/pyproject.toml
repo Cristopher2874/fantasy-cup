@@ -1,0 +1,15 @@
+[project]
+name = "inno-fantasy"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "envyaml>=1.10.211231",
+    "fastapi>=0.136.3",
+    "httpx>=0.28.1",
+    "oci-genai-auth>=1.0.0",
+    "openai>=2.38.0",
+    "python-multipart>=0.0.29",
+    "uvicorn>=0.48.0",
+]

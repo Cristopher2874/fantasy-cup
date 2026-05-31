@@ -1,12 +1,9 @@
 import httpx
 import logging
-import oracledb
-from envyaml import EnvYAML
 
-from openai import OpenAI, AsyncOpenAI
+from openai import OpenAI
 from oci_genai_auth import OciUserPrincipalAuth
-from agents import set_default_openai_api, set_default_openai_client
-from backend.config.config_provider import GlobalConfigProvider
+from config.config_provider import GlobalConfigProvider
 
 class OCIOpenAIConfigKeyNotFound(Exception):
     """Raised when required config keys are missing."""

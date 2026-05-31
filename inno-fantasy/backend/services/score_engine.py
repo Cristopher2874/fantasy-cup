@@ -1,0 +1,1 @@
+""" This file is for  receiving and read each team's JSON claims and score against the source of truth."""

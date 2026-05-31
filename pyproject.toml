@@ -9,3 +9,8 @@ dependencies = [
     "python-multipart>=0.0.20",
     "uvicorn[standard]>=0.34.2",
 ]
+
+[tool.uv.workspace]
+members = [
+    "inno-fantasy",
+]

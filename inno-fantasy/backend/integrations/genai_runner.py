@@ -1,10 +1,5 @@
-import os
-import sys
-
-from openai import OpenAI
-
-from backend.integrations.oci_client_provider import OCIOpenAIClientProvider
-from schemas.models.structured_outpus import GuardrailDecision
+from integrations.oci_client_provider import OCIOpenAIClientProvider
+from backend.models.structured_outpus import GuardrailDecision
 
 class OpenAIClientRunner:
     """ Uses GenAI connection to run OpenAI LLM calls """
@@ -24,18 +19,19 @@ class OpenAIClientRunner:
     def _init(self):
         if hasattr(self, "_initialized") and self._initialized:
             return
-        self._openai_client = OCIOpenAIClientProvider.oci_openai_client
+        self._openai_client = OCIOpenAIClientProvider().oci_openai_client
         self._initialized=True
 
     def call_openai_client(self, prompt)->object|GuardrailDecision:
         try:
-            raw_response = self._openai_client.responses.create(
-                self._MODEL_ID,
-                prompt,
+            raw_response = self._openai_client.responses.parse(
+                model=self._MODEL_ID,
+                input=prompt,
+                instructions=self._SYSTEM_PROMT,
                 text_format=GuardrailDecision,
             )
         except Exception as e:
-            raw_response = GuardrailDecision(valid=False, issues=[f"erorr on guardrail: {e}"])
+            return GuardrailDecision(valid=False, issues=[f"error on guardrail: {e}"])
 
         #TODO: check if is possible to return from the same object
         return raw_response.output_parsed

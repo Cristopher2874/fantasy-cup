@@ -1,0 +1,1 @@
+""" This is the main file that handles all the source of truth generation and public data available from previous matches """
