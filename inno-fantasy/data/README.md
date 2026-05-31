@@ -36,8 +36,8 @@ The game flow depends on two scheduled data jobs. Run them from the
 `inno-fantasy` app root on a VM/container with `uv` and API credentials:
 
 ```bash
-./scripts/generate-public-data.sh 2022-11-21
-./scripts/generate-source-truth.sh 2022-11-21
+bash scripts/generate-game-data.sh public 2022-11-21
+bash scripts/generate-game-data.sh truth 2022-11-21
 ```
 
 Use these settings in deployment:

@@ -10,6 +10,7 @@ from routes.progress import router as progress_router
 from routes.public_data import router as public_data_router
 from routes.scores import router as scores_router
 from routes.upload import router as upload_router
+from services.rate_limiter import RateLimitMiddleware, build_default_rate_limit, build_rate_limit_rule
 
 
 CONFIG = GlobalConfigProvider()
@@ -43,6 +44,21 @@ if cors_allowed_origins:
         allow_credentials=CONFIG.get_bool("server", "cors_allow_credentials", False),
         allow_methods=["*"],
         allow_headers=["*"],
+    )
+
+if CONFIG.get_bool("rate_limit", "enabled", True):
+    rate_limit_rules = [
+        build_rate_limit_rule(rule)
+        for rule in CONFIG.get_config_value("rate_limit", "rules", [])
+        if isinstance(rule, dict)
+    ]
+    default_rate_limit = build_default_rate_limit(CONFIG.get_config_value("rate_limit", "default", {}))
+    app.add_middleware(
+        RateLimitMiddleware,
+        rules=rate_limit_rules,
+        default_rule=default_rate_limit,
+        client_ip_header=CONFIG.get_str("rate_limit", "client_ip_header", "x-forwarded-for"),
+        trust_proxy_headers=CONFIG.get_bool("rate_limit", "trust_proxy_headers", True),
     )
 
 app.include_router(upload_router)

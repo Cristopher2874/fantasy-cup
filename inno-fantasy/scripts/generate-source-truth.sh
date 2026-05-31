@@ -9,7 +9,7 @@ set -euo pipefail
 #   - Set APISPORTS_KEY or API_FOOTBALL_KEY in the environment, or in backend/.env.
 #
 # Usage:
-#   ./scripts/generate-source-truth.sh 2022-11-21
+#   bash scripts/generate-source-truth.sh 2022-11-21
 #
 # Optional environment knobs:
 #   FANTASY_CUP_MATCH_DATE=2022-11-21  # used when no date argument is passed
@@ -22,7 +22,7 @@ set -euo pipefail
 #   FIXTURE_IDS=855735,855736          # explicit fixture ids, comma-separated
 #
 # Example cron:
-#   0 23 * * * /opt/fantasy-cup/inno-fantasy/scripts/generate-source-truth.sh 2022-11-21 >> /var/log/inno-fantasy-source-truth.log 2>&1
+#   0 23 * * * bash /opt/fantasy-cup/inno-fantasy/scripts/generate-source-truth.sh 2022-11-21 >> /var/log/inno-fantasy-source-truth.log 2>&1
 
 SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 APP_ROOT="$(cd -- "${SCRIPT_DIR}/.." && pwd)"
@@ -34,7 +34,7 @@ SEASON="${SEASON:-}"
 
 if [[ -z "${MATCH_DATE}" ]]; then
   echo "Missing match date. Pass YYYY-MM-DD or set FANTASY_CUP_MATCH_DATE." >&2
-  echo "Example: ./scripts/generate-source-truth.sh 2022-11-21" >&2
+  echo "Example: bash scripts/generate-source-truth.sh 2022-11-21" >&2
   exit 2
 fi
 

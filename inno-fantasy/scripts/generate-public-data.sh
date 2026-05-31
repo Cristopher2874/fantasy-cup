@@ -8,7 +8,7 @@ set -euo pipefail
 #   - Set APISPORTS_KEY or API_FOOTBALL_KEY in the environment, or in backend/.env.
 #
 # Usage:
-#   ./scripts/generate-public-data.sh 2022-11-21
+#   bash scripts/generate-public-data.sh 2022-11-21
 #
 # Optional environment knobs:
 #   FANTASY_CUP_AS_OF_DATE=2022-11-21  # used when no date argument is passed
@@ -17,7 +17,7 @@ set -euo pipefail
 #   REFRESH=1                          # force live API-Football calls instead of cache
 #
 # Example cron:
-#   0 6 * * * /opt/fantasy-cup/inno-fantasy/scripts/generate-public-data.sh 2022-11-21 >> /var/log/inno-fantasy-public-data.log 2>&1
+#   0 6 * * * bash /opt/fantasy-cup/inno-fantasy/scripts/generate-public-data.sh 2022-11-21 >> /var/log/inno-fantasy-public-data.log 2>&1
 
 SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 APP_ROOT="$(cd -- "${SCRIPT_DIR}/.." && pwd)"
@@ -29,7 +29,7 @@ SEASON="${SEASON:-}"
 
 if [[ -z "${AS_OF_DATE}" ]]; then
   echo "Missing as-of date. Pass YYYY-MM-DD or set FANTASY_CUP_AS_OF_DATE." >&2
-  echo "Example: ./scripts/generate-public-data.sh 2022-11-21" >&2
+  echo "Example: bash scripts/generate-public-data.sh 2022-11-21" >&2
   exit 2
 fi
 

@@ -28,6 +28,13 @@ api_football:
 scoring:
   initial_team_points: 0
 
+admin_routes:
+  # Protects only POST /scores/{job_id}/score. Automatic pipeline scoring does
+  # not use this route and is not affected.
+  score_write_requires_token: true
+  score_write_header: x-admin-token
+  score_write_token: $INNO_FANTASY_ADMIN_TOKEN|
+
 server:
   # Leave empty when the reverse proxy strips any external prefix before
   # forwarding to this backend. Set to "/api" only when ASGI root_path support
@@ -39,3 +46,44 @@ server:
   cors_allow_credentials: false
   trusted_hosts:
     - "*"
+
+rate_limit:
+  enabled: true
+  # Trust X-Forwarded-For only when the backend is reachable only through your
+  # reverse proxy. If the backend is directly public, set this to false.
+  trust_proxy_headers: true
+  client_ip_header: x-forwarded-for
+  default:
+    requests: 30
+    window_seconds: 60
+  rules:
+    - name: upload
+      methods: [POST]
+      path: /upload
+      match: exact
+      requests: 3
+      window_seconds: 60
+    - name: progress
+      methods: [GET]
+      path: /progress
+      match: prefix
+      requests: 120
+      window_seconds: 60
+    - name: public-data
+      methods: [GET]
+      path: /public-data
+      match: prefix
+      requests: 120
+      window_seconds: 60
+    - name: score-read
+      methods: [GET]
+      path: /scores
+      match: prefix
+      requests: 60
+      window_seconds: 60
+    - name: score-write
+      methods: [POST]
+      path: /scores
+      match: prefix
+      requests: 5
+      window_seconds: 60
