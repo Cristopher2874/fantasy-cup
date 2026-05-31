@@ -13,10 +13,11 @@ game:
   default_season: "2022"
 
 codex_runner:
+#  command: /usr/local/bin/codex
   command: codex
   sandbox: read-only
   timeout_seconds: 300
-  enable_search: false
+  enable_search: true
   log_output_chars: 4000
 
 api_football:
@@ -26,3 +27,15 @@ api_football:
 
 scoring:
   initial_team_points: 0
+
+server:
+  # Leave empty when the reverse proxy strips any external prefix before
+  # forwarding to this backend. Set to "/api" only when ASGI root_path support
+  # is needed by the deployment.
+  root_path: ""
+  # Keep empty for same-origin reverse-proxy deployments. Add exact UI origins
+  # when the UI calls the backend cross-origin during integration.
+  cors_allowed_origins: []
+  cors_allow_credentials: false
+  trusted_hosts:
+    - "*"

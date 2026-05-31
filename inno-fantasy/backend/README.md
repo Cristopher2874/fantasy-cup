@@ -48,12 +48,108 @@ Non-secret operational settings live in `config/config.yaml`:
 | `api_football.rate_limit_retries` | API-Football retry attempts | `5` |
 | `api_football.rate_limit_sleep_seconds` | Sleep after rate-limit responses | `20.0` |
 | `scoring.initial_team_points` | Starting bankroll used by risk scoring | `0` |
+| `server.root_path` | ASGI root path metadata for deployments mounted under a prefix | `""` |
+| `server.cors_allowed_origins` | Exact UI origins allowed for cross-origin browser calls | `[]` |
+| `server.cors_allow_credentials` | Whether CORS responses allow credentials/cookies | `false` |
+| `server.trusted_hosts` | Allowed Host headers for Starlette trusted-host middleware | `["*"]` |
 
 Environment variables should be reserved for secrets or deployment-specific
 credential paths:
 
 - `APISPORTS_KEY` or `API_FOOTBALL_KEY`.
 - OCI credential variables referenced by the existing `oci` config block.
+
+## Codex CLI Deployment Notes
+
+The upload pipeline calls Codex through
+`services/codex_runner/skill_runner.py`. Local Windows development uses helper
+logic in `services/codex_runner/windows_helpers.py`, but that helper detects the
+host OS. On Linux it falls back to normal command resolution with `PATH` and
+does not inject Windows-specific prompt guidance.
+
+For a Linux VM, install Codex CLI and either keep it on `PATH` or set the full
+binary path:
+
+```yaml
+codex_runner:
+  command: /usr/local/bin/codex
+  sandbox: read-only
+```
+
+Before running uploads on a new deployment, verify the CLI contract expected by
+the runner:
+
+```bash
+which codex
+codex --version
+printf 'Return exactly {"ok": true} and no markdown.' | codex --sandbox read-only exec --output-last-message /tmp/codex-test.txt -
+cat /tmp/codex-test.txt
+```
+
+If the deployed Codex CLI uses a different syntax than
+`codex --sandbox read-only exec --output-last-message <file> -`, update
+`skill_runner.py` or the `codex_runner.command` config before enabling the
+upload flow. When Codex fails, uvicorn logs include the run directory plus
+stdout/stderr tails, and the full artifacts are written under `../data/runs/`.
+
+## Reverse Proxy Deployment Notes
+
+The backend routes are relative and do not hardcode a public host. A reverse
+proxy can safely expose them as long as it forwards to the same route paths the
+FastAPI app defines.
+
+Recommended VM command behind a local reverse proxy:
+
+```bash
+cd /opt/fantasy-cup/inno-fantasy/backend
+uv run uvicorn main:app --host 127.0.0.1 --port 8000 --proxy-headers --forwarded-allow-ips="127.0.0.1"
+```
+
+Use one uvicorn worker for the MVP. Pipeline progress is currently kept in
+process memory while Codex runs in a FastAPI background task; multiple workers
+can make `/progress/{job_id}` hit a different process than the upload.
+
+If the proxy exposes the API under `/api`, prefer stripping that prefix before
+forwarding to uvicorn. For example, with nginx:
+
+```nginx
+client_max_body_size 25m;
+
+location /api/ {
+    proxy_pass http://127.0.0.1:8000/;
+    proxy_http_version 1.1;
+    proxy_set_header Host $host;
+    proxy_set_header X-Forwarded-Host $host;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+    proxy_buffering off;
+    proxy_read_timeout 600s;
+}
+```
+
+The trailing slash on `proxy_pass http://127.0.0.1:8000/;` is intentional: it
+forwards `/api/upload` to backend route `/upload`. If the proxy does not strip
+the prefix, the backend routes will not match `/api/...` without additional
+routing changes.
+
+For same-origin deployments through the reverse proxy, leave
+`server.cors_allowed_origins` empty. If the UI calls the backend from another
+origin during integration, add exact origins in `config/config.yaml`:
+
+```yaml
+server:
+  cors_allowed_origins:
+    - https://ui.example.com
+  cors_allow_credentials: true
+```
+
+If the backend is mounted under a prefix and the proxy already strips that
+prefix, `server.root_path` can be set for OpenAPI/docs metadata:
+
+```yaml
+server:
+  root_path: /api
+```
 
 ## UI Integration Endpoints
 
