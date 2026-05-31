@@ -1,6 +1,7 @@
 import { FormEvent, useEffect, useMemo, useRef, useState } from 'react';
 import { MAX_UPLOADS, MAX_ZIP_BYTES } from '../data/appContent';
 import { fetchProgressJobs, uploadSkillBatch } from '../services/api';
+import { apiEndpoints } from '../services/endpoints';
 import { FileCheck, PipelineJob, SubmitController } from '../types';
 
 export function useSkillSubmission(): SubmitController {
@@ -47,7 +48,7 @@ export function useSkillSubmission(): SubmitController {
     }
 
     try {
-      const source = new EventSource(`/progress/${jobId}/stream`);
+      const source = new EventSource(apiEndpoints.progressStream(jobId));
       streamRefs.current[jobId] = source;
 
       source.addEventListener('progress', (event) => {

@@ -1,4 +1,5 @@
 import { PipelineJob, UploadResponse } from '../types';
+import { apiEndpoints } from './endpoints';
 
 export async function uploadSkillBatch(files: File[], teamId: string): Promise<UploadResponse> {
   const formData = new FormData();
@@ -8,7 +9,7 @@ export async function uploadSkillBatch(files: File[], teamId: string): Promise<U
     formData.append('team_id', teamId.trim());
   }
 
-  const response = await fetch('/upload', {
+  const response = await fetch(apiEndpoints.upload, {
     method: 'POST',
     body: formData,
   });
@@ -22,7 +23,7 @@ export async function uploadSkillBatch(files: File[], teamId: string): Promise<U
 }
 
 export async function fetchProgressJobs(): Promise<PipelineJob[]> {
-  const response = await fetch('/progress');
+  const response = await fetch(apiEndpoints.progress);
   const payload = await parseResponse(response);
 
   if (!response.ok) {

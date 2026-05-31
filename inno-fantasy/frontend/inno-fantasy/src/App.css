@@ -374,6 +374,62 @@
   font-size: clamp(2.2rem, 4vw, 4.2rem);
 }
 
+.submit-header {
+  padding-bottom: 18px;
+}
+
+.submission-workspace {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding-bottom: 56px;
+}
+
+.workspace-tabs {
+  display: inline-flex;
+  gap: 4px;
+  margin: 0 clamp(20px, 5vw, 72px) 18px;
+  padding: 4px;
+  border: 1px solid rgba(22, 21, 19, 0.1);
+  border-radius: 8px;
+  background: var(--redwood-sand);
+}
+
+.workspace-tab {
+  min-height: 38px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--redwood-ink-soft);
+  cursor: pointer;
+  font: inherit;
+  font-weight: 800;
+}
+
+.workspace-tab:hover,
+.workspace-tab:focus-visible {
+  color: var(--redwood-ink);
+  outline: none;
+}
+
+.workspace-tab-active {
+  background: var(--redwood-paper);
+  color: var(--redwood-ink);
+  box-shadow: 0 1px 2px rgba(22, 21, 19, 0.1);
+}
+
+.tab-panel {
+  width: 100%;
+}
+
+.compact-panel {
+  padding-inline: clamp(20px, 5vw, 72px);
+}
+
+.compact-panel .run-panel {
+  max-width: 760px;
+}
+
 .rules-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -770,7 +826,27 @@ input:not([type]) {
 }
 
 .result-band {
-  padding-top: 28px;
+  padding: 12px clamp(20px, 5vw, 72px) 0;
+}
+
+.empty-section {
+  width: min(760px, calc(100% - clamp(40px, 10vw, 144px)));
+  margin: 12px auto 0;
+  padding: 28px;
+  border: 1px solid rgba(22, 21, 19, 0.1);
+  border-radius: 8px;
+  background: var(--redwood-paper);
+}
+
+.empty-section h2 {
+  margin: 8px 0 10px;
+  font-size: 1.5rem;
+}
+
+.empty-section p {
+  margin: 0;
+  color: var(--redwood-ink-soft);
+  line-height: 1.55;
 }
 
 .results-grid {
@@ -881,8 +957,13 @@ input:not([type]) {
     width: 100%;
   }
 
-  .nav-link {
+  .nav-link,
+  .workspace-tab {
     flex: 1;
+  }
+
+  .workspace-tabs {
+    display: flex;
   }
 
   .hero-content,
@@ -912,8 +993,18 @@ input:not([type]) {
   .hero-band,
   .content-band,
   .page-header,
-  .submit-layout {
+  .submit-layout,
+  .compact-panel,
+  .result-band {
     padding-inline: 16px;
+  }
+
+  .workspace-tabs {
+    margin-inline: 16px;
+  }
+
+  .empty-section {
+    width: calc(100% - 32px);
   }
 
   .hero-copy h1,
