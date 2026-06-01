@@ -20,12 +20,8 @@ LEADERBOARD_PATH = SCORES_ROOT / "leaderboard.json"
 SCORED_JOBS_DIR = SCORES_ROOT / "jobs"
 INITIAL_TEAM_POINTS = GlobalConfigProvider().get_float("scoring", "initial_team_points", 0.0)
 
-POSITION_RULES = {
-    "GK": (1, 1),
-    "DEF": (3, 5),
-    "MID": (3, 5),
-    "FWD": (1, 3),
-}
+FANTASY_XI_SIZE = 11
+TRACKED_POSITIONS = ("GK", "DEF", "MID", "FWD")
 
 CATEGORY_STAKES = {
     "green": 0.15,
@@ -102,33 +98,20 @@ class TeamClaimsScorer:
                 "position_counts": {},
             }
 
-        if len(fantasy_xi) != 11:
-            errors.append(f"fantasy_xi must contain exactly 11 selections; received {len(fantasy_xi)}")
+        if len(fantasy_xi) != FANTASY_XI_SIZE:
+            errors.append(f"fantasy_xi must contain exactly {FANTASY_XI_SIZE} selections; received {len(fantasy_xi)}")
 
-        seen_record_ids = set()
         for selection in fantasy_xi:
             player, error = self.resolve_player_selection(selection)
             if error:
                 errors.append(error)
                 continue
-            if player["record_id"] in seen_record_ids:
-                errors.append(f"Duplicate player record_id: {player['record_id']}")
-                continue
-            seen_record_ids.add(player["record_id"])
             resolved_players.append(player)
 
-        position_counts = {position: 0 for position in POSITION_RULES}
+        position_counts = {position: 0 for position in TRACKED_POSITIONS}
         for player in resolved_players:
-            position = player.get("position")
-            if position in position_counts:
-                position_counts[position] += 1
-            else:
-                errors.append(f"Unsupported position for {player['record_id']}: {position}")
-
-        for position, (minimum, maximum) in POSITION_RULES.items():
-            count = position_counts[position]
-            if count < minimum or count > maximum:
-                errors.append(f"{position} count must be between {minimum} and {maximum}; received {count}")
+            position = str(player.get("position") or "UNKNOWN")
+            position_counts[position] = position_counts.get(position, 0) + 1
 
         if errors:
             return {

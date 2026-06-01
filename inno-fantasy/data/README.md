@@ -67,7 +67,7 @@ Skills should not receive `source_of_truth/`.
 Important public files:
 
 - `manifest.json`: generated timestamp, matchday id, source metadata, file list.
-- `matchday.json`: game rules and limits for the matchday.
+- `matchday.json`: game rules and free-form selection policy for the matchday.
 - `matches.json`: upcoming fixture list.
 - `players.json`: eligible player records with `record_id` values.
 - `risk_claims.json`: allowed risk claims per match.

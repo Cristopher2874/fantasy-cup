@@ -25,6 +25,7 @@
       "properties": {
         "fantasy_xi": {
           "type": "array",
+          "description": "Exactly 11 Fantasy XI selections. Repeated record_id values and any mix of player positions are allowed.",
           "minItems": 11,
           "maxItems": 11,
           "items": {

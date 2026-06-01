@@ -806,12 +806,9 @@ def _build_matchday(
         "fantasy_xi_rules": {
             "selection_count": 11,
             "selection_id": "Use players[].record_id from players.json.",
-            "positions": {
-                "GK": {"min": 1, "max": 1, "label": "Goalkeeper"},
-                "DEF": {"min": 3, "max": 5, "label": "Defender"},
-                "MID": {"min": 3, "max": 5, "label": "Midfielder"},
-                "FWD": {"min": 1, "max": 3, "label": "Forward"},
-            },
+            "selection_policy": "Exactly 11 entries. Record IDs may repeat, and any mix of player positions is allowed.",
+            "duplicates_allowed": True,
+            "position_limits": None,
         },
         "risk_play_rules": {"optional": True, "select_at_most": 1, "claim_source": "risk_claims.json"},
         "hidden_until_scoring": [

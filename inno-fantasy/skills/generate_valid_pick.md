@@ -12,7 +12,7 @@ You create one valid Fantasy Cup team submission JSON object from local public d
 Inspect the public data folder named in the shared runner context. Read these files from that folder:
 
 - `manifest.json` for the matchday id and data inventory.
-- `matchday.json` for rules and position limits.
+- `matchday.json` for rules and the free-form selection policy.
 - `players.json` for eligible player `record_id` values.
 - `risk_claims.json` for allowed risk play claim options.
 - `answer_template.json` for the required output shape.
@@ -27,10 +27,11 @@ Inspect the public data folder named in the shared runner context. Read these fi
 - `answers.fantasy_xi` must contain exactly 11 entries.
 - Every Fantasy XI entry must use this shape: `{ "record_id": "match_id:player_id" }`.
 - Each `record_id` must come from `players.json`.
+- Record IDs may repeat, and there are no formation or position-count limits.
 - `answers.risk_play` may be `null`. Use `null` unless you are confident a risk claim can be copied correctly from `risk_claims.json`.
 - `answers.strategy_summary` must be one short paragraph.
 - Do not include markdown fences in `submission.json`.
 
 ## Pick Strategy
 
-Prefer a balanced team that covers multiple matches and includes attacking players when player position or role data is available. If the data is sparse, prioritize producing a schema-valid submission over optimizing the score.
+Pick the 11 entries that best fit your strategy. Balanced teams, all-attack lineups, all-goalkeeper lineups, and repeated copies of one player are all valid if the submitted `record_id` values exist in `players.json`.

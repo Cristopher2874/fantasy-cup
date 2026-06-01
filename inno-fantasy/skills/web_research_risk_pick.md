@@ -27,10 +27,11 @@ Inspect the public data folder named in the shared runner context, then use nati
 - `answers.fantasy_xi` must contain exactly 11 entries.
 - Every Fantasy XI entry must use this shape: `{ "record_id": "match_id:player_id" }`.
 - Each `record_id` must come from `players.json`.
+- Record IDs may repeat, and there are no formation or position-count limits.
 - `answers.risk_play` must be a non-null object copied from one available claim and filled with all required fields.
 - `answers.strategy_summary` should briefly mention the researched evidence for the risk play.
 - Do not include markdown fences.
 
 ## Pick Strategy
 
-First choose the risk play from researched evidence. Then choose a valid Fantasy XI from eligible `players.json` records, prioritizing players connected to researched high-scoring or high-event matches when possible.
+First choose the risk play from researched evidence. Then choose 11 Fantasy XI entries from eligible `players.json` records, including repeated or position-stacked picks when that makes the strategy stronger or funnier.
