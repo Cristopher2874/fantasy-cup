@@ -17,6 +17,7 @@ CODEX_COMMAND = CONFIG.get_str("codex_runner", "command", "codex")
 CODEX_SANDBOX_MODE = CONFIG.get_str("codex_runner", "sandbox", "read-only")
 CODEX_TIMEOUT_SECONDS = CONFIG.get_int("codex_runner", "timeout_seconds", 300)
 ENABLE_CODEX_SEARCH = CONFIG.get_bool("codex_runner", "enable_search", False)
+CODEX_SKIP_GIT_REPO_CHECK = CONFIG.get_bool("codex_runner", "skip_git_repo_check", True)
 LOG_OUTPUT_CHARS = CONFIG.get_int("codex_runner", "log_output_chars", 4000)
 
 BACKEND_ROOT = Path(__file__).resolve().parents[2]
@@ -81,22 +82,27 @@ class SkillRunner:
         command = [launch.command, "--sandbox", CODEX_SANDBOX_MODE]
         if ENABLE_CODEX_SEARCH:
             command.append("--search")
-        command.extend(["exec", "--output-last-message", str(final_message_path), "-"])
+        command.append("exec")
+        if CODEX_SKIP_GIT_REPO_CHECK:
+            command.append("--skip-git-repo-check")
+        command.extend(["--output-last-message", str(final_message_path), "-"])
 
         LOGGER.info(
-            "Starting Codex skill run job_id=%s skill=%s run_dir=%s sandbox=%s search_enabled=%s command=%s",
+            "Starting Codex skill run job_id=%s skill=%s run_dir=%s cwd=%s sandbox=%s search_enabled=%s skip_git_repo_check=%s command=%s",
             request.job_id,
             request.skill_name or request.skill_dir.name,
             request.run_dir,
+            request.run_dir,
             CODEX_SANDBOX_MODE,
             ENABLE_CODEX_SEARCH,
+            CODEX_SKIP_GIT_REPO_CHECK,
             _format_command(command),
         )
 
         try:
             completed = subprocess.run(
                 command,
-                cwd=INNO_ROOT,
+                cwd=request.run_dir,
                 env=launch.env,
                 input=prompt_text,
                 text=True,
@@ -234,6 +240,9 @@ def build_prompt(request: CodexRunRequest) -> str:
     skill_md_path = request.skill_dir / "SKILL.md"
     skill_text = skill_md_path.read_text(encoding="utf-8")
     public_files = ", ".join(path.name for path in sorted(request.public_data_dir.iterdir()) if path.is_file())
+    skill_dir = "./skill"
+    public_data_dir = "./public_data"
+    schema_path = "./schemas/team_submission.schema.json"
     platform_section = ""
     launch = prepare_windows_codex_launch(CODEX_COMMAND)
     if launch.prompt_guidance:
@@ -249,11 +258,16 @@ Run context:
 - Validation job id: {request.job_id}
 - Team id from upload form: {request.team_id or "not-provided"}
 - Skill name: {request.skill_name or request.skill_dir.name}
-- Skill folder: {request.skill_dir}
-- Public data folder: {request.public_data_dir}
-- Submission schema: {request.schema_path}
+- Skill folder: {skill_dir}
+- Public data folder: {public_data_dir}
+- Submission schema: {schema_path}
 - Public files available: {public_files}
 {platform_section}
+File access boundary:
+- Your working directory is the isolated run folder for this job.
+- Inspect only `./skill`, `./public_data`, and `./schemas/team_submission.schema.json`.
+- Do not inspect parent directories, backend source code, config files, logs, `.env` files, or data from other runs.
+
 Output contract:
 - Return exactly one JSON object.
 - The object must have `team_id`, `team_name`, `matchday_id`, and `answers`.
@@ -377,6 +391,13 @@ def _write_metadata(metadata_path: Path, request: CodexRunRequest, notes: list[s
                 "codex_command": CODEX_COMMAND,
                 "sandbox": CODEX_SANDBOX_MODE,
                 "search_enabled": ENABLE_CODEX_SEARCH,
+                "skip_git_repo_check": CODEX_SKIP_GIT_REPO_CHECK,
+                "cwd": str(request.run_dir),
+                "allowed_paths": [
+                    "skill",
+                    "public_data",
+                    "schemas/team_submission.schema.json",
+                ],
                 "notes": notes,
                 "return_code": return_code,
             },

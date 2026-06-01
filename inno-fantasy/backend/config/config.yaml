@@ -18,6 +18,7 @@ codex_runner:
   sandbox: read-only
   timeout_seconds: 300
   enable_search: true
+  skip_git_repo_check: true
   log_output_chars: 4000
 
 api_football:

@@ -66,6 +66,82 @@ bash scripts/preflight-backend.sh
 This checks that `uv`, `.env`, backend imports, Codex CLI, API-Football key, and
 OCI config values are present. It does not make live API calls.
 
+## Codex CLI Setup
+
+The upload pipeline needs Codex CLI on the VM user that runs the backend. The
+backend reads `codex_runner.command` from `backend/config/config.yaml`; the
+default is `codex` on `PATH`.
+
+Install Codex CLI on Linux:
+
+```bash
+curl -fsSL https://chatgpt.com/codex/install.sh | sh
+```
+
+For a non-interactive install:
+
+```bash
+curl -fsSL https://chatgpt.com/codex/install.sh | CODEX_NON_INTERACTIVE=1 sh
+```
+
+Then open a new shell or source the shell profile updated by the installer, and
+verify:
+
+```bash
+command -v codex
+codex --version
+```
+
+Install `bubblewrap` so Codex can use the Linux sandbox package from the OS
+instead of its bundled fallback:
+
+```bash
+# Ubuntu/Debian
+sudo apt install bubblewrap
+
+# Fedora/RHEL/Oracle Linux
+sudo dnf install bubblewrap
+```
+
+Authenticate as the same Linux user that runs `scripts/start_bg.sh`:
+
+```bash
+codex
+```
+
+For SSH-only servers, copy the URL printed by Codex into your local browser and
+complete login there. After login, test the exact non-interactive shape used by
+the backend:
+
+```bash
+bash scripts/codex-smoke-test.sh
+```
+
+The smoke test mirrors the runner shape: `codex --sandbox read-only --search
+exec --skip-git-repo-check ...`. To disable the search flag for diagnosis:
+
+```bash
+CODEX_ENABLE_SEARCH=0 bash scripts/codex-smoke-test.sh
+```
+
+If the CLI still prints `Not inside a trusted directory`, verify
+`codex_runner.skip_git_repo_check: true` in `backend/config/config.yaml` and
+rerun the smoke test from `inno-fantasy/`.
+
+Prefer saved CLI auth for this app. Avoid exporting `CODEX_API_KEY` into the
+long-running backend environment because uploaded skill text is untrusted and
+the Codex subprocess inherits the backend environment.
+
+If `codex` is installed outside `PATH`, set the full executable path in
+`backend/config/config.yaml`:
+
+```yaml
+codex_runner:
+  command: /home/cris/.local/bin/codex
+  enable_search: true
+  skip_git_repo_check: true
+```
+
 ## Start The Backend Only
 
 ```bash

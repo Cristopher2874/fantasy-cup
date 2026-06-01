@@ -47,7 +47,8 @@ Before the UI team runs the backend on the VM:
    `APISPORTS_KEY` or `API_FOOTBALL_KEY`, OCI values, and
    `INNO_FANTASY_ADMIN_TOKEN`.
 3. Review non-secret settings in `config/config.yaml`, especially
-   `codex_runner.command`, `codex_runner.enable_search`, `server.*`, and
+   `codex_runner.command`, `codex_runner.enable_search`,
+   `codex_runner.skip_git_repo_check`, `server.*`, and
    `rate_limit.*`.
 4. Install/verify Codex CLI on the VM.
 5. Run `bash scripts/preflight-backend.sh`.
@@ -69,8 +70,9 @@ Non-secret operational settings live in `config/config.yaml`:
 | `game.default_season` | API-Football season for scheduled jobs | `"2022"` |
 | `codex_runner.command` | Codex CLI command/path | `codex` |
 | `codex_runner.sandbox` | Codex sandbox mode | `read-only` |
+| `codex_runner.enable_search` | Adds the Codex CLI `--search` flag before `exec` | `true` |
+| `codex_runner.skip_git_repo_check` | Adds `--skip-git-repo-check` for copied VM deployments without `.git` | `true` |
 | `codex_runner.timeout_seconds` | Per-skill Codex timeout | `300` |
-| `codex_runner.enable_search` | Enables Codex web search for special tests | `false` |
 | `codex_runner.log_output_chars` | Max stdout/stderr characters echoed to uvicorn logs on failure | `4000` |
 | `api_football.min_interval_seconds` | Delay between API-Football calls | `7.0` |
 | `api_football.rate_limit_retries` | API-Football retry attempts | `5` |
@@ -109,7 +111,44 @@ binary path:
 codex_runner:
   command: /usr/local/bin/codex
   sandbox: read-only
+  enable_search: true
+  skip_git_repo_check: true
 ```
+
+Install Codex CLI on Linux with the standalone installer:
+
+```bash
+curl -fsSL https://chatgpt.com/codex/install.sh | sh
+```
+
+For unattended installs:
+
+```bash
+curl -fsSL https://chatgpt.com/codex/install.sh | CODEX_NON_INTERACTIVE=1 sh
+```
+
+Then authenticate and verify with the same Linux user that runs the backend:
+
+```bash
+codex
+command -v codex
+codex --version
+```
+
+Install the distro `bubblewrap` package to avoid Codex falling back to its
+bundled helper:
+
+```bash
+# Ubuntu/Debian
+sudo apt install bubblewrap
+
+# Fedora/RHEL/Oracle Linux
+sudo dnf install bubblewrap
+```
+
+Prefer saved CLI auth for this app. Avoid exporting `CODEX_API_KEY` into the
+long-running backend environment because uploaded skill text is untrusted and
+the Codex subprocess inherits the backend environment.
 
 Before running uploads on a new deployment, verify the CLI contract expected by
 the runner:
@@ -117,15 +156,26 @@ the runner:
 ```bash
 which codex
 codex --version
-printf 'Return exactly {"ok": true} and no markdown.' | codex --sandbox read-only exec --output-last-message /tmp/codex-test.txt -
+printf 'Return exactly {"ok": true} and no markdown.' | codex --sandbox read-only --search exec --skip-git-repo-check --output-last-message /tmp/codex-test.txt -
 cat /tmp/codex-test.txt
 ```
 
 If the deployed Codex CLI uses a different syntax than
-`codex --sandbox read-only exec --output-last-message <file> -`, update
+`codex --sandbox read-only --search exec --skip-git-repo-check --output-last-message <file> -`, update
 `skill_runner.py` or the `codex_runner.command` config before enabling the
 upload flow. When Codex fails, uvicorn logs include the run directory plus
 stdout/stderr tails, and the full artifacts are written under `../data/runs/`.
+
+The runner starts Codex with the per-job run folder as its working directory.
+The generated prompt references only `./skill`, `./public_data`, and
+`./schemas/team_submission.schema.json` so skill execution stays focused on the
+uploaded skill snapshot instead of the backend source tree.
+
+The app-level helper wraps the same check:
+
+```bash
+bash scripts/codex-smoke-test.sh
+```
 
 ## Reverse Proxy Deployment Notes
 
