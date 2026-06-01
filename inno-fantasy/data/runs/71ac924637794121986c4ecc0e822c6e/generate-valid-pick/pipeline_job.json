@@ -1,0 +1,37 @@
+{
+  "created_at": "2026-05-31T18:47:39Z",
+  "filename": "generate-valid-pick.zip",
+  "issues": [
+    "Codex CLI exited with code 1."
+  ],
+  "job_id": "71ac924637794121986c4ecc0e822c6e",
+  "message": "Codex execution failed.",
+  "run_dir": "C:\\Users\\Cristopher Hdz\\Documents\\projects\\fantasy-cup\\inno-fantasy\\data\\runs\\71ac924637794121986c4ecc0e822c6e\\generate-valid-pick",
+  "runner": {
+    "final_message_path": "C:\\Users\\Cristopher Hdz\\Documents\\projects\\fantasy-cup\\inno-fantasy\\data\\runs\\71ac924637794121986c4ecc0e822c6e\\generate-valid-pick\\codex.final-message.txt",
+    "issues": [
+      "Codex CLI exited with code 1."
+    ],
+    "notes": [
+      "Forced Codex bin directory to front of PATH: C:\\Users\\Cristopher Hdz\\.codex\\packages\\standalone\\releases\\0.135.0-x86_64-pc-windows-msvc\\bin",
+      "Forced Codex resources directory to front of PATH: C:\\Users\\Cristopher Hdz\\.codex\\packages\\standalone\\releases\\0.135.0-x86_64-pc-windows-msvc\\codex-resources",
+      "Windows sandbox helper: C:\\Users\\Cristopher Hdz\\.codex\\packages\\standalone\\releases\\0.135.0-x86_64-pc-windows-msvc\\codex-resources\\codex-windows-sandbox-setup.exe"
+    ],
+    "prompt_path": "C:\\Users\\Cristopher Hdz\\Documents\\projects\\fantasy-cup\\inno-fantasy\\data\\runs\\71ac924637794121986c4ecc0e822c6e\\generate-valid-pick\\prompt.md",
+    "return_code": 1,
+    "stderr_path": "C:\\Users\\Cristopher Hdz\\Documents\\projects\\fantasy-cup\\inno-fantasy\\data\\runs\\71ac924637794121986c4ecc0e822c6e\\generate-valid-pick\\codex.stderr.log",
+    "stdout_path": "C:\\Users\\Cristopher Hdz\\Documents\\projects\\fantasy-cup\\inno-fantasy\\data\\runs\\71ac924637794121986c4ecc0e822c6e\\generate-valid-pick\\codex.stdout.log",
+    "submission_path": null,
+    "success": false
+  },
+  "score": null,
+  "score_result_path": null,
+  "skill_name": "generate-valid-pick",
+  "stage": "failed",
+  "status": "failed",
+  "submission_path": null,
+  "team_id": null,
+  "updated_at": "2026-05-31T18:47:44Z",
+  "validation_job_id": "71ac924637794121986c4ecc0e822c6e",
+  "warnings": []
+}

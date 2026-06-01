@@ -1,0 +1,5000 @@
+{
+  "capabilities": {
+    "app_owned_not_from_api": [
+      "team registrations",
+      "agent submissions",
+      "fantasy xi selections",
+      "risk-play selection by each team",
+      "team score before matchday",
+      "stake calculation",
+      "organizer review overrides"
+    ],
+    "fantasy_scoring": {
+      "assist": "Read from player match statistics goals.assists.",
+      "clean_sheet": "Derived from final goals conceded plus player position/minutes.",
+      "goal": "Read from player match statistics goals.total.",
+      "goalkeeper_saves": "Read from player match statistics goals.saves.",
+      "own_goal": "Derived from fixture events detail=Own Goal.",
+      "plays_60": "Derived from player match statistics games.minutes.",
+      "red_card": "Read from player match statistics cards.red.",
+      "starts": "Derived from player match statistics games.substitute and minutes.",
+      "yellow_card": "Read from player match statistics cards.yellow."
+    },
+    "risk_claims": {
+      "both_teams_score": {
+        "category": "yellow",
+        "required_fields": [
+          "match_id"
+        ],
+        "source": "fixture final goals"
+      },
+      "exact_score": {
+        "category": "red",
+        "required_fields": [
+          "match_id",
+          "home_score",
+          "away_score"
+        ],
+        "source": "fixture final goals, excluding shootout score"
+      },
+      "goal_before_halftime": {
+        "category": "green",
+        "required_fields": [
+          "match_id"
+        ],
+        "source": "goal events with first-half timing"
+      },
+      "match_2plus_cards": {
+        "category": "green",
+        "required_fields": [
+          "match_id"
+        ],
+        "source": "card events"
+      },
+      "match_2plus_goals": {
+        "category": "green",
+        "required_fields": [
+          "match_id"
+        ],
+        "source": "fixture final goals"
+      },
+      "match_goes_to_extra_time": {
+        "category": "red",
+        "required_fields": [
+          "match_id"
+        ],
+        "source": "fixture status and extra-time score fields"
+      },
+      "match_goes_to_penalties": {
+        "category": "red",
+        "required_fields": [
+          "match_id"
+        ],
+        "source": "fixture status and penalty score fields"
+      },
+      "match_over_2_5_goals": {
+        "category": "yellow",
+        "required_fields": [
+          "match_id"
+        ],
+        "source": "fixture final goals"
+      },
+      "no_goal_first_10": {
+        "category": "green",
+        "required_fields": [
+          "match_id"
+        ],
+        "source": "goal events with elapsed minute"
+      },
+      "player_scores": {
+        "category": "yellow",
+        "required_fields": [
+          "match_id",
+          "player_id"
+        ],
+        "source": "non-own, non-shootout goal events"
+      },
+      "player_scores_2plus": {
+        "category": "red",
+        "required_fields": [
+          "match_id",
+          "player_id"
+        ],
+        "source": "non-own, non-shootout goal events"
+      },
+      "team_scores_first": {
+        "category": "yellow",
+        "required_fields": [
+          "match_id",
+          "team_id"
+        ],
+        "source": "first credited non-shootout goal event"
+      },
+      "team_wins_by_3plus": {
+        "category": "red",
+        "required_fields": [
+          "match_id",
+          "team_id"
+        ],
+        "source": "fixture final goals, excluding shootout score"
+      }
+    }
+  },
+  "generated_at": "2026-05-31T04:02:09Z",
+  "match_date": "2022-11-21",
+  "matchday_id": "wc-2022-20221121",
+  "matches": [
+    {
+      "api_data_presence": {
+        "events": true,
+        "fixture_statistics": true,
+        "lineups": true,
+        "player_statistics": true
+      },
+      "away_team": {
+        "id": "22",
+        "name": "Iran",
+        "winner": false
+      },
+      "home_team": {
+        "id": "10",
+        "name": "England",
+        "winner": true
+      },
+      "id": "855735",
+      "kickoff": "2022-11-21T13:00:00+00:00",
+      "provider": "api-football",
+      "provider_fixture_id": "855735",
+      "risk_truth": {
+        "evidence": {
+          "card_events": 2,
+          "countable_goal_events": 8,
+          "first_goal": {
+            "detail": "Normal Goal",
+            "elapsed": 35,
+            "extra": null,
+            "player": "J. Bellingham",
+            "player_id": "129718",
+            "team": "England",
+            "team_id": "10",
+            "type": "Goal"
+          },
+          "player_goal_counts": {
+            "129718": 1,
+            "1460": 2,
+            "19187": 1,
+            "42315": 2,
+            "645": 1,
+            "909": 1
+          },
+          "team_truth": {
+            "10": {
+              "final_goals": 6,
+              "is_winner": true,
+              "scores_first": true,
+              "wins_by_3plus": true
+            },
+            "22": {
+              "final_goals": 2,
+              "is_winner": false,
+              "scores_first": false,
+              "wins_by_3plus": false
+            }
+          },
+          "total_goals": 8
+        },
+        "match_claims": {
+          "both_teams_score": true,
+          "goal_before_halftime": true,
+          "match_2plus_cards": true,
+          "match_2plus_goals": true,
+          "match_goes_to_extra_time": false,
+          "match_goes_to_penalties": false,
+          "match_over_2_5_goals": true,
+          "no_goal_first_10": true
+        },
+        "parameterized_claims": {
+          "exact_score": {
+            "away_score": 2,
+            "home_score": 6
+          },
+          "player_scores": {
+            "129718": true,
+            "1460": true,
+            "19187": true,
+            "42315": true,
+            "645": true,
+            "909": true
+          },
+          "player_scores_2plus": {
+            "129718": false,
+            "1460": true,
+            "19187": false,
+            "42315": true,
+            "645": false,
+            "909": false
+          },
+          "team_scores_first": {
+            "10": true,
+            "22": false
+          },
+          "team_wins_by_3plus": {
+            "10": true,
+            "22": false
+          }
+        }
+      },
+      "round": "Group Stage - 1",
+      "score": {
+        "away": 2,
+        "extratime": {
+          "away": null,
+          "home": null
+        },
+        "fulltime": {
+          "away": 2,
+          "home": 6
+        },
+        "home": 6,
+        "penalty": {
+          "away": null,
+          "home": null
+        },
+        "went_to_extra_time": false,
+        "went_to_penalties": false,
+        "winner_team_id": "10"
+      },
+      "stage": "group",
+      "status": {
+        "elapsed": 90,
+        "extra": null,
+        "long": "Match Finished",
+        "short": "FT"
+      }
+    },
+    {
+      "api_data_presence": {
+        "events": true,
+        "fixture_statistics": true,
+        "lineups": true,
+        "player_statistics": true
+      },
+      "away_team": {
+        "id": "1118",
+        "name": "Netherlands",
+        "winner": true
+      },
+      "home_team": {
+        "id": "13",
+        "name": "Senegal",
+        "winner": false
+      },
+      "id": "855734",
+      "kickoff": "2022-11-21T16:00:00+00:00",
+      "provider": "api-football",
+      "provider_fixture_id": "855734",
+      "risk_truth": {
+        "evidence": {
+          "card_events": 3,
+          "countable_goal_events": 2,
+          "first_goal": {
+            "detail": "Normal Goal",
+            "elapsed": 84,
+            "extra": null,
+            "player": "C. Gakpo",
+            "player_id": "247",
+            "team": "Netherlands",
+            "team_id": "1118",
+            "type": "Goal"
+          },
+          "player_goal_counts": {
+            "247": 1,
+            "25321": 1
+          },
+          "team_truth": {
+            "1118": {
+              "final_goals": 2,
+              "is_winner": true,
+              "scores_first": true,
+              "wins_by_3plus": false
+            },
+            "13": {
+              "final_goals": 0,
+              "is_winner": false,
+              "scores_first": false,
+              "wins_by_3plus": false
+            }
+          },
+          "total_goals": 2
+        },
+        "match_claims": {
+          "both_teams_score": false,
+          "goal_before_halftime": false,
+          "match_2plus_cards": true,
+          "match_2plus_goals": true,
+          "match_goes_to_extra_time": false,
+          "match_goes_to_penalties": false,
+          "match_over_2_5_goals": false,
+          "no_goal_first_10": true
+        },
+        "parameterized_claims": {
+          "exact_score": {
+            "away_score": 2,
+            "home_score": 0
+          },
+          "player_scores": {
+            "247": true,
+            "25321": true
+          },
+          "player_scores_2plus": {
+            "247": false,
+            "25321": false
+          },
+          "team_scores_first": {
+            "1118": true,
+            "13": false
+          },
+          "team_wins_by_3plus": {
+            "1118": false,
+            "13": false
+          }
+        }
+      },
+      "round": "Group Stage - 1",
+      "score": {
+        "away": 2,
+        "extratime": {
+          "away": null,
+          "home": null
+        },
+        "fulltime": {
+          "away": 2,
+          "home": 0
+        },
+        "home": 0,
+        "penalty": {
+          "away": null,
+          "home": null
+        },
+        "went_to_extra_time": false,
+        "went_to_penalties": false,
+        "winner_team_id": "1118"
+      },
+      "stage": "group",
+      "status": {
+        "elapsed": 90,
+        "extra": null,
+        "long": "Match Finished",
+        "short": "FT"
+      }
+    },
+    {
+      "api_data_presence": {
+        "events": true,
+        "fixture_statistics": true,
+        "lineups": true,
+        "player_statistics": true
+      },
+      "away_team": {
+        "id": "767",
+        "name": "Wales",
+        "winner": null
+      },
+      "home_team": {
+        "id": "2384",
+        "name": "USA",
+        "winner": null
+      },
+      "id": "866681",
+      "kickoff": "2022-11-21T19:00:00+00:00",
+      "provider": "api-football",
+      "provider_fixture_id": "866681",
+      "risk_truth": {
+        "evidence": {
+          "card_events": 6,
+          "countable_goal_events": 2,
+          "first_goal": {
+            "detail": "Normal Goal",
+            "elapsed": 36,
+            "extra": null,
+            "player": "T. Weah",
+            "player_id": "1138",
+            "team": "USA",
+            "team_id": "2384",
+            "type": "Goal"
+          },
+          "player_goal_counts": {
+            "1138": 1,
+            "758": 1
+          },
+          "team_truth": {
+            "2384": {
+              "final_goals": 1,
+              "is_winner": false,
+              "scores_first": true,
+              "wins_by_3plus": false
+            },
+            "767": {
+              "final_goals": 1,
+              "is_winner": false,
+              "scores_first": false,
+              "wins_by_3plus": false
+            }
+          },
+          "total_goals": 2
+        },
+        "match_claims": {
+          "both_teams_score": true,
+          "goal_before_halftime": true,
+          "match_2plus_cards": true,
+          "match_2plus_goals": true,
+          "match_goes_to_extra_time": false,
+          "match_goes_to_penalties": false,
+          "match_over_2_5_goals": false,
+          "no_goal_first_10": true
+        },
+        "parameterized_claims": {
+          "exact_score": {
+            "away_score": 1,
+            "home_score": 1
+          },
+          "player_scores": {
+            "1138": true,
+            "758": true
+          },
+          "player_scores_2plus": {
+            "1138": false,
+            "758": false
+          },
+          "team_scores_first": {
+            "2384": true,
+            "767": false
+          },
+          "team_wins_by_3plus": {
+            "2384": false,
+            "767": false
+          }
+        }
+      },
+      "round": "Group Stage - 1",
+      "score": {
+        "away": 1,
+        "extratime": {
+          "away": null,
+          "home": null
+        },
+        "fulltime": {
+          "away": 1,
+          "home": 1
+        },
+        "home": 1,
+        "penalty": {
+          "away": null,
+          "home": null
+        },
+        "went_to_extra_time": false,
+        "went_to_penalties": false,
+        "winner_team_id": null
+      },
+      "stage": "group",
+      "status": {
+        "elapsed": 90,
+        "extra": null,
+        "long": "Match Finished",
+        "short": "FT"
+      }
+    }
+  ],
+  "players": [
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": true,
+        "goals": 0,
+        "minutes": 90,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 4,
+        "starts": true,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [
+        {
+          "label": "Started",
+          "points": 2
+        },
+        {
+          "label": "Played 60+ minutes",
+          "points": 2
+        },
+        {
+          "label": "Clean sheet",
+          "points": 4
+        },
+        {
+          "label": "Goalkeeper 3+ saves",
+          "points": 2
+        }
+      ],
+      "fantasy_points": 10,
+      "id": "31632",
+      "match_id": "855734",
+      "name": "Andries Noppert",
+      "position": "GK",
+      "record_id": "855734:31632",
+      "team": "Netherlands",
+      "team_id": "1118"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 1,
+        "minutes": 89,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": true,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [
+        {
+          "label": "Started",
+          "points": 2
+        },
+        {
+          "label": "Played 60+ minutes",
+          "points": 2
+        },
+        {
+          "label": "Goals",
+          "points": 6
+        }
+      ],
+      "fantasy_points": 10,
+      "id": "247",
+      "match_id": "855734",
+      "name": "Cody Gakpo",
+      "position": "FWD",
+      "record_id": "855734:247",
+      "team": "Netherlands",
+      "team_id": "1118"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 90,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": true,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [
+        {
+          "label": "Started",
+          "points": 2
+        },
+        {
+          "label": "Played 60+ minutes",
+          "points": 2
+        }
+      ],
+      "fantasy_points": 4,
+      "id": "531",
+      "match_id": "855734",
+      "name": "Daley Blind",
+      "position": "MID",
+      "record_id": "855734:531",
+      "team": "Netherlands",
+      "team_id": "1118"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 1,
+        "minutes": 11,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [
+        {
+          "label": "Goals",
+          "points": 6
+        }
+      ],
+      "fantasy_points": 6,
+      "id": "25321",
+      "match_id": "855734",
+      "name": "Davy Klaassen",
+      "position": "MID",
+      "record_id": "855734:25321",
+      "team": "Netherlands",
+      "team_id": "1118"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 90,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": true,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [
+        {
+          "label": "Started",
+          "points": 2
+        },
+        {
+          "label": "Played 60+ minutes",
+          "points": 2
+        }
+      ],
+      "fantasy_points": 4,
+      "id": "226",
+      "match_id": "855734",
+      "name": "Denzel Dumfries",
+      "position": "MID",
+      "record_id": "855734:226",
+      "team": "Netherlands",
+      "team_id": "1118"
+    },
+    {
+      "events": {
+        "assists": 1,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 90,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": true,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [
+        {
+          "label": "Started",
+          "points": 2
+        },
+        {
+          "label": "Played 60+ minutes",
+          "points": 2
+        },
+        {
+          "label": "Assists",
+          "points": 4
+        }
+      ],
+      "fantasy_points": 8,
+      "id": "538",
+      "match_id": "855734",
+      "name": "Frenkie de Jong",
+      "position": "MID",
+      "record_id": "855734:538",
+      "team": "Netherlands",
+      "team_id": "1118"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 0,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "152654",
+      "match_id": "855734",
+      "name": "Jeremie Frimpong",
+      "position": "DEF",
+      "record_id": "855734:152654",
+      "team": "Netherlands",
+      "team_id": "1118"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 0,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "38746",
+      "match_id": "855734",
+      "name": "Jurri\u00ebn Timber",
+      "position": "DEF",
+      "record_id": "855734:38746",
+      "team": "Netherlands",
+      "team_id": "1118"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 0,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "37137",
+      "match_id": "855734",
+      "name": "Justin Bijlow",
+      "position": "GK",
+      "record_id": "855734:37137",
+      "team": "Netherlands",
+      "team_id": "1118"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 0,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "38749",
+      "match_id": "855734",
+      "name": "Kenneth Taylor",
+      "position": "MID",
+      "record_id": "855734:38749",
+      "team": "Netherlands",
+      "team_id": "1118"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 0,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "246",
+      "match_id": "855734",
+      "name": "Luuk de Jong",
+      "position": "FWD",
+      "record_id": "855734:246",
+      "team": "Netherlands",
+      "team_id": "1118"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 1,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "30432",
+      "match_id": "855734",
+      "name": "Marten de Roon",
+      "position": "MID",
+      "record_id": "855734:30432",
+      "team": "Netherlands",
+      "team_id": "1118"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": true,
+        "goals": 0,
+        "minutes": 90,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": true,
+        "yellow_cards": 1
+      },
+      "fantasy_breakdown": [
+        {
+          "label": "Started",
+          "points": 2
+        },
+        {
+          "label": "Played 60+ minutes",
+          "points": 2
+        },
+        {
+          "label": "Clean sheet",
+          "points": 4
+        },
+        {
+          "label": "Yellow cards",
+          "points": -1
+        }
+      ],
+      "fantasy_points": 7,
+      "id": "532",
+      "match_id": "855734",
+      "name": "Matthijs de Ligt",
+      "position": "DEF",
+      "record_id": "855734:532",
+      "team": "Netherlands",
+      "team_id": "1118"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 28,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "667",
+      "match_id": "855734",
+      "name": "Memphis Depay",
+      "position": "FWD",
+      "record_id": "855734:667",
+      "team": "Netherlands",
+      "team_id": "1118"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": true,
+        "goals": 0,
+        "minutes": 90,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": true,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [
+        {
+          "label": "Started",
+          "points": 2
+        },
+        {
+          "label": "Played 60+ minutes",
+          "points": 2
+        },
+        {
+          "label": "Clean sheet",
+          "points": 4
+        }
+      ],
+      "fantasy_points": 8,
+      "id": "18861",
+      "match_id": "855734",
+      "name": "Nathan Ak\u00e9",
+      "position": "DEF",
+      "record_id": "855734:18861",
+      "team": "Netherlands",
+      "team_id": "1118"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 0,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "544",
+      "match_id": "855734",
+      "name": "Noa Lang",
+      "position": "FWD",
+      "record_id": "855734:544",
+      "team": "Netherlands",
+      "team_id": "1118"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 0,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "37113",
+      "match_id": "855734",
+      "name": "Remko Pasveer",
+      "position": "GK",
+      "record_id": "855734:37113",
+      "team": "Netherlands",
+      "team_id": "1118"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 0,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "194",
+      "match_id": "855734",
+      "name": "Stefan de Vrij",
+      "position": "DEF",
+      "record_id": "855734:194",
+      "team": "Netherlands",
+      "team_id": "1118"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 79,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": true,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [
+        {
+          "label": "Started",
+          "points": 2
+        },
+        {
+          "label": "Played 60+ minutes",
+          "points": 2
+        }
+      ],
+      "fantasy_points": 4,
+      "id": "37160",
+      "match_id": "855734",
+      "name": "Steven Berghuis",
+      "position": "MID",
+      "record_id": "855734:37160",
+      "team": "Netherlands",
+      "team_id": "1118"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 79,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": true,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [
+        {
+          "label": "Started",
+          "points": 2
+        },
+        {
+          "label": "Played 60+ minutes",
+          "points": 2
+        }
+      ],
+      "fantasy_points": 4,
+      "id": "244",
+      "match_id": "855734",
+      "name": "Steven Bergwijn",
+      "position": "FWD",
+      "record_id": "855734:244",
+      "team": "Netherlands",
+      "team_id": "1118"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 11,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "36899",
+      "match_id": "855734",
+      "name": "Teun Koopmeiners",
+      "position": "MID",
+      "record_id": "855734:36899",
+      "team": "Netherlands",
+      "team_id": "1118"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 0,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "37145",
+      "match_id": "855734",
+      "name": "Tyrell Malacia",
+      "position": "DEF",
+      "record_id": "855734:37145",
+      "team": "Netherlands",
+      "team_id": "1118"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 62,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": true,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [
+        {
+          "label": "Started",
+          "points": 2
+        },
+        {
+          "label": "Played 60+ minutes",
+          "points": 2
+        }
+      ],
+      "fantasy_points": 4,
+      "id": "183",
+      "match_id": "855734",
+      "name": "Vincent Janssen",
+      "position": "FWD",
+      "record_id": "855734:183",
+      "team": "Netherlands",
+      "team_id": "1118"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": true,
+        "goals": 0,
+        "minutes": 90,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": true,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [
+        {
+          "label": "Started",
+          "points": 2
+        },
+        {
+          "label": "Played 60+ minutes",
+          "points": 2
+        },
+        {
+          "label": "Clean sheet",
+          "points": 4
+        }
+      ],
+      "fantasy_points": 8,
+      "id": "290",
+      "match_id": "855734",
+      "name": "Virgil van Dijk",
+      "position": "DEF",
+      "record_id": "855734:290",
+      "team": "Netherlands",
+      "team_id": "1118"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 0,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "25416",
+      "match_id": "855734",
+      "name": "Wout Weghorst",
+      "position": "FWD",
+      "record_id": "855734:25416",
+      "team": "Netherlands",
+      "team_id": "1118"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 0,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "162016",
+      "match_id": "855734",
+      "name": "Xavi Simons",
+      "position": "MID",
+      "record_id": "855734:162016",
+      "team": "Netherlands",
+      "team_id": "1118"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 62,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": true,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [
+        {
+          "label": "Started",
+          "points": 2
+        },
+        {
+          "label": "Played 60+ minutes",
+          "points": 2
+        }
+      ],
+      "fantasy_points": 4,
+      "id": "7",
+      "match_id": "855734",
+      "name": "Abdou Diallo",
+      "position": "DEF",
+      "record_id": "855734:7",
+      "team": "Senegal",
+      "team_id": "13"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 21,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "284072",
+      "match_id": "855734",
+      "name": "Ahmadou Bamba Dieng",
+      "position": "FWD",
+      "record_id": "855734:284072",
+      "team": "Senegal",
+      "team_id": "13"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 0,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "2985",
+      "match_id": "855734",
+      "name": "Alfred Gomis",
+      "position": "GK",
+      "record_id": "855734:2985",
+      "team": "Senegal",
+      "team_id": "13"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 69,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": true,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [
+        {
+          "label": "Started",
+          "points": 2
+        },
+        {
+          "label": "Played 60+ minutes",
+          "points": 2
+        }
+      ],
+      "fantasy_points": 4,
+      "id": "22015",
+      "match_id": "855734",
+      "name": "Boulaye Dia",
+      "position": "FWD",
+      "record_id": "855734:22015",
+      "team": "Senegal",
+      "team_id": "13"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 73,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": true,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [
+        {
+          "label": "Started",
+          "points": 2
+        },
+        {
+          "label": "Played 60+ minutes",
+          "points": 2
+        }
+      ],
+      "fantasy_points": 4,
+      "id": "2991",
+      "match_id": "855734",
+      "name": "Cheikhou Kouyat\u00e9",
+      "position": "MID",
+      "record_id": "855734:2991",
+      "team": "Senegal",
+      "team_id": "13"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 90,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 1,
+        "starts": true,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [
+        {
+          "label": "Started",
+          "points": 2
+        },
+        {
+          "label": "Played 60+ minutes",
+          "points": 2
+        }
+      ],
+      "fantasy_points": 4,
+      "id": "2986",
+      "match_id": "855734",
+      "name": "Edouard Mendy",
+      "position": "GK",
+      "record_id": "855734:2986",
+      "team": "Senegal",
+      "team_id": "13"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 0,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "19278",
+      "match_id": "855734",
+      "name": "Famara Di\u00e9dhiou",
+      "position": "FWD",
+      "record_id": "855734:19278",
+      "team": "Senegal",
+      "team_id": "13"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 0,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "105",
+      "match_id": "855734",
+      "name": "Fod\u00e9 Ballo-Tour\u00e9",
+      "position": "DEF",
+      "record_id": "855734:105",
+      "team": "Senegal",
+      "team_id": "13"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 0,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "162236",
+      "match_id": "855734",
+      "name": "Formose Mendy",
+      "position": "DEF",
+      "record_id": "855734:162236",
+      "team": "Senegal",
+      "team_id": "13"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 90,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": true,
+        "yellow_cards": 1
+      },
+      "fantasy_breakdown": [
+        {
+          "label": "Started",
+          "points": 2
+        },
+        {
+          "label": "Played 60+ minutes",
+          "points": 2
+        },
+        {
+          "label": "Yellow cards",
+          "points": -1
+        }
+      ],
+      "fantasy_points": 3,
+      "id": "2990",
+      "match_id": "855734",
+      "name": "Idrissa Gueye",
+      "position": "MID",
+      "record_id": "855734:2990",
+      "team": "Senegal",
+      "team_id": "13"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 0,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "18592",
+      "match_id": "855734",
+      "name": "Iliman Ndiaye",
+      "position": "MID",
+      "record_id": "855734:18592",
+      "team": "Senegal",
+      "team_id": "13"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 28,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "158121",
+      "match_id": "855734",
+      "name": "Ismail Jakobs",
+      "position": "DEF",
+      "record_id": "855734:158121",
+      "team": "Senegal",
+      "team_id": "13"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 0,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "41552",
+      "match_id": "855734",
+      "name": "Ismaila Ciss",
+      "position": "MID",
+      "record_id": "855734:41552",
+      "team": "Senegal",
+      "team_id": "13"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 90,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": true,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [
+        {
+          "label": "Started",
+          "points": 2
+        },
+        {
+          "label": "Played 60+ minutes",
+          "points": 2
+        }
+      ],
+      "fantasy_points": 4,
+      "id": "2218",
+      "match_id": "855734",
+      "name": "Isma\u00efla Sarr",
+      "position": "MID",
+      "record_id": "855734:2218",
+      "team": "Senegal",
+      "team_id": "13"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 90,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": true,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [
+        {
+          "label": "Started",
+          "points": 2
+        },
+        {
+          "label": "Played 60+ minutes",
+          "points": 2
+        }
+      ],
+      "fantasy_points": 4,
+      "id": "318",
+      "match_id": "855734",
+      "name": "Kalidou Koulibaly",
+      "position": "DEF",
+      "record_id": "855734:318",
+      "team": "Senegal",
+      "team_id": "13"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 73,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": true,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [
+        {
+          "label": "Started",
+          "points": 2
+        },
+        {
+          "label": "Played 60+ minutes",
+          "points": 2
+        }
+      ],
+      "fantasy_points": 4,
+      "id": "81",
+      "match_id": "855734",
+      "name": "Kr\u00e9pin Diatta",
+      "position": "MID",
+      "record_id": "855734:81",
+      "team": "Senegal",
+      "team_id": "13"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 0,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "384",
+      "match_id": "855734",
+      "name": "Mamadou Loum",
+      "position": "MID",
+      "record_id": "855734:384",
+      "team": "Senegal",
+      "team_id": "13"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 0,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "175415",
+      "match_id": "855734",
+      "name": "Moussa N'Diaye",
+      "position": "DEF",
+      "record_id": "855734:175415",
+      "team": "Senegal",
+      "team_id": "13"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 0,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "23129",
+      "match_id": "855734",
+      "name": "Moustapha Name",
+      "position": "MID",
+      "record_id": "855734:23129",
+      "team": "Senegal",
+      "team_id": "13"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 90,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": true,
+        "yellow_cards": 1
+      },
+      "fantasy_breakdown": [
+        {
+          "label": "Started",
+          "points": 2
+        },
+        {
+          "label": "Played 60+ minutes",
+          "points": 2
+        },
+        {
+          "label": "Yellow cards",
+          "points": -1
+        }
+      ],
+      "fantasy_points": 3,
+      "id": "18785",
+      "match_id": "855734",
+      "name": "Nampalys Mendy",
+      "position": "MID",
+      "record_id": "855734:18785",
+      "team": "Senegal",
+      "team_id": "13"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 17,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "283058",
+      "match_id": "855734",
+      "name": "Nicolas Jackson",
+      "position": "FWD",
+      "record_id": "855734:283058",
+      "team": "Senegal",
+      "team_id": "13"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 90,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": true,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [
+        {
+          "label": "Started",
+          "points": 2
+        },
+        {
+          "label": "Played 60+ minutes",
+          "points": 2
+        }
+      ],
+      "fantasy_points": 4,
+      "id": "1592",
+      "match_id": "855734",
+      "name": "Pape Abou Ciss\u00e9",
+      "position": "DEF",
+      "record_id": "855734:1592",
+      "team": "Senegal",
+      "team_id": "13"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 17,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "20696",
+      "match_id": "855734",
+      "name": "Pape Gueye",
+      "position": "MID",
+      "record_id": "855734:20696",
+      "team": "Senegal",
+      "team_id": "13"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 0,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "237129",
+      "match_id": "855734",
+      "name": "Pape Matar Sarr",
+      "position": "MID",
+      "record_id": "855734:237129",
+      "team": "Senegal",
+      "team_id": "13"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 0,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "45021",
+      "match_id": "855734",
+      "name": "Seny Dieng",
+      "position": "GK",
+      "record_id": "855734:45021",
+      "team": "Senegal",
+      "team_id": "13"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 90,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": true,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [
+        {
+          "label": "Started",
+          "points": 2
+        },
+        {
+          "label": "Played 60+ minutes",
+          "points": 2
+        }
+      ],
+      "fantasy_points": 4,
+      "id": "1264",
+      "match_id": "855734",
+      "name": "Youssouf Sabaly",
+      "position": "DEF",
+      "record_id": "855734:1264",
+      "team": "Senegal",
+      "team_id": "13"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 0,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "20355",
+      "match_id": "855735",
+      "name": "Aaron Ramsdale",
+      "position": "GK",
+      "record_id": "855735:20355",
+      "team": "England",
+      "team_id": "10"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 0,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "19959",
+      "match_id": "855735",
+      "name": "Benjamin White",
+      "position": "DEF",
+      "record_id": "855735:19959",
+      "team": "England",
+      "team_id": "10"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 2,
+        "minutes": 71,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": true,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [
+        {
+          "label": "Started",
+          "points": 2
+        },
+        {
+          "label": "Played 60+ minutes",
+          "points": 2
+        },
+        {
+          "label": "Goals",
+          "points": 12
+        }
+      ],
+      "fantasy_points": 16,
+      "id": "1460",
+      "match_id": "855735",
+      "name": "Bukayo Saka",
+      "position": "MID",
+      "record_id": "855735:1460",
+      "team": "England",
+      "team_id": "10"
+    },
+    {
+      "events": {
+        "assists": 1,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 14,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [
+        {
+          "label": "Assists",
+          "points": 4
+        }
+      ],
+      "fantasy_points": 4,
+      "id": "2939",
+      "match_id": "855735",
+      "name": "Callum Wilson",
+      "position": "FWD",
+      "record_id": "855735:2939",
+      "team": "England",
+      "team_id": "10"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 0,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "18741",
+      "match_id": "855735",
+      "name": "Conor Coady",
+      "position": "DEF",
+      "record_id": "855735:18741",
+      "team": "England",
+      "team_id": "10"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 0,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "67972",
+      "match_id": "855735",
+      "name": "Conor Gallagher",
+      "position": "MID",
+      "record_id": "855735:67972",
+      "team": "England",
+      "team_id": "10"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 90,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": true,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [
+        {
+          "label": "Started",
+          "points": 2
+        },
+        {
+          "label": "Played 60+ minutes",
+          "points": 2
+        }
+      ],
+      "fantasy_points": 4,
+      "id": "2937",
+      "match_id": "855735",
+      "name": "Declan Rice",
+      "position": "MID",
+      "record_id": "855735:2937",
+      "team": "England",
+      "team_id": "10"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 20,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "175",
+      "match_id": "855735",
+      "name": "Eric Dier",
+      "position": "DEF",
+      "record_id": "855735:175",
+      "team": "England",
+      "team_id": "10"
+    },
+    {
+      "events": {
+        "assists": 2,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 76,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": true,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [
+        {
+          "label": "Started",
+          "points": 2
+        },
+        {
+          "label": "Played 60+ minutes",
+          "points": 2
+        },
+        {
+          "label": "Assists",
+          "points": 8
+        }
+      ],
+      "fantasy_points": 12,
+      "id": "184",
+      "match_id": "855735",
+      "name": "Harry Kane",
+      "position": "FWD",
+      "record_id": "855735:184",
+      "team": "England",
+      "team_id": "10"
+    },
+    {
+      "events": {
+        "assists": 1,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 70,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": true,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [
+        {
+          "label": "Started",
+          "points": 2
+        },
+        {
+          "label": "Played 60+ minutes",
+          "points": 2
+        },
+        {
+          "label": "Assists",
+          "points": 4
+        }
+      ],
+      "fantasy_points": 8,
+      "id": "2935",
+      "match_id": "855735",
+      "name": "Harry Maguire",
+      "position": "DEF",
+      "record_id": "855735:2935",
+      "team": "England",
+      "team_id": "10"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 1,
+        "minutes": 19,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [
+        {
+          "label": "Goals",
+          "points": 6
+        }
+      ],
+      "fantasy_points": 6,
+      "id": "19187",
+      "match_id": "855735",
+      "name": "Jack Grealish",
+      "position": "MID",
+      "record_id": "855735:19187",
+      "team": "England",
+      "team_id": "10"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 90,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": true,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [
+        {
+          "label": "Started",
+          "points": 2
+        },
+        {
+          "label": "Played 60+ minutes",
+          "points": 2
+        }
+      ],
+      "fantasy_points": 4,
+      "id": "626",
+      "match_id": "855735",
+      "name": "John Stones",
+      "position": "DEF",
+      "record_id": "855735:626",
+      "team": "England",
+      "team_id": "10"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 0,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "292",
+      "match_id": "855735",
+      "name": "Jordan Henderson",
+      "position": "MID",
+      "record_id": "855735:292",
+      "team": "England",
+      "team_id": "10"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 90,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 1,
+        "starts": true,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [
+        {
+          "label": "Started",
+          "points": 2
+        },
+        {
+          "label": "Played 60+ minutes",
+          "points": 2
+        }
+      ],
+      "fantasy_points": 4,
+      "id": "2932",
+      "match_id": "855735",
+      "name": "Jordan Pickford",
+      "position": "GK",
+      "record_id": "855735:2932",
+      "team": "England",
+      "team_id": "10"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 1,
+        "minutes": 90,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": true,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [
+        {
+          "label": "Started",
+          "points": 2
+        },
+        {
+          "label": "Played 60+ minutes",
+          "points": 2
+        },
+        {
+          "label": "Goals",
+          "points": 6
+        }
+      ],
+      "fantasy_points": 10,
+      "id": "129718",
+      "match_id": "855735",
+      "name": "Jude Bellingham",
+      "position": "MID",
+      "record_id": "855735:129718",
+      "team": "England",
+      "team_id": "10"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 0,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "19130",
+      "match_id": "855735",
+      "name": "Kalvin Phillips",
+      "position": "MID",
+      "record_id": "855735:19130",
+      "team": "England",
+      "team_id": "10"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 90,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": true,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [
+        {
+          "label": "Started",
+          "points": 2
+        },
+        {
+          "label": "Played 60+ minutes",
+          "points": 2
+        }
+      ],
+      "fantasy_points": 4,
+      "id": "169",
+      "match_id": "855735",
+      "name": "Kieran Trippier",
+      "position": "DEF",
+      "record_id": "855735:169",
+      "team": "England",
+      "team_id": "10"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 0,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "627",
+      "match_id": "855735",
+      "name": "Kyle Walker",
+      "position": "DEF",
+      "record_id": "855735:627",
+      "team": "England",
+      "team_id": "10"
+    },
+    {
+      "events": {
+        "assists": 1,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 90,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": true,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [
+        {
+          "label": "Started",
+          "points": 2
+        },
+        {
+          "label": "Played 60+ minutes",
+          "points": 2
+        },
+        {
+          "label": "Assists",
+          "points": 4
+        }
+      ],
+      "fantasy_points": 8,
+      "id": "891",
+      "match_id": "855735",
+      "name": "Luke Shaw",
+      "position": "DEF",
+      "record_id": "855735:891",
+      "team": "England",
+      "team_id": "10"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 1,
+        "minutes": 19,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [
+        {
+          "label": "Goals",
+          "points": 6
+        }
+      ],
+      "fantasy_points": 6,
+      "id": "909",
+      "match_id": "855735",
+      "name": "Marcus Rashford",
+      "position": "FWD",
+      "record_id": "855735:909",
+      "team": "England",
+      "team_id": "10"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 71,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": true,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [
+        {
+          "label": "Started",
+          "points": 2
+        },
+        {
+          "label": "Played 60+ minutes",
+          "points": 2
+        }
+      ],
+      "fantasy_points": 4,
+      "id": "19220",
+      "match_id": "855735",
+      "name": "Mason Mount",
+      "position": "MID",
+      "record_id": "855735:19220",
+      "team": "England",
+      "team_id": "10"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 0,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "18911",
+      "match_id": "855735",
+      "name": "Nick Pope",
+      "position": "GK",
+      "record_id": "855735:18911",
+      "team": "England",
+      "team_id": "10"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 19,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "631",
+      "match_id": "855735",
+      "name": "Phil Foden",
+      "position": "MID",
+      "record_id": "855735:631",
+      "team": "England",
+      "team_id": "10"
+    },
+    {
+      "events": {
+        "assists": 1,
+        "clean_sheet": false,
+        "goals": 1,
+        "minutes": 71,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": true,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [
+        {
+          "label": "Started",
+          "points": 2
+        },
+        {
+          "label": "Played 60+ minutes",
+          "points": 2
+        },
+        {
+          "label": "Goals",
+          "points": 6
+        },
+        {
+          "label": "Assists",
+          "points": 4
+        }
+      ],
+      "fantasy_points": 14,
+      "id": "645",
+      "match_id": "855735",
+      "name": "Raheem Sterling",
+      "position": "MID",
+      "record_id": "855735:645",
+      "team": "England",
+      "team_id": "10"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 0,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "283",
+      "match_id": "855735",
+      "name": "Trent Alexander-Arnold",
+      "position": "DEF",
+      "record_id": "855735:283",
+      "team": "England",
+      "team_id": "10"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 0,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "29926",
+      "match_id": "855735",
+      "name": "Abolfazl Jalali",
+      "position": "DEF",
+      "record_id": "855735:29926",
+      "team": "Iran",
+      "team_id": "22"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 77,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": true,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [
+        {
+          "label": "Started",
+          "points": 2
+        },
+        {
+          "label": "Played 60+ minutes",
+          "points": 2
+        }
+      ],
+      "fantasy_points": 4,
+      "id": "2695",
+      "match_id": "855735",
+      "name": "Ahmad Nourollahi",
+      "position": "MID",
+      "record_id": "855735:2695",
+      "team": "Iran",
+      "team_id": "22"
+    },
+    {
+      "events": {
+        "assists": 1,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 45,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [
+        {
+          "label": "Assists",
+          "points": 4
+        }
+      ],
+      "fantasy_points": 4,
+      "id": "8564",
+      "match_id": "855735",
+      "name": "Ali Gholizadeh",
+      "position": "MID",
+      "record_id": "855735:8564",
+      "team": "Iran",
+      "team_id": "22"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 45,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": true,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [
+        {
+          "label": "Started",
+          "points": 2
+        }
+      ],
+      "fantasy_points": 2,
+      "id": "29770",
+      "match_id": "855735",
+      "name": "Ali Karimi",
+      "position": "MID",
+      "record_id": "855735:29770",
+      "team": "Iran",
+      "team_id": "22"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 20,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": true,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [
+        {
+          "label": "Started",
+          "points": 2
+        }
+      ],
+      "fantasy_points": 2,
+      "id": "2682",
+      "match_id": "855735",
+      "name": "Alireza Beiranvand",
+      "position": "GK",
+      "record_id": "855735:2682",
+      "team": "Iran",
+      "team_id": "22"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 45,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": true,
+        "yellow_cards": 1
+      },
+      "fantasy_breakdown": [
+        {
+          "label": "Started",
+          "points": 2
+        },
+        {
+          "label": "Yellow cards",
+          "points": -1
+        }
+      ],
+      "fantasy_points": 1,
+      "id": "2700",
+      "match_id": "855735",
+      "name": "Alireza Jahanbakhsh",
+      "position": "MID",
+      "record_id": "855735:2700",
+      "team": "Iran",
+      "team_id": "22"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 0,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "2680",
+      "match_id": "855735",
+      "name": "Amir Abedzadeh",
+      "position": "GK",
+      "record_id": "855735:2680",
+      "team": "Iran",
+      "team_id": "22"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 90,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": true,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [
+        {
+          "label": "Started",
+          "points": 2
+        },
+        {
+          "label": "Played 60+ minutes",
+          "points": 2
+        }
+      ],
+      "fantasy_points": 4,
+      "id": "2685",
+      "match_id": "855735",
+      "name": "Ehsan Haji Safi",
+      "position": "MID",
+      "record_id": "855735:2685",
+      "team": "Iran",
+      "team_id": "22"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 45,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "2687",
+      "match_id": "855735",
+      "name": "Hossein Kanaani",
+      "position": "DEF",
+      "record_id": "855735:2687",
+      "team": "Iran",
+      "team_id": "22"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 0,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "2698",
+      "match_id": "855735",
+      "name": "Karim Ansarifard",
+      "position": "FWD",
+      "record_id": "855735:2698",
+      "team": "Iran",
+      "team_id": "22"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 90,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": true,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [
+        {
+          "label": "Started",
+          "points": 2
+        },
+        {
+          "label": "Played 60+ minutes",
+          "points": 2
+        }
+      ],
+      "fantasy_points": 4,
+      "id": "2686",
+      "match_id": "855735",
+      "name": "Majid Hosseini",
+      "position": "DEF",
+      "record_id": "855735:2686",
+      "team": "Iran",
+      "team_id": "22"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 2,
+        "minutes": 90,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": true,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [
+        {
+          "label": "Started",
+          "points": 2
+        },
+        {
+          "label": "Played 60+ minutes",
+          "points": 2
+        },
+        {
+          "label": "Goals",
+          "points": 12
+        }
+      ],
+      "fantasy_points": 16,
+      "id": "42315",
+      "match_id": "855735",
+      "name": "Mehdi Taremi",
+      "position": "FWD",
+      "record_id": "855735:42315",
+      "team": "Iran",
+      "team_id": "22"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 27,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "2697",
+      "match_id": "855735",
+      "name": "Mehdi Torabi",
+      "position": "MID",
+      "record_id": "855735:2697",
+      "team": "Iran",
+      "team_id": "22"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 63,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": true,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [
+        {
+          "label": "Started",
+          "points": 2
+        },
+        {
+          "label": "Played 60+ minutes",
+          "points": 2
+        }
+      ],
+      "fantasy_points": 4,
+      "id": "2688",
+      "match_id": "855735",
+      "name": "Milad Mohammadi",
+      "position": "DEF",
+      "record_id": "855735:2688",
+      "team": "Iran",
+      "team_id": "22"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 90,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": true,
+        "yellow_cards": 1
+      },
+      "fantasy_breakdown": [
+        {
+          "label": "Started",
+          "points": 2
+        },
+        {
+          "label": "Played 60+ minutes",
+          "points": 2
+        },
+        {
+          "label": "Yellow cards",
+          "points": -1
+        }
+      ],
+      "fantasy_points": 3,
+      "id": "2690",
+      "match_id": "855735",
+      "name": "Morteza Pouraliganji",
+      "position": "DEF",
+      "record_id": "855735:2690",
+      "team": "Iran",
+      "team_id": "22"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 0,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "2681",
+      "match_id": "855735",
+      "name": "Payam Niazmand",
+      "position": "GK",
+      "record_id": "855735:2681",
+      "team": "Iran",
+      "team_id": "22"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 0,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "2691",
+      "match_id": "855735",
+      "name": "Ramin Rezaeian",
+      "position": "DEF",
+      "record_id": "855735:2691",
+      "team": "Iran",
+      "team_id": "22"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 45,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": true,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [
+        {
+          "label": "Started",
+          "points": 2
+        }
+      ],
+      "fantasy_points": 2,
+      "id": "2683",
+      "match_id": "855735",
+      "name": "Roozbeh Cheshmi",
+      "position": "DEF",
+      "record_id": "855735:2683",
+      "team": "Iran",
+      "team_id": "22"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 90,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": true,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [
+        {
+          "label": "Started",
+          "points": 2
+        },
+        {
+          "label": "Played 60+ minutes",
+          "points": 2
+        }
+      ],
+      "fantasy_points": 4,
+      "id": "1311",
+      "match_id": "855735",
+      "name": "Sadegh Moharrami",
+      "position": "DEF",
+      "record_id": "855735:1311",
+      "team": "Iran",
+      "team_id": "22"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 45,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "19614",
+      "match_id": "855735",
+      "name": "Saeid Ezatolahi",
+      "position": "MID",
+      "record_id": "855735:19614",
+      "team": "Iran",
+      "team_id": "22"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 0,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "2699",
+      "match_id": "855735",
+      "name": "Saman Ghoddos",
+      "position": "FWD",
+      "record_id": "855735:2699",
+      "team": "Iran",
+      "team_id": "22"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 13,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "1221",
+      "match_id": "855735",
+      "name": "Sardar Azmoun",
+      "position": "FWD",
+      "record_id": "855735:1221",
+      "team": "Iran",
+      "team_id": "22"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 70,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 1,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [
+        {
+          "label": "Played 60+ minutes",
+          "points": 2
+        }
+      ],
+      "fantasy_points": 2,
+      "id": "29755",
+      "match_id": "855735",
+      "name": "Seyed Hossein Hosseini",
+      "position": "GK",
+      "record_id": "855735:29755",
+      "team": "Iran",
+      "team_id": "22"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 0,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "29704",
+      "match_id": "855735",
+      "name": "Shoja Khalilzadeh",
+      "position": "DEF",
+      "record_id": "855735:29704",
+      "team": "Iran",
+      "team_id": "22"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 0,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "2692",
+      "match_id": "855735",
+      "name": "Vahid Amiri",
+      "position": "MID",
+      "record_id": "855735:2692",
+      "team": "Iran",
+      "team_id": "22"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 0,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "50952",
+      "match_id": "866681",
+      "name": "Aaron Long",
+      "position": "DEF",
+      "record_id": "866681:50952",
+      "team": "USA",
+      "team_id": "2384"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 90,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": true,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [
+        {
+          "label": "Started",
+          "points": 2
+        },
+        {
+          "label": "Played 60+ minutes",
+          "points": 2
+        }
+      ],
+      "fantasy_points": 4,
+      "id": "19549",
+      "match_id": "866681",
+      "name": "Antonee Robinson",
+      "position": "DEF",
+      "record_id": "866681:19549",
+      "team": "USA",
+      "team_id": "2384"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 24,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "50739",
+      "match_id": "866681",
+      "name": "Brenden Aaronson",
+      "position": "MID",
+      "record_id": "866681:50739",
+      "team": "USA",
+      "team_id": "2384"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 0,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "19314",
+      "match_id": "866681",
+      "name": "Cameron Carter-Vickers",
+      "position": "DEF",
+      "record_id": "866681:19314",
+      "team": "USA",
+      "team_id": "2384"
+    },
+    {
+      "events": {
+        "assists": 1,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 90,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": true,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [
+        {
+          "label": "Started",
+          "points": 2
+        },
+        {
+          "label": "Played 60+ minutes",
+          "points": 2
+        },
+        {
+          "label": "Assists",
+          "points": 4
+        }
+      ],
+      "fantasy_points": 8,
+      "id": "17",
+      "match_id": "866681",
+      "name": "Christian Puli\u0161i\u0107",
+      "position": "FWD",
+      "record_id": "866681:17",
+      "team": "USA",
+      "team_id": "2384"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 0,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "51114",
+      "match_id": "866681",
+      "name": "Cristian Rold\u00e1n",
+      "position": "MID",
+      "record_id": "866681:51114",
+      "team": "USA",
+      "team_id": "2384"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 16,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "18897",
+      "match_id": "866681",
+      "name": "DeAndre Yedlin",
+      "position": "DEF",
+      "record_id": "866681:18897",
+      "team": "USA",
+      "team_id": "2384"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 0,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "62",
+      "match_id": "866681",
+      "name": "Ethan Horvath",
+      "position": "GK",
+      "record_id": "866681:62",
+      "team": "USA",
+      "team_id": "2384"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 0,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "161921",
+      "match_id": "866681",
+      "name": "Giovanni Reyna",
+      "position": "MID",
+      "record_id": "866681:161921",
+      "team": "USA",
+      "team_id": "2384"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 16,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "427",
+      "match_id": "866681",
+      "name": "Haji Wright",
+      "position": "FWD",
+      "record_id": "866681:427",
+      "team": "USA",
+      "team_id": "2384"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 0,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "51142",
+      "match_id": "866681",
+      "name": "Jes\u00fas Ferreira",
+      "position": "FWD",
+      "record_id": "866681:51142",
+      "team": "USA",
+      "team_id": "2384"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 13,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "51118",
+      "match_id": "866681",
+      "name": "Jordan Morris",
+      "position": "FWD",
+      "record_id": "866681:51118",
+      "team": "USA",
+      "team_id": "2384"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 0,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "50852",
+      "match_id": "866681",
+      "name": "Joseph Scally",
+      "position": "DEF",
+      "record_id": "866681:50852",
+      "team": "USA",
+      "team_id": "2384"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 74,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": true,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [
+        {
+          "label": "Started",
+          "points": 2
+        },
+        {
+          "label": "Played 60+ minutes",
+          "points": 2
+        }
+      ],
+      "fantasy_points": 4,
+      "id": "25332",
+      "match_id": "866681",
+      "name": "Josh Sargent",
+      "position": "FWD",
+      "record_id": "866681:25332",
+      "team": "USA",
+      "team_id": "2384"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 15,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 1
+      },
+      "fantasy_breakdown": [
+        {
+          "label": "Yellow cards",
+          "points": -1
+        }
+      ],
+      "fantasy_points": -1,
+      "id": "51310",
+      "match_id": "866681",
+      "name": "Kellyn Acosta",
+      "position": "MID",
+      "record_id": "866681:51310",
+      "team": "USA",
+      "team_id": "2384"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 0,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "19026",
+      "match_id": "866681",
+      "name": "Luca De La Torre",
+      "position": "MID",
+      "record_id": "866681:19026",
+      "team": "USA",
+      "team_id": "2384"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 90,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 2,
+        "starts": true,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [
+        {
+          "label": "Started",
+          "points": 2
+        },
+        {
+          "label": "Played 60+ minutes",
+          "points": 2
+        }
+      ],
+      "fantasy_points": 4,
+      "id": "50999",
+      "match_id": "866681",
+      "name": "Matt Turner",
+      "position": "GK",
+      "record_id": "866681:50999",
+      "team": "USA",
+      "team_id": "2384"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 0,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "50848",
+      "match_id": "866681",
+      "name": "Sean Johnson",
+      "position": "GK",
+      "record_id": "866681:50848",
+      "team": "USA",
+      "team_id": "2384"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 74,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": true,
+        "yellow_cards": 1
+      },
+      "fantasy_breakdown": [
+        {
+          "label": "Started",
+          "points": 2
+        },
+        {
+          "label": "Played 60+ minutes",
+          "points": 2
+        },
+        {
+          "label": "Yellow cards",
+          "points": -1
+        }
+      ],
+      "fantasy_points": 3,
+      "id": "38735",
+      "match_id": "866681",
+      "name": "Sergi\u00f1o Dest",
+      "position": "DEF",
+      "record_id": "866681:38735",
+      "team": "USA",
+      "team_id": "2384"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 0,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "64310",
+      "match_id": "866681",
+      "name": "Shaq Moore",
+      "position": "DEF",
+      "record_id": "866681:64310",
+      "team": "USA",
+      "team_id": "2384"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 90,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": true,
+        "yellow_cards": 1
+      },
+      "fantasy_breakdown": [
+        {
+          "label": "Started",
+          "points": 2
+        },
+        {
+          "label": "Played 60+ minutes",
+          "points": 2
+        },
+        {
+          "label": "Yellow cards",
+          "points": -1
+        }
+      ],
+      "fantasy_points": 3,
+      "id": "19023",
+      "match_id": "866681",
+      "name": "Tim Ream",
+      "position": "MID",
+      "record_id": "866681:19023",
+      "team": "USA",
+      "team_id": "2384"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 1,
+        "minutes": 88,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": true,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [
+        {
+          "label": "Started",
+          "points": 2
+        },
+        {
+          "label": "Played 60+ minutes",
+          "points": 2
+        },
+        {
+          "label": "Goals",
+          "points": 6
+        }
+      ],
+      "fantasy_points": 10,
+      "id": "1138",
+      "match_id": "866681",
+      "name": "Timothy Weah",
+      "position": "FWD",
+      "record_id": "866681:1138",
+      "team": "USA",
+      "team_id": "2384"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 90,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": true,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [
+        {
+          "label": "Started",
+          "points": 2
+        },
+        {
+          "label": "Played 60+ minutes",
+          "points": 2
+        }
+      ],
+      "fantasy_points": 4,
+      "id": "1150",
+      "match_id": "866681",
+      "name": "Tyler Adams",
+      "position": "DEF",
+      "record_id": "866681:1150",
+      "team": "USA",
+      "team_id": "2384"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 90,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": true,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [
+        {
+          "label": "Started",
+          "points": 2
+        },
+        {
+          "label": "Played 60+ minutes",
+          "points": 2
+        }
+      ],
+      "fantasy_points": 4,
+      "id": "51032",
+      "match_id": "866681",
+      "name": "Walker Zimmerman",
+      "position": "DEF",
+      "record_id": "866681:51032",
+      "team": "USA",
+      "team_id": "2384"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 66,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": true,
+        "yellow_cards": 1
+      },
+      "fantasy_breakdown": [
+        {
+          "label": "Started",
+          "points": 2
+        },
+        {
+          "label": "Played 60+ minutes",
+          "points": 2
+        },
+        {
+          "label": "Yellow cards",
+          "points": -1
+        }
+      ],
+      "fantasy_points": 3,
+      "id": "415",
+      "match_id": "866681",
+      "name": "Weston McKennie",
+      "position": "MID",
+      "record_id": "866681:415",
+      "team": "USA",
+      "team_id": "2384"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 75,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": true,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [
+        {
+          "label": "Started",
+          "points": 2
+        },
+        {
+          "label": "Played 60+ minutes",
+          "points": 2
+        }
+      ],
+      "fantasy_points": 4,
+      "id": "162106",
+      "match_id": "866681",
+      "name": "Yunus Musah",
+      "position": "MID",
+      "record_id": "866681:162106",
+      "team": "USA",
+      "team_id": "2384"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 90,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": true,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [
+        {
+          "label": "Started",
+          "points": 2
+        },
+        {
+          "label": "Played 60+ minutes",
+          "points": 2
+        }
+      ],
+      "fantasy_points": 4,
+      "id": "1459",
+      "match_id": "866681",
+      "name": "Aaron Ramsey",
+      "position": "MID",
+      "record_id": "866681:1459",
+      "team": "Wales",
+      "team_id": "767"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 0,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "19779",
+      "match_id": "866681",
+      "name": "Adam Davies",
+      "position": "GK",
+      "record_id": "866681:19779",
+      "team": "Wales",
+      "team_id": "767"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 0,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "104041",
+      "match_id": "866681",
+      "name": "Ben Cabango",
+      "position": "DEF",
+      "record_id": "866681:104041",
+      "team": "Wales",
+      "team_id": "767"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 90,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": true,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [
+        {
+          "label": "Started",
+          "points": 2
+        },
+        {
+          "label": "Played 60+ minutes",
+          "points": 2
+        }
+      ],
+      "fantasy_points": 4,
+      "id": "164",
+      "match_id": "866681",
+      "name": "Ben Davies",
+      "position": "DEF",
+      "record_id": "866681:164",
+      "team": "Wales",
+      "team_id": "767"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 11,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "129711",
+      "match_id": "866681",
+      "name": "Brennan Johnson",
+      "position": "FWD",
+      "record_id": "866681:129711",
+      "team": "Wales",
+      "team_id": "767"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 0,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "19602",
+      "match_id": "866681",
+      "name": "Chris Gunter",
+      "position": "DEF",
+      "record_id": "866681:19602",
+      "team": "Wales",
+      "team_id": "767"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 90,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": true,
+        "yellow_cards": 1
+      },
+      "fantasy_breakdown": [
+        {
+          "label": "Started",
+          "points": 2
+        },
+        {
+          "label": "Played 60+ minutes",
+          "points": 2
+        },
+        {
+          "label": "Yellow cards",
+          "points": -1
+        }
+      ],
+      "fantasy_points": 3,
+      "id": "18866",
+      "match_id": "866681",
+      "name": "Chris Mepham",
+      "position": "MID",
+      "record_id": "866681:18866",
+      "team": "Wales",
+      "team_id": "767"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 90,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": true,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [
+        {
+          "label": "Started",
+          "points": 2
+        },
+        {
+          "label": "Played 60+ minutes",
+          "points": 2
+        }
+      ],
+      "fantasy_points": 4,
+      "id": "19331",
+      "match_id": "866681",
+      "name": "Connor Roberts",
+      "position": "DEF",
+      "record_id": "866681:19331",
+      "team": "Wales",
+      "team_id": "767"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 45,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": true,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [
+        {
+          "label": "Started",
+          "points": 2
+        }
+      ],
+      "fantasy_points": 2,
+      "id": "19329",
+      "match_id": "866681",
+      "name": "Daniel James",
+      "position": "FWD",
+      "record_id": "866681:19329",
+      "team": "Wales",
+      "team_id": "767"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 0,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "18146",
+      "match_id": "866681",
+      "name": "Danny Ward",
+      "position": "GK",
+      "record_id": "866681:18146",
+      "team": "Wales",
+      "team_id": "767"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 0,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "70335",
+      "match_id": "866681",
+      "name": "Dylan Levitt",
+      "position": "MID",
+      "record_id": "866681:70335",
+      "team": "Wales",
+      "team_id": "767"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 89,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": true,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [
+        {
+          "label": "Started",
+          "points": 2
+        },
+        {
+          "label": "Played 60+ minutes",
+          "points": 2
+        }
+      ],
+      "fantasy_points": 4,
+      "id": "2279",
+      "match_id": "866681",
+      "name": "Ethan Ampadu",
+      "position": "MID",
+      "record_id": "866681:2279",
+      "team": "Wales",
+      "team_id": "767"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 1,
+        "minutes": 90,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": true,
+        "yellow_cards": 1
+      },
+      "fantasy_breakdown": [
+        {
+          "label": "Started",
+          "points": 2
+        },
+        {
+          "label": "Played 60+ minutes",
+          "points": 2
+        },
+        {
+          "label": "Goals",
+          "points": 6
+        },
+        {
+          "label": "Yellow cards",
+          "points": -1
+        }
+      ],
+      "fantasy_points": 9,
+      "id": "758",
+      "match_id": "866681",
+      "name": "Gareth Bale",
+      "position": "FWD",
+      "record_id": "866681:758",
+      "team": "Wales",
+      "team_id": "767"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 89,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": true,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [
+        {
+          "label": "Started",
+          "points": 2
+        },
+        {
+          "label": "Played 60+ minutes",
+          "points": 2
+        }
+      ],
+      "fantasy_points": 4,
+      "id": "19221",
+      "match_id": "866681",
+      "name": "Harry Wilson",
+      "position": "MID",
+      "record_id": "866681:19221",
+      "team": "Wales",
+      "team_id": "767"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 0,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "19502",
+      "match_id": "866681",
+      "name": "Joe Allen",
+      "position": "MID",
+      "record_id": "866681:19502",
+      "team": "Wales",
+      "team_id": "767"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 1,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "19271",
+      "match_id": "866681",
+      "name": "Joe Morrell",
+      "position": "MID",
+      "record_id": "866681:19271",
+      "team": "Wales",
+      "team_id": "767"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 90,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": true,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [
+        {
+          "label": "Started",
+          "points": 2
+        },
+        {
+          "label": "Played 60+ minutes",
+          "points": 2
+        }
+      ],
+      "fantasy_points": 4,
+      "id": "19321",
+      "match_id": "866681",
+      "name": "Joe Rodon",
+      "position": "MID",
+      "record_id": "866681:19321",
+      "team": "Wales",
+      "team_id": "767"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 0,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "19837",
+      "match_id": "866681",
+      "name": "Jonathan Williams",
+      "position": "MID",
+      "record_id": "866681:19837",
+      "team": "Wales",
+      "team_id": "767"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 45,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "19804",
+      "match_id": "866681",
+      "name": "Kieffer Moore",
+      "position": "FWD",
+      "record_id": "866681:19804",
+      "team": "Wales",
+      "team_id": "767"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 0,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "17932",
+      "match_id": "866681",
+      "name": "Mark Harris",
+      "position": "FWD",
+      "record_id": "866681:17932",
+      "team": "Wales",
+      "team_id": "767"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 0,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "36843",
+      "match_id": "866681",
+      "name": "Matthew Smith",
+      "position": "MID",
+      "record_id": "866681:36843",
+      "team": "Wales",
+      "team_id": "767"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 79,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": true,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [
+        {
+          "label": "Started",
+          "points": 2
+        },
+        {
+          "label": "Played 60+ minutes",
+          "points": 2
+        }
+      ],
+      "fantasy_points": 4,
+      "id": "138780",
+      "match_id": "866681",
+      "name": "Neco Williams",
+      "position": "DEF",
+      "record_id": "866681:138780",
+      "team": "Wales",
+      "team_id": "767"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 0,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "301184",
+      "match_id": "866681",
+      "name": "Rubin Colwill",
+      "position": "MID",
+      "record_id": "866681:301184",
+      "team": "Wales",
+      "team_id": "767"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 8,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "18599",
+      "match_id": "866681",
+      "name": "Sorba Thomas",
+      "position": "MID",
+      "record_id": "866681:18599",
+      "team": "Wales",
+      "team_id": "767"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 0,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 0,
+        "starts": false,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [],
+      "fantasy_points": 0,
+      "id": "20203",
+      "match_id": "866681",
+      "name": "Tom Lockyer",
+      "position": "DEF",
+      "record_id": "866681:20203",
+      "team": "Wales",
+      "team_id": "767"
+    },
+    {
+      "events": {
+        "assists": 0,
+        "clean_sheet": false,
+        "goals": 0,
+        "minutes": 90,
+        "own_goals": 0,
+        "red_cards": 0,
+        "saves": 1,
+        "starts": true,
+        "yellow_cards": 0
+      },
+      "fantasy_breakdown": [
+        {
+          "label": "Started",
+          "points": 2
+        },
+        {
+          "label": "Played 60+ minutes",
+          "points": 2
+        }
+      ],
+      "fantasy_points": 4,
+      "id": "18836",
+      "match_id": "866681",
+      "name": "Wayne Hennessey",
+      "position": "GK",
+      "record_id": "866681:18836",
+      "team": "Wales",
+      "team_id": "767"
+    }
+  ],
+  "point_rules": {
+    "assist": 4,
+    "clean_sheet": 4,
+    "goal": 6,
+    "goalkeeper_saves": 2,
+    "own_goal": -3,
+    "plays_60": 2,
+    "red_card": -3,
+    "starts": 2,
+    "yellow_card": -1
+  },
+  "schema_version": "fantasy-cup-truth-v1",
+  "scoring_inputs": {
+    "player_points_by_record_id": {
+      "855734:105": 0,
+      "855734:1264": 4,
+      "855734:152654": 0,
+      "855734:158121": 0,
+      "855734:1592": 4,
+      "855734:162016": 0,
+      "855734:162236": 0,
+      "855734:175415": 0,
+      "855734:183": 4,
+      "855734:18592": 0,
+      "855734:18785": 3,
+      "855734:18861": 8,
+      "855734:19278": 0,
+      "855734:194": 0,
+      "855734:20696": 0,
+      "855734:22015": 4,
+      "855734:2218": 4,
+      "855734:226": 4,
+      "855734:23129": 0,
+      "855734:237129": 0,
+      "855734:244": 4,
+      "855734:246": 0,
+      "855734:247": 10,
+      "855734:25321": 6,
+      "855734:25416": 0,
+      "855734:283058": 0,
+      "855734:284072": 0,
+      "855734:290": 8,
+      "855734:2985": 0,
+      "855734:2986": 4,
+      "855734:2990": 3,
+      "855734:2991": 4,
+      "855734:30432": 0,
+      "855734:31632": 10,
+      "855734:318": 4,
+      "855734:36899": 0,
+      "855734:37113": 0,
+      "855734:37137": 0,
+      "855734:37145": 0,
+      "855734:37160": 4,
+      "855734:384": 0,
+      "855734:38746": 0,
+      "855734:38749": 0,
+      "855734:41552": 0,
+      "855734:45021": 0,
+      "855734:531": 4,
+      "855734:532": 7,
+      "855734:538": 8,
+      "855734:544": 0,
+      "855734:667": 0,
+      "855734:7": 4,
+      "855734:81": 4,
+      "855735:1221": 0,
+      "855735:129718": 10,
+      "855735:1311": 4,
+      "855735:1460": 16,
+      "855735:169": 4,
+      "855735:175": 0,
+      "855735:184": 12,
+      "855735:18741": 0,
+      "855735:18911": 0,
+      "855735:19130": 0,
+      "855735:19187": 6,
+      "855735:19220": 4,
+      "855735:19614": 0,
+      "855735:19959": 0,
+      "855735:20355": 0,
+      "855735:2680": 0,
+      "855735:2681": 0,
+      "855735:2682": 2,
+      "855735:2683": 2,
+      "855735:2685": 4,
+      "855735:2686": 4,
+      "855735:2687": 0,
+      "855735:2688": 4,
+      "855735:2690": 3,
+      "855735:2691": 0,
+      "855735:2692": 0,
+      "855735:2695": 4,
+      "855735:2697": 0,
+      "855735:2698": 0,
+      "855735:2699": 0,
+      "855735:2700": 1,
+      "855735:283": 0,
+      "855735:292": 0,
+      "855735:2932": 4,
+      "855735:2935": 8,
+      "855735:2937": 4,
+      "855735:2939": 4,
+      "855735:29704": 0,
+      "855735:29755": 2,
+      "855735:29770": 2,
+      "855735:29926": 0,
+      "855735:42315": 16,
+      "855735:626": 4,
+      "855735:627": 0,
+      "855735:631": 0,
+      "855735:645": 14,
+      "855735:67972": 0,
+      "855735:8564": 4,
+      "855735:891": 8,
+      "855735:909": 6,
+      "866681:104041": 0,
+      "866681:1138": 10,
+      "866681:1150": 4,
+      "866681:129711": 0,
+      "866681:138780": 4,
+      "866681:1459": 4,
+      "866681:161921": 0,
+      "866681:162106": 4,
+      "866681:164": 4,
+      "866681:17": 8,
+      "866681:17932": 0,
+      "866681:18146": 0,
+      "866681:18599": 0,
+      "866681:18836": 4,
+      "866681:18866": 3,
+      "866681:18897": 0,
+      "866681:19023": 3,
+      "866681:19026": 0,
+      "866681:19221": 4,
+      "866681:19271": 0,
+      "866681:19314": 0,
+      "866681:19321": 4,
+      "866681:19329": 2,
+      "866681:19331": 4,
+      "866681:19502": 0,
+      "866681:19549": 4,
+      "866681:19602": 0,
+      "866681:19779": 0,
+      "866681:19804": 0,
+      "866681:19837": 0,
+      "866681:20203": 0,
+      "866681:2279": 4,
+      "866681:25332": 4,
+      "866681:301184": 0,
+      "866681:36843": 0,
+      "866681:38735": 3,
+      "866681:415": 3,
+      "866681:427": 0,
+      "866681:50739": 0,
+      "866681:50848": 0,
+      "866681:50852": 0,
+      "866681:50952": 0,
+      "866681:50999": 4,
+      "866681:51032": 4,
+      "866681:51114": 0,
+      "866681:51118": 0,
+      "866681:51142": 0,
+      "866681:51310": -1,
+      "866681:62": 0,
+      "866681:64310": 0,
+      "866681:70335": 0,
+      "866681:758": 9
+    },
+    "risk_truth_by_match_id": {
+      "855734": {
+        "evidence": {
+          "card_events": 3,
+          "countable_goal_events": 2,
+          "first_goal": {
+            "detail": "Normal Goal",
+            "elapsed": 84,
+            "extra": null,
+            "player": "C. Gakpo",
+            "player_id": "247",
+            "team": "Netherlands",
+            "team_id": "1118",
+            "type": "Goal"
+          },
+          "player_goal_counts": {
+            "247": 1,
+            "25321": 1
+          },
+          "team_truth": {
+            "1118": {
+              "final_goals": 2,
+              "is_winner": true,
+              "scores_first": true,
+              "wins_by_3plus": false
+            },
+            "13": {
+              "final_goals": 0,
+              "is_winner": false,
+              "scores_first": false,
+              "wins_by_3plus": false
+            }
+          },
+          "total_goals": 2
+        },
+        "match_claims": {
+          "both_teams_score": false,
+          "goal_before_halftime": false,
+          "match_2plus_cards": true,
+          "match_2plus_goals": true,
+          "match_goes_to_extra_time": false,
+          "match_goes_to_penalties": false,
+          "match_over_2_5_goals": false,
+          "no_goal_first_10": true
+        },
+        "parameterized_claims": {
+          "exact_score": {
+            "away_score": 2,
+            "home_score": 0
+          },
+          "player_scores": {
+            "247": true,
+            "25321": true
+          },
+          "player_scores_2plus": {
+            "247": false,
+            "25321": false
+          },
+          "team_scores_first": {
+            "1118": true,
+            "13": false
+          },
+          "team_wins_by_3plus": {
+            "1118": false,
+            "13": false
+          }
+        }
+      },
+      "855735": {
+        "evidence": {
+          "card_events": 2,
+          "countable_goal_events": 8,
+          "first_goal": {
+            "detail": "Normal Goal",
+            "elapsed": 35,
+            "extra": null,
+            "player": "J. Bellingham",
+            "player_id": "129718",
+            "team": "England",
+            "team_id": "10",
+            "type": "Goal"
+          },
+          "player_goal_counts": {
+            "129718": 1,
+            "1460": 2,
+            "19187": 1,
+            "42315": 2,
+            "645": 1,
+            "909": 1
+          },
+          "team_truth": {
+            "10": {
+              "final_goals": 6,
+              "is_winner": true,
+              "scores_first": true,
+              "wins_by_3plus": true
+            },
+            "22": {
+              "final_goals": 2,
+              "is_winner": false,
+              "scores_first": false,
+              "wins_by_3plus": false
+            }
+          },
+          "total_goals": 8
+        },
+        "match_claims": {
+          "both_teams_score": true,
+          "goal_before_halftime": true,
+          "match_2plus_cards": true,
+          "match_2plus_goals": true,
+          "match_goes_to_extra_time": false,
+          "match_goes_to_penalties": false,
+          "match_over_2_5_goals": true,
+          "no_goal_first_10": true
+        },
+        "parameterized_claims": {
+          "exact_score": {
+            "away_score": 2,
+            "home_score": 6
+          },
+          "player_scores": {
+            "129718": true,
+            "1460": true,
+            "19187": true,
+            "42315": true,
+            "645": true,
+            "909": true
+          },
+          "player_scores_2plus": {
+            "129718": false,
+            "1460": true,
+            "19187": false,
+            "42315": true,
+            "645": false,
+            "909": false
+          },
+          "team_scores_first": {
+            "10": true,
+            "22": false
+          },
+          "team_wins_by_3plus": {
+            "10": true,
+            "22": false
+          }
+        }
+      },
+      "866681": {
+        "evidence": {
+          "card_events": 6,
+          "countable_goal_events": 2,
+          "first_goal": {
+            "detail": "Normal Goal",
+            "elapsed": 36,
+            "extra": null,
+            "player": "T. Weah",
+            "player_id": "1138",
+            "team": "USA",
+            "team_id": "2384",
+            "type": "Goal"
+          },
+          "player_goal_counts": {
+            "1138": 1,
+            "758": 1
+          },
+          "team_truth": {
+            "2384": {
+              "final_goals": 1,
+              "is_winner": false,
+              "scores_first": true,
+              "wins_by_3plus": false
+            },
+            "767": {
+              "final_goals": 1,
+              "is_winner": false,
+              "scores_first": false,
+              "wins_by_3plus": false
+            }
+          },
+          "total_goals": 2
+        },
+        "match_claims": {
+          "both_teams_score": true,
+          "goal_before_halftime": true,
+          "match_2plus_cards": true,
+          "match_2plus_goals": true,
+          "match_goes_to_extra_time": false,
+          "match_goes_to_penalties": false,
+          "match_over_2_5_goals": false,
+          "no_goal_first_10": true
+        },
+        "parameterized_claims": {
+          "exact_score": {
+            "away_score": 1,
+            "home_score": 1
+          },
+          "player_scores": {
+            "1138": true,
+            "758": true
+          },
+          "player_scores_2plus": {
+            "1138": false,
+            "758": false
+          },
+          "team_scores_first": {
+            "2384": true,
+            "767": false
+          },
+          "team_wins_by_3plus": {
+            "2384": false,
+            "767": false
+          }
+        }
+      }
+    }
+  },
+  "source": {
+    "fixture_ids": [
+      "855735",
+      "855734",
+      "866681"
+    ],
+    "league_id": "1",
+    "provider": "api-football",
+    "season": "2022",
+    "source_mode": "public_matchday_archive",
+    "timezone": "UTC"
+  },
+  "state": {
+    "complete": true,
+    "incomplete_fixture_ids": []
+  }
+}

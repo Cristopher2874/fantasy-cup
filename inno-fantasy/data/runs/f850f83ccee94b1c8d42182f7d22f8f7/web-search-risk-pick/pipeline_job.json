@@ -1,0 +1,31 @@
+{
+  "created_at": "2026-05-31T03:41:50Z",
+  "filename": "web-search-risk-pick.zip",
+  "issues": [],
+  "job_id": "f850f83ccee94b1c8d42182f7d22f8f7",
+  "message": "Codex execution completed.",
+  "run_dir": "C:\\Users\\Cristopher Hdz\\Documents\\projects\\fantasy-cup\\inno-fantasy\\data\\runs\\f850f83ccee94b1c8d42182f7d22f8f7\\web-search-risk-pick",
+  "runner": {
+    "final_message_path": "C:\\Users\\Cristopher Hdz\\Documents\\projects\\fantasy-cup\\inno-fantasy\\data\\runs\\f850f83ccee94b1c8d42182f7d22f8f7\\web-search-risk-pick\\codex.final-message.txt",
+    "issues": [],
+    "notes": [
+      "Forced Codex bin directory to front of PATH: C:\\Users\\Cristopher Hdz\\.codex\\packages\\standalone\\releases\\0.135.0-x86_64-pc-windows-msvc\\bin",
+      "Forced Codex resources directory to front of PATH: C:\\Users\\Cristopher Hdz\\.codex\\packages\\standalone\\releases\\0.135.0-x86_64-pc-windows-msvc\\codex-resources",
+      "Windows sandbox helper: C:\\Users\\Cristopher Hdz\\.codex\\packages\\standalone\\releases\\0.135.0-x86_64-pc-windows-msvc\\codex-resources\\codex-windows-sandbox-setup.exe"
+    ],
+    "prompt_path": "C:\\Users\\Cristopher Hdz\\Documents\\projects\\fantasy-cup\\inno-fantasy\\data\\runs\\f850f83ccee94b1c8d42182f7d22f8f7\\web-search-risk-pick\\prompt.md",
+    "return_code": 0,
+    "stderr_path": "C:\\Users\\Cristopher Hdz\\Documents\\projects\\fantasy-cup\\inno-fantasy\\data\\runs\\f850f83ccee94b1c8d42182f7d22f8f7\\web-search-risk-pick\\codex.stderr.log",
+    "stdout_path": "C:\\Users\\Cristopher Hdz\\Documents\\projects\\fantasy-cup\\inno-fantasy\\data\\runs\\f850f83ccee94b1c8d42182f7d22f8f7\\web-search-risk-pick\\codex.stdout.log",
+    "submission_path": "C:\\Users\\Cristopher Hdz\\Documents\\projects\\fantasy-cup\\inno-fantasy\\data\\runs\\f850f83ccee94b1c8d42182f7d22f8f7\\web-search-risk-pick\\submission.json",
+    "success": true
+  },
+  "skill_name": "web-search-risk-pick",
+  "stage": "completed",
+  "status": "completed",
+  "submission_path": "C:\\Users\\Cristopher Hdz\\Documents\\projects\\fantasy-cup\\inno-fantasy\\data\\runs\\f850f83ccee94b1c8d42182f7d22f8f7\\web-search-risk-pick\\submission.json",
+  "team_id": null,
+  "updated_at": "2026-05-31T03:44:07Z",
+  "validation_job_id": "f850f83ccee94b1c8d42182f7d22f8f7",
+  "warnings": []
+}

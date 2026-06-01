@@ -1,0 +1,17 @@
+{
+  "codex_command": "codex",
+  "job_id": "3e2fc6e2985340dca1103d2acd2d06f7",
+  "notes": [
+    "Forced Codex bin directory to front of PATH: C:\\Users\\Cristopher Hdz\\.codex\\packages\\standalone\\releases\\0.135.0-x86_64-pc-windows-msvc\\bin",
+    "Forced Codex resources directory to front of PATH: C:\\Users\\Cristopher Hdz\\.codex\\packages\\standalone\\releases\\0.135.0-x86_64-pc-windows-msvc\\codex-resources",
+    "Windows sandbox helper: C:\\Users\\Cristopher Hdz\\.codex\\packages\\standalone\\releases\\0.135.0-x86_64-pc-windows-msvc\\codex-resources\\codex-windows-sandbox-setup.exe"
+  ],
+  "public_data_dir": "C:\\Users\\Cristopher Hdz\\Documents\\projects\\fantasy-cup\\inno-fantasy\\data\\runs\\3e2fc6e2985340dca1103d2acd2d06f7\\web-search-risk-pick\\public_data",
+  "return_code": 0,
+  "sandbox": "read-only",
+  "schema_path": "C:\\Users\\Cristopher Hdz\\Documents\\projects\\fantasy-cup\\inno-fantasy\\data\\runs\\3e2fc6e2985340dca1103d2acd2d06f7\\web-search-risk-pick\\schemas\\team_submission.schema.json",
+  "search_enabled": true,
+  "skill_dir": "C:\\Users\\Cristopher Hdz\\Documents\\projects\\fantasy-cup\\inno-fantasy\\data\\runs\\3e2fc6e2985340dca1103d2acd2d06f7\\web-search-risk-pick\\skill",
+  "skill_name": "web-search-risk-pick",
+  "team_id": null
+}

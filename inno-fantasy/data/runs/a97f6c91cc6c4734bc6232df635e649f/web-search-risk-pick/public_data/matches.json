@@ -1,0 +1,71 @@
+[
+  {
+    "away_team": {
+      "id": "22",
+      "logo": "https://media.api-sports.io/football/teams/22.png",
+      "name": "Iran"
+    },
+    "home_team": {
+      "id": "10",
+      "logo": "https://media.api-sports.io/football/teams/10.png",
+      "name": "England"
+    },
+    "id": "855735",
+    "kickoff": "2022-11-21T13:00:00+00:00",
+    "provider": "api-football",
+    "provider_fixture_id": "855735",
+    "round": "Group Stage - 1",
+    "stage": "group",
+    "venue": {
+      "city": "Ar-Rayyan",
+      "id": 22430,
+      "name": "Khalifa International Stadium"
+    }
+  },
+  {
+    "away_team": {
+      "id": "1118",
+      "logo": "https://media.api-sports.io/football/teams/1118.png",
+      "name": "Netherlands"
+    },
+    "home_team": {
+      "id": "13",
+      "logo": "https://media.api-sports.io/football/teams/13.png",
+      "name": "Senegal"
+    },
+    "id": "855734",
+    "kickoff": "2022-11-21T16:00:00+00:00",
+    "provider": "api-football",
+    "provider_fixture_id": "855734",
+    "round": "Group Stage - 1",
+    "stage": "group",
+    "venue": {
+      "city": "Doha",
+      "id": null,
+      "name": "Al Thumama Stadium"
+    }
+  },
+  {
+    "away_team": {
+      "id": "767",
+      "logo": "https://media.api-sports.io/football/teams/767.png",
+      "name": "Wales"
+    },
+    "home_team": {
+      "id": "2384",
+      "logo": "https://media.api-sports.io/football/teams/2384.png",
+      "name": "USA"
+    },
+    "id": "866681",
+    "kickoff": "2022-11-21T19:00:00+00:00",
+    "provider": "api-football",
+    "provider_fixture_id": "866681",
+    "round": "Group Stage - 1",
+    "stage": "group",
+    "venue": {
+      "city": "Al-Rayyan",
+      "id": null,
+      "name": "Ahmad bin Ali Stadium"
+    }
+  }
+]

@@ -1,0 +1,152 @@
+[
+  {
+    "code": "ENG",
+    "country": "England",
+    "id": "10",
+    "incoming_matches": [
+      {
+        "match_id": "855735",
+        "opponent": "Iran",
+        "opponent_team_id": "22",
+        "side": "home"
+      }
+    ],
+    "logo": "https://media.api-sports.io/football/teams/10.png",
+    "name": "England",
+    "prior_stats": {
+      "draws": 0,
+      "goals_against": 0,
+      "goals_for": 0,
+      "losses": 0,
+      "played": 0,
+      "team_id": "10",
+      "team_name": "England",
+      "wins": 0
+    }
+  },
+  {
+    "code": "IRA",
+    "country": "Iran",
+    "id": "22",
+    "incoming_matches": [
+      {
+        "match_id": "855735",
+        "opponent": "England",
+        "opponent_team_id": "10",
+        "side": "away"
+      }
+    ],
+    "logo": "https://media.api-sports.io/football/teams/22.png",
+    "name": "Iran",
+    "prior_stats": {
+      "draws": 0,
+      "goals_against": 0,
+      "goals_for": 0,
+      "losses": 0,
+      "played": 0,
+      "team_id": "22",
+      "team_name": "Iran",
+      "wins": 0
+    }
+  },
+  {
+    "code": "NET",
+    "country": "Netherlands",
+    "id": "1118",
+    "incoming_matches": [
+      {
+        "match_id": "855734",
+        "opponent": "Senegal",
+        "opponent_team_id": "13",
+        "side": "away"
+      }
+    ],
+    "logo": "https://media.api-sports.io/football/teams/1118.png",
+    "name": "Netherlands",
+    "prior_stats": {
+      "draws": 0,
+      "goals_against": 0,
+      "goals_for": 0,
+      "losses": 0,
+      "played": 0,
+      "team_id": "1118",
+      "team_name": "Netherlands",
+      "wins": 0
+    }
+  },
+  {
+    "code": "SEN",
+    "country": "Senegal",
+    "id": "13",
+    "incoming_matches": [
+      {
+        "match_id": "855734",
+        "opponent": "Netherlands",
+        "opponent_team_id": "1118",
+        "side": "home"
+      }
+    ],
+    "logo": "https://media.api-sports.io/football/teams/13.png",
+    "name": "Senegal",
+    "prior_stats": {
+      "draws": 0,
+      "goals_against": 0,
+      "goals_for": 0,
+      "losses": 0,
+      "played": 0,
+      "team_id": "13",
+      "team_name": "Senegal",
+      "wins": 0
+    }
+  },
+  {
+    "code": "USA",
+    "country": "USA",
+    "id": "2384",
+    "incoming_matches": [
+      {
+        "match_id": "866681",
+        "opponent": "Wales",
+        "opponent_team_id": "767",
+        "side": "home"
+      }
+    ],
+    "logo": "https://media.api-sports.io/football/teams/2384.png",
+    "name": "USA",
+    "prior_stats": {
+      "draws": 0,
+      "goals_against": 0,
+      "goals_for": 0,
+      "losses": 0,
+      "played": 0,
+      "team_id": "2384",
+      "team_name": "USA",
+      "wins": 0
+    }
+  },
+  {
+    "code": "WAL",
+    "country": "Wales",
+    "id": "767",
+    "incoming_matches": [
+      {
+        "match_id": "866681",
+        "opponent": "USA",
+        "opponent_team_id": "2384",
+        "side": "away"
+      }
+    ],
+    "logo": "https://media.api-sports.io/football/teams/767.png",
+    "name": "Wales",
+    "prior_stats": {
+      "draws": 0,
+      "goals_against": 0,
+      "goals_for": 0,
+      "losses": 0,
+      "played": 0,
+      "team_id": "767",
+      "team_name": "Wales",
+      "wins": 0
+    }
+  }
+]

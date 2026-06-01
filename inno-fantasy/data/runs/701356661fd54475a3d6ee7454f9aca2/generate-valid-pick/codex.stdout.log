@@ -1,0 +1,44 @@
+{
+  "team_id": "not-provided",
+  "team_name": "Codex Local Demo",
+  "matchday_id": "wc-2022-20221121",
+  "answers": {
+    "fantasy_xi": [
+      {
+        "record_id": "855734:31632"
+      },
+      {
+        "record_id": "855734:290"
+      },
+      {
+        "record_id": "855734:532"
+      },
+      {
+        "record_id": "866681:38735"
+      },
+      {
+        "record_id": "855734:538"
+      },
+      {
+        "record_id": "855734:226"
+      },
+      {
+        "record_id": "866681:1459"
+      },
+      {
+        "record_id": "866681:415"
+      },
+      {
+        "record_id": "855734:247"
+      },
+      {
+        "record_id": "855734:667"
+      },
+      {
+        "record_id": "866681:758"
+      }
+    ],
+    "risk_play": null,
+    "strategy_summary": "Selected a valid 3-4-3 structure with one goalkeeper, three defenders, four midfielders, and three forwards, spreading picks across the Senegal vs Netherlands and USA vs Wales fixtures while prioritizing attacking contributors and established midfield options."
+  }
+}

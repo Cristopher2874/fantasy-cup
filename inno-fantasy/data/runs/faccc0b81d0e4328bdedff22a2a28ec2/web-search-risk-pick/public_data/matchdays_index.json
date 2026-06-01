@@ -1,0 +1,22 @@
+{
+  "matchdays": [
+    {
+      "archive_path": "C:\\Users\\Cristopher Hdz\\Documents\\projects\\fantasy-cup\\inno-fantasy\\data\\public_data\\by_date\\2022-11-21",
+      "fixture_count": 3,
+      "fixture_ids": [
+        "855735",
+        "855734",
+        "866681"
+      ],
+      "generated_at": "2026-05-31T03:35:54Z",
+      "league_id": "1",
+      "match_date": "2022-11-21",
+      "matchday_id": "wc-2022-20221121",
+      "prior_match_count": 1,
+      "provider": "api-football",
+      "season": "2022"
+    }
+  ],
+  "schema_version": "fantasy-cup-public-matchday-index-v1",
+  "updated_at": "2026-05-31T03:35:54Z"
+}

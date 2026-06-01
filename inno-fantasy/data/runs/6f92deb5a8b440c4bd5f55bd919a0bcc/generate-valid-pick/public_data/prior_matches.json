@@ -1,0 +1,57 @@
+[
+  {
+    "away_team": {
+      "id": "2382",
+      "logo": "https://media.api-sports.io/football/teams/2382.png",
+      "name": "Ecuador"
+    },
+    "event_counts": {
+      "goals": 2,
+      "own_goals": 0,
+      "red_cards": 0,
+      "yellow_cards": 6
+    },
+    "home_team": {
+      "id": "1569",
+      "logo": "https://media.api-sports.io/football/teams/1569.png",
+      "name": "Qatar"
+    },
+    "id": "855736",
+    "kickoff": "2022-11-20T16:00:00+00:00",
+    "provider": "api-football",
+    "provider_fixture_id": "855736",
+    "round": "Group Stage - 1",
+    "score": {
+      "away": 2,
+      "extratime": {
+        "away": null,
+        "home": null
+      },
+      "fulltime": {
+        "away": 2,
+        "home": 0
+      },
+      "halftime": {
+        "away": 2,
+        "home": 0
+      },
+      "home": 0,
+      "penalty": {
+        "away": null,
+        "home": null
+      }
+    },
+    "stage": "group",
+    "status": {
+      "elapsed": 90,
+      "extra": null,
+      "long": "Match Finished",
+      "short": "FT"
+    },
+    "venue": {
+      "city": "Al Khor",
+      "id": null,
+      "name": "Al Bayt Stadium"
+    }
+  }
+]

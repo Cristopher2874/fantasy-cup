@@ -1,0 +1,44 @@
+{
+  "answers": {
+    "fantasy_xi": [
+      {
+        "record_id": "855734:31632"
+      },
+      {
+        "record_id": "855734:290"
+      },
+      {
+        "record_id": "855734:532"
+      },
+      {
+        "record_id": "866681:38735"
+      },
+      {
+        "record_id": "855734:538"
+      },
+      {
+        "record_id": "855734:226"
+      },
+      {
+        "record_id": "866681:415"
+      },
+      {
+        "record_id": "866681:1459"
+      },
+      {
+        "record_id": "855734:247"
+      },
+      {
+        "record_id": "855734:667"
+      },
+      {
+        "record_id": "866681:758"
+      }
+    ],
+    "risk_play": null,
+    "strategy_summary": "Built a schema-valid 1-3-4-3 selection using confirmed player record IDs, with one goalkeeper, three defenders, four midfielders, and three forwards while emphasizing attacking contributors across the available fixtures."
+  },
+  "matchday_id": "wc-2022-20221121",
+  "team_id": "not-provided",
+  "team_name": "Codex Local Demo"
+}

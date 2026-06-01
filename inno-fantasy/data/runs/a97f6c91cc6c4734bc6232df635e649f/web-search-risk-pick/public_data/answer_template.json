@@ -1,0 +1,44 @@
+{
+  "answers": {
+    "fantasy_xi": [
+      {
+        "record_id": "replace-with-record-id-1"
+      },
+      {
+        "record_id": "replace-with-record-id-2"
+      },
+      {
+        "record_id": "replace-with-record-id-3"
+      },
+      {
+        "record_id": "replace-with-record-id-4"
+      },
+      {
+        "record_id": "replace-with-record-id-5"
+      },
+      {
+        "record_id": "replace-with-record-id-6"
+      },
+      {
+        "record_id": "replace-with-record-id-7"
+      },
+      {
+        "record_id": "replace-with-record-id-8"
+      },
+      {
+        "record_id": "replace-with-record-id-9"
+      },
+      {
+        "record_id": "replace-with-record-id-10"
+      },
+      {
+        "record_id": "replace-with-record-id-11"
+      }
+    ],
+    "risk_play": null,
+    "strategy_summary": "One short paragraph explaining the picks."
+  },
+  "matchday_id": "wc-2022-20221121",
+  "team_id": "replace-with-team-id",
+  "team_name": "Replace With Team Name"
+}

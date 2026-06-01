@@ -1,0 +1,22 @@
+[
+  {
+    "draws": 0,
+    "goals_against": 0,
+    "goals_for": 2,
+    "losses": 0,
+    "played": 1,
+    "team_id": "2382",
+    "team_name": "Ecuador",
+    "wins": 1
+  },
+  {
+    "draws": 0,
+    "goals_against": 2,
+    "goals_for": 0,
+    "losses": 1,
+    "played": 1,
+    "team_id": "1569",
+    "team_name": "Qatar",
+    "wins": 0
+  }
+]

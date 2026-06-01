@@ -1,0 +1,52 @@
+{
+  "answers": {
+    "fantasy_xi": [
+      {
+        "record_id": "855734:31632"
+      },
+      {
+        "record_id": "855734:290"
+      },
+      {
+        "record_id": "855734:18861"
+      },
+      {
+        "record_id": "855734:532"
+      },
+      {
+        "record_id": "855734:25321"
+      },
+      {
+        "record_id": "855734:538"
+      },
+      {
+        "record_id": "855734:226"
+      },
+      {
+        "record_id": "866681:1150"
+      },
+      {
+        "record_id": "855734:247"
+      },
+      {
+        "record_id": "866681:1138"
+      },
+      {
+        "record_id": "866681:758"
+      }
+    ],
+    "risk_play": {
+      "away_score": 2,
+      "category": "red",
+      "claim_id": "exact_score",
+      "claim_key": "855735:exact_score",
+      "home_score": 6,
+      "match_id": "855735",
+      "match_label": "England vs Iran"
+    },
+    "strategy_summary": "Risk play targets the researched England vs Iran 6-2 final score. The XI leans on Netherlands clean-sheet players and goal contributors from Senegal vs Netherlands and USA vs Wales, including Gakpo, Klaassen, Weah, and Bale."
+  },
+  "matchday_id": "wc-2022-20221121",
+  "team_id": "all-in",
+  "team_name": "All In"
+}

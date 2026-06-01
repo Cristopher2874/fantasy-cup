@@ -1,0 +1,27 @@
+{
+  "files": {
+    "answer-template": "answer_template.json",
+    "manifest": "manifest.json",
+    "matchday": "matchday.json",
+    "matchdays-index": "matchdays_index.json",
+    "matches": "matches.json",
+    "player-prior-stats": "player_prior_stats.json",
+    "players": "players.json",
+    "prior-matches": "prior_matches.json",
+    "public-data-catalog.md": "public_data_catalog.md",
+    "risk-claims": "risk_claims.json",
+    "team-prior-stats": "team_prior_stats.json",
+    "teams": "teams.json"
+  },
+  "generated_at": "2026-05-31T03:35:54Z",
+  "match_date": "2022-11-21",
+  "matchday_id": "wc-2022-20221121",
+  "redaction": "Incoming fixture results, events, and scoring truth are omitted until the next daily generation.",
+  "schema_version": "fantasy-cup-public-context-v1",
+  "source": {
+    "league_id": "1",
+    "provider": "api-football",
+    "season": "2022",
+    "source_mode": "simulated-world-cup-as-live"
+  }
+}

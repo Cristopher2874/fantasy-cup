@@ -1,0 +1,793 @@
+{
+  "available_claims": [
+    {
+      "category": "yellow",
+      "claim_id": "both_teams_score",
+      "claim_key": "855735:both_teams_score",
+      "description": "Both teams score at least once.",
+      "match_id": "855735",
+      "match_label": "England vs Iran",
+      "parameters": {
+        "match_id": "855735"
+      },
+      "required_fields": [
+        "claim_id",
+        "match_id"
+      ]
+    },
+    {
+      "category": "red",
+      "claim_id": "exact_score",
+      "claim_key": "855735:exact_score",
+      "description": "The selected match finishes with the submitted home and away score.",
+      "match_id": "855735",
+      "match_label": "England vs Iran",
+      "parameter_options": {
+        "away_score": "non-negative integer",
+        "home_score": "non-negative integer"
+      },
+      "parameters": {
+        "match_id": "855735"
+      },
+      "required_fields": [
+        "claim_id",
+        "match_id",
+        "home_score",
+        "away_score"
+      ]
+    },
+    {
+      "category": "green",
+      "claim_id": "goal_before_halftime",
+      "claim_key": "855735:goal_before_halftime",
+      "description": "At least one goal is scored before halftime.",
+      "match_id": "855735",
+      "match_label": "England vs Iran",
+      "parameters": {
+        "match_id": "855735"
+      },
+      "required_fields": [
+        "claim_id",
+        "match_id"
+      ]
+    },
+    {
+      "category": "green",
+      "claim_id": "match_2plus_cards",
+      "claim_key": "855735:match_2plus_cards",
+      "description": "The selected match has at least 2 card events.",
+      "match_id": "855735",
+      "match_label": "England vs Iran",
+      "parameters": {
+        "match_id": "855735"
+      },
+      "required_fields": [
+        "claim_id",
+        "match_id"
+      ]
+    },
+    {
+      "category": "green",
+      "claim_id": "match_2plus_goals",
+      "claim_key": "855735:match_2plus_goals",
+      "description": "The selected match finishes with at least 2 total goals.",
+      "match_id": "855735",
+      "match_label": "England vs Iran",
+      "parameters": {
+        "match_id": "855735"
+      },
+      "required_fields": [
+        "claim_id",
+        "match_id"
+      ]
+    },
+    {
+      "category": "yellow",
+      "claim_id": "match_over_2_5_goals",
+      "claim_key": "855735:match_over_2_5_goals",
+      "description": "The selected match finishes with 3 or more total goals.",
+      "match_id": "855735",
+      "match_label": "England vs Iran",
+      "parameters": {
+        "match_id": "855735"
+      },
+      "required_fields": [
+        "claim_id",
+        "match_id"
+      ]
+    },
+    {
+      "category": "green",
+      "claim_id": "no_goal_first_10",
+      "claim_key": "855735:no_goal_first_10",
+      "description": "No goal is scored from minute 1 through minute 10.",
+      "match_id": "855735",
+      "match_label": "England vs Iran",
+      "parameters": {
+        "match_id": "855735"
+      },
+      "required_fields": [
+        "claim_id",
+        "match_id"
+      ]
+    },
+    {
+      "category": "yellow",
+      "claim_id": "player_scores",
+      "claim_key": "855735:player_scores",
+      "description": "The selected player scores at least one non-own goal.",
+      "match_id": "855735",
+      "match_label": "England vs Iran",
+      "parameter_options": {
+        "player_id": {
+          "filter": {
+            "match_id": "855735"
+          },
+          "source_file": "players.json"
+        }
+      },
+      "parameters": {
+        "match_id": "855735"
+      },
+      "required_fields": [
+        "claim_id",
+        "match_id",
+        "player_id"
+      ]
+    },
+    {
+      "category": "red",
+      "claim_id": "player_scores_2plus",
+      "claim_key": "855735:player_scores_2plus",
+      "description": "The selected player scores at least 2 non-own goals.",
+      "match_id": "855735",
+      "match_label": "England vs Iran",
+      "parameter_options": {
+        "player_id": {
+          "filter": {
+            "match_id": "855735"
+          },
+          "source_file": "players.json"
+        }
+      },
+      "parameters": {
+        "match_id": "855735"
+      },
+      "required_fields": [
+        "claim_id",
+        "match_id",
+        "player_id"
+      ]
+    },
+    {
+      "category": "yellow",
+      "claim_id": "team_scores_first",
+      "claim_key": "855735:team_scores_first",
+      "description": "The selected team scores the first countable goal.",
+      "match_id": "855735",
+      "match_label": "England vs Iran",
+      "parameter_options": {
+        "team_id": [
+          {
+            "id": "10",
+            "logo": "https://media.api-sports.io/football/teams/10.png",
+            "name": "England"
+          },
+          {
+            "id": "22",
+            "logo": "https://media.api-sports.io/football/teams/22.png",
+            "name": "Iran"
+          }
+        ]
+      },
+      "parameters": {
+        "match_id": "855735"
+      },
+      "required_fields": [
+        "claim_id",
+        "match_id",
+        "team_id"
+      ]
+    },
+    {
+      "category": "red",
+      "claim_id": "team_wins_by_3plus",
+      "claim_key": "855735:team_wins_by_3plus",
+      "description": "The selected team wins by at least 3 goals.",
+      "match_id": "855735",
+      "match_label": "England vs Iran",
+      "parameter_options": {
+        "team_id": [
+          {
+            "id": "10",
+            "logo": "https://media.api-sports.io/football/teams/10.png",
+            "name": "England"
+          },
+          {
+            "id": "22",
+            "logo": "https://media.api-sports.io/football/teams/22.png",
+            "name": "Iran"
+          }
+        ]
+      },
+      "parameters": {
+        "match_id": "855735"
+      },
+      "required_fields": [
+        "claim_id",
+        "match_id",
+        "team_id"
+      ]
+    },
+    {
+      "category": "yellow",
+      "claim_id": "both_teams_score",
+      "claim_key": "855734:both_teams_score",
+      "description": "Both teams score at least once.",
+      "match_id": "855734",
+      "match_label": "Senegal vs Netherlands",
+      "parameters": {
+        "match_id": "855734"
+      },
+      "required_fields": [
+        "claim_id",
+        "match_id"
+      ]
+    },
+    {
+      "category": "red",
+      "claim_id": "exact_score",
+      "claim_key": "855734:exact_score",
+      "description": "The selected match finishes with the submitted home and away score.",
+      "match_id": "855734",
+      "match_label": "Senegal vs Netherlands",
+      "parameter_options": {
+        "away_score": "non-negative integer",
+        "home_score": "non-negative integer"
+      },
+      "parameters": {
+        "match_id": "855734"
+      },
+      "required_fields": [
+        "claim_id",
+        "match_id",
+        "home_score",
+        "away_score"
+      ]
+    },
+    {
+      "category": "green",
+      "claim_id": "goal_before_halftime",
+      "claim_key": "855734:goal_before_halftime",
+      "description": "At least one goal is scored before halftime.",
+      "match_id": "855734",
+      "match_label": "Senegal vs Netherlands",
+      "parameters": {
+        "match_id": "855734"
+      },
+      "required_fields": [
+        "claim_id",
+        "match_id"
+      ]
+    },
+    {
+      "category": "green",
+      "claim_id": "match_2plus_cards",
+      "claim_key": "855734:match_2plus_cards",
+      "description": "The selected match has at least 2 card events.",
+      "match_id": "855734",
+      "match_label": "Senegal vs Netherlands",
+      "parameters": {
+        "match_id": "855734"
+      },
+      "required_fields": [
+        "claim_id",
+        "match_id"
+      ]
+    },
+    {
+      "category": "green",
+      "claim_id": "match_2plus_goals",
+      "claim_key": "855734:match_2plus_goals",
+      "description": "The selected match finishes with at least 2 total goals.",
+      "match_id": "855734",
+      "match_label": "Senegal vs Netherlands",
+      "parameters": {
+        "match_id": "855734"
+      },
+      "required_fields": [
+        "claim_id",
+        "match_id"
+      ]
+    },
+    {
+      "category": "yellow",
+      "claim_id": "match_over_2_5_goals",
+      "claim_key": "855734:match_over_2_5_goals",
+      "description": "The selected match finishes with 3 or more total goals.",
+      "match_id": "855734",
+      "match_label": "Senegal vs Netherlands",
+      "parameters": {
+        "match_id": "855734"
+      },
+      "required_fields": [
+        "claim_id",
+        "match_id"
+      ]
+    },
+    {
+      "category": "green",
+      "claim_id": "no_goal_first_10",
+      "claim_key": "855734:no_goal_first_10",
+      "description": "No goal is scored from minute 1 through minute 10.",
+      "match_id": "855734",
+      "match_label": "Senegal vs Netherlands",
+      "parameters": {
+        "match_id": "855734"
+      },
+      "required_fields": [
+        "claim_id",
+        "match_id"
+      ]
+    },
+    {
+      "category": "yellow",
+      "claim_id": "player_scores",
+      "claim_key": "855734:player_scores",
+      "description": "The selected player scores at least one non-own goal.",
+      "match_id": "855734",
+      "match_label": "Senegal vs Netherlands",
+      "parameter_options": {
+        "player_id": {
+          "filter": {
+            "match_id": "855734"
+          },
+          "source_file": "players.json"
+        }
+      },
+      "parameters": {
+        "match_id": "855734"
+      },
+      "required_fields": [
+        "claim_id",
+        "match_id",
+        "player_id"
+      ]
+    },
+    {
+      "category": "red",
+      "claim_id": "player_scores_2plus",
+      "claim_key": "855734:player_scores_2plus",
+      "description": "The selected player scores at least 2 non-own goals.",
+      "match_id": "855734",
+      "match_label": "Senegal vs Netherlands",
+      "parameter_options": {
+        "player_id": {
+          "filter": {
+            "match_id": "855734"
+          },
+          "source_file": "players.json"
+        }
+      },
+      "parameters": {
+        "match_id": "855734"
+      },
+      "required_fields": [
+        "claim_id",
+        "match_id",
+        "player_id"
+      ]
+    },
+    {
+      "category": "yellow",
+      "claim_id": "team_scores_first",
+      "claim_key": "855734:team_scores_first",
+      "description": "The selected team scores the first countable goal.",
+      "match_id": "855734",
+      "match_label": "Senegal vs Netherlands",
+      "parameter_options": {
+        "team_id": [
+          {
+            "id": "13",
+            "logo": "https://media.api-sports.io/football/teams/13.png",
+            "name": "Senegal"
+          },
+          {
+            "id": "1118",
+            "logo": "https://media.api-sports.io/football/teams/1118.png",
+            "name": "Netherlands"
+          }
+        ]
+      },
+      "parameters": {
+        "match_id": "855734"
+      },
+      "required_fields": [
+        "claim_id",
+        "match_id",
+        "team_id"
+      ]
+    },
+    {
+      "category": "red",
+      "claim_id": "team_wins_by_3plus",
+      "claim_key": "855734:team_wins_by_3plus",
+      "description": "The selected team wins by at least 3 goals.",
+      "match_id": "855734",
+      "match_label": "Senegal vs Netherlands",
+      "parameter_options": {
+        "team_id": [
+          {
+            "id": "13",
+            "logo": "https://media.api-sports.io/football/teams/13.png",
+            "name": "Senegal"
+          },
+          {
+            "id": "1118",
+            "logo": "https://media.api-sports.io/football/teams/1118.png",
+            "name": "Netherlands"
+          }
+        ]
+      },
+      "parameters": {
+        "match_id": "855734"
+      },
+      "required_fields": [
+        "claim_id",
+        "match_id",
+        "team_id"
+      ]
+    },
+    {
+      "category": "yellow",
+      "claim_id": "both_teams_score",
+      "claim_key": "866681:both_teams_score",
+      "description": "Both teams score at least once.",
+      "match_id": "866681",
+      "match_label": "USA vs Wales",
+      "parameters": {
+        "match_id": "866681"
+      },
+      "required_fields": [
+        "claim_id",
+        "match_id"
+      ]
+    },
+    {
+      "category": "red",
+      "claim_id": "exact_score",
+      "claim_key": "866681:exact_score",
+      "description": "The selected match finishes with the submitted home and away score.",
+      "match_id": "866681",
+      "match_label": "USA vs Wales",
+      "parameter_options": {
+        "away_score": "non-negative integer",
+        "home_score": "non-negative integer"
+      },
+      "parameters": {
+        "match_id": "866681"
+      },
+      "required_fields": [
+        "claim_id",
+        "match_id",
+        "home_score",
+        "away_score"
+      ]
+    },
+    {
+      "category": "green",
+      "claim_id": "goal_before_halftime",
+      "claim_key": "866681:goal_before_halftime",
+      "description": "At least one goal is scored before halftime.",
+      "match_id": "866681",
+      "match_label": "USA vs Wales",
+      "parameters": {
+        "match_id": "866681"
+      },
+      "required_fields": [
+        "claim_id",
+        "match_id"
+      ]
+    },
+    {
+      "category": "green",
+      "claim_id": "match_2plus_cards",
+      "claim_key": "866681:match_2plus_cards",
+      "description": "The selected match has at least 2 card events.",
+      "match_id": "866681",
+      "match_label": "USA vs Wales",
+      "parameters": {
+        "match_id": "866681"
+      },
+      "required_fields": [
+        "claim_id",
+        "match_id"
+      ]
+    },
+    {
+      "category": "green",
+      "claim_id": "match_2plus_goals",
+      "claim_key": "866681:match_2plus_goals",
+      "description": "The selected match finishes with at least 2 total goals.",
+      "match_id": "866681",
+      "match_label": "USA vs Wales",
+      "parameters": {
+        "match_id": "866681"
+      },
+      "required_fields": [
+        "claim_id",
+        "match_id"
+      ]
+    },
+    {
+      "category": "yellow",
+      "claim_id": "match_over_2_5_goals",
+      "claim_key": "866681:match_over_2_5_goals",
+      "description": "The selected match finishes with 3 or more total goals.",
+      "match_id": "866681",
+      "match_label": "USA vs Wales",
+      "parameters": {
+        "match_id": "866681"
+      },
+      "required_fields": [
+        "claim_id",
+        "match_id"
+      ]
+    },
+    {
+      "category": "green",
+      "claim_id": "no_goal_first_10",
+      "claim_key": "866681:no_goal_first_10",
+      "description": "No goal is scored from minute 1 through minute 10.",
+      "match_id": "866681",
+      "match_label": "USA vs Wales",
+      "parameters": {
+        "match_id": "866681"
+      },
+      "required_fields": [
+        "claim_id",
+        "match_id"
+      ]
+    },
+    {
+      "category": "yellow",
+      "claim_id": "player_scores",
+      "claim_key": "866681:player_scores",
+      "description": "The selected player scores at least one non-own goal.",
+      "match_id": "866681",
+      "match_label": "USA vs Wales",
+      "parameter_options": {
+        "player_id": {
+          "filter": {
+            "match_id": "866681"
+          },
+          "source_file": "players.json"
+        }
+      },
+      "parameters": {
+        "match_id": "866681"
+      },
+      "required_fields": [
+        "claim_id",
+        "match_id",
+        "player_id"
+      ]
+    },
+    {
+      "category": "red",
+      "claim_id": "player_scores_2plus",
+      "claim_key": "866681:player_scores_2plus",
+      "description": "The selected player scores at least 2 non-own goals.",
+      "match_id": "866681",
+      "match_label": "USA vs Wales",
+      "parameter_options": {
+        "player_id": {
+          "filter": {
+            "match_id": "866681"
+          },
+          "source_file": "players.json"
+        }
+      },
+      "parameters": {
+        "match_id": "866681"
+      },
+      "required_fields": [
+        "claim_id",
+        "match_id",
+        "player_id"
+      ]
+    },
+    {
+      "category": "yellow",
+      "claim_id": "team_scores_first",
+      "claim_key": "866681:team_scores_first",
+      "description": "The selected team scores the first countable goal.",
+      "match_id": "866681",
+      "match_label": "USA vs Wales",
+      "parameter_options": {
+        "team_id": [
+          {
+            "id": "2384",
+            "logo": "https://media.api-sports.io/football/teams/2384.png",
+            "name": "USA"
+          },
+          {
+            "id": "767",
+            "logo": "https://media.api-sports.io/football/teams/767.png",
+            "name": "Wales"
+          }
+        ]
+      },
+      "parameters": {
+        "match_id": "866681"
+      },
+      "required_fields": [
+        "claim_id",
+        "match_id",
+        "team_id"
+      ]
+    },
+    {
+      "category": "red",
+      "claim_id": "team_wins_by_3plus",
+      "claim_key": "866681:team_wins_by_3plus",
+      "description": "The selected team wins by at least 3 goals.",
+      "match_id": "866681",
+      "match_label": "USA vs Wales",
+      "parameter_options": {
+        "team_id": [
+          {
+            "id": "2384",
+            "logo": "https://media.api-sports.io/football/teams/2384.png",
+            "name": "USA"
+          },
+          {
+            "id": "767",
+            "logo": "https://media.api-sports.io/football/teams/767.png",
+            "name": "Wales"
+          }
+        ]
+      },
+      "parameters": {
+        "match_id": "866681"
+      },
+      "required_fields": [
+        "claim_id",
+        "match_id",
+        "team_id"
+      ]
+    }
+  ],
+  "claim_types": [
+    {
+      "category": "yellow",
+      "claim_id": "both_teams_score",
+      "description": "Both teams score at least once.",
+      "required_fields": [
+        "claim_id",
+        "match_id"
+      ]
+    },
+    {
+      "category": "red",
+      "claim_id": "exact_score",
+      "description": "The selected match finishes with the submitted home and away score.",
+      "required_fields": [
+        "claim_id",
+        "match_id",
+        "home_score",
+        "away_score"
+      ]
+    },
+    {
+      "category": "green",
+      "claim_id": "goal_before_halftime",
+      "description": "At least one goal is scored before halftime.",
+      "required_fields": [
+        "claim_id",
+        "match_id"
+      ]
+    },
+    {
+      "category": "green",
+      "claim_id": "match_2plus_cards",
+      "description": "The selected match has at least 2 card events.",
+      "required_fields": [
+        "claim_id",
+        "match_id"
+      ]
+    },
+    {
+      "category": "green",
+      "claim_id": "match_2plus_goals",
+      "description": "The selected match finishes with at least 2 total goals.",
+      "required_fields": [
+        "claim_id",
+        "match_id"
+      ]
+    },
+    {
+      "category": "red",
+      "claim_id": "match_goes_to_extra_time",
+      "description": "The knockout match reaches extra time.",
+      "required_fields": [
+        "claim_id",
+        "match_id"
+      ]
+    },
+    {
+      "category": "red",
+      "claim_id": "match_goes_to_penalties",
+      "description": "The knockout match reaches a penalty shootout.",
+      "required_fields": [
+        "claim_id",
+        "match_id"
+      ]
+    },
+    {
+      "category": "yellow",
+      "claim_id": "match_over_2_5_goals",
+      "description": "The selected match finishes with 3 or more total goals.",
+      "required_fields": [
+        "claim_id",
+        "match_id"
+      ]
+    },
+    {
+      "category": "green",
+      "claim_id": "no_goal_first_10",
+      "description": "No goal is scored from minute 1 through minute 10.",
+      "required_fields": [
+        "claim_id",
+        "match_id"
+      ]
+    },
+    {
+      "category": "yellow",
+      "claim_id": "player_scores",
+      "description": "The selected player scores at least one non-own goal.",
+      "required_fields": [
+        "claim_id",
+        "match_id",
+        "player_id"
+      ]
+    },
+    {
+      "category": "red",
+      "claim_id": "player_scores_2plus",
+      "description": "The selected player scores at least 2 non-own goals.",
+      "required_fields": [
+        "claim_id",
+        "match_id",
+        "player_id"
+      ]
+    },
+    {
+      "category": "yellow",
+      "claim_id": "team_scores_first",
+      "description": "The selected team scores the first countable goal.",
+      "required_fields": [
+        "claim_id",
+        "match_id",
+        "team_id"
+      ]
+    },
+    {
+      "category": "red",
+      "claim_id": "team_wins_by_3plus",
+      "description": "The selected team wins by at least 3 goals.",
+      "required_fields": [
+        "claim_id",
+        "match_id",
+        "team_id"
+      ]
+    }
+  ],
+  "matchday_id": "wc-2022-20221121",
+  "schema_version": "fantasy-cup-public-context-v1",
+  "stake_rules": {
+    "green": "15% of the team's points before the matchday",
+    "red": "35% of the team's points before the matchday",
+    "yellow": "25% of the team's points before the matchday"
+  }
+}

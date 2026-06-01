@@ -1,0 +1,44 @@
+{
+  "answers": {
+    "fantasy_xi": [
+      {
+        "record_id": "855734:31632"
+      },
+      {
+        "record_id": "855734:290"
+      },
+      {
+        "record_id": "855734:532"
+      },
+      {
+        "record_id": "866681:38735"
+      },
+      {
+        "record_id": "866681:138780"
+      },
+      {
+        "record_id": "855734:226"
+      },
+      {
+        "record_id": "855734:538"
+      },
+      {
+        "record_id": "866681:415"
+      },
+      {
+        "record_id": "855734:247"
+      },
+      {
+        "record_id": "855734:667"
+      },
+      {
+        "record_id": "866681:758"
+      }
+    ],
+    "risk_play": null,
+    "strategy_summary": "Balanced 1-4-3-3 selection across Senegal vs Netherlands and USA vs Wales, using one goalkeeper, four defenders, three midfielders, and three forwards from valid player records while leaving the optional risk play unused for schema-safe submission."
+  },
+  "matchday_id": "wc-2022-20221121",
+  "team_id": "not-provided",
+  "team_name": "Codex Local Demo"
+}

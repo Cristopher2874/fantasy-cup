@@ -1,0 +1,287 @@
+{
+  "generated_at": "2026-05-31T18:55:57Z",
+  "job_id": "6f92deb5a8b440c4bd5f55bd919a0bcc",
+  "leaderboard_path": "C:\\Users\\Cristopher Hdz\\Documents\\projects\\fantasy-cup\\inno-fantasy\\data\\scores\\leaderboard.json",
+  "matchday_id": "wc-2022-20221121",
+  "result": {
+    "fantasy": {
+      "errors": [],
+      "players": [
+        {
+          "breakdown": [
+            {
+              "label": "Started",
+              "points": 2
+            },
+            {
+              "label": "Played 60+ minutes",
+              "points": 2
+            },
+            {
+              "label": "Clean sheet",
+              "points": 4
+            },
+            {
+              "label": "Goalkeeper 3+ saves",
+              "points": 2
+            }
+          ],
+          "match_id": "855734",
+          "name": "Andries Noppert",
+          "player_id": "31632",
+          "points": 10,
+          "position": "GK",
+          "record_id": "855734:31632",
+          "team": "Netherlands"
+        },
+        {
+          "breakdown": [
+            {
+              "label": "Started",
+              "points": 2
+            },
+            {
+              "label": "Played 60+ minutes",
+              "points": 2
+            },
+            {
+              "label": "Clean sheet",
+              "points": 4
+            }
+          ],
+          "match_id": "855734",
+          "name": "Virgil van Dijk",
+          "player_id": "290",
+          "points": 8,
+          "position": "DEF",
+          "record_id": "855734:290",
+          "team": "Netherlands"
+        },
+        {
+          "breakdown": [
+            {
+              "label": "Started",
+              "points": 2
+            },
+            {
+              "label": "Played 60+ minutes",
+              "points": 2
+            },
+            {
+              "label": "Clean sheet",
+              "points": 4
+            },
+            {
+              "label": "Yellow cards",
+              "points": -1
+            }
+          ],
+          "match_id": "855734",
+          "name": "Matthijs de Ligt",
+          "player_id": "532",
+          "points": 7,
+          "position": "DEF",
+          "record_id": "855734:532",
+          "team": "Netherlands"
+        },
+        {
+          "breakdown": [
+            {
+              "label": "Started",
+              "points": 2
+            },
+            {
+              "label": "Played 60+ minutes",
+              "points": 2
+            },
+            {
+              "label": "Yellow cards",
+              "points": -1
+            }
+          ],
+          "match_id": "866681",
+          "name": "Sergi\u00f1o Dest",
+          "player_id": "38735",
+          "points": 3,
+          "position": "DEF",
+          "record_id": "866681:38735",
+          "team": "USA"
+        },
+        {
+          "breakdown": [
+            {
+              "label": "Started",
+              "points": 2
+            },
+            {
+              "label": "Played 60+ minutes",
+              "points": 2
+            }
+          ],
+          "match_id": "866681",
+          "name": "Neco Williams",
+          "player_id": "138780",
+          "points": 4,
+          "position": "DEF",
+          "record_id": "866681:138780",
+          "team": "Wales"
+        },
+        {
+          "breakdown": [
+            {
+              "label": "Started",
+              "points": 2
+            },
+            {
+              "label": "Played 60+ minutes",
+              "points": 2
+            }
+          ],
+          "match_id": "855734",
+          "name": "Denzel Dumfries",
+          "player_id": "226",
+          "points": 4,
+          "position": "MID",
+          "record_id": "855734:226",
+          "team": "Netherlands"
+        },
+        {
+          "breakdown": [
+            {
+              "label": "Started",
+              "points": 2
+            },
+            {
+              "label": "Played 60+ minutes",
+              "points": 2
+            },
+            {
+              "label": "Assists",
+              "points": 4
+            }
+          ],
+          "match_id": "855734",
+          "name": "Frenkie de Jong",
+          "player_id": "538",
+          "points": 8,
+          "position": "MID",
+          "record_id": "855734:538",
+          "team": "Netherlands"
+        },
+        {
+          "breakdown": [
+            {
+              "label": "Started",
+              "points": 2
+            },
+            {
+              "label": "Played 60+ minutes",
+              "points": 2
+            },
+            {
+              "label": "Yellow cards",
+              "points": -1
+            }
+          ],
+          "match_id": "866681",
+          "name": "Weston McKennie",
+          "player_id": "415",
+          "points": 3,
+          "position": "MID",
+          "record_id": "866681:415",
+          "team": "USA"
+        },
+        {
+          "breakdown": [
+            {
+              "label": "Started",
+              "points": 2
+            },
+            {
+              "label": "Played 60+ minutes",
+              "points": 2
+            },
+            {
+              "label": "Goals",
+              "points": 6
+            }
+          ],
+          "match_id": "855734",
+          "name": "Cody Gakpo",
+          "player_id": "247",
+          "points": 10,
+          "position": "FWD",
+          "record_id": "855734:247",
+          "team": "Netherlands"
+        },
+        {
+          "breakdown": [],
+          "match_id": "855734",
+          "name": "Memphis Depay",
+          "player_id": "667",
+          "points": 0,
+          "position": "FWD",
+          "record_id": "855734:667",
+          "team": "Netherlands"
+        },
+        {
+          "breakdown": [
+            {
+              "label": "Started",
+              "points": 2
+            },
+            {
+              "label": "Played 60+ minutes",
+              "points": 2
+            },
+            {
+              "label": "Goals",
+              "points": 6
+            },
+            {
+              "label": "Yellow cards",
+              "points": -1
+            }
+          ],
+          "match_id": "866681",
+          "name": "Gareth Bale",
+          "player_id": "758",
+          "points": 9,
+          "position": "FWD",
+          "record_id": "866681:758",
+          "team": "Wales"
+        }
+      ],
+      "points": 66,
+      "position_counts": {
+        "DEF": 4,
+        "FWD": 3,
+        "GK": 1,
+        "MID": 3
+      },
+      "valid": true,
+      "warnings": []
+    },
+    "fantasy_points": 66,
+    "new_total_points": 261.0,
+    "previous_total_points": 195.0,
+    "risk": {
+      "claim_id": null,
+      "errors": [],
+      "outcome": "skipped",
+      "points": 0,
+      "stake": 0,
+      "valid": true,
+      "warnings": []
+    },
+    "risk_points": 0,
+    "status": "scored",
+    "strategy_summary": "Balanced 1-4-3-3 selection across Senegal vs Netherlands and USA vs Wales, using one goalkeeper, four defenders, three midfielders, and three forwards from valid player records while leaving the optional risk play unused for schema-safe submission.",
+    "team_id": "not-provided",
+    "team_name": "Codex Local Demo",
+    "total_delta": 66
+  },
+  "schema_version": "fantasy-cup-score-result-v1",
+  "submission_path": "C:\\Users\\Cristopher Hdz\\Documents\\projects\\fantasy-cup\\inno-fantasy\\data\\runs\\6f92deb5a8b440c4bd5f55bd919a0bcc\\generate-valid-pick\\submission.json",
+  "truth_path": "C:\\Users\\Cristopher Hdz\\Documents\\projects\\fantasy-cup\\inno-fantasy\\data\\runs\\6f92deb5a8b440c4bd5f55bd919a0bcc\\generate-valid-pick\\source_of_truth\\latest_truth.json"
+}

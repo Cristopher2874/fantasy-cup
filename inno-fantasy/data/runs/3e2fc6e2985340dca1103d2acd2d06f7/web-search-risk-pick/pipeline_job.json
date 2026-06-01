@@ -1,0 +1,326 @@
+{
+  "created_at": "2026-05-31T22:34:38Z",
+  "filename": "web-search-risk-pick.zip",
+  "issues": [],
+  "job_id": "3e2fc6e2985340dca1103d2acd2d06f7",
+  "message": "Codex execution and scoring completed.",
+  "run_dir": "C:\\Users\\Cristopher Hdz\\Documents\\projects\\fantasy-cup\\inno-fantasy\\data\\runs\\3e2fc6e2985340dca1103d2acd2d06f7\\web-search-risk-pick",
+  "runner": {
+    "final_message_path": "C:\\Users\\Cristopher Hdz\\Documents\\projects\\fantasy-cup\\inno-fantasy\\data\\runs\\3e2fc6e2985340dca1103d2acd2d06f7\\web-search-risk-pick\\codex.final-message.txt",
+    "issues": [],
+    "notes": [
+      "Forced Codex bin directory to front of PATH: C:\\Users\\Cristopher Hdz\\.codex\\packages\\standalone\\releases\\0.135.0-x86_64-pc-windows-msvc\\bin",
+      "Forced Codex resources directory to front of PATH: C:\\Users\\Cristopher Hdz\\.codex\\packages\\standalone\\releases\\0.135.0-x86_64-pc-windows-msvc\\codex-resources",
+      "Windows sandbox helper: C:\\Users\\Cristopher Hdz\\.codex\\packages\\standalone\\releases\\0.135.0-x86_64-pc-windows-msvc\\codex-resources\\codex-windows-sandbox-setup.exe"
+    ],
+    "prompt_path": "C:\\Users\\Cristopher Hdz\\Documents\\projects\\fantasy-cup\\inno-fantasy\\data\\runs\\3e2fc6e2985340dca1103d2acd2d06f7\\web-search-risk-pick\\prompt.md",
+    "return_code": 0,
+    "stderr_path": "C:\\Users\\Cristopher Hdz\\Documents\\projects\\fantasy-cup\\inno-fantasy\\data\\runs\\3e2fc6e2985340dca1103d2acd2d06f7\\web-search-risk-pick\\codex.stderr.log",
+    "stdout_path": "C:\\Users\\Cristopher Hdz\\Documents\\projects\\fantasy-cup\\inno-fantasy\\data\\runs\\3e2fc6e2985340dca1103d2acd2d06f7\\web-search-risk-pick\\codex.stdout.log",
+    "submission_path": "C:\\Users\\Cristopher Hdz\\Documents\\projects\\fantasy-cup\\inno-fantasy\\data\\runs\\3e2fc6e2985340dca1103d2acd2d06f7\\web-search-risk-pick\\submission.json",
+    "success": true
+  },
+  "score": {
+    "issues": [],
+    "leaderboard_path": "C:\\Users\\Cristopher Hdz\\Documents\\projects\\fantasy-cup\\inno-fantasy\\data\\scores\\leaderboard.json",
+    "result": {
+      "generated_at": "2026-05-31T22:36:52Z",
+      "job_id": "3e2fc6e2985340dca1103d2acd2d06f7",
+      "leaderboard_path": "C:\\Users\\Cristopher Hdz\\Documents\\projects\\fantasy-cup\\inno-fantasy\\data\\scores\\leaderboard.json",
+      "matchday_id": "wc-2022-20221121",
+      "result": {
+        "fantasy": {
+          "errors": [],
+          "players": [
+            {
+              "breakdown": [
+                {
+                  "label": "Started",
+                  "points": 2
+                },
+                {
+                  "label": "Played 60+ minutes",
+                  "points": 2
+                },
+                {
+                  "label": "Clean sheet",
+                  "points": 4
+                },
+                {
+                  "label": "Goalkeeper 3+ saves",
+                  "points": 2
+                }
+              ],
+              "match_id": "855734",
+              "name": "Andries Noppert",
+              "player_id": "31632",
+              "points": 10,
+              "position": "GK",
+              "record_id": "855734:31632",
+              "team": "Netherlands"
+            },
+            {
+              "breakdown": [
+                {
+                  "label": "Started",
+                  "points": 2
+                },
+                {
+                  "label": "Played 60+ minutes",
+                  "points": 2
+                },
+                {
+                  "label": "Clean sheet",
+                  "points": 4
+                }
+              ],
+              "match_id": "855734",
+              "name": "Nathan Ak\u00e9",
+              "player_id": "18861",
+              "points": 8,
+              "position": "DEF",
+              "record_id": "855734:18861",
+              "team": "Netherlands"
+            },
+            {
+              "breakdown": [
+                {
+                  "label": "Started",
+                  "points": 2
+                },
+                {
+                  "label": "Played 60+ minutes",
+                  "points": 2
+                },
+                {
+                  "label": "Clean sheet",
+                  "points": 4
+                }
+              ],
+              "match_id": "855734",
+              "name": "Virgil van Dijk",
+              "player_id": "290",
+              "points": 8,
+              "position": "DEF",
+              "record_id": "855734:290",
+              "team": "Netherlands"
+            },
+            {
+              "breakdown": [],
+              "match_id": "855734",
+              "name": "Jurri\u00ebn Timber",
+              "player_id": "38746",
+              "points": 0,
+              "position": "DEF",
+              "record_id": "855734:38746",
+              "team": "Netherlands"
+            },
+            {
+              "breakdown": [
+                {
+                  "label": "Started",
+                  "points": 2
+                },
+                {
+                  "label": "Played 60+ minutes",
+                  "points": 2
+                },
+                {
+                  "label": "Clean sheet",
+                  "points": 4
+                },
+                {
+                  "label": "Yellow cards",
+                  "points": -1
+                }
+              ],
+              "match_id": "855734",
+              "name": "Matthijs de Ligt",
+              "player_id": "532",
+              "points": 7,
+              "position": "DEF",
+              "record_id": "855734:532",
+              "team": "Netherlands"
+            },
+            {
+              "breakdown": [
+                {
+                  "label": "Goals",
+                  "points": 6
+                }
+              ],
+              "match_id": "855734",
+              "name": "Davy Klaassen",
+              "player_id": "25321",
+              "points": 6,
+              "position": "MID",
+              "record_id": "855734:25321",
+              "team": "Netherlands"
+            },
+            {
+              "breakdown": [
+                {
+                  "label": "Started",
+                  "points": 2
+                },
+                {
+                  "label": "Played 60+ minutes",
+                  "points": 2
+                },
+                {
+                  "label": "Assists",
+                  "points": 4
+                }
+              ],
+              "match_id": "855734",
+              "name": "Frenkie de Jong",
+              "player_id": "538",
+              "points": 8,
+              "position": "MID",
+              "record_id": "855734:538",
+              "team": "Netherlands"
+            },
+            {
+              "breakdown": [
+                {
+                  "label": "Started",
+                  "points": 2
+                },
+                {
+                  "label": "Played 60+ minutes",
+                  "points": 2
+                }
+              ],
+              "match_id": "855734",
+              "name": "Denzel Dumfries",
+              "player_id": "226",
+              "points": 4,
+              "position": "MID",
+              "record_id": "855734:226",
+              "team": "Netherlands"
+            },
+            {
+              "breakdown": [
+                {
+                  "label": "Started",
+                  "points": 2
+                },
+                {
+                  "label": "Played 60+ minutes",
+                  "points": 2
+                },
+                {
+                  "label": "Goals",
+                  "points": 6
+                }
+              ],
+              "match_id": "855734",
+              "name": "Cody Gakpo",
+              "player_id": "247",
+              "points": 10,
+              "position": "FWD",
+              "record_id": "855734:247",
+              "team": "Netherlands"
+            },
+            {
+              "breakdown": [
+                {
+                  "label": "Started",
+                  "points": 2
+                },
+                {
+                  "label": "Played 60+ minutes",
+                  "points": 2
+                },
+                {
+                  "label": "Goals",
+                  "points": 6
+                }
+              ],
+              "match_id": "866681",
+              "name": "Timothy Weah",
+              "player_id": "1138",
+              "points": 10,
+              "position": "FWD",
+              "record_id": "866681:1138",
+              "team": "USA"
+            },
+            {
+              "breakdown": [
+                {
+                  "label": "Started",
+                  "points": 2
+                },
+                {
+                  "label": "Played 60+ minutes",
+                  "points": 2
+                },
+                {
+                  "label": "Goals",
+                  "points": 6
+                },
+                {
+                  "label": "Yellow cards",
+                  "points": -1
+                }
+              ],
+              "match_id": "866681",
+              "name": "Gareth Bale",
+              "player_id": "758",
+              "points": 9,
+              "position": "FWD",
+              "record_id": "866681:758",
+              "team": "Wales"
+            }
+          ],
+          "points": 80,
+          "position_counts": {
+            "DEF": 4,
+            "FWD": 3,
+            "GK": 1,
+            "MID": 3
+          },
+          "valid": true,
+          "warnings": []
+        },
+        "fantasy_points": 80,
+        "new_total_points": 522.8,
+        "previous_total_points": 328.0,
+        "risk": {
+          "category": "red",
+          "claim_id": "exact_score",
+          "correct": true,
+          "errors": [],
+          "evidence_path": "parameterized_claims.exact_score",
+          "match_id": "855735",
+          "outcome": "correct",
+          "points": 114.8,
+          "stake": 114.8,
+          "valid": true,
+          "warnings": []
+        },
+        "risk_points": 114.8,
+        "status": "scored",
+        "strategy_summary": "Selected the red exact-score risk for England vs Iran based on the historical 6-2 result. The XI emphasizes Netherlands clean-sheet players and scorers from Senegal vs Netherlands plus goal scorers from USA vs Wales.",
+        "team_id": "not-provided",
+        "team_name": "Codex Web Risk Demo",
+        "total_delta": 194.8
+      },
+      "schema_version": "fantasy-cup-score-result-v1",
+      "submission_path": "C:\\Users\\Cristopher Hdz\\Documents\\projects\\fantasy-cup\\inno-fantasy\\data\\runs\\3e2fc6e2985340dca1103d2acd2d06f7\\web-search-risk-pick\\submission.json",
+      "truth_path": "C:\\Users\\Cristopher Hdz\\Documents\\projects\\fantasy-cup\\inno-fantasy\\data\\runs\\3e2fc6e2985340dca1103d2acd2d06f7\\web-search-risk-pick\\source_of_truth\\latest_truth.json"
+    },
+    "result_path": "C:\\Users\\Cristopher Hdz\\Documents\\projects\\fantasy-cup\\inno-fantasy\\data\\runs\\3e2fc6e2985340dca1103d2acd2d06f7\\web-search-risk-pick\\score_result.json",
+    "success": true,
+    "truth_path": "C:\\Users\\Cristopher Hdz\\Documents\\projects\\fantasy-cup\\inno-fantasy\\data\\runs\\3e2fc6e2985340dca1103d2acd2d06f7\\web-search-risk-pick\\source_of_truth\\latest_truth.json"
+  },
+  "score_result_path": "C:\\Users\\Cristopher Hdz\\Documents\\projects\\fantasy-cup\\inno-fantasy\\data\\runs\\3e2fc6e2985340dca1103d2acd2d06f7\\web-search-risk-pick\\score_result.json",
+  "skill_name": "web-search-risk-pick",
+  "stage": "scored",
+  "status": "completed",
+  "submission_path": "C:\\Users\\Cristopher Hdz\\Documents\\projects\\fantasy-cup\\inno-fantasy\\data\\runs\\3e2fc6e2985340dca1103d2acd2d06f7\\web-search-risk-pick\\submission.json",
+  "team_id": null,
+  "updated_at": "2026-05-31T22:36:52Z",
+  "validation_job_id": "3e2fc6e2985340dca1103d2acd2d06f7",
+  "warnings": []
+}

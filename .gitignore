@@ -20,6 +20,7 @@ data/snapshots/
 data/artifacts/
 data/runs/
 inno-fantasy/data/*
+!inno-fantasy/data/runs
 !inno-fantasy/data/README.md
 !inno-fantasy/data/samples/
 !inno-fantasy/data/samples/**
